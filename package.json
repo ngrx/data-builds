@@ -1,0 +1,40 @@
+{
+  "name": "@ngrx/data",
+  "version": "7.4.0+47.sha-dbfdbaf",
+  "description": "API management for NgRx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngrx/platform.git"
+  },
+  "keywords": [
+    "Angular",
+    "Redux",
+    "NgRx",
+    "Schematics",
+    "Angular CLI"
+  ],
+  "author": "NgRx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngrx/platform/issues"
+  },
+  "homepage": "https://github.com/ngrx/platform#readme",
+  "peerDependencies": {
+    "@angular/common": "^8.0.0-beta",
+    "@angular/core": "^8.0.0-beta",
+    "@ngrx/store": "7.4.0+47.sha-dbfdbaf",
+    "@ngrx/effects": "7.4.0+47.sha-dbfdbaf",
+    "@ngrx/entity": "7.4.0+47.sha-dbfdbaf",
+    "rxjs": "^6.4.0"
+  },
+  "schematics": "./schematics/collection.json",
+  "sideEffects": false,
+  "main": "./bundles/data.umd.js",
+  "fesm5": "./fesm5/data.js",
+  "fesm2015": "./fesm2015/data.js",
+  "esm5": "./esm5/data.js",
+  "esm2015": "./esm2015/data.js",
+  "typings": "./data.d.ts",
+  "module": "./fesm5/data.js",
+  "es2015": "./fesm2015/data.js"
+}
