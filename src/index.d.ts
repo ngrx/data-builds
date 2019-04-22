@@ -53,5 +53,5 @@ export * from './utils/default-pluralizer';
 export * from './utils/guid-fns';
 export * from './utils/interfaces';
 export * from './utils/utilities';
-export { NgrxDataModule } from './ngrx-data.module';
-export { NgrxDataModuleWithoutEffects, NgrxDataModuleConfig, } from './ngrx-data-without-effects.module';
+export { EntityDataModule } from './entity-data.module';
+export { EntityDataModuleWithoutEffects, EntityDataModuleConfig, } from './entity-data-without-effects.module';

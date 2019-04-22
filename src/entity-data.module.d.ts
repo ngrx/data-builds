@@ -2,15 +2,15 @@ import { ModuleWithProviders } from '@angular/core';
 import { EffectSources } from '@ngrx/effects';
 import { EntityCacheEffects } from './effects/entity-cache-effects';
 import { EntityEffects } from './effects/entity-effects';
-import { NgrxDataModuleConfig } from './ngrx-data-without-effects.module';
+import { EntityDataModuleConfig } from './entity-data-without-effects.module';
 /**
- * Ngrx-data main module includes effects and HTTP data services
+ * entity-data main module includes effects and HTTP data services
  * Configure with `forRoot`.
  * No `forFeature` yet.
  */
-export declare class NgrxDataModule {
+export declare class EntityDataModule {
     private effectSources;
-    static forRoot(config: NgrxDataModuleConfig): ModuleWithProviders;
+    static forRoot(config: EntityDataModuleConfig): ModuleWithProviders;
     constructor(effectSources: EffectSources, entityCacheEffects: EntityCacheEffects, entityEffects: EntityEffects);
     /**
      * Add another class instance that contains @Effect methods.

@@ -1,5 +1,5 @@
 /**
- * @license NgRx 7.4.0+58.sha-a53bffa
+ * @license NgRx 7.4.0+59.sha-4c850b5
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -4804,8 +4804,8 @@
      * Also helpful for apps that handle server access on their own and
      * therefore opt-out of @ngrx/effects for entities
      */
-    var NgrxDataModuleWithoutEffects = /** @class */ (function () {
-        function NgrxDataModuleWithoutEffects(reducerManager, entityCacheReducerFactory, injector, 
+    var EntityDataModuleWithoutEffects = /** @class */ (function () {
+        function EntityDataModuleWithoutEffects(reducerManager, entityCacheReducerFactory, injector, 
         // optional params
         entityCacheName, initialState, metaReducers) {
             this.reducerManager = reducerManager;
@@ -4830,10 +4830,10 @@
             };
             reducerManager.addFeature(this.entityCacheFeature);
         }
-        NgrxDataModuleWithoutEffects_1 = NgrxDataModuleWithoutEffects;
-        NgrxDataModuleWithoutEffects.forRoot = function (config) {
+        EntityDataModuleWithoutEffects_1 = EntityDataModuleWithoutEffects;
+        EntityDataModuleWithoutEffects.forRoot = function (config) {
             return {
-                ngModule: NgrxDataModuleWithoutEffects_1,
+                ngModule: EntityDataModuleWithoutEffects_1,
                 providers: [
                     {
                         provide: ENTITY_CACHE_META_REDUCERS,
@@ -4855,11 +4855,11 @@
                 ],
             };
         };
-        NgrxDataModuleWithoutEffects.prototype.ngOnDestroy = function () {
+        EntityDataModuleWithoutEffects.prototype.ngOnDestroy = function () {
             this.reducerManager.removeFeature(this.entityCacheFeature);
         };
-        var NgrxDataModuleWithoutEffects_1;
-        NgrxDataModuleWithoutEffects = NgrxDataModuleWithoutEffects_1 = tslib_1.__decorate([
+        var EntityDataModuleWithoutEffects_1;
+        EntityDataModuleWithoutEffects = EntityDataModuleWithoutEffects_1 = tslib_1.__decorate([
             core.NgModule({
                 imports: [
                     store.StoreModule,
@@ -4896,20 +4896,20 @@
             tslib_1.__metadata("design:paramtypes", [store.ReducerManager,
                 EntityCacheReducerFactory,
                 core.Injector, String, Object, Array])
-        ], NgrxDataModuleWithoutEffects);
-        return NgrxDataModuleWithoutEffects;
+        ], EntityDataModuleWithoutEffects);
+        return EntityDataModuleWithoutEffects;
     }());
 
     /**
-     * Ngrx-data main module includes effects and HTTP data services
+     * entity-data main module includes effects and HTTP data services
      * Configure with `forRoot`.
      * No `forFeature` yet.
      */
-    var NgrxDataModule = /** @class */ (function () {
-        function NgrxDataModule(effectSources, entityCacheEffects, entityEffects) {
+    var EntityDataModule = /** @class */ (function () {
+        function EntityDataModule(effectSources, entityCacheEffects, entityEffects) {
             this.effectSources = effectSources;
             // We can't use `forFeature()` because, if we did, the developer could not
-            // replace the ngrx-data `EntityEffects` with a custom alternative.
+            // replace the entity-data `EntityEffects` with a custom alternative.
             // Replacing that class is an extensibility point we need.
             //
             // The FEATURE_EFFECTS token is not exposed, so can't use that technique.
@@ -4919,12 +4919,12 @@
             this.addEffects(entityCacheEffects);
             this.addEffects(entityEffects);
         }
-        NgrxDataModule_1 = NgrxDataModule;
-        NgrxDataModule.forRoot = function (config) {
+        EntityDataModule_1 = EntityDataModule;
+        EntityDataModule.forRoot = function (config) {
             return {
-                ngModule: NgrxDataModule_1,
+                ngModule: EntityDataModule_1,
                 providers: [
-                    // TODO: Moved these effects classes up to NgrxDataModule itself
+                    // TODO: Moved these effects classes up to EntityDataModule itself
                     // Remove this comment if that was a mistake.
                     // EntityCacheEffects,
                     // EntityEffects,
@@ -4958,14 +4958,14 @@
          * @param effectSourceInstance a class instance that implements effects.
          * Warning: undocumented @ngrx/effects API
          */
-        NgrxDataModule.prototype.addEffects = function (effectSourceInstance) {
+        EntityDataModule.prototype.addEffects = function (effectSourceInstance) {
             this.effectSources.addEffects(effectSourceInstance);
         };
-        var NgrxDataModule_1;
-        NgrxDataModule = NgrxDataModule_1 = tslib_1.__decorate([
+        var EntityDataModule_1;
+        EntityDataModule = EntityDataModule_1 = tslib_1.__decorate([
             core.NgModule({
                 imports: [
-                    NgrxDataModuleWithoutEffects,
+                    EntityDataModuleWithoutEffects,
                     effects.EffectsModule,
                 ],
                 providers: [
@@ -4985,8 +4985,8 @@
             tslib_1.__metadata("design:paramtypes", [effects.EffectSources,
                 EntityCacheEffects,
                 EntityEffects])
-        ], NgrxDataModule);
-        return NgrxDataModule;
+        ], EntityDataModule);
+        return EntityDataModule;
     }());
 
     // AOT v5 bug:
@@ -5002,8 +5002,8 @@
      */
 
     exports.ɵngrx_modules_data_data_a = ENTITY_EFFECTS_SCHEDULER;
-    exports.NgrxDataModule = NgrxDataModule;
-    exports.NgrxDataModuleWithoutEffects = NgrxDataModuleWithoutEffects;
+    exports.EntityDataModule = EntityDataModule;
+    exports.EntityDataModuleWithoutEffects = EntityDataModuleWithoutEffects;
     exports.EntityActionFactory = EntityActionFactory;
     exports.EntityActionGuard = EntityActionGuard;
     exports.ofEntityOp = ofEntityOp;

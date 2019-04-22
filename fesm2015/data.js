@@ -1,5 +1,5 @@
 /**
- * @license NgRx 7.4.0+58.sha-a53bffa
+ * @license NgRx 7.4.0+59.sha-4c850b5
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -6728,7 +6728,7 @@ const ɵ0 = ENTITY_CACHE_NAME;
  * Also helpful for apps that handle server access on their own and
  * therefore opt-out of \@ngrx/effects for entities
  */
-class NgrxDataModuleWithoutEffects {
+class EntityDataModuleWithoutEffects {
     /**
      * @param {?} reducerManager
      * @param {?} entityCacheReducerFactory
@@ -6772,7 +6772,7 @@ class NgrxDataModuleWithoutEffects {
      */
     static forRoot(config) {
         return {
-            ngModule: NgrxDataModuleWithoutEffects,
+            ngModule: EntityDataModuleWithoutEffects,
             providers: [
                 {
                     provide: ENTITY_CACHE_META_REDUCERS,
@@ -6801,7 +6801,7 @@ class NgrxDataModuleWithoutEffects {
         this.reducerManager.removeFeature(this.entityCacheFeature);
     }
 }
-NgrxDataModuleWithoutEffects.decorators = [
+EntityDataModuleWithoutEffects.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     StoreModule,
@@ -6831,7 +6831,7 @@ NgrxDataModuleWithoutEffects.decorators = [
             },] }
 ];
 /** @nocollapse */
-NgrxDataModuleWithoutEffects.ctorParameters = () => [
+EntityDataModuleWithoutEffects.ctorParameters = () => [
     { type: ReducerManager },
     { type: EntityCacheReducerFactory },
     { type: Injector },
@@ -6845,11 +6845,11 @@ NgrxDataModuleWithoutEffects.ctorParameters = () => [
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
- * Ngrx-data main module includes effects and HTTP data services
+ * entity-data main module includes effects and HTTP data services
  * Configure with `forRoot`.
  * No `forFeature` yet.
  */
-class NgrxDataModule {
+class EntityDataModule {
     /**
      * @param {?} effectSources
      * @param {?} entityCacheEffects
@@ -6858,7 +6858,7 @@ class NgrxDataModule {
     constructor(effectSources, entityCacheEffects, entityEffects) {
         this.effectSources = effectSources;
         // We can't use `forFeature()` because, if we did, the developer could not
-        // replace the ngrx-data `EntityEffects` with a custom alternative.
+        // replace the entity-data `EntityEffects` with a custom alternative.
         // Replacing that class is an extensibility point we need.
         //
         // The FEATURE_EFFECTS token is not exposed, so can't use that technique.
@@ -6874,9 +6874,9 @@ class NgrxDataModule {
      */
     static forRoot(config) {
         return {
-            ngModule: NgrxDataModule,
+            ngModule: EntityDataModule,
             providers: [
-                // TODO: Moved these effects classes up to NgrxDataModule itself
+                // TODO: Moved these effects classes up to EntityDataModule itself
                 // Remove this comment if that was a mistake.
                 // EntityCacheEffects,
                 // EntityEffects,
@@ -6915,10 +6915,10 @@ class NgrxDataModule {
         this.effectSources.addEffects(effectSourceInstance);
     }
 }
-NgrxDataModule.decorators = [
+EntityDataModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
-                    NgrxDataModuleWithoutEffects,
+                    EntityDataModuleWithoutEffects,
                     EffectsModule,
                 ],
                 providers: [
@@ -6937,7 +6937,7 @@ NgrxDataModule.decorators = [
             },] }
 ];
 /** @nocollapse */
-NgrxDataModule.ctorParameters = () => [
+EntityDataModule.ctorParameters = () => [
     { type: EffectSources },
     { type: EntityCacheEffects },
     { type: EntityEffects }
@@ -6962,5 +6962,5 @@ NgrxDataModule.ctorParameters = () => [
  * Generated bundle index. Do not edit.
  */
 
-export { ENTITY_EFFECTS_SCHEDULER as ɵngrx_modules_data_data_a, NgrxDataModule, NgrxDataModuleWithoutEffects, EntityActionFactory, EntityActionGuard, ofEntityOp, ofEntityType, ChangeSetOperation, EntityCacheAction, ClearCollections, LoadCollections, MergeQuerySet, SetEntityCache, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, excludeEmptyChangeSetItems, ChangeSetItemFactory, changeSetItemFactory, makeErrorOp, makeSuccessOp, EntityOp, OP_SUCCESS, OP_ERROR, MergeStrategy, DataServiceError, DefaultDataServiceConfig, DefaultDataService, DefaultDataServiceFactory, EntityCacheDataService, EntityDataService, normalizeRoot, EntityHttpResourceUrls, HttpUrlGenerator, DefaultHttpUrlGenerator, PersistenceResultHandler, DefaultPersistenceResultHandler, EntityCacheDispatcher, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, PersistanceCanceled, EntityCacheEffects, persistOps, EntityEffects, EntityDefinitionService, createEntityDefinition, PropsFilterFnFactory, ENTITY_METADATA_TOKEN, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityServicesBase, EntityServicesElements, EntityServices, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_META_REDUCERS, ENTITY_COLLECTION_META_REDUCERS, INITIAL_ENTITY_CACHE_STATE, EntityCacheReducerFactory, EntityChangeTrackerBase, createEmptyEntityCollection, EntityCollectionCreator, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionReducerFactory, ChangeType, createEntityCacheSelector, ENTITY_CACHE_SELECTOR_TOKEN, entityCacheSelectorProvider, EntitySelectorsFactory, EntitySelectors$Factory, CorrelationIdGenerator, DefaultLogger, DefaultPluralizer, getUuid, getGuid, getGuidComb, guidComparer, Logger, PLURAL_NAMES_TOKEN, Pluralizer, defaultSelectId, flattenArgs, toUpdateFactory };
+export { ENTITY_EFFECTS_SCHEDULER as ɵngrx_modules_data_data_a, EntityDataModule, EntityDataModuleWithoutEffects, EntityActionFactory, EntityActionGuard, ofEntityOp, ofEntityType, ChangeSetOperation, EntityCacheAction, ClearCollections, LoadCollections, MergeQuerySet, SetEntityCache, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, excludeEmptyChangeSetItems, ChangeSetItemFactory, changeSetItemFactory, makeErrorOp, makeSuccessOp, EntityOp, OP_SUCCESS, OP_ERROR, MergeStrategy, DataServiceError, DefaultDataServiceConfig, DefaultDataService, DefaultDataServiceFactory, EntityCacheDataService, EntityDataService, normalizeRoot, EntityHttpResourceUrls, HttpUrlGenerator, DefaultHttpUrlGenerator, PersistenceResultHandler, DefaultPersistenceResultHandler, EntityCacheDispatcher, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, PersistanceCanceled, EntityCacheEffects, persistOps, EntityEffects, EntityDefinitionService, createEntityDefinition, PropsFilterFnFactory, ENTITY_METADATA_TOKEN, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityServicesBase, EntityServicesElements, EntityServices, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_META_REDUCERS, ENTITY_COLLECTION_META_REDUCERS, INITIAL_ENTITY_CACHE_STATE, EntityCacheReducerFactory, EntityChangeTrackerBase, createEmptyEntityCollection, EntityCollectionCreator, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionReducerFactory, ChangeType, createEntityCacheSelector, ENTITY_CACHE_SELECTOR_TOKEN, entityCacheSelectorProvider, EntitySelectorsFactory, EntitySelectors$Factory, CorrelationIdGenerator, DefaultLogger, DefaultPluralizer, getUuid, getGuid, getGuidComb, guidComparer, Logger, PLURAL_NAMES_TOKEN, Pluralizer, defaultSelectId, flattenArgs, toUpdateFactory };
 //# sourceMappingURL=data.js.map

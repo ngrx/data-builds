@@ -5,7 +5,7 @@ import { EntityCache } from './reducers/entity-cache';
 import { EntityCollection } from './reducers/entity-collection';
 import { EntityMetadataMap } from './entity-metadata/entity-metadata';
 import { EntityCacheReducerFactory } from './reducers/entity-cache-reducer';
-export interface NgrxDataModuleConfig {
+export interface EntityDataModuleConfig {
     entityMetadata?: EntityMetadataMap;
     entityCacheMetaReducers?: (MetaReducer<EntityCache, Action> | InjectionToken<MetaReducer<EntityCache, Action>>)[];
     entityCollectionMetaReducers?: MetaReducer<EntityCollection, EntityAction>[];
@@ -20,14 +20,14 @@ export interface NgrxDataModuleConfig {
  * Also helpful for apps that handle server access on their own and
  * therefore opt-out of @ngrx/effects for entities
  */
-export declare class NgrxDataModuleWithoutEffects implements OnDestroy {
+export declare class EntityDataModuleWithoutEffects implements OnDestroy {
     private reducerManager;
     private injector;
     private entityCacheName;
     private initialState;
     private metaReducers;
     private entityCacheFeature;
-    static forRoot(config: NgrxDataModuleConfig): ModuleWithProviders;
+    static forRoot(config: EntityDataModuleConfig): ModuleWithProviders;
     constructor(reducerManager: ReducerManager, entityCacheReducerFactory: EntityCacheReducerFactory, injector: Injector, entityCacheName: string, initialState: any, metaReducers: (MetaReducer<EntityCache, Action> | InjectionToken<MetaReducer<EntityCache, Action>>)[]);
     ngOnDestroy(): void;
 }
