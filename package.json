@@ -1,6 +1,6 @@
 {
   "name": "@ngrx/data",
-  "version": "7.4.0+60.sha-be106c9",
+  "version": "7.4.0+63.sha-8a0a049",
   "description": "API management for NgRx",
   "repository": {
     "type": "git",
@@ -22,12 +22,24 @@
   "peerDependencies": {
     "@angular/common": "^8.0.0-beta",
     "@angular/core": "^8.0.0-beta",
-    "@ngrx/store": "7.4.0+60.sha-be106c9",
-    "@ngrx/effects": "7.4.0+60.sha-be106c9",
-    "@ngrx/entity": "7.4.0+60.sha-be106c9",
+    "@ngrx/store": "7.4.0+63.sha-8a0a049",
+    "@ngrx/effects": "7.4.0+63.sha-8a0a049",
+    "@ngrx/entity": "7.4.0+63.sha-8a0a049",
     "rxjs": "^6.4.0"
   },
   "schematics": "./schematics/collection.json",
+  "ng-update": {
+    "packageGroup": [
+      "@ngrx/store",
+      "@ngrx/effects",
+      "@ngrx/entity",
+      "@ngrx/router-store",
+      "@ngrx/data",
+      "@ngrx/schematics",
+      "@ngrx/store-devtools"
+    ],
+    "migrations": "./migrations/migration.json"
+  },
   "sideEffects": false,
   "main": "./bundles/data.umd.js",
   "fesm5": "./fesm5/data.js",
