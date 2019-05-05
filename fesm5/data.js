@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.0.0-beta.1+9.sha-18f382b
+ * @license NgRx 8.0.0-beta.1+10.sha-e1fae9e
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -1640,7 +1640,7 @@ var EntityDispatcherBase = /** @class */ (function () {
      * Dispatch action to query remote storage for the entities that satisfy a query expressed
      * with either a query parameter map or an HTTP URL query string,
      * and merge the results into the cached collection.
-     * @params queryParams the query in a form understood by the server
+     * @param queryParams the query in a form understood by the server
      * @returns A terminating Observable of the queried entities
      * after server reports successful query or the query error.
      */
@@ -2387,7 +2387,7 @@ var EntityCollectionServiceBase = /** @class */ (function () {
      * Dispatch action to query remote storage for the entities that satisfy a query expressed
      * with either a query parameter map or an HTTP URL query string,
      * and merge the results into the cached collection.
-     * @params queryParams the query in a form understood by the server
+     * @param queryParams the query in a form understood by the server
      * @param [options] options that influence merge behavior
      * @returns Observable of the queried entities
      * after server reports successful query or the query error.
