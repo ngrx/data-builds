@@ -50,7 +50,7 @@ export declare class ChangeSetItemFactory {
     delete(entityName: string, keys: number | number[] | string | string[]): ChangeSetDelete;
     /** Create the ChangeSetUpdate for Updates of entities of the given entity type */
     update<T extends {
-        id: string;
+        id: string | number;
     }>(entityName: string, updates: Update<T> | Update<T>[]): ChangeSetUpdate<T>;
     /** Create the ChangeSetUpsert for new or existing entities of the given entity type */
     upsert<T>(entityName: string, entities: T | T[]): ChangeSetUpsert<T>;
