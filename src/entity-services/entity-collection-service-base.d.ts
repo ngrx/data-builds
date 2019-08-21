@@ -3,7 +3,6 @@ import { Dictionary, IdSelector, Update } from '@ngrx/entity';
 import { Observable } from 'rxjs';
 import { EntityAction, EntityActionOptions } from '../actions/entity-action';
 import { EntityActionGuard } from '../actions/entity-action-guard';
-import { EntityCache } from '../reducers/entity-cache';
 import { EntityCollection, ChangeStateMap } from '../reducers/entity-collection';
 import { EntityDispatcher } from '../dispatchers/entity-dispatcher';
 import { EntityCollectionService } from './entity-collection-service';
@@ -56,7 +55,7 @@ export declare class EntityCollectionServiceBase<T, S$ extends EntitySelectors$<
      */
     dispatch(action: Action): Action;
     /** The NgRx Store for the {EntityCache} */
-    readonly store: Store<EntityCache>;
+    readonly store: Store<import("@ngrx/data").EntityCache>;
     /**
      * Utility class with methods to validate EntityAction payloads.
      */
