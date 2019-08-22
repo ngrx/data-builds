@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.2.0+9.sha-ddab4cd
+ * @license NgRx 8.2.0+10.sha-34c0420
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -1693,7 +1693,7 @@ var EntityDispatcherBase = /** @class */ (function () {
         options = this.setSaveEntityActionOptions(options, this.defaultDispatcherOptions.optimisticUpdate);
         var action = this.createEntityAction(EntityOp.SAVE_UPDATE_ONE, update, options);
         if (options.isOptimistic) {
-            this.guard.mustBeEntity(action);
+            this.guard.mustBeUpdate(action);
         }
         this.dispatch(action);
         return this.getResponseData$(options.correlationId).pipe(
