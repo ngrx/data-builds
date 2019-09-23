@@ -34,7 +34,7 @@ export interface ChangeSet<T = any> {
     changes: ChangeSetItem[];
     /**
      * An arbitrary, serializable object that should travel with the ChangeSet.
-     * Meaningful to the ChangeSet producer and consumer. Ignored by ngrx-data.
+     * Meaningful to the ChangeSet producer and consumer. Ignored by @ngrx/data.
      */
     extras?: T;
     /** An arbitrary string, identifying the ChangeSet and perhaps its purpose */

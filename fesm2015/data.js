@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.3.0+11.sha-da89a73
+ * @license NgRx 8.3.0+12.sha-f1b4e17
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -3919,7 +3919,7 @@ EntityServicesElements.ctorParameters = () => [
  * }
  */
 class EntityServicesBase {
-    // Dear ngrx-data developer: think hard before changing the constructor.
+    // Dear @ngrx/data developer: think hard before changing the constructor.
     // Doing so will break apps that derive from this base class,
     // and many apps will derive from this class.
     //
@@ -6113,7 +6113,7 @@ class EntityCacheReducerFactory {
         this.logger = logger;
     }
     /**
-     * Create the ngrx-data entity cache reducer which either responds to entity cache level actions
+     * Create the \@ngrx/data entity cache reducer which either responds to entity cache level actions
      * or (more commonly) delegates to an EntityCollectionReducer based on the action.payload.entityName.
      * @return {?}
      */
@@ -6622,7 +6622,7 @@ DefaultPluralizer.ctorParameters = () => [
 /*
 Client-side id-generators
 
-These GUID utility functions are not used by ngrx-data itself at this time.
+These GUID utility functions are not used by @ngrx/data itself at this time.
 They are included as candidates for generating persistable correlation ids if that becomes desirable.
 They are also safe for generating unique entity ids on the client.
 
@@ -6741,7 +6741,7 @@ class EntityDataModuleWithoutEffects {
         this.entityCacheName = entityCacheName;
         this.initialState = initialState;
         this.metaReducers = metaReducers;
-        // Add the ngrx-data feature to the Store's features
+        // Add the @ngrx/data feature to the Store's features
         // as Store.forFeature does for StoreFeatureModule
         /** @type {?} */
         const key = entityCacheName || ENTITY_CACHE_NAME;
