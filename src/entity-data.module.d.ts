@@ -13,7 +13,7 @@ export declare class EntityDataModule {
     static forRoot(config: EntityDataModuleConfig): ModuleWithProviders;
     constructor(effectSources: EffectSources, entityCacheEffects: EntityCacheEffects, entityEffects: EntityEffects);
     /**
-     * Add another class instance that contains @Effect methods.
+     * Add another class instance that contains effects.
      * @param effectSourceInstance a class instance that implements effects.
      * Warning: undocumented @ngrx/effects API
      */

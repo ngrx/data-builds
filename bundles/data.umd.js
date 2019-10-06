@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.3.0+19.sha-30e876f
+ * @license NgRx 8.3.0+20.sha-ecf7a26
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -1979,10 +1979,14 @@
             /**
              * Observable of SAVE_ENTITIES_CANCEL actions with non-null correlation ids
              */
-            this.saveEntitiesCancel$ = this.actions.pipe(effects.ofType(exports.EntityCacheAction.SAVE_ENTITIES_CANCEL), operators.filter(function (a) { return a.payload.correlationId != null; }));
+            this.saveEntitiesCancel$ = effects.createEffect(function () {
+                return _this.actions.pipe(effects.ofType(exports.EntityCacheAction.SAVE_ENTITIES_CANCEL), operators.filter(function (a) { return a.payload.correlationId != null; }));
+            }, { dispatch: false });
             // Concurrent persistence requests considered unsafe.
             // `mergeMap` allows for concurrent requests which may return in any order
-            this.saveEntities$ = this.actions.pipe(effects.ofType(exports.EntityCacheAction.SAVE_ENTITIES), operators.mergeMap(function (action) { return _this.saveEntities(action); }));
+            this.saveEntities$ = effects.createEffect(function () {
+                return _this.actions.pipe(effects.ofType(exports.EntityCacheAction.SAVE_ENTITIES), operators.mergeMap(function (action) { return _this.saveEntities(action); }));
+            });
         }
         /**
          * Perform the requested SaveEntities actions and return a scalar Observable<Action>
@@ -2059,14 +2063,6 @@
                 }));
             };
         };
-        tslib_1.__decorate([
-            effects.Effect({ dispatch: false }),
-            tslib_1.__metadata("design:type", rxjs.Observable)
-        ], EntityCacheEffects.prototype, "saveEntitiesCancel$", void 0);
-        tslib_1.__decorate([
-            effects.Effect(),
-            tslib_1.__metadata("design:type", rxjs.Observable)
-        ], EntityCacheEffects.prototype, "saveEntities$", void 0);
         EntityCacheEffects = tslib_1.__decorate([
             core.Injectable(),
             tslib_1.__param(4, core.Optional()),
@@ -2109,9 +2105,13 @@
             /**
              * Observable of non-null cancellation correlation ids from CANCEL_PERSIST actions
              */
-            this.cancel$ = this.actions.pipe(ofEntityOp(exports.EntityOp.CANCEL_PERSIST), operators.map(function (action) { return action.payload.correlationId; }), operators.filter(function (id) { return id != null; }));
+            this.cancel$ = effects.createEffect(function () {
+                return _this.actions.pipe(ofEntityOp(exports.EntityOp.CANCEL_PERSIST), operators.map(function (action) { return action.payload.correlationId; }), operators.filter(function (id) { return id != null; }));
+            }, { dispatch: false });
             // `mergeMap` allows for concurrent requests which may return in any order
-            this.persist$ = this.actions.pipe(ofEntityOp(persistOps), operators.mergeMap(function (action) { return _this.persist(action); }));
+            this.persist$ = effects.createEffect(function () {
+                return _this.actions.pipe(ofEntityOp(persistOps), operators.mergeMap(function (action) { return _this.persist(action); }));
+            });
         }
         /**
          * Perform the requested persistence operation and return a scalar Observable<Action>
@@ -2210,14 +2210,6 @@
             // as app likely assumes asynchronous response.
             return rxjs.of(successAction).pipe(operators.delay(this.responseDelay, this.scheduler || rxjs.asyncScheduler));
         };
-        tslib_1.__decorate([
-            effects.Effect({ dispatch: false }),
-            tslib_1.__metadata("design:type", rxjs.Observable)
-        ], EntityEffects.prototype, "cancel$", void 0);
-        tslib_1.__decorate([
-            effects.Effect(),
-            tslib_1.__metadata("design:type", rxjs.Observable)
-        ], EntityEffects.prototype, "persist$", void 0);
         EntityEffects = tslib_1.__decorate([
             core.Injectable(),
             tslib_1.__param(4, core.Optional()),
@@ -4954,7 +4946,7 @@
             };
         };
         /**
-         * Add another class instance that contains @Effect methods.
+         * Add another class instance that contains effects.
          * @param effectSourceInstance a class instance that implements effects.
          * Warning: undocumented @ngrx/effects API
          */

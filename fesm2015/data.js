@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.3.0+19.sha-30e876f
+ * @license NgRx 8.3.0+20.sha-ecf7a26
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -9,8 +9,7 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 import { throwError, of, Observable, race, asyncScheduler, merge } from 'rxjs';
 import { createEntityAdapter } from '@ngrx/entity';
 import { ScannedActionsSubject, Store, createSelector, createFeatureSelector, compose, combineReducers, StoreModule, ReducerManager } from '@ngrx/store';
-import { __decorate, __metadata } from 'tslib';
-import { ofType, Actions, Effect, EffectsModule, EffectSources } from '@ngrx/effects';
+import { createEffect, ofType, Actions, EffectsModule, EffectSources } from '@ngrx/effects';
 
 /**
  * @fileoverview added by tsickle
@@ -2758,18 +2757,24 @@ class EntityCacheEffects {
         /**
          * Observable of SAVE_ENTITIES_CANCEL actions with non-null correlation ids
          */
-        this.saveEntitiesCancel$ = this.actions.pipe(ofType(EntityCacheAction.SAVE_ENTITIES_CANCEL), filter((/**
+        this.saveEntitiesCancel$ = createEffect((/**
+         * @return {?}
+         */
+        () => this.actions.pipe(ofType(EntityCacheAction.SAVE_ENTITIES_CANCEL), filter((/**
          * @param {?} a
          * @return {?}
          */
-        (a) => a.payload.correlationId != null)));
+        (a) => a.payload.correlationId != null)))), { dispatch: false });
         // Concurrent persistence requests considered unsafe.
         // `mergeMap` allows for concurrent requests which may return in any order
-        this.saveEntities$ = this.actions.pipe(ofType(EntityCacheAction.SAVE_ENTITIES), mergeMap((/**
+        this.saveEntities$ = createEffect((/**
+         * @return {?}
+         */
+        () => this.actions.pipe(ofType(EntityCacheAction.SAVE_ENTITIES), mergeMap((/**
          * @param {?} action
          * @return {?}
          */
-        (action) => this.saveEntities(action))));
+        (action) => this.saveEntities(action))))));
     }
     /**
      * Perform the requested SaveEntities actions and return a scalar Observable<Action>
@@ -2897,14 +2902,6 @@ EntityCacheEffects.ctorParameters = () => [
     { type: Logger },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_EFFECTS_SCHEDULER,] }] }
 ];
-__decorate([
-    Effect({ dispatch: false }),
-    __metadata("design:type", Observable)
-], EntityCacheEffects.prototype, "saveEntitiesCancel$", void 0);
-__decorate([
-    Effect(),
-    __metadata("design:type", Observable)
-], EntityCacheEffects.prototype, "saveEntities$", void 0);
 
 /**
  * @fileoverview added by tsickle
@@ -2943,7 +2940,10 @@ class EntityEffects {
         /**
          * Observable of non-null cancellation correlation ids from CANCEL_PERSIST actions
          */
-        this.cancel$ = this.actions.pipe(ofEntityOp(EntityOp.CANCEL_PERSIST), map((/**
+        this.cancel$ = createEffect((/**
+         * @return {?}
+         */
+        () => this.actions.pipe(ofEntityOp(EntityOp.CANCEL_PERSIST), map((/**
          * @param {?} action
          * @return {?}
          */
@@ -2951,13 +2951,16 @@ class EntityEffects {
          * @param {?} id
          * @return {?}
          */
-        id => id != null)));
+        id => id != null)))), { dispatch: false });
         // `mergeMap` allows for concurrent requests which may return in any order
-        this.persist$ = this.actions.pipe(ofEntityOp(persistOps), mergeMap((/**
+        this.persist$ = createEffect((/**
+         * @return {?}
+         */
+        () => this.actions.pipe(ofEntityOp(persistOps), mergeMap((/**
          * @param {?} action
          * @return {?}
          */
-        action => this.persist(action))));
+        action => this.persist(action))))));
     }
     /**
      * Perform the requested persistence operation and return a scalar Observable<Action>
@@ -3102,14 +3105,6 @@ EntityEffects.ctorParameters = () => [
     { type: PersistenceResultHandler },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_EFFECTS_SCHEDULER,] }] }
 ];
-__decorate([
-    Effect({ dispatch: false }),
-    __metadata("design:type", Observable)
-], EntityEffects.prototype, "cancel$", void 0);
-__decorate([
-    Effect(),
-    __metadata("design:type", Observable)
-], EntityEffects.prototype, "persist$", void 0);
 
 /**
  * @fileoverview added by tsickle
@@ -6904,7 +6899,7 @@ class EntityDataModule {
         };
     }
     /**
-     * Add another class instance that contains \@Effect methods.
+     * Add another class instance that contains effects.
      * @param {?} effectSourceInstance a class instance that implements effects.
      * Warning: undocumented \@ngrx/effects API
      * @return {?}
