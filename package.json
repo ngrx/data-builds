@@ -1,6 +1,6 @@
 {
   "name": "@ngrx/data",
-  "version": "8.4.0+25.sha-6f40060",
+  "version": "8.4.0+27.sha-2bac73c",
   "description": "API management for NgRx",
   "repository": {
     "type": "git",
@@ -22,9 +22,9 @@
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0",
-    "@ngrx/store": "8.4.0+25.sha-6f40060",
-    "@ngrx/effects": "8.4.0+25.sha-6f40060",
-    "@ngrx/entity": "8.4.0+25.sha-6f40060",
+    "@ngrx/store": "8.4.0+27.sha-2bac73c",
+    "@ngrx/effects": "8.4.0+27.sha-2bac73c",
+    "@ngrx/entity": "8.4.0+27.sha-2bac73c",
     "rxjs": "^6.4.0"
   },
   "schematics": "./schematics/collection.json",
