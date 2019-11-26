@@ -1,12 +1,12 @@
 /**
- * @license NgRx 8.5.2+4.sha-e870514
+ * @license NgRx 8.5.2+6.sha-98defed
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('tslib'), require('@angular/core'), require('rxjs/operators'), require('@angular/common/http'), require('rxjs'), require('@ngrx/entity'), require('@ngrx/store'), require('@ngrx/effects')) :
     typeof define === 'function' && define.amd ? define('@ngrx/data', ['exports', 'tslib', '@angular/core', 'rxjs/operators', '@angular/common/http', 'rxjs', '@ngrx/entity', '@ngrx/store', '@ngrx/effects'], factory) :
-    (global = global || self, factory((global.ngrx = global.ngrx || {}, global.ngrx.data = {}), global.tslib, global.ng.core, global.rxjs.operators, global.ng.common.http, global.rxjs, global['@ngrx/entity'], global['@ngrx/store'], global['@ngrx/effects']));
+    (global = global || self, factory((global.ngrx = global.ngrx || {}, global.ngrx.data = {}), global.tslib, global.ng.core, global.rxjs.operators, global.ng.common.http, global.rxjs, global.ngrx.entity, global.ngrx.store, global.ngrx.effects));
 }(this, function (exports, tslib_1, core, operators, http, rxjs, entity, store, effects) { 'use strict';
 
     var EntityActionFactory = /** @class */ (function () {
