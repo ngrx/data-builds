@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.5.2+8.sha-6e4fe25
+ * @license NgRx 8.5.2+9.sha-4598fe0
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -345,20 +345,18 @@
     (function (MergeStrategy) {
         /**
          * Update the collection entities and ignore all change tracking for this operation.
-         * ChangeState is untouched.
+         * Each entity's `changeState` is untouched.
          */
         MergeStrategy[MergeStrategy["IgnoreChanges"] = 0] = "IgnoreChanges";
         /**
          * Updates current values for unchanged entities.
-         * If entities are changed, preserves their current values and
-         * overwrites their originalValue with the merge entity.
+         * For each changed entity it preserves the current value and overwrites the `originalValue` with the merge entity.
          * This is the query-success default.
          */
         MergeStrategy[MergeStrategy["PreserveChanges"] = 1] = "PreserveChanges";
         /**
          * Replace the current collection entities.
-         * Discards the ChangeState for the merged entities if set
-         * and their ChangeTypes becomes "unchanged".
+         * For each merged entity it discards the `changeState` and sets the `changeType` to "unchanged".
          * This is the save-success default.
          */
         MergeStrategy[MergeStrategy["OverwriteChanges"] = 2] = "OverwriteChanges";
@@ -2335,7 +2333,7 @@
          * Dispatch action to cancel the persistence operation (query or save) with the given correlationId.
          * @param correlationId The correlation id for the corresponding EntityAction
          * @param [reason] explains why canceled and by whom.
-         * @param [options] options such as the tag
+         * @param [options] options such as the tag and mergeStrategy
          */
         EntityCollectionServiceBase.prototype.cancel = function (correlationId, reason, options) {
             this.dispatcher.cancel(correlationId, reason, options);
@@ -2418,35 +2416,41 @@
         /**
          * Replace all entities in the cached collection.
          * Does not save to remote storage.
+         * @param entities to add directly to cache.
+         * @param [options] options such as mergeStrategy
          */
-        EntityCollectionServiceBase.prototype.addAllToCache = function (entities) {
-            this.dispatcher.addAllToCache(entities);
+        EntityCollectionServiceBase.prototype.addAllToCache = function (entities, options) {
+            this.dispatcher.addAllToCache(entities, options);
         };
         /**
          * Add a new entity directly to the cache.
          * Does not save to remote storage.
          * Ignored if an entity with the same primary key is already in cache.
+         * @param entity to add directly to cache.
+         * @param [options] options such as mergeStrategy
          */
-        EntityCollectionServiceBase.prototype.addOneToCache = function (entity) {
-            this.dispatcher.addOneToCache(entity);
+        EntityCollectionServiceBase.prototype.addOneToCache = function (entity, options) {
+            this.dispatcher.addOneToCache(entity, options);
         };
         /**
          * Add multiple new entities directly to the cache.
          * Does not save to remote storage.
          * Entities with primary keys already in cache are ignored.
+         * @param entities to add directly to cache.
+         * @param [options] options such as mergeStrategy
          */
-        EntityCollectionServiceBase.prototype.addManyToCache = function (entities) {
-            this.dispatcher.addManyToCache(entities);
+        EntityCollectionServiceBase.prototype.addManyToCache = function (entities, options) {
+            this.dispatcher.addManyToCache(entities, options);
         };
         /** Clear the cached entity collection */
         EntityCollectionServiceBase.prototype.clearCache = function () {
             this.dispatcher.clearCache();
         };
-        EntityCollectionServiceBase.prototype.removeOneFromCache = function (arg) {
-            this.dispatcher.removeOneFromCache(arg);
+        EntityCollectionServiceBase.prototype.removeOneFromCache = function (arg, options) {
+            this.dispatcher.removeOneFromCache(arg, options);
         };
-        EntityCollectionServiceBase.prototype.removeManyFromCache = function (args) {
-            this.dispatcher.removeManyFromCache(args);
+        EntityCollectionServiceBase.prototype.removeManyFromCache = function (args, options) {
+            this.dispatcher.removeManyFromCache(args, options);
         };
         /**
          * Update a cached entity directly.
@@ -2454,11 +2458,13 @@
          * Ignored if an entity with matching primary key is not in cache.
          * The update entity may be partial (but must have its key)
          * in which case it patches the existing entity.
+         * @param entity to update directly in cache.
+         * @param [options] options such as mergeStrategy
          */
-        EntityCollectionServiceBase.prototype.updateOneInCache = function (entity) {
+        EntityCollectionServiceBase.prototype.updateOneInCache = function (entity, options) {
             // update entity might be a partial of T but must at least have its key.
             // pass the Update<T> structure as the payload
-            this.dispatcher.updateOneInCache(entity);
+            this.dispatcher.updateOneInCache(entity, options);
         };
         /**
          * Update multiple cached entities directly.
@@ -2466,25 +2472,33 @@
          * Entities whose primary keys are not in cache are ignored.
          * Update entities may be partial but must at least have their keys.
          * such partial entities patch their cached counterparts.
+         * @param entities to update directly in cache.
+         * @param [options] options such as mergeStrategy
          */
-        EntityCollectionServiceBase.prototype.updateManyInCache = function (entities) {
-            this.dispatcher.updateManyInCache(entities);
+        EntityCollectionServiceBase.prototype.updateManyInCache = function (entities, options) {
+            this.dispatcher.updateManyInCache(entities, options);
         };
         /**
-         * Add or update a new entity directly to the cache.
+         * Insert or update a cached entity directly.
          * Does not save to remote storage.
          * Upsert entity might be a partial of T but must at least have its key.
-         * Pass the Update<T> structure as the payload
+         * Pass the Update<T> structure as the payload.
+         * @param entity to upsert directly in cache.
+         * @param [options] options such as mergeStrategy
          */
-        EntityCollectionServiceBase.prototype.upsertOneInCache = function (entity) {
-            this.dispatcher.upsertOneInCache(entity);
+        EntityCollectionServiceBase.prototype.upsertOneInCache = function (entity, options) {
+            this.dispatcher.upsertOneInCache(entity, options);
         };
         /**
-         * Add or update multiple cached entities directly.
+         * Insert or update multiple cached entities directly.
          * Does not save to remote storage.
+         * Upsert entities might be partial but must at least have their keys.
+         * Pass an array of the Update<T> structure as the payload.
+         * @param entities to upsert directly in cache.
+         * @param [options] options such as mergeStrategy
          */
-        EntityCollectionServiceBase.prototype.upsertManyInCache = function (entities) {
-            this.dispatcher.upsertManyInCache(entities);
+        EntityCollectionServiceBase.prototype.upsertManyInCache = function (entities, options) {
+            this.dispatcher.upsertManyInCache(entities, options);
         };
         /**
          * Set the pattern that the collection's filter applies

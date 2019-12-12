@@ -2,20 +2,18 @@
 export declare enum MergeStrategy {
     /**
      * Update the collection entities and ignore all change tracking for this operation.
-     * ChangeState is untouched.
+     * Each entity's `changeState` is untouched.
      */
     IgnoreChanges = 0,
     /**
      * Updates current values for unchanged entities.
-     * If entities are changed, preserves their current values and
-     * overwrites their originalValue with the merge entity.
+     * For each changed entity it preserves the current value and overwrites the `originalValue` with the merge entity.
      * This is the query-success default.
      */
     PreserveChanges = 1,
     /**
      * Replace the current collection entities.
-     * Discards the ChangeState for the merged entities if set
-     * and their ChangeTypes becomes "unchanged".
+     * For each merged entity it discards the `changeState` and sets the `changeType` to "unchanged".
      * This is the save-success default.
      */
     OverwriteChanges = 2

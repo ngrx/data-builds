@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.5.2+8.sha-6e4fe25
+ * @license NgRx 8.5.2+9.sha-4598fe0
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -553,20 +553,18 @@ function excludeEmptyChangeSetItems(changeSet) {
 const MergeStrategy = {
     /**
      * Update the collection entities and ignore all change tracking for this operation.
-     * ChangeState is untouched.
+     * Each entity's `changeState` is untouched.
      */
     IgnoreChanges: 0,
     /**
      * Updates current values for unchanged entities.
-     * If entities are changed, preserves their current values and
-     * overwrites their originalValue with the merge entity.
+     * For each changed entity it preserves the current value and overwrites the `originalValue` with the merge entity.
      * This is the query-success default.
      */
     PreserveChanges: 1,
     /**
      * Replace the current collection entities.
-     * Discards the ChangeState for the merged entities if set
-     * and their ChangeTypes becomes "unchanged".
+     * For each merged entity it discards the `changeState` and sets the `changeType` to "unchanged".
      * This is the save-success default.
      */
     OverwriteChanges: 2,
@@ -3342,31 +3340,34 @@ class EntityCollectionServiceBase {
     /**
      * Replace all entities in the cached collection.
      * Does not save to remote storage.
-     * @param {?} entities
+     * @param {?} entities to add directly to cache.
+     * @param {?=} options
      * @return {?}
      */
-    addAllToCache(entities) {
-        this.dispatcher.addAllToCache(entities);
+    addAllToCache(entities, options) {
+        this.dispatcher.addAllToCache(entities, options);
     }
     /**
      * Add a new entity directly to the cache.
      * Does not save to remote storage.
      * Ignored if an entity with the same primary key is already in cache.
-     * @param {?} entity
+     * @param {?} entity to add directly to cache.
+     * @param {?=} options
      * @return {?}
      */
-    addOneToCache(entity) {
-        this.dispatcher.addOneToCache(entity);
+    addOneToCache(entity, options) {
+        this.dispatcher.addOneToCache(entity, options);
     }
     /**
      * Add multiple new entities directly to the cache.
      * Does not save to remote storage.
      * Entities with primary keys already in cache are ignored.
-     * @param {?} entities
+     * @param {?} entities to add directly to cache.
+     * @param {?=} options
      * @return {?}
      */
-    addManyToCache(entities) {
-        this.dispatcher.addManyToCache(entities);
+    addManyToCache(entities, options) {
+        this.dispatcher.addManyToCache(entities, options);
     }
     /**
      * Clear the cached entity collection
@@ -3377,17 +3378,19 @@ class EntityCollectionServiceBase {
     }
     /**
      * @param {?} arg
+     * @param {?=} options
      * @return {?}
      */
-    removeOneFromCache(arg) {
-        this.dispatcher.removeOneFromCache((/** @type {?} */ (arg)));
+    removeOneFromCache(arg, options) {
+        this.dispatcher.removeOneFromCache((/** @type {?} */ (arg)), options);
     }
     /**
      * @param {?} args
+     * @param {?=} options
      * @return {?}
      */
-    removeManyFromCache(args) {
-        this.dispatcher.removeManyFromCache((/** @type {?} */ (args)));
+    removeManyFromCache(args, options) {
+        this.dispatcher.removeManyFromCache((/** @type {?} */ (args)), options);
     }
     /**
      * Update a cached entity directly.
@@ -3395,13 +3398,14 @@ class EntityCollectionServiceBase {
      * Ignored if an entity with matching primary key is not in cache.
      * The update entity may be partial (but must have its key)
      * in which case it patches the existing entity.
-     * @param {?} entity
+     * @param {?} entity to update directly in cache.
+     * @param {?=} options
      * @return {?}
      */
-    updateOneInCache(entity) {
+    updateOneInCache(entity, options) {
         // update entity might be a partial of T but must at least have its key.
         // pass the Update<T> structure as the payload
-        this.dispatcher.updateOneInCache(entity);
+        this.dispatcher.updateOneInCache(entity, options);
     }
     /**
      * Update multiple cached entities directly.
@@ -3409,31 +3413,36 @@ class EntityCollectionServiceBase {
      * Entities whose primary keys are not in cache are ignored.
      * Update entities may be partial but must at least have their keys.
      * such partial entities patch their cached counterparts.
-     * @param {?} entities
+     * @param {?} entities to update directly in cache.
+     * @param {?=} options
      * @return {?}
      */
-    updateManyInCache(entities) {
-        this.dispatcher.updateManyInCache(entities);
+    updateManyInCache(entities, options) {
+        this.dispatcher.updateManyInCache(entities, options);
     }
     /**
-     * Add or update a new entity directly to the cache.
+     * Insert or update a cached entity directly.
      * Does not save to remote storage.
      * Upsert entity might be a partial of T but must at least have its key.
-     * Pass the Update<T> structure as the payload
-     * @param {?} entity
+     * Pass the Update<T> structure as the payload.
+     * @param {?} entity to upsert directly in cache.
+     * @param {?=} options
      * @return {?}
      */
-    upsertOneInCache(entity) {
-        this.dispatcher.upsertOneInCache(entity);
+    upsertOneInCache(entity, options) {
+        this.dispatcher.upsertOneInCache(entity, options);
     }
     /**
-     * Add or update multiple cached entities directly.
+     * Insert or update multiple cached entities directly.
      * Does not save to remote storage.
-     * @param {?} entities
+     * Upsert entities might be partial but must at least have their keys.
+     * Pass an array of the Update<T> structure as the payload.
+     * @param {?} entities to upsert directly in cache.
+     * @param {?=} options
      * @return {?}
      */
-    upsertManyInCache(entities) {
-        this.dispatcher.upsertManyInCache(entities);
+    upsertManyInCache(entities, options) {
+        this.dispatcher.upsertManyInCache(entities, options);
     }
     /**
      * Set the pattern that the collection's filter applies

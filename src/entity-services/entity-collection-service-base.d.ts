@@ -80,7 +80,7 @@ export declare class EntityCollectionServiceBase<T, S$ extends EntitySelectors$<
      * Dispatch action to cancel the persistence operation (query or save) with the given correlationId.
      * @param correlationId The correlation id for the corresponding EntityAction
      * @param [reason] explains why canceled and by whom.
-     * @param [options] options such as the tag
+     * @param [options] options such as the tag and mergeStrategy
      */
     cancel(correlationId: any, reason?: string, options?: EntityActionOptions): void;
     /**
@@ -162,74 +162,94 @@ export declare class EntityCollectionServiceBase<T, S$ extends EntitySelectors$<
     /**
      * Replace all entities in the cached collection.
      * Does not save to remote storage.
+     * @param entities to add directly to cache.
+     * @param [options] options such as mergeStrategy
      */
-    addAllToCache(entities: T[]): void;
+    addAllToCache(entities: T[], options?: EntityActionOptions): void;
     /**
      * Add a new entity directly to the cache.
      * Does not save to remote storage.
      * Ignored if an entity with the same primary key is already in cache.
+     * @param entity to add directly to cache.
+     * @param [options] options such as mergeStrategy
      */
-    addOneToCache(entity: T): void;
+    addOneToCache(entity: T, options?: EntityActionOptions): void;
     /**
      * Add multiple new entities directly to the cache.
      * Does not save to remote storage.
      * Entities with primary keys already in cache are ignored.
+     * @param entities to add directly to cache.
+     * @param [options] options such as mergeStrategy
      */
-    addManyToCache(entities: T[]): void;
+    addManyToCache(entities: T[], options?: EntityActionOptions): void;
     /** Clear the cached entity collection */
     clearCache(): void;
     /**
      * Remove an entity directly from the cache.
      * Does not delete that entity from remote storage.
      * @param entity The entity to remove
+     * @param [options] options such as mergeStrategy
      */
-    removeOneFromCache(entity: T): void;
+    removeOneFromCache(entity: T, options?: EntityActionOptions): void;
     /**
      * Remove an entity directly from the cache.
      * Does not delete that entity from remote storage.
      * @param key The primary key of the entity to remove
+     * @param [options] options such as mergeStrategy
      */
-    removeOneFromCache(key: number | string): void;
+    removeOneFromCache(key: number | string, options?: EntityActionOptions): void;
     /**
      * Remove multiple entities directly from the cache.
      * Does not delete these entities from remote storage.
      * @param entity The entities to remove
+     * @param [options] options such as mergeStrategy
      */
-    removeManyFromCache(entities: T[]): void;
+    removeManyFromCache(entities: T[], options?: EntityActionOptions): void;
     /**
      * Remove multiple entities directly from the cache.
      * Does not delete these entities from remote storage.
      * @param keys The primary keys of the entities to remove
+     * @param [options] options such as mergeStrategy
      */
-    removeManyFromCache(keys: (number | string)[]): void;
+    removeManyFromCache(keys: (number | string)[], options?: EntityActionOptions): void;
     /**
      * Update a cached entity directly.
      * Does not update that entity in remote storage.
      * Ignored if an entity with matching primary key is not in cache.
      * The update entity may be partial (but must have its key)
      * in which case it patches the existing entity.
+     * @param entity to update directly in cache.
+     * @param [options] options such as mergeStrategy
      */
-    updateOneInCache(entity: Partial<T>): void;
+    updateOneInCache(entity: Partial<T>, options?: EntityActionOptions): void;
     /**
      * Update multiple cached entities directly.
      * Does not update these entities in remote storage.
      * Entities whose primary keys are not in cache are ignored.
      * Update entities may be partial but must at least have their keys.
      * such partial entities patch their cached counterparts.
+     * @param entities to update directly in cache.
+     * @param [options] options such as mergeStrategy
      */
-    updateManyInCache(entities: Partial<T>[]): void;
+    updateManyInCache(entities: Partial<T>[], options?: EntityActionOptions): void;
     /**
-     * Add or update a new entity directly to the cache.
+     * Insert or update a cached entity directly.
      * Does not save to remote storage.
      * Upsert entity might be a partial of T but must at least have its key.
-     * Pass the Update<T> structure as the payload
+     * Pass the Update<T> structure as the payload.
+     * @param entity to upsert directly in cache.
+     * @param [options] options such as mergeStrategy
      */
-    upsertOneInCache(entity: Partial<T>): void;
+    upsertOneInCache(entity: Partial<T>, options?: EntityActionOptions): void;
     /**
-     * Add or update multiple cached entities directly.
+     * Insert or update multiple cached entities directly.
      * Does not save to remote storage.
+     * Upsert entities might be partial but must at least have their keys.
+     * Pass an array of the Update<T> structure as the payload.
+     * @param entities to upsert directly in cache.
+     * @param [options] options such as mergeStrategy
      */
-    upsertManyInCache(entities: Partial<T>[]): void;
+    upsertManyInCache(entities: Partial<T>[], options?: EntityActionOptions): void;
     /**
      * Set the pattern that the collection's filter applies
      * when using the `filteredEntities` selector.
