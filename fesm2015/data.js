@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.6.0+3.sha-fe6bfa7
+ * @license NgRx 8.6.0+4.sha-b146af5
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -13,7 +13,8 @@ import { createEffect, ofType, Actions, EffectsModule, EffectSources } from '@ng
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/entity-action-factory.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class EntityActionFactory {
     // polymorphic create for the two signatures
@@ -28,7 +29,7 @@ class EntityActionFactory {
     create(nameOrPayload, entityOp, data, options) {
         /** @type {?} */
         const payload = typeof nameOrPayload === 'string'
-            ? ((/** @type {?} */ (Object.assign({}, (options || {}), { entityName: nameOrPayload, entityOp,
+            ? ((/** @type {?} */ (Object.assign(Object.assign({}, (options || {})), { entityName: nameOrPayload, entityOp,
                 data }))))
             : nameOrPayload;
         return this.createCore(payload);
@@ -61,7 +62,7 @@ class EntityActionFactory {
      * @return {?}
      */
     createFromAction(from, newProperties) {
-        return this.create(Object.assign({}, from.payload, newProperties));
+        return this.create(Object.assign(Object.assign({}, from.payload), newProperties));
     }
     /**
      * @param {?} op
@@ -79,7 +80,8 @@ EntityActionFactory.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/entity-action-guard.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Guard methods that ensure EntityAction payload is as expected.
@@ -301,10 +303,23 @@ class EntityActionGuard {
         throw new Error(`${this.entityName} EntityAction guard for "${action.type}": payload ${msg}`);
     }
 }
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityActionGuard.prototype.entityName;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityActionGuard.prototype.selectId;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/utils/utilities.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Default function that returns the entity's primary key (pkey).
@@ -374,7 +389,8 @@ function toUpdateFactory(selectId) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/entity-action-operators.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * @template T
@@ -457,20 +473,158 @@ function ofEntityType(...allowedEntityNames) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/entity-action.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Action concerning an entity collection.
+ * @record
+ * @template P
+ */
+function EntityAction() { }
+if (false) {
+    /** @type {?} */
+    EntityAction.prototype.type;
+    /** @type {?} */
+    EntityAction.prototype.payload;
+}
+/**
+ * Options of an EntityAction
+ * @record
+ */
+function EntityActionOptions() { }
+if (false) {
+    /**
+     * Correlate related EntityActions, particularly related saves. Must be serializable.
+     * @type {?|undefined}
+     */
+    EntityActionOptions.prototype.correlationId;
+    /**
+     * True if should perform action optimistically (before server responds)
+     * @type {?|undefined}
+     */
+    EntityActionOptions.prototype.isOptimistic;
+    /** @type {?|undefined} */
+    EntityActionOptions.prototype.mergeStrategy;
+    /**
+     * The tag to use in the action's type. The entityName if no tag specified.
+     * @type {?|undefined}
+     */
+    EntityActionOptions.prototype.tag;
+    /**
+     * The action was determined (usually by a reducer) to be in error.
+     * Downstream effects should not process but rather treat it as an error.
+     * @type {?|undefined}
+     */
+    EntityActionOptions.prototype.error;
+    /**
+     * Downstream effects should skip processing this action but should return
+     * an innocuous Observable<Action> of success.
+     * @type {?|undefined}
+     */
+    EntityActionOptions.prototype.skip;
+}
+/**
+ * Payload of an EntityAction
+ * @record
+ * @template P
+ */
+function EntityActionPayload() { }
+if (false) {
+    /** @type {?} */
+    EntityActionPayload.prototype.entityName;
+    /** @type {?} */
+    EntityActionPayload.prototype.entityOp;
+    /** @type {?|undefined} */
+    EntityActionPayload.prototype.data;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/entity-cache-change-set.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const ChangeSetOperation = {
-    Add: 'Add',
-    Delete: 'Delete',
-    Update: 'Update',
-    Upsert: 'Upsert',
+    Add: "Add",
+    Delete: "Delete",
+    Update: "Update",
+    Upsert: "Upsert",
 };
+/**
+ * @record
+ * @template T
+ */
+function ChangeSetAdd() { }
+if (false) {
+    /** @type {?} */
+    ChangeSetAdd.prototype.op;
+    /** @type {?} */
+    ChangeSetAdd.prototype.entityName;
+    /** @type {?} */
+    ChangeSetAdd.prototype.entities;
+}
+/**
+ * @record
+ */
+function ChangeSetDelete() { }
+if (false) {
+    /** @type {?} */
+    ChangeSetDelete.prototype.op;
+    /** @type {?} */
+    ChangeSetDelete.prototype.entityName;
+    /** @type {?} */
+    ChangeSetDelete.prototype.entities;
+}
+/**
+ * @record
+ * @template T
+ */
+function ChangeSetUpdate() { }
+if (false) {
+    /** @type {?} */
+    ChangeSetUpdate.prototype.op;
+    /** @type {?} */
+    ChangeSetUpdate.prototype.entityName;
+    /** @type {?} */
+    ChangeSetUpdate.prototype.entities;
+}
+/**
+ * @record
+ * @template T
+ */
+function ChangeSetUpsert() { }
+if (false) {
+    /** @type {?} */
+    ChangeSetUpsert.prototype.op;
+    /** @type {?} */
+    ChangeSetUpsert.prototype.entityName;
+    /** @type {?} */
+    ChangeSetUpsert.prototype.entities;
+}
+/**
+ * @record
+ * @template T
+ */
+function ChangeSet() { }
+if (false) {
+    /**
+     * An array of ChangeSetItems to be processed in the array order
+     * @type {?}
+     */
+    ChangeSet.prototype.changes;
+    /**
+     * An arbitrary, serializable object that should travel with the ChangeSet.
+     * Meaningful to the ChangeSet producer and consumer. Ignored by \@ngrx/data.
+     * @type {?|undefined}
+     */
+    ChangeSet.prototype.extras;
+    /**
+     * An arbitrary string, identifying the ChangeSet and perhaps its purpose
+     * @type {?|undefined}
+     */
+    ChangeSet.prototype.tag;
+}
 /**
  * Factory to create a ChangeSetItem for a ChangeSetOperation
  */
@@ -542,12 +696,13 @@ function excludeEmptyChangeSetItems(changeSet) {
      * @return {?}
      */
     c => c != null && c.entities && c.entities.length > 0));
-    return Object.assign({}, changeSet, { changes });
+    return Object.assign(Object.assign({}, changeSet), { changes });
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/merge-strategy.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {number} */
 const MergeStrategy = {
@@ -575,20 +730,28 @@ MergeStrategy[MergeStrategy.OverwriteChanges] = 'OverwriteChanges';
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/entity-cache-action.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {string} */
 const EntityCacheAction = {
-    CLEAR_COLLECTIONS: '@ngrx/data/entity-cache/clear-collections',
-    LOAD_COLLECTIONS: '@ngrx/data/entity-cache/load-collections',
-    MERGE_QUERY_SET: '@ngrx/data/entity-cache/merge-query-set',
-    SET_ENTITY_CACHE: '@ngrx/data/entity-cache/set-cache',
-    SAVE_ENTITIES: '@ngrx/data/entity-cache/save-entities',
-    SAVE_ENTITIES_CANCEL: '@ngrx/data/entity-cache/save-entities-cancel',
-    SAVE_ENTITIES_CANCELED: '@ngrx/data/entity-cache/save-entities-canceled',
-    SAVE_ENTITIES_ERROR: '@ngrx/data/entity-cache/save-entities-error',
-    SAVE_ENTITIES_SUCCESS: '@ngrx/data/entity-cache/save-entities-success',
+    CLEAR_COLLECTIONS: "@ngrx/data/entity-cache/clear-collections",
+    LOAD_COLLECTIONS: "@ngrx/data/entity-cache/load-collections",
+    MERGE_QUERY_SET: "@ngrx/data/entity-cache/merge-query-set",
+    SET_ENTITY_CACHE: "@ngrx/data/entity-cache/set-cache",
+    SAVE_ENTITIES: "@ngrx/data/entity-cache/save-entities",
+    SAVE_ENTITIES_CANCEL: "@ngrx/data/entity-cache/save-entities-cancel",
+    SAVE_ENTITIES_CANCELED: "@ngrx/data/entity-cache/save-entities-canceled",
+    SAVE_ENTITIES_ERROR: "@ngrx/data/entity-cache/save-entities-error",
+    SAVE_ENTITIES_SUCCESS: "@ngrx/data/entity-cache/save-entities-success",
 };
+/**
+ * Hash of entities keyed by EntityCollection name,
+ * typically the result of a query that returned results from a multi-collection query
+ * that will be merged into an EntityCache via the `MergeQuerySet` action.
+ * @record
+ */
+function EntityCacheQuerySet() { }
 /**
  * Clear the collections identified in the collectionSet.
  * @param [collections] Array of names of the collections to clear.
@@ -604,6 +767,12 @@ class ClearCollections {
         this.type = EntityCacheAction.CLEAR_COLLECTIONS;
         this.payload = { collections, tag };
     }
+}
+if (false) {
+    /** @type {?} */
+    ClearCollections.prototype.payload;
+    /** @type {?} */
+    ClearCollections.prototype.type;
 }
 /**
  * Create entity cache action that loads multiple entity collections at the same time.
@@ -621,6 +790,12 @@ class LoadCollections {
         this.type = EntityCacheAction.LOAD_COLLECTIONS;
         this.payload = { collections, tag };
     }
+}
+if (false) {
+    /** @type {?} */
+    LoadCollections.prototype.payload;
+    /** @type {?} */
+    LoadCollections.prototype.type;
 }
 /**
  * Create entity cache action that merges entities from a query result
@@ -648,6 +823,12 @@ class MergeQuerySet {
         };
     }
 }
+if (false) {
+    /** @type {?} */
+    MergeQuerySet.prototype.payload;
+    /** @type {?} */
+    MergeQuerySet.prototype.type;
+}
 /**
  * Create entity cache action for replacing the entire entity cache.
  * Dangerous because brute force but useful as when re-hydrating an EntityCache
@@ -666,6 +847,14 @@ class SetEntityCache {
         this.payload = { cache, tag };
     }
 }
+if (false) {
+    /** @type {?} */
+    SetEntityCache.prototype.payload;
+    /** @type {?} */
+    SetEntityCache.prototype.type;
+    /** @type {?} */
+    SetEntityCache.prototype.cache;
+}
 // #region SaveEntities
 class SaveEntities {
     /**
@@ -679,8 +868,14 @@ class SaveEntities {
         if (changeSet) {
             changeSet.tag = changeSet.tag || options.tag;
         }
-        this.payload = Object.assign({ changeSet, url }, options, { tag: changeSet.tag });
+        this.payload = Object.assign(Object.assign({ changeSet, url }, options), { tag: changeSet.tag });
     }
+}
+if (false) {
+    /** @type {?} */
+    SaveEntities.prototype.payload;
+    /** @type {?} */
+    SaveEntities.prototype.type;
 }
 class SaveEntitiesCancel {
     /**
@@ -694,6 +889,12 @@ class SaveEntitiesCancel {
         this.payload = { correlationId, reason, entityNames, tag };
     }
 }
+if (false) {
+    /** @type {?} */
+    SaveEntitiesCancel.prototype.payload;
+    /** @type {?} */
+    SaveEntitiesCancel.prototype.type;
+}
 class SaveEntitiesCanceled {
     /**
      * @param {?} correlationId
@@ -704,6 +905,12 @@ class SaveEntitiesCanceled {
         this.type = EntityCacheAction.SAVE_ENTITIES_CANCEL;
         this.payload = { correlationId, reason, tag };
     }
+}
+if (false) {
+    /** @type {?} */
+    SaveEntitiesCanceled.prototype.payload;
+    /** @type {?} */
+    SaveEntitiesCanceled.prototype.type;
 }
 class SaveEntitiesError {
     /**
@@ -717,6 +924,12 @@ class SaveEntitiesError {
         this.payload = { error, originalAction, correlationId };
     }
 }
+if (false) {
+    /** @type {?} */
+    SaveEntitiesError.prototype.payload;
+    /** @type {?} */
+    SaveEntitiesError.prototype.type;
+}
 class SaveEntitiesSuccess {
     /**
      * @param {?} changeSet
@@ -729,81 +942,88 @@ class SaveEntitiesSuccess {
         if (changeSet) {
             changeSet.tag = changeSet.tag || options.tag;
         }
-        this.payload = Object.assign({ changeSet, url }, options, { tag: changeSet.tag });
+        this.payload = Object.assign(Object.assign({ changeSet, url }, options), { tag: changeSet.tag });
     }
+}
+if (false) {
+    /** @type {?} */
+    SaveEntitiesSuccess.prototype.payload;
+    /** @type {?} */
+    SaveEntitiesSuccess.prototype.type;
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/entity-op.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 // Ensure that these suffix values and the EntityOp suffixes match
 // Cannot do that programmatically.
 /** @enum {string} */
 const EntityOp = {
     // Persistance operations
-    CANCEL_PERSIST: '@ngrx/data/cancel-persist',
-    CANCELED_PERSIST: '@ngrx/data/canceled-persist',
-    QUERY_ALL: '@ngrx/data/query-all',
-    QUERY_ALL_SUCCESS: '@ngrx/data/query-all/success',
-    QUERY_ALL_ERROR: '@ngrx/data/query-all/error',
-    QUERY_LOAD: '@ngrx/data/query-load',
-    QUERY_LOAD_SUCCESS: '@ngrx/data/query-load/success',
-    QUERY_LOAD_ERROR: '@ngrx/data/query-load/error',
-    QUERY_MANY: '@ngrx/data/query-many',
-    QUERY_MANY_SUCCESS: '@ngrx/data/query-many/success',
-    QUERY_MANY_ERROR: '@ngrx/data/query-many/error',
-    QUERY_BY_KEY: '@ngrx/data/query-by-key',
-    QUERY_BY_KEY_SUCCESS: '@ngrx/data/query-by-key/success',
-    QUERY_BY_KEY_ERROR: '@ngrx/data/query-by-key/error',
-    SAVE_ADD_MANY: '@ngrx/data/save/add-many',
-    SAVE_ADD_MANY_ERROR: '@ngrx/data/save/add-many/error',
-    SAVE_ADD_MANY_SUCCESS: '@ngrx/data/save/add-many/success',
-    SAVE_ADD_ONE: '@ngrx/data/save/add-one',
-    SAVE_ADD_ONE_ERROR: '@ngrx/data/save/add-one/error',
-    SAVE_ADD_ONE_SUCCESS: '@ngrx/data/save/add-one/success',
-    SAVE_DELETE_MANY: '@ngrx/data/save/delete-many',
-    SAVE_DELETE_MANY_SUCCESS: '@ngrx/data/save/delete-many/success',
-    SAVE_DELETE_MANY_ERROR: '@ngrx/data/save/delete-many/error',
-    SAVE_DELETE_ONE: '@ngrx/data/save/delete-one',
-    SAVE_DELETE_ONE_SUCCESS: '@ngrx/data/save/delete-one/success',
-    SAVE_DELETE_ONE_ERROR: '@ngrx/data/save/delete-one/error',
-    SAVE_UPDATE_MANY: '@ngrx/data/save/update-many',
-    SAVE_UPDATE_MANY_SUCCESS: '@ngrx/data/save/update-many/success',
-    SAVE_UPDATE_MANY_ERROR: '@ngrx/data/save/update-many/error',
-    SAVE_UPDATE_ONE: '@ngrx/data/save/update-one',
-    SAVE_UPDATE_ONE_SUCCESS: '@ngrx/data/save/update-one/success',
-    SAVE_UPDATE_ONE_ERROR: '@ngrx/data/save/update-one/error',
+    CANCEL_PERSIST: "@ngrx/data/cancel-persist",
+    CANCELED_PERSIST: "@ngrx/data/canceled-persist",
+    QUERY_ALL: "@ngrx/data/query-all",
+    QUERY_ALL_SUCCESS: "@ngrx/data/query-all/success",
+    QUERY_ALL_ERROR: "@ngrx/data/query-all/error",
+    QUERY_LOAD: "@ngrx/data/query-load",
+    QUERY_LOAD_SUCCESS: "@ngrx/data/query-load/success",
+    QUERY_LOAD_ERROR: "@ngrx/data/query-load/error",
+    QUERY_MANY: "@ngrx/data/query-many",
+    QUERY_MANY_SUCCESS: "@ngrx/data/query-many/success",
+    QUERY_MANY_ERROR: "@ngrx/data/query-many/error",
+    QUERY_BY_KEY: "@ngrx/data/query-by-key",
+    QUERY_BY_KEY_SUCCESS: "@ngrx/data/query-by-key/success",
+    QUERY_BY_KEY_ERROR: "@ngrx/data/query-by-key/error",
+    SAVE_ADD_MANY: "@ngrx/data/save/add-many",
+    SAVE_ADD_MANY_ERROR: "@ngrx/data/save/add-many/error",
+    SAVE_ADD_MANY_SUCCESS: "@ngrx/data/save/add-many/success",
+    SAVE_ADD_ONE: "@ngrx/data/save/add-one",
+    SAVE_ADD_ONE_ERROR: "@ngrx/data/save/add-one/error",
+    SAVE_ADD_ONE_SUCCESS: "@ngrx/data/save/add-one/success",
+    SAVE_DELETE_MANY: "@ngrx/data/save/delete-many",
+    SAVE_DELETE_MANY_SUCCESS: "@ngrx/data/save/delete-many/success",
+    SAVE_DELETE_MANY_ERROR: "@ngrx/data/save/delete-many/error",
+    SAVE_DELETE_ONE: "@ngrx/data/save/delete-one",
+    SAVE_DELETE_ONE_SUCCESS: "@ngrx/data/save/delete-one/success",
+    SAVE_DELETE_ONE_ERROR: "@ngrx/data/save/delete-one/error",
+    SAVE_UPDATE_MANY: "@ngrx/data/save/update-many",
+    SAVE_UPDATE_MANY_SUCCESS: "@ngrx/data/save/update-many/success",
+    SAVE_UPDATE_MANY_ERROR: "@ngrx/data/save/update-many/error",
+    SAVE_UPDATE_ONE: "@ngrx/data/save/update-one",
+    SAVE_UPDATE_ONE_SUCCESS: "@ngrx/data/save/update-one/success",
+    SAVE_UPDATE_ONE_ERROR: "@ngrx/data/save/update-one/error",
     // Use only if the server supports upsert;
-    SAVE_UPSERT_MANY: '@ngrx/data/save/upsert-many',
-    SAVE_UPSERT_MANY_SUCCESS: '@ngrx/data/save/upsert-many/success',
-    SAVE_UPSERT_MANY_ERROR: '@ngrx/data/save/upsert-many/error',
+    SAVE_UPSERT_MANY: "@ngrx/data/save/upsert-many",
+    SAVE_UPSERT_MANY_SUCCESS: "@ngrx/data/save/upsert-many/success",
+    SAVE_UPSERT_MANY_ERROR: "@ngrx/data/save/upsert-many/error",
     // Use only if the server supports upsert;
-    SAVE_UPSERT_ONE: '@ngrx/data/save/upsert-one',
-    SAVE_UPSERT_ONE_SUCCESS: '@ngrx/data/save/upsert-one/success',
-    SAVE_UPSERT_ONE_ERROR: '@ngrx/data/save/upsert-one/error',
+    SAVE_UPSERT_ONE: "@ngrx/data/save/upsert-one",
+    SAVE_UPSERT_ONE_SUCCESS: "@ngrx/data/save/upsert-one/success",
+    SAVE_UPSERT_ONE_ERROR: "@ngrx/data/save/upsert-one/error",
     // Cache operations
-    ADD_ALL: '@ngrx/data/add-all',
-    ADD_MANY: '@ngrx/data/add-many',
-    ADD_ONE: '@ngrx/data/add-one',
-    REMOVE_ALL: '@ngrx/data/remove-all',
-    REMOVE_MANY: '@ngrx/data/remove-many',
-    REMOVE_ONE: '@ngrx/data/remove-one',
-    UPDATE_MANY: '@ngrx/data/update-many',
-    UPDATE_ONE: '@ngrx/data/update-one',
-    UPSERT_MANY: '@ngrx/data/upsert-many',
-    UPSERT_ONE: '@ngrx/data/upsert-one',
-    COMMIT_ALL: '@ngrx/data/commit-all',
-    COMMIT_MANY: '@ngrx/data/commit-many',
-    COMMIT_ONE: '@ngrx/data/commit-one',
-    UNDO_ALL: '@ngrx/data/undo-all',
-    UNDO_MANY: '@ngrx/data/undo-many',
-    UNDO_ONE: '@ngrx/data/undo-one',
-    SET_CHANGE_STATE: '@ngrx/data/set-change-state',
-    SET_COLLECTION: '@ngrx/data/set-collection',
-    SET_FILTER: '@ngrx/data/set-filter',
-    SET_LOADED: '@ngrx/data/set-loaded',
-    SET_LOADING: '@ngrx/data/set-loading',
+    ADD_ALL: "@ngrx/data/add-all",
+    ADD_MANY: "@ngrx/data/add-many",
+    ADD_ONE: "@ngrx/data/add-one",
+    REMOVE_ALL: "@ngrx/data/remove-all",
+    REMOVE_MANY: "@ngrx/data/remove-many",
+    REMOVE_ONE: "@ngrx/data/remove-one",
+    UPDATE_MANY: "@ngrx/data/update-many",
+    UPDATE_ONE: "@ngrx/data/update-one",
+    UPSERT_MANY: "@ngrx/data/upsert-many",
+    UPSERT_ONE: "@ngrx/data/upsert-one",
+    COMMIT_ALL: "@ngrx/data/commit-all",
+    COMMIT_MANY: "@ngrx/data/commit-many",
+    COMMIT_ONE: "@ngrx/data/commit-one",
+    UNDO_ALL: "@ngrx/data/undo-all",
+    UNDO_MANY: "@ngrx/data/undo-many",
+    UNDO_ONE: "@ngrx/data/undo-one",
+    SET_CHANGE_STATE: "@ngrx/data/set-change-state",
+    SET_COLLECTION: "@ngrx/data/set-collection",
+    SET_FILTER: "@ngrx/data/set-filter",
+    SET_LOADED: "@ngrx/data/set-loaded",
+    SET_LOADING: "@ngrx/data/set-loading",
 };
 /**
  * "Success" suffix appended to EntityOps that are successful.
@@ -834,12 +1054,44 @@ function makeSuccessOp(op) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/actions/update-response-data.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Data returned in an EntityAction from the EntityEffects for SAVE_UPDATE_ONE_SUCCESS.
+ * Effectively extends Update<T> with a 'changed' flag.
+ * The is true if the server sent back changes to the entity data after update.
+ * Such changes must be in the entity data in changes property.
+ * Default is false (server did not return entity data; assume it changed nothing).
+ * See EntityEffects.
+ * @record
+ * @template T
+ */
+function UpdateResponseData() { }
+if (false) {
+    /**
+     * Original key (id) of the entity
+     * @type {?}
+     */
+    UpdateResponseData.prototype.id;
+    /**
+     * Entity update data. Should include the key (original or changed)
+     * @type {?}
+     */
+    UpdateResponseData.prototype.changes;
+    /**
+     * Whether the server made additional changes after processing the update.
+     * Such additional changes should be in the 'changes' object.
+     * Default is false
+     * @type {?|undefined}
+     */
+    UpdateResponseData.prototype.changed;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/data-service-error.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Error from a DataService
@@ -859,6 +1111,14 @@ class DataServiceError {
         this.requestData = requestData;
         this.message = typeof error === 'string' ? error : extractMessage(error);
     }
+}
+if (false) {
+    /** @type {?} */
+    DataServiceError.prototype.message;
+    /** @type {?} */
+    DataServiceError.prototype.error;
+    /** @type {?} */
+    DataServiceError.prototype.requestData;
 }
 // Many ways the error can be shaped. These are the ways we recognize.
 /**
@@ -886,10 +1146,22 @@ function extractMessage(sourceError) {
             ? JSON.stringify(errMessage)
             : null;
 }
+/**
+ * Payload for an EntityAction data service error such as QUERY_ALL_ERROR
+ * @record
+ */
+function EntityActionDataServiceError() { }
+if (false) {
+    /** @type {?} */
+    EntityActionDataServiceError.prototype.error;
+    /** @type {?} */
+    EntityActionDataServiceError.prototype.originalAction;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/default-data-service-config.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Optional configuration settings for an entity collection data service
@@ -898,16 +1170,79 @@ function extractMessage(sourceError) {
  */
 class DefaultDataServiceConfig {
 }
+if (false) {
+    /**
+     * root path of the web api.  may also include protocol, domain, and port
+     * for remote api, e.g.: `'https://api-domain.com:8000/api/v1'` (default: 'api')
+     * @type {?}
+     */
+    DefaultDataServiceConfig.prototype.root;
+    /**
+     * Known entity HttpResourceUrls.
+     * HttpUrlGenerator will create these URLs for entity types not listed here.
+     * @type {?}
+     */
+    DefaultDataServiceConfig.prototype.entityHttpResourceUrls;
+    /**
+     * Is a DELETE 404 really OK? (default: true)
+     * @type {?}
+     */
+    DefaultDataServiceConfig.prototype.delete404OK;
+    /**
+     * Simulate GET latency in a demo (default: 0)
+     * @type {?}
+     */
+    DefaultDataServiceConfig.prototype.getDelay;
+    /**
+     * Simulate save method (PUT/POST/DELETE) latency in a demo (default: 0)
+     * @type {?}
+     */
+    DefaultDataServiceConfig.prototype.saveDelay;
+    /**
+     * request timeout in MS (default: 0)
+     * @type {?}
+     */
+    DefaultDataServiceConfig.prototype.timeout;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/utils/interfaces.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * @abstract
  */
 class Logger {
 }
+if (false) {
+    /**
+     * @abstract
+     * @param {?=} message
+     * @param {...?} optionalParams
+     * @return {?}
+     */
+    Logger.prototype.error = function (message, optionalParams) { };
+    /**
+     * @abstract
+     * @param {?=} message
+     * @param {...?} optionalParams
+     * @return {?}
+     */
+    Logger.prototype.log = function (message, optionalParams) { };
+    /**
+     * @abstract
+     * @param {?=} message
+     * @param {...?} optionalParams
+     * @return {?}
+     */
+    Logger.prototype.warn = function (message, optionalParams) { };
+}
+/**
+ * Mapping of entity type name to its plural
+ * @record
+ */
+function EntityPluralNames() { }
 /** @type {?} */
 const PLURAL_NAMES_TOKEN = new InjectionToken('@ngrx/data/plural-names');
 /**
@@ -915,10 +1250,19 @@ const PLURAL_NAMES_TOKEN = new InjectionToken('@ngrx/data/plural-names');
  */
 class Pluralizer {
 }
+if (false) {
+    /**
+     * @abstract
+     * @param {?} name
+     * @return {?}
+     */
+    Pluralizer.prototype.pluralize = function (name) { };
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/http-url-generator.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Known resource URLS for specific entity types.
@@ -930,11 +1274,62 @@ class Pluralizer {
 class EntityHttpResourceUrls {
 }
 /**
+ * Resource URLS for HTTP operations that target single entity
+ * and multi-entity endpoints.
+ * @record
+ */
+function HttpResourceUrls() { }
+if (false) {
+    /**
+     * The URL path for a single entity endpoint, e.g, `some-api-root/hero/`
+     * such as you'd use to add a hero.
+     * Example: `httpClient.post<Hero>('some-api-root/hero/', addedHero)`.
+     * Note trailing slash (/).
+     * @type {?}
+     */
+    HttpResourceUrls.prototype.entityResourceUrl;
+    /**
+     * The URL path for a multiple-entity endpoint, e.g, `some-api-root/heroes/`
+     * such as you'd use when getting all heroes.
+     * Example: `httpClient.get<Hero[]>('some-api-root/heroes/')`
+     * Note trailing slash (/).
+     * @type {?}
+     */
+    HttpResourceUrls.prototype.collectionResourceUrl;
+}
+/**
  * Generate the base part of an HTTP URL for
  * single entity or entity collection resource
  * @abstract
  */
 class HttpUrlGenerator {
+}
+if (false) {
+    /**
+     * Return the base URL for a single entity resource,
+     * e.g., the base URL to get a single hero by its id
+     * @abstract
+     * @param {?} entityName
+     * @param {?} root
+     * @return {?}
+     */
+    HttpUrlGenerator.prototype.entityResource = function (entityName, root) { };
+    /**
+     * Return the base URL for a collection resource,
+     * e.g., the base URL to get all heroes
+     * @abstract
+     * @param {?} entityName
+     * @param {?} root
+     * @return {?}
+     */
+    HttpUrlGenerator.prototype.collectionResource = function (entityName, root) { };
+    /**
+     * Register known single-entity and collection resource URLs for HTTP calls
+     * @abstract
+     * @param {?=} entityHttpResourceUrls {EntityHttpResourceUrls} resource urls for specific entity type names
+     * @return {?}
+     */
+    HttpUrlGenerator.prototype.registerHttpResourceUrls = function (entityHttpResourceUrls) { };
 }
 class DefaultHttpUrlGenerator {
     /**
@@ -997,7 +1392,7 @@ class DefaultHttpUrlGenerator {
      * @return {?}
      */
     registerHttpResourceUrls(entityHttpResourceUrls) {
-        this.knownHttpResourceUrls = Object.assign({}, this.knownHttpResourceUrls, (entityHttpResourceUrls || {}));
+        this.knownHttpResourceUrls = Object.assign(Object.assign({}, this.knownHttpResourceUrls), (entityHttpResourceUrls || {}));
     }
 }
 DefaultHttpUrlGenerator.decorators = [
@@ -1007,6 +1402,22 @@ DefaultHttpUrlGenerator.decorators = [
 DefaultHttpUrlGenerator.ctorParameters = () => [
     { type: Pluralizer }
 ];
+if (false) {
+    /**
+     * Known single-entity and collection resource URLs for HTTP calls.
+     * Generator methods returns these resource URLs for a given entity type name.
+     * If the resources for an entity type name are not know, it generates
+     * and caches a resource name for future use
+     * @type {?}
+     * @protected
+     */
+    DefaultHttpUrlGenerator.prototype.knownHttpResourceUrls;
+    /**
+     * @type {?}
+     * @private
+     */
+    DefaultHttpUrlGenerator.prototype.pluralizer;
+}
 /**
  * Remove leading & trailing spaces or slashes
  * @param {?} root
@@ -1018,7 +1429,8 @@ function normalizeRoot(root) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/default-data.service.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * A basic, generic entity data service
@@ -1230,6 +1642,58 @@ class DefaultDataService {
         return undefined;
     }
 }
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype._name;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.delete404OK;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.entityName;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.entityUrl;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.entitiesUrl;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.getDelay;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.saveDelay;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.timeout;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.http;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataService.prototype.httpUrlGenerator;
+}
 /**
  * Create a basic, generic entity data service
  * suitable for persistence of most entities.
@@ -1267,11 +1731,52 @@ DefaultDataServiceFactory.ctorParameters = () => [
     { type: HttpUrlGenerator },
     { type: DefaultDataServiceConfig, decorators: [{ type: Optional }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataServiceFactory.prototype.http;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataServiceFactory.prototype.httpUrlGenerator;
+    /**
+     * @type {?}
+     * @protected
+     */
+    DefaultDataServiceFactory.prototype.config;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-metadata/entity-definition.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ * @template T
+ */
+function EntityDefinition() { }
+if (false) {
+    /** @type {?} */
+    EntityDefinition.prototype.entityName;
+    /** @type {?} */
+    EntityDefinition.prototype.entityAdapter;
+    /** @type {?|undefined} */
+    EntityDefinition.prototype.entityDispatcherOptions;
+    /** @type {?} */
+    EntityDefinition.prototype.initialState;
+    /** @type {?} */
+    EntityDefinition.prototype.metadata;
+    /** @type {?} */
+    EntityDefinition.prototype.noChangeTracking;
+    /** @type {?} */
+    EntityDefinition.prototype.selectId;
+    /** @type {?} */
+    EntityDefinition.prototype.sortComparer;
+}
 /**
  * @template T, S
  * @param {?} metadata
@@ -1310,15 +1815,48 @@ function createEntityDefinition(metadata) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-metadata/entity-metadata.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const ENTITY_METADATA_TOKEN = new InjectionToken('@ngrx/data/entity-metadata');
+/**
+ * Metadata that describe an entity type and its collection to \@ngrx/data
+ * @record
+ * @template T, S
+ */
+function EntityMetadata() { }
+if (false) {
+    /** @type {?} */
+    EntityMetadata.prototype.entityName;
+    /** @type {?|undefined} */
+    EntityMetadata.prototype.entityDispatcherOptions;
+    /** @type {?|undefined} */
+    EntityMetadata.prototype.filterFn;
+    /** @type {?|undefined} */
+    EntityMetadata.prototype.noChangeTracking;
+    /** @type {?|undefined} */
+    EntityMetadata.prototype.selectId;
+    /** @type {?|undefined} */
+    EntityMetadata.prototype.sortComparer;
+    /** @type {?|undefined} */
+    EntityMetadata.prototype.additionalCollectionState;
+}
+/**
+ * Map entity-type name to its EntityMetadata
+ * @record
+ */
+function EntityMetadataMap() { }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-metadata/entity-definition.service.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function EntityDefinitions() { }
 /**
  * Registry of EntityDefinitions for all cached entity types
  */
@@ -1425,10 +1963,19 @@ EntityDefinitionService.decorators = [
 EntityDefinitionService.ctorParameters = () => [
     { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_METADATA_TOKEN,] }] }
 ];
+if (false) {
+    /**
+     * {EntityDefinition} for all cached entity types
+     * @type {?}
+     * @private
+     */
+    EntityDefinitionService.prototype.definitions;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/entity-cache-data.service.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const updateOp = ChangeSetOperation.Update;
@@ -1534,7 +2081,7 @@ class EntityCacheDataService {
         item => {
             if (item.op === updateOp && item.entities.length > 0) {
                 hasMutated = true;
-                return Object.assign({}, item, { entities: ((/** @type {?} */ (item))).entities.map((/**
+                return Object.assign(Object.assign({}, item), { entities: ((/** @type {?} */ (item))).entities.map((/**
                      * @param {?} u
                      * @return {?}
                      */
@@ -1544,7 +2091,7 @@ class EntityCacheDataService {
                 return item;
             }
         }))));
-        return hasMutated ? Object.assign({}, changeSet, { changes }) : changeSet;
+        return hasMutated ? Object.assign(Object.assign({}, changeSet), { changes }) : changeSet;
     }
     /**
      * Convert the flattened T entities in update changes back to \@ngrx Update<T> structures.
@@ -1575,7 +2122,7 @@ class EntityCacheDataService {
                 hasMutated = true;
                 /** @type {?} */
                 const selectId = this.getIdSelector(item.entityName);
-                return (/** @type {?} */ (Object.assign({}, item, { entities: item.entities.map((/**
+                return (/** @type {?} */ (Object.assign(Object.assign({}, item), { entities: item.entities.map((/**
                      * @param {?} u
                      * @return {?}
                      */
@@ -1588,7 +2135,7 @@ class EntityCacheDataService {
                 return item;
             }
         }))));
-        return hasMutated ? Object.assign({}, changeSet, { changes }) : changeSet;
+        return hasMutated ? Object.assign(Object.assign({}, changeSet), { changes }) : changeSet;
     }
     /**
      * Get the id (primary key) selector function for an entity type
@@ -1616,10 +2163,38 @@ EntityCacheDataService.ctorParameters = () => [
     { type: HttpClient },
     { type: DefaultDataServiceConfig, decorators: [{ type: Optional }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCacheDataService.prototype.idSelectors;
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCacheDataService.prototype.saveDelay;
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCacheDataService.prototype.timeout;
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCacheDataService.prototype.entityDefinitionService;
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCacheDataService.prototype.http;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/entity-data.service.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Registry of EntityCollection data services that make REST-like CRUD calls
@@ -1681,7 +2256,7 @@ class EntityDataService {
      * @return {?}
      */
     registerServices(services) {
-        this.services = Object.assign({}, this.services, services);
+        this.services = Object.assign(Object.assign({}, this.services), services);
     }
 }
 EntityDataService.decorators = [
@@ -1691,21 +2266,116 @@ EntityDataService.decorators = [
 EntityDataService.ctorParameters = () => [
     { type: DefaultDataServiceFactory }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityDataService.prototype.services;
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityDataService.prototype.defaultDataServiceFactory;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/interfaces.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * A service that performs REST-like HTTP data operations for an entity collection
+ * @record
+ * @template T
+ */
+function EntityCollectionDataService() { }
+if (false) {
+    /** @type {?} */
+    EntityCollectionDataService.prototype.name;
+    /**
+     * @param {?} entity
+     * @return {?}
+     */
+    EntityCollectionDataService.prototype.add = function (entity) { };
+    /**
+     * @param {?} id
+     * @return {?}
+     */
+    EntityCollectionDataService.prototype.delete = function (id) { };
+    /**
+     * @return {?}
+     */
+    EntityCollectionDataService.prototype.getAll = function () { };
+    /**
+     * @param {?} id
+     * @return {?}
+     */
+    EntityCollectionDataService.prototype.getById = function (id) { };
+    /**
+     * @param {?} params
+     * @return {?}
+     */
+    EntityCollectionDataService.prototype.getWithQuery = function (params) { };
+    /**
+     * @param {?} update
+     * @return {?}
+     */
+    EntityCollectionDataService.prototype.update = function (update) { };
+    /**
+     * @param {?} entity
+     * @return {?}
+     */
+    EntityCollectionDataService.prototype.upsert = function (entity) { };
+}
+/**
+ * @record
+ */
+function RequestData() { }
+if (false) {
+    /** @type {?} */
+    RequestData.prototype.method;
+    /** @type {?} */
+    RequestData.prototype.url;
+    /** @type {?|undefined} */
+    RequestData.prototype.data;
+    /** @type {?|undefined} */
+    RequestData.prototype.options;
+}
+/**
+ * A key/value map of parameters to be turned into an HTTP query string
+ * Same as HttpClient's HttpParamsOptions which is NOT exported at package level
+ * https://github.com/angular/angular/issues/22013
+ * @record
+ */
+function QueryParams() { }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dataservices/persistence-result-handler.service.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Handling of responses from persistence operation
  * @abstract
  */
 class PersistenceResultHandler {
+}
+if (false) {
+    /**
+     * Handle successful result of persistence operation for an action
+     * @abstract
+     * @param {?} originalAction
+     * @return {?}
+     */
+    PersistenceResultHandler.prototype.handleSuccess = function (originalAction) { };
+    /**
+     * Handle error result of persistence operation for an action
+     * @abstract
+     * @param {?} originalAction
+     * @return {?}
+     */
+    PersistenceResultHandler.prototype.handleError = function (originalAction) { };
 }
 /**
  * Default handling of responses from persistence operation,
@@ -1772,10 +2442,23 @@ DefaultPersistenceResultHandler.ctorParameters = () => [
     { type: Logger },
     { type: EntityActionFactory }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    DefaultPersistenceResultHandler.prototype.logger;
+    /**
+     * @type {?}
+     * @private
+     */
+    DefaultPersistenceResultHandler.prototype.entityActionFactory;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/utils/correlation-id-generator.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Generates a string id beginning 'CRID',
@@ -1809,10 +2492,25 @@ class CorrelationIdGenerator {
 CorrelationIdGenerator.decorators = [
     { type: Injectable }
 ];
+if (false) {
+    /**
+     * Seed for the ids
+     * @type {?}
+     * @protected
+     */
+    CorrelationIdGenerator.prototype.seed;
+    /**
+     * Prefix of the id, 'CRID;
+     * @type {?}
+     * @protected
+     */
+    CorrelationIdGenerator.prototype.prefix;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dispatchers/entity-dispatcher-default-options.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Default options for EntityDispatcher behavior
@@ -1849,11 +2547,100 @@ class EntityDispatcherDefaultOptions {
 EntityDispatcherDefaultOptions.decorators = [
     { type: Injectable }
 ];
+if (false) {
+    /**
+     * True if added entities are saved optimistically; false if saved pessimistically.
+     * @type {?}
+     */
+    EntityDispatcherDefaultOptions.prototype.optimisticAdd;
+    /**
+     * True if deleted entities are saved optimistically; false if saved pessimistically.
+     * @type {?}
+     */
+    EntityDispatcherDefaultOptions.prototype.optimisticDelete;
+    /**
+     * True if updated entities are saved optimistically; false if saved pessimistically.
+     * @type {?}
+     */
+    EntityDispatcherDefaultOptions.prototype.optimisticUpdate;
+    /**
+     * True if upsert entities are saved optimistically; false if saved pessimistically.
+     * @type {?}
+     */
+    EntityDispatcherDefaultOptions.prototype.optimisticUpsert;
+    /**
+     * True if entities in a cache saveEntities request are saved optimistically; false if saved pessimistically.
+     * @type {?}
+     */
+    EntityDispatcherDefaultOptions.prototype.optimisticSaveEntities;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dispatchers/entity-dispatcher.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Dispatches EntityCollection actions to their reducers and effects.
+ * The substance of the interface is in EntityCommands.
+ * @record
+ * @template T
+ */
+function EntityDispatcher() { }
+if (false) {
+    /**
+     * Name of the entity type
+     * @type {?}
+     */
+    EntityDispatcher.prototype.entityName;
+    /**
+     * Utility class with methods to validate EntityAction payloads.
+     * @type {?}
+     */
+    EntityDispatcher.prototype.guard;
+    /**
+     * Returns the primary key (id) of this entity
+     * @type {?}
+     */
+    EntityDispatcher.prototype.selectId;
+    /**
+     * Returns the store, scoped to the EntityCache
+     * @type {?}
+     */
+    EntityDispatcher.prototype.store;
+    /**
+     * Create an {EntityAction} for this entity type.
+     * @template P
+     * @param {?} op {EntityOp} the entity operation
+     * @param {?=} data
+     * @param {?=} options
+     * @return {?} the EntityAction
+     */
+    EntityDispatcher.prototype.createEntityAction = function (op, data, options) { };
+    /**
+     * Create an {EntityAction} for this entity type and
+     * dispatch it immediately to the store.
+     * @template P
+     * @param {?} op {EntityOp} the entity operation
+     * @param {?=} data
+     * @param {?=} options
+     * @return {?} the dispatched EntityAction
+     */
+    EntityDispatcher.prototype.createAndDispatch = function (op, data, options) { };
+    /**
+     * Dispatch an Action to the store.
+     * @param {?} action the Action
+     * @return {?} the dispatched Action
+     */
+    EntityDispatcher.prototype.dispatch = function (action) { };
+    /**
+     * Convert an entity (or partial entity) into the `Update<T>` object
+     * `update...` and `upsert...` methods take `Update<T>` args
+     * @param {?} entity
+     * @return {?}
+     */
+    EntityDispatcher.prototype.toUpdate = function (entity) { };
+}
 /**
  * Persistence operation canceled
  */
@@ -1866,10 +2653,15 @@ class PersistanceCanceled {
         this.message = message || 'Canceled by user';
     }
 }
+if (false) {
+    /** @type {?} */
+    PersistanceCanceled.prototype.message;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dispatchers/entity-cache-dispatcher.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Dispatches Entity Cache actions to the EntityCache reducer
@@ -1991,7 +2783,7 @@ class EntityCacheDispatcher {
             : options.isOptimistic === true;
         /** @type {?} */
         const tag = options.tag || 'Save Entities';
-        options = Object.assign({}, options, { correlationId, isOptimistic, tag });
+        options = Object.assign(Object.assign({}, options), { correlationId, isOptimistic, tag });
         /** @type {?} */
         const action = new SaveEntities(changeSet, url, options);
         this.dispatch(action);
@@ -2044,15 +2836,290 @@ EntityCacheDispatcher.ctorParameters = () => [
     { type: Observable, decorators: [{ type: Inject, args: [ScannedActionsSubject,] }] },
     { type: Store }
 ];
+if (false) {
+    /**
+     * Actions scanned by the store after it processed them with reducers.
+     * A replay observable of the most recent action reduced by the store.
+     * @type {?}
+     */
+    EntityCacheDispatcher.prototype.reducedActions$;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheDispatcher.prototype.raSubscription;
+    /**
+     * Generates correlation ids for query and save methods
+     * @type {?}
+     * @private
+     */
+    EntityCacheDispatcher.prototype.correlationIdGenerator;
+    /**
+     * Dispatcher options configure dispatcher behavior such as
+     * whether add is optimistic or pessimistic by default.
+     * @type {?}
+     * @private
+     */
+    EntityCacheDispatcher.prototype.defaultDispatcherOptions;
+    /**
+     * The store, scoped to the EntityCache
+     * @type {?}
+     * @private
+     */
+    EntityCacheDispatcher.prototype.store;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dispatchers/entity-commands.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Commands that update the remote server.
+ * @record
+ * @template T
+ */
+function EntityServerCommands() { }
+if (false) {
+    /**
+     * Dispatch action to save a new entity to remote storage.
+     * @param {?} entity entity to add, which may omit its key if pessimistic and the server creates the key;
+     * must have a key if optimistic save.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the entity
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.add = function (entity, options) { };
+    /**
+     * Dispatch action to cancel the persistence operation (query or save) with the given correlationId.
+     * @param {?} correlationId The correlation id for the corresponding EntityAction
+     * @param {?=} reason
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityServerCommands.prototype.cancel = function (correlationId, reason, options) { };
+    /**
+     * Dispatch action to delete entity from remote storage by key.
+     * @param {?} entity
+     * @param {?=} options
+     * @return {?} A terminating Observable of the deleted key
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.delete = function (entity, options) { };
+    /**
+     * Dispatch action to delete entity from remote storage by key.
+     * @param {?} key The primary key of the entity to remove
+     * @param {?=} options
+     * @return {?} Observable of the deleted key
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.delete = function (key, options) { };
+    /**
+     * Dispatch action to query remote storage for all entities and
+     * merge the queried entities into the cached collection.
+     * @see load()
+     * @param {?=} options
+     * @return {?} A terminating Observable of the collection
+     * after server reports successful query or the query error.
+     */
+    EntityServerCommands.prototype.getAll = function (options) { };
+    /**
+     * Dispatch action to query remote storage for the entity with this primary key.
+     * If the server returns an entity,
+     * merge it into the cached collection.
+     * @param {?} key The primary key of the entity to get.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the queried entities that are in the collection
+     * after server reports success or the query error.
+     */
+    EntityServerCommands.prototype.getByKey = function (key, options) { };
+    /**
+     * Dispatch action to query remote storage for the entities that satisfy a query expressed
+     * with either a query parameter map or an HTTP URL query string,
+     * and merge the results into the cached collection.
+     * @param {?} queryParams the query in a form understood by the server
+     * @param {?=} options
+     * @return {?} A terminating Observable of the queried entities
+     * after server reports successful query or the query error.
+     */
+    EntityServerCommands.prototype.getWithQuery = function (queryParams, options) { };
+    /**
+     * Dispatch action to query remote storage for all entities and
+     * completely replace the cached collection with the queried entities.
+     * @see getAll
+     * @param {?=} options
+     * @return {?} A terminating Observable of the entities in the collection
+     * after server reports successful query or the query error.
+     */
+    EntityServerCommands.prototype.load = function (options) { };
+    /**
+     * Dispatch action to save the updated entity (or partial entity) in remote storage.
+     * The update entity may be partial (but must have its key)
+     * in which case it patches the existing entity.
+     * @param {?} entity update entity, which might be a partial of T but must at least have its key.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the updated entity
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.update = function (entity, options) { };
+    /**
+     * Dispatch action to save a new or update an existing entity to remote storage.
+     * Only dispatch this action if your server supports upsert.
+     * @param {?} entity entity to upsert, which may omit its key if pessimistic and the server creates the key;
+     * must have a key if optimistic save.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the entity
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.upsert = function (entity, options) { };
+}
+/**
+ * A collection's cache-only commands, which do not update remote storage **
+ * @record
+ * @template T
+ */
+function EntityCacheCommands() { }
+if (false) {
+    /**
+     * Replace all entities in the cached collection.
+     * Does not save to remote storage.
+     * @param {?} entities to add directly to cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.addAllToCache = function (entities, options) { };
+    /**
+     * Add a new entity directly to the cache.
+     * Does not save to remote storage.
+     * Ignored if an entity with the same primary key is already in cache.
+     * @param {?} entity to add directly to cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.addOneToCache = function (entity, options) { };
+    /**
+     * Add multiple new entities directly to the cache.
+     * Does not save to remote storage.
+     * Entities with primary keys already in cache are ignored.
+     * @param {?} entities to add directly to cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.addManyToCache = function (entities, options) { };
+    /**
+     * Clear the cached entity collection
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.clearCache = function (options) { };
+    /**
+     * Remove an entity directly from the cache.
+     * Does not delete that entity from remote storage.
+     * @param {?} entity The entity to remove
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeOneFromCache = function (entity, options) { };
+    /**
+     * Remove an entity directly from the cache.
+     * Does not delete that entity from remote storage.
+     * @param {?} key The primary key of the entity to remove
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeOneFromCache = function (key, options) { };
+    /**
+     * Remove multiple entities directly from the cache.
+     * Does not delete these entities from remote storage.
+     * @param {?} entities
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeManyFromCache = function (entities, options) { };
+    /**
+     * Remove multiple entities directly from the cache.
+     * Does not delete these entities from remote storage.
+     * @param {?} keys The primary keys of the entities to remove
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeManyFromCache = function (keys, options) { };
+    /**
+     * Update a cached entity directly.
+     * Does not update that entity in remote storage.
+     * Ignored if an entity with matching primary key is not in cache.
+     * The update entity may be partial (but must have its key)
+     * in which case it patches the existing entity.
+     * @param {?} entity to update directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.updateOneInCache = function (entity, options) { };
+    /**
+     * Update multiple cached entities directly.
+     * Does not update these entities in remote storage.
+     * Entities whose primary keys are not in cache are ignored.
+     * Update entities may be partial but must at least have their keys.
+     * such partial entities patch their cached counterparts.
+     * @param {?} entities to update directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.updateManyInCache = function (entities, options) { };
+    /**
+     * Insert or update a cached entity directly.
+     * Does not save to remote storage.
+     * Upsert entity might be a partial of T but must at least have its key.
+     * Pass the Update<T> structure as the payload.
+     * @param {?} entity to upsert directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.upsertOneInCache = function (entity, options) { };
+    /**
+     * Insert or update multiple cached entities directly.
+     * Does not save to remote storage.
+     * Upsert entities might be partial but must at least have their keys.
+     * Pass an array of the Update<T> structure as the payload.
+     * @param {?} entities to upsert directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.upsertManyInCache = function (entities, options) { };
+    /**
+     * Set the pattern that the collection's filter applies
+     * when using the `filteredEntities` selector.
+     * @param {?} pattern
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.setFilter = function (pattern, options) { };
+    /**
+     * Set the loaded flag
+     * @param {?} isLoaded
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.setLoaded = function (isLoaded, options) { };
+    /**
+     * Set the loading flag
+     * @param {?} isLoading
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.setLoading = function (isLoading, options) { };
+}
+/**
+ * Commands that dispatch entity actions for a collection
+ * @record
+ * @template T
+ */
+function EntityCommands() { }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dispatchers/entity-dispatcher-base.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Dispatches EntityCollection actions to their reducers and effects (default implementation).
@@ -2586,7 +3653,7 @@ class EntityDispatcherBase {
         const correlationId = options.correlationId == null
             ? this.correlationIdGenerator.next()
             : options.correlationId;
-        return Object.assign({}, options, { correlationId });
+        return Object.assign(Object.assign({}, options), { correlationId });
     }
     /**
      * @private
@@ -2604,13 +3671,71 @@ class EntityDispatcherBase {
         const isOptimistic = options.isOptimistic == null
             ? defaultOptimism || false
             : options.isOptimistic === true;
-        return Object.assign({}, options, { correlationId, isOptimistic });
+        return Object.assign(Object.assign({}, options), { correlationId, isOptimistic });
     }
+}
+if (false) {
+    /**
+     * Utility class with methods to validate EntityAction payloads.
+     * @type {?}
+     */
+    EntityDispatcherBase.prototype.guard;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherBase.prototype.entityCollection$;
+    /**
+     * Convert an entity (or partial entity) into the `Update<T>` object
+     * `update...` and `upsert...` methods take `Update<T>` args
+     * @type {?}
+     */
+    EntityDispatcherBase.prototype.toUpdate;
+    /**
+     * Name of the entity type for which entities are dispatched
+     * @type {?}
+     */
+    EntityDispatcherBase.prototype.entityName;
+    /**
+     * Creates an {EntityAction}
+     * @type {?}
+     */
+    EntityDispatcherBase.prototype.entityActionFactory;
+    /**
+     * The store, scoped to the EntityCache
+     * @type {?}
+     */
+    EntityDispatcherBase.prototype.store;
+    /**
+     * Returns the primary key (id) of this entity
+     * @type {?}
+     */
+    EntityDispatcherBase.prototype.selectId;
+    /**
+     * Dispatcher options configure dispatcher behavior such as
+     * whether add is optimistic or pessimistic by default.
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherBase.prototype.defaultDispatcherOptions;
+    /**
+     * Actions scanned by the store after it processed them with reducers.
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherBase.prototype.reducedActions$;
+    /**
+     * Generates correlation ids for query and save methods
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherBase.prototype.correlationIdGenerator;
 }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/constants.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const ENTITY_CACHE_NAME = 'entityCache';
@@ -2625,7 +3750,8 @@ const INITIAL_ENTITY_CACHE_STATE = new InjectionToken('@ngrx/data/initial-entity
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/selectors/entity-cache-selector.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const ENTITY_CACHE_SELECTOR_TOKEN = new InjectionToken('@ngrx/data/entity-cache-selector');
@@ -2646,7 +3772,8 @@ function createEntityCacheSelector(entityCacheName) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/dispatchers/entity-dispatcher-factory.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Creates EntityDispatchers for entity collections
@@ -2695,7 +3822,7 @@ class EntityDispatcherFactory {
     defaultOptions = {}) {
         // merge w/ defaultOptions with injected defaults
         /** @type {?} */
-        const options = Object.assign({}, this.entityDispatcherDefaultOptions, defaultOptions);
+        const options = Object.assign(Object.assign({}, this.entityDispatcherDefaultOptions), defaultOptions);
         return new EntityDispatcherBase(entityName, this.entityActionFactory, this.store, selectId, options, this.reducedActions$, this.entityCacheSelector, this.correlationIdGenerator);
     }
     /**
@@ -2717,10 +3844,49 @@ EntityDispatcherFactory.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Inject, args: [ENTITY_CACHE_SELECTOR_TOKEN,] }] },
     { type: CorrelationIdGenerator }
 ];
+if (false) {
+    /**
+     * Actions scanned by the store after it processed them with reducers.
+     * A replay observable of the most recent action reduced by the store.
+     * @type {?}
+     */
+    EntityDispatcherFactory.prototype.reducedActions$;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherFactory.prototype.raSubscription;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherFactory.prototype.entityActionFactory;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherFactory.prototype.store;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherFactory.prototype.entityDispatcherDefaultOptions;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherFactory.prototype.entityCacheSelector;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDispatcherFactory.prototype.correlationIdGenerator;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/effects/entity-effects-scheduler.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 // See https://github.com/ReactiveX/rxjs/blob/master/doc/marble-testing.md
 /**
@@ -2731,7 +3897,8 @@ const ENTITY_EFFECTS_SCHEDULER = new InjectionToken('EntityEffects Scheduler');
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/effects/entity-cache-effects.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class EntityCacheEffects {
     /**
@@ -2900,10 +4067,54 @@ EntityCacheEffects.ctorParameters = () => [
     { type: Logger },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_EFFECTS_SCHEDULER,] }] }
 ];
+if (false) {
+    /**
+     * Delay for error and skip observables. Must be multiple of 10 for marble testing.
+     * @type {?}
+     * @private
+     */
+    EntityCacheEffects.prototype.responseDelay;
+    /**
+     * Observable of SAVE_ENTITIES_CANCEL actions with non-null correlation ids
+     * @type {?}
+     */
+    EntityCacheEffects.prototype.saveEntitiesCancel$;
+    /** @type {?} */
+    EntityCacheEffects.prototype.saveEntities$;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheEffects.prototype.actions;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheEffects.prototype.dataService;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheEffects.prototype.entityActionFactory;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheEffects.prototype.logger;
+    /**
+     * Injecting an optional Scheduler that will be undefined
+     * in normal application usage, but its injected here so that you can mock out
+     * during testing using the RxJS TestScheduler for simulating passages of time.
+     * @type {?}
+     * @private
+     */
+    EntityCacheEffects.prototype.scheduler;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/effects/entity-effects.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const persistOps = [
@@ -3026,7 +4237,7 @@ class EntityEffects {
                  * @param {?} updatedEntity
                  * @return {?}
                  */
-                updatedEntity => {
+                (updatedEntity) => {
                     // Return an Update<T> with updated entity data.
                     // If server returned entity data, merge with the changes that were sent
                     // and set the 'changed' flag to true.
@@ -3037,7 +4248,7 @@ class EntityEffects {
                     const hasData = updatedEntity && Object.keys(updatedEntity).length > 0;
                     /** @type {?} */
                     const responseData = hasData
-                        ? { id, changes: Object.assign({}, changes, updatedEntity), changed: true }
+                        ? { id, changes: Object.assign(Object.assign({}, changes), updatedEntity), changed: true }
                         : { id, changes, changed: false };
                     return responseData;
                 })));
@@ -3046,7 +4257,7 @@ class EntityEffects {
                  * @param {?} upsertedEntity
                  * @return {?}
                  */
-                upsertedEntity => {
+                (upsertedEntity) => {
                     /** @type {?} */
                     const hasData = upsertedEntity && Object.keys(upsertedEntity).length > 0;
                     return hasData ? upsertedEntity : data; // ensure a returned entity value.
@@ -3103,10 +4314,54 @@ EntityEffects.ctorParameters = () => [
     { type: PersistenceResultHandler },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_EFFECTS_SCHEDULER,] }] }
 ];
+if (false) {
+    /**
+     * Delay for error and skip observables. Must be multiple of 10 for marble testing.
+     * @type {?}
+     * @private
+     */
+    EntityEffects.prototype.responseDelay;
+    /**
+     * Observable of non-null cancellation correlation ids from CANCEL_PERSIST actions
+     * @type {?}
+     */
+    EntityEffects.prototype.cancel$;
+    /** @type {?} */
+    EntityEffects.prototype.persist$;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityEffects.prototype.actions;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityEffects.prototype.dataService;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityEffects.prototype.entityActionFactory;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityEffects.prototype.resultHandler;
+    /**
+     * Injecting an optional Scheduler that will be undefined
+     * in normal application usage, but its injected here so that you can mock out
+     * during testing using the RxJS TestScheduler for simulating passages of time.
+     * @type {?}
+     * @private
+     */
+    EntityEffects.prototype.scheduler;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-metadata/entity-filters.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Creates an {EntityFilterFn} that matches RegExp or RegExp string pattern
@@ -3156,7 +4411,8 @@ function PropsFilterFnFactory(props = []) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-services/entity-collection-service-base.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 // tslint:disable:member-ordering
 /**
@@ -3470,10 +4726,109 @@ class EntityCollectionServiceBase {
         this.dispatcher.setLoading(!!isLoading);
     }
 }
+if (false) {
+    /**
+     * Dispatcher of EntityCommands (EntityActions)
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.dispatcher;
+    /**
+     * All selectors of entity collection properties
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.selectors;
+    /**
+     * All selectors$ (observables of entity collection properties)
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.selectors$;
+    /**
+     * Utility class with methods to validate EntityAction payloads.
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.guard;
+    /**
+     * Returns the primary key (id) of this entity
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.selectId;
+    /**
+     * Convert an entity (or partial entity) into the `Update<T>` object
+     * `update...` and `upsert...` methods take `Update<T>` args
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.toUpdate;
+    /**
+     * Observable of the collection as a whole
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.collection$;
+    /**
+     * Observable of count of entities in the cached collection.
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.count$;
+    /**
+     * Observable of all entities in the cached collection.
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.entities$;
+    /**
+     * Observable of actions related to this entity type.
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.entityActions$;
+    /**
+     * Observable of the map of entity keys to entities
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.entityMap$;
+    /**
+     * Observable of error actions related to this entity type.
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.errors$;
+    /**
+     * Observable of the filter pattern applied by the entity collection's filter function
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.filter$;
+    /**
+     * Observable of entities in the cached collection that pass the filter function
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.filteredEntities$;
+    /**
+     * Observable of the keys of the cached collection, in the collection's native sort order
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.keys$;
+    /**
+     * Observable true when the collection has been loaded
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.loaded$;
+    /**
+     * Observable true when a multi-entity query command is in progress.
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.loading$;
+    /**
+     * Original entity values for entities with unsaved changes
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.changeState$;
+    /**
+     * Name of the entity type of this collection service
+     * @type {?}
+     */
+    EntityCollectionServiceBase.prototype.entityName;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-collection-creator.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class EntityCollectionCreator {
     /**
@@ -3504,6 +4859,13 @@ EntityCollectionCreator.decorators = [
 EntityCollectionCreator.ctorParameters = () => [
     { type: EntityDefinitionService, decorators: [{ type: Optional }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionCreator.prototype.entityDefinitionService;
+}
 /**
  * @template T
  * @param {?=} entityName
@@ -3523,8 +4885,136 @@ function createEmptyEntityCollection(entityName) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/selectors/entity-selectors.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * The selector functions for entity collection members,
+ * Selects from the entity collection to the collection member
+ * Contrast with {EntitySelectors}.
+ * @record
+ * @template T
+ */
+function CollectionSelectors() { }
+if (false) {
+    /**
+     * Count of entities in the cached collection.
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectCount;
+    /**
+     * All entities in the cached collection.
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectEntities;
+    /**
+     * Map of entity keys to entities
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectEntityMap;
+    /**
+     * Filter pattern applied by the entity collection's filter function
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectFilter;
+    /**
+     * Entities in the cached collection that pass the filter function
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectFilteredEntities;
+    /**
+     * Keys of the cached collection, in the collection's native sort order
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectKeys;
+    /**
+     * True when the collection has been fully loaded.
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectLoaded;
+    /**
+     * True when a multi-entity query command is in progress.
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectLoading;
+    /**
+     * ChangeState (including original values) of entities with unsaved changes
+     * @type {?}
+     */
+    CollectionSelectors.prototype.selectChangeState;
+    /* Skipping unhandled member: readonly [selector: string]: any;*/
+}
+/**
+ * The selector functions for entity collection members,
+ * Selects from store root, through EntityCache, to the entity collection member
+ * Contrast with {CollectionSelectors}.
+ * @record
+ * @template T
+ */
+function EntitySelectors() { }
+if (false) {
+    /**
+     * Name of the entity collection for these selectors
+     * @type {?}
+     */
+    EntitySelectors.prototype.entityName;
+    /**
+     * The cached EntityCollection itself
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectCollection;
+    /**
+     * Count of entities in the cached collection.
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectCount;
+    /**
+     * All entities in the cached collection.
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectEntities;
+    /**
+     * The EntityCache
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectEntityCache;
+    /**
+     * Map of entity keys to entities
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectEntityMap;
+    /**
+     * Filter pattern applied by the entity collection's filter function
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectFilter;
+    /**
+     * Entities in the cached collection that pass the filter function
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectFilteredEntities;
+    /**
+     * Keys of the cached collection, in the collection's native sort order
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectKeys;
+    /**
+     * True when the collection has been fully loaded.
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectLoaded;
+    /**
+     * True when a multi-entity query command is in progress.
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectLoading;
+    /**
+     * ChangeState (including original values) of entities with unsaved changes
+     * @type {?}
+     */
+    EntitySelectors.prototype.selectChangeState;
+    /* Skipping unhandled member: readonly [name: string]: MemoizedSelector<EntityCollection<T>, any> | string;*/
+}
 /**
  * Creates EntitySelector functions for entity collections.
  */
@@ -3697,11 +5187,97 @@ EntitySelectorsFactory.ctorParameters = () => [
     { type: EntityCollectionCreator, decorators: [{ type: Optional }] },
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_CACHE_SELECTOR_TOKEN,] }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntitySelectorsFactory.prototype.entityCollectionCreator;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntitySelectorsFactory.prototype.selectEntityCache;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/selectors/entity-selectors$.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * The selector observable functions for entity collection members.
+ * @record
+ * @template T
+ */
+function EntitySelectors$() { }
+if (false) {
+    /**
+     * Name of the entity collection for these selectors$
+     * @type {?}
+     */
+    EntitySelectors$.prototype.entityName;
+    /**
+     * Observable of the collection as a whole
+     * @type {?}
+     */
+    EntitySelectors$.prototype.collection$;
+    /**
+     * Observable of count of entities in the cached collection.
+     * @type {?}
+     */
+    EntitySelectors$.prototype.count$;
+    /**
+     * Observable of all entities in the cached collection.
+     * @type {?}
+     */
+    EntitySelectors$.prototype.entities$;
+    /**
+     * Observable of actions related to this entity type.
+     * @type {?}
+     */
+    EntitySelectors$.prototype.entityActions$;
+    /**
+     * Observable of the map of entity keys to entities
+     * @type {?}
+     */
+    EntitySelectors$.prototype.entityMap$;
+    /**
+     * Observable of error actions related to this entity type.
+     * @type {?}
+     */
+    EntitySelectors$.prototype.errors$;
+    /**
+     * Observable of the filter pattern applied by the entity collection's filter function
+     * @type {?}
+     */
+    EntitySelectors$.prototype.filter$;
+    /**
+     * Observable of entities in the cached collection that pass the filter function
+     * @type {?}
+     */
+    EntitySelectors$.prototype.filteredEntities$;
+    /**
+     * Observable of the keys of the cached collection, in the collection's native sort order
+     * @type {?}
+     */
+    EntitySelectors$.prototype.keys$;
+    /**
+     * Observable true when the collection has been loaded
+     * @type {?}
+     */
+    EntitySelectors$.prototype.loaded$;
+    /**
+     * Observable true when a multi-entity query command is in progress.
+     * @type {?}
+     */
+    EntitySelectors$.prototype.loading$;
+    /**
+     * ChangeState (including original values) of entities with unsaved changes
+     * @type {?}
+     */
+    EntitySelectors$.prototype.changeState$;
+}
 /**
  * Creates observable EntitySelectors$ for entity collections.
  */
@@ -3766,11 +5342,55 @@ EntitySelectors$Factory.ctorParameters = () => [
     { type: Actions },
     { type: undefined, decorators: [{ type: Inject, args: [ENTITY_CACHE_SELECTOR_TOKEN,] }] }
 ];
+if (false) {
+    /**
+     * Observable of the EntityCache
+     * @type {?}
+     */
+    EntitySelectors$Factory.prototype.entityCache$;
+    /**
+     * Observable of error EntityActions (e.g. QUERY_ALL_ERROR) for all entity types
+     * @type {?}
+     */
+    EntitySelectors$Factory.prototype.entityActionErrors$;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntitySelectors$Factory.prototype.store;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntitySelectors$Factory.prototype.actions;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntitySelectors$Factory.prototype.selectEntityCache;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-services/entity-collection-service-elements-factory.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Core ingredients of an EntityCollectionService
+ * @record
+ * @template T, S$
+ */
+function EntityCollectionServiceElements() { }
+if (false) {
+    /** @type {?} */
+    EntityCollectionServiceElements.prototype.dispatcher;
+    /** @type {?} */
+    EntityCollectionServiceElements.prototype.entityName;
+    /** @type {?} */
+    EntityCollectionServiceElements.prototype.selectors;
+    /** @type {?} */
+    EntityCollectionServiceElements.prototype.selectors$;
+}
 /**
  * Creates the core elements of the EntityCollectionService for an entity type.
  */
@@ -3821,10 +5441,33 @@ EntityCollectionServiceElementsFactory.ctorParameters = () => [
     { type: EntitySelectorsFactory },
     { type: EntitySelectors$Factory }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionServiceElementsFactory.prototype.entityDispatcherFactory;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionServiceElementsFactory.prototype.entityDefinitionService;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionServiceElementsFactory.prototype.entitySelectorsFactory;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionServiceElementsFactory.prototype.entitySelectors$Factory;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-services/entity-collection-service-factory.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Creates EntityCollectionService instances for
@@ -3854,15 +5497,71 @@ EntityCollectionServiceFactory.decorators = [
 EntityCollectionServiceFactory.ctorParameters = () => [
     { type: EntityCollectionServiceElementsFactory }
 ];
+if (false) {
+    /**
+     * Creates the core elements of the EntityCollectionService for an entity type.
+     * @type {?}
+     */
+    EntityCollectionServiceFactory.prototype.entityCollectionServiceElementsFactory;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-services/entity-collection-service.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * A facade for managing
+ * a cached collection of T entities in the ngrx store.
+ * @record
+ * @template T
+ */
+function EntityCollectionService() { }
+if (false) {
+    /**
+     * Dispatcher of EntityCommands (EntityActions)
+     * @type {?}
+     */
+    EntityCollectionService.prototype.dispatcher;
+    /**
+     * Name of the entity type for this collection service
+     * @type {?}
+     */
+    EntityCollectionService.prototype.entityName;
+    /**
+     * All selector functions of the entity collection
+     * @type {?}
+     */
+    EntityCollectionService.prototype.selectors;
+    /**
+     * All selectors$ (observables of the selectors of entity collection properties)
+     * @type {?}
+     */
+    EntityCollectionService.prototype.selectors$;
+    /**
+     * Create an {EntityAction} for this entity type.
+     * @param {?} op {EntityOp} the entity operation
+     * @param {?=} payload
+     * @param {?=} options
+     * @return {?} the EntityAction
+     */
+    EntityCollectionService.prototype.createEntityAction = function (op, payload, options) { };
+    /**
+     * Create an {EntityAction} for this entity type and
+     * dispatch it immediately to the store.
+     * @template P
+     * @param {?} op {EntityOp} the entity operation
+     * @param {?=} data
+     * @param {?=} options
+     * @return {?} the dispatched EntityAction
+     */
+    EntityCollectionService.prototype.createAndDispatch = function (op, data, options) { };
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-services/entity-services-elements.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Core ingredients of an EntityServices class
@@ -3896,10 +5595,40 @@ EntityServicesElements.ctorParameters = () => [
     { type: EntitySelectors$Factory },
     { type: Store }
 ];
+if (false) {
+    /**
+     * Observable of error EntityActions (e.g. QUERY_ALL_ERROR) for all entity types
+     * @type {?}
+     */
+    EntityServicesElements.prototype.entityActionErrors$;
+    /**
+     * Observable of the entire entity cache
+     * @type {?}
+     */
+    EntityServicesElements.prototype.entityCache$;
+    /**
+     * Actions scanned by the store after it processed them with reducers.
+     * A replay observable of the most recent action reduced by the store.
+     * @type {?}
+     */
+    EntityServicesElements.prototype.reducedActions$;
+    /**
+     * Creates EntityCollectionService instances for
+     * a cached collection of T entities in the ngrx store.
+     * @type {?}
+     */
+    EntityServicesElements.prototype.entityCollectionServiceFactory;
+    /**
+     * The ngrx store, scoped to the EntityCache
+     * @type {?}
+     */
+    EntityServicesElements.prototype.store;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-services/entity-services-base.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 // tslint:disable:member-ordering
 /**
@@ -4058,10 +5787,24 @@ EntityServicesBase.decorators = [
 EntityServicesBase.ctorParameters = () => [
     { type: EntityServicesElements }
 ];
+if (false) {
+    /**
+     * Registry of EntityCollectionService instances
+     * @type {?}
+     * @private
+     */
+    EntityServicesBase.prototype.EntityCollectionServices;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityServicesBase.prototype.entityServicesElements;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-services/entity-services.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 // tslint:disable:member-ordering
 /**
@@ -4074,10 +5817,74 @@ EntityServicesBase.ctorParameters = () => [
  */
 class EntityServices {
 }
+if (false) {
+    /**
+     * Observable of error EntityActions (e.g. QUERY_ALL_ERROR) for all entity types
+     * @type {?}
+     */
+    EntityServices.prototype.entityActionErrors$;
+    /**
+     * Observable of the entire entity cache
+     * @type {?}
+     */
+    EntityServices.prototype.entityCache$;
+    /**
+     * Actions scanned by the store after it processed them with reducers.
+     * A replay observable of the most recent Action (not just EntityAction) reduced by the store.
+     * @type {?}
+     */
+    EntityServices.prototype.reducedActions$;
+    /**
+     * Dispatch any action to the store
+     * @abstract
+     * @param {?} action
+     * @return {?}
+     */
+    EntityServices.prototype.dispatch = function (action) { };
+    /**
+     * Get (or create) the singleton instance of an EntityCollectionService
+     * @abstract
+     * @template T
+     * @param {?} entityName {string} Name of the entity type of the service
+     * @return {?}
+     */
+    EntityServices.prototype.getEntityCollectionService = function (entityName) { };
+    /**
+     * Register an EntityCollectionService under its entity type name.
+     * Will replace a pre-existing service for that type.
+     * @abstract
+     * @template T
+     * @param {?} service {EntityCollectionService} The entity service
+     * @return {?}
+     */
+    EntityServices.prototype.registerEntityCollectionService = function (service) { };
+    /**
+     * Register entity services for several entity types at once.
+     * Will replace a pre-existing service for that type.
+     * @abstract
+     * @param {?} entityCollectionServices Array of EntityCollectionServices to register
+     * @return {?}
+     */
+    EntityServices.prototype.registerEntityCollectionServices = function (entityCollectionServices) { };
+    /**
+     * Register entity services for several entity types at once.
+     * Will replace a pre-existing service for that type.
+     * @abstract
+     * @param {?} entityCollectionServiceMap Map of service-name to entity-collection-service
+     * @return {?}
+     */
+    EntityServices.prototype.registerEntityCollectionServices = function (entityCollectionServiceMap) { };
+}
+/**
+ * A map of service or entity names to their corresponding EntityCollectionServices.
+ * @record
+ */
+function EntityCollectionServiceMap() { }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-collection.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @enum {number} */
 const ChangeType = {
@@ -4094,10 +5901,58 @@ ChangeType[ChangeType.Unchanged] = 'Unchanged';
 ChangeType[ChangeType.Added] = 'Added';
 ChangeType[ChangeType.Deleted] = 'Deleted';
 ChangeType[ChangeType.Updated] = 'Updated';
+/**
+ * Change state for an entity with unsaved changes;
+ * an entry in an EntityCollection.changeState map
+ * @record
+ * @template T
+ */
+function ChangeState() { }
+if (false) {
+    /** @type {?} */
+    ChangeState.prototype.changeType;
+    /** @type {?|undefined} */
+    ChangeState.prototype.originalValue;
+}
+/**
+ * Data and information about a collection of entities of a single type.
+ * EntityCollections are maintained in the EntityCache within the ngrx store.
+ * @record
+ * @template T
+ */
+function EntityCollection() { }
+if (false) {
+    /**
+     * Name of the entity type for this collection
+     * @type {?}
+     */
+    EntityCollection.prototype.entityName;
+    /**
+     * A map of ChangeStates, keyed by id, for entities with unsaved changes
+     * @type {?}
+     */
+    EntityCollection.prototype.changeState;
+    /**
+     * The user's current collection filter pattern
+     * @type {?|undefined}
+     */
+    EntityCollection.prototype.filter;
+    /**
+     * true if collection was ever filled by QueryAll; forced false if cleared
+     * @type {?}
+     */
+    EntityCollection.prototype.loaded;
+    /**
+     * true when a query or save operation is in progress
+     * @type {?}
+     */
+    EntityCollection.prototype.loading;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-change-tracker-base.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * The default implementation of EntityChangeTracker with
@@ -4127,7 +5982,7 @@ class EntityChangeTrackerBase {
     commitAll(collection) {
         return Object.keys(collection.changeState).length === 0
             ? collection
-            : Object.assign({}, collection, { changeState: {} });
+            : Object.assign(Object.assign({}, collection), { changeState: {} });
     }
     /**
      * Commit changes for the given entities as when they have been refreshed from the server.
@@ -4162,7 +6017,7 @@ class EntityChangeTrackerBase {
             }
             return chgState;
         }), collection.changeState);
-        return didMutate ? Object.assign({}, collection, { changeState }) : collection;
+        return didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
     }
     /**
      * Commit changes for the given entity as when it have been refreshed from the server.
@@ -4266,7 +6121,7 @@ class EntityChangeTrackerBase {
                     }
                     return chgState;
                 }), collection.changeState);
-                collection = didMutate ? Object.assign({}, collection, { changeState }) : collection;
+                collection = didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
                 updates = filterChanged(updateResponseData);
                 return this.adapter.updateMany(updates, collection);
             case MergeStrategy.PreserveChanges: {
@@ -4298,15 +6153,15 @@ class EntityChangeTrackerBase {
                             delete chgState[oldId];
                         }
                         /** @type {?} */
-                        const newOrigValue = Object.assign({}, ((/** @type {?} */ ((/** @type {?} */ (oldChangeState)).originalValue))), ((/** @type {?} */ (update.changes))));
-                        ((/** @type {?} */ (chgState)))[newId] = Object.assign({}, oldChangeState, { originalValue: newOrigValue });
+                        const newOrigValue = Object.assign(Object.assign({}, ((/** @type {?} */ ((/** @type {?} */ (oldChangeState)).originalValue)))), ((/** @type {?} */ (update.changes))));
+                        ((/** @type {?} */ (chgState)))[newId] = Object.assign(Object.assign({}, oldChangeState), { originalValue: newOrigValue });
                     }
                     else {
                         updateableEntities.push(update);
                     }
                     return chgState;
                 }), collection.changeState);
-                collection = didMutate ? Object.assign({}, collection, { changeState }) : collection;
+                collection = didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
                 updates = filterChanged(updateableEntities);
                 return this.adapter.updateMany(updates, collection);
             }
@@ -4394,7 +6249,7 @@ class EntityChangeTrackerBase {
                     }
                     return chgState;
                 }), collection.changeState);
-                return didMutate ? Object.assign({}, collection, { changeState }) : collection;
+                return didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
             case MergeStrategy.PreserveChanges: {
                 /** @type {?} */
                 const upsertEntities = (/** @type {?} */ ([]));
@@ -4421,7 +6276,7 @@ class EntityChangeTrackerBase {
                     return chgState;
                 }), collection.changeState);
                 collection = this.adapter.upsertMany(upsertEntities, collection);
-                return didMutate ? Object.assign({}, collection, { changeState }) : collection;
+                return didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
             }
         }
     }
@@ -4466,7 +6321,7 @@ class EntityChangeTrackerBase {
             }
             return chgState;
         }), collection.changeState);
-        return didMutate ? Object.assign({}, collection, { changeState }) : collection;
+        return didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
     }
     /**
      * Track an entity before adding it to the collection.
@@ -4542,7 +6397,7 @@ class EntityChangeTrackerBase {
                 }
             }
         }), collection.changeState);
-        return didMutate ? Object.assign({}, collection, { changeState }) : collection;
+        return didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
     }
     /**
      * Track an entity before it is removed with the intention of deleting it on the server.
@@ -4604,7 +6459,7 @@ class EntityChangeTrackerBase {
             }
             return chgState;
         }), collection.changeState);
-        return didMutate ? Object.assign({}, collection, { changeState }) : collection;
+        return didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
     }
     /**
      * Track an entity before updating it in the collection.
@@ -4665,7 +6520,7 @@ class EntityChangeTrackerBase {
             }
             return chgState;
         }), collection.changeState);
-        return didMutate ? Object.assign({}, collection, { changeState }) : collection;
+        return didMutate ? Object.assign(Object.assign({}, collection), { changeState }) : collection;
     }
     /**
      * Track an entity before upsert (adding and updating) it to the collection.
@@ -4724,7 +6579,7 @@ class EntityChangeTrackerBase {
         });
         collection = this.adapter.removeMany((/** @type {?} */ (remove)), collection);
         collection = this.adapter.upsertMany(upsert, collection);
-        return Object.assign({}, collection, { changeState: {} });
+        return Object.assign(Object.assign({}, collection), { changeState: {} });
     }
     /**
      * Revert the unsaved changes for the given entities.
@@ -4785,7 +6640,7 @@ class EntityChangeTrackerBase {
         });
         collection = this.adapter.removeMany((/** @type {?} */ (remove)), collection);
         collection = this.adapter.upsertMany(upsert, collection);
-        return didMutate ? collection : Object.assign({}, collection, { changeState });
+        return didMutate ? collection : Object.assign(Object.assign({}, collection), { changeState });
     }
     /**
      * Revert the unsaved changes for the given entity.
@@ -4800,11 +6655,31 @@ class EntityChangeTrackerBase {
             : this.undoMany([entityOrId], collection);
     }
 }
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityChangeTrackerBase.prototype.adapter;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityChangeTrackerBase.prototype.selectId;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-collection-reducer-methods.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * Map of {EntityOp} to reducer method for the operation.
+ * If an operation is missing, caller should return the collection for that reducer.
+ * @record
+ * @template T
+ */
+function EntityCollectionReducerMethodMap() { }
 /**
  * Base implementation of reducer methods for an entity collection.
  * @template T
@@ -4940,7 +6815,7 @@ class EntityCollectionReducerMethods {
         const data = this.extractData(action);
         /** @type {?} */
         const mergeStrategy = this.extractMergeStrategy(action);
-        return Object.assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy), { loaded: true, loading: false });
+        return Object.assign(Object.assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loaded: true, loading: false });
     }
     /**
      * @protected
@@ -5006,7 +6881,7 @@ class EntityCollectionReducerMethods {
     queryLoadSuccess(collection, action) {
         /** @type {?} */
         const data = this.extractData(action);
-        return Object.assign({}, this.adapter.addAll(data, collection), { loading: false, loaded: true, changeState: {} });
+        return Object.assign(Object.assign({}, this.adapter.addAll(data, collection)), { loading: false, loaded: true, changeState: {} });
     }
     /**
      * @protected
@@ -5037,7 +6912,7 @@ class EntityCollectionReducerMethods {
         const data = this.extractData(action);
         /** @type {?} */
         const mergeStrategy = this.extractMergeStrategy(action);
-        return Object.assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy), { loading: false });
+        return Object.assign(Object.assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loading: false });
     }
     // #endregion query operations
     // #region save operations
@@ -5635,7 +7510,7 @@ class EntityCollectionReducerMethods {
     addAll(collection, action) {
         /** @type {?} */
         const entities = this.guard.mustBeEntities(action);
-        return Object.assign({}, this.adapter.addAll(entities, collection), { loading: false, loaded: true, changeState: {} });
+        return Object.assign(Object.assign({}, this.adapter.addAll(entities, collection)), { loading: false, loaded: true, changeState: {} });
     }
     /**
      * @protected
@@ -5702,7 +7577,7 @@ class EntityCollectionReducerMethods {
      * @return {?}
      */
     removeAll(collection, action) {
-        return Object.assign({}, this.adapter.removeAll(collection), { loaded: false, loading: false, changeState: {} });
+        return Object.assign(Object.assign({}, this.adapter.removeAll(collection)), { loaded: false, loading: false, changeState: {} });
     }
     /**
      * @protected
@@ -5830,7 +7705,7 @@ class EntityCollectionReducerMethods {
         const changeState = this.extractData(action);
         return collection.changeState === changeState
             ? collection
-            : Object.assign({}, collection, { changeState });
+            : Object.assign(Object.assign({}, collection), { changeState });
     }
     /**
      * Dangerous: Completely replace the collection.
@@ -5857,7 +7732,7 @@ class EntityCollectionReducerMethods {
         const filter = this.extractData(action);
         return collection.filter === filter
             ? collection
-            : Object.assign({}, collection, { filter });
+            : Object.assign(Object.assign({}, collection), { filter });
     }
     /**
      * @protected
@@ -5870,7 +7745,7 @@ class EntityCollectionReducerMethods {
         const loaded = this.extractData(action) === true || false;
         return collection.loaded === loaded
             ? collection
-            : Object.assign({}, collection, { loaded });
+            : Object.assign(Object.assign({}, collection), { loaded });
     }
     /**
      * @protected
@@ -5908,7 +7783,7 @@ class EntityCollectionReducerMethods {
         loading = loading === true ? true : false;
         return collection.loading === loading
             ? collection
-            : Object.assign({}, collection, { loading });
+            : Object.assign(Object.assign({}, collection), { loading });
     }
     // #endregion Cache-only operations
     // #region helpers
@@ -5943,6 +7818,53 @@ class EntityCollectionReducerMethods {
         return action.payload && action.payload.isOptimistic === true;
     }
 }
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCollectionReducerMethods.prototype.adapter;
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCollectionReducerMethods.prototype.guard;
+    /**
+     * True if this collection tracks unsaved changes
+     * @type {?}
+     * @protected
+     */
+    EntityCollectionReducerMethods.prototype.isChangeTracking;
+    /**
+     * Extract the primary key (id); default to `id`
+     * @type {?}
+     */
+    EntityCollectionReducerMethods.prototype.selectId;
+    /**
+     * Track changes to entities since the last query or save
+     * Can revert some or all of those changes
+     * @type {?}
+     */
+    EntityCollectionReducerMethods.prototype.entityChangeTracker;
+    /**
+     * Convert an entity (or partial entity) into the `Update<T>` object
+     * `id`: the primary key and
+     * `changes`: the entity (or partial entity of changes).
+     * @type {?}
+     * @protected
+     */
+    EntityCollectionReducerMethods.prototype.toUpdate;
+    /**
+     * Dictionary of the {EntityCollectionReducerMethods} for this entity type,
+     * keyed by the {EntityOp}
+     * @type {?}
+     */
+    EntityCollectionReducerMethods.prototype.methods;
+    /** @type {?} */
+    EntityCollectionReducerMethods.prototype.entityName;
+    /** @type {?} */
+    EntityCollectionReducerMethods.prototype.definition;
+}
 /**
  * Creates {EntityCollectionReducerMethods} for a given entity type.
  */
@@ -5974,10 +7896,18 @@ EntityCollectionReducerMethodsFactory.decorators = [
 EntityCollectionReducerMethodsFactory.ctorParameters = () => [
     { type: EntityDefinitionService }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionReducerMethodsFactory.prototype.entityDefinitionService;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-collection-reducer.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Create a default reducer for a specific entity collection
@@ -6018,11 +7948,24 @@ EntityCollectionReducerFactory.decorators = [
 EntityCollectionReducerFactory.ctorParameters = () => [
     { type: EntityCollectionReducerMethodsFactory }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionReducerFactory.prototype.methodsFactory;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-collection-reducer-registry.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * A hash of EntityCollectionReducers
+ * @record
+ */
+function EntityCollectionReducers() { }
 /**
  * Registry of entity types and their previously-constructed reducers.
  * Can create a new CollectionReducer, which it registers for subsequent use.
@@ -6097,10 +8040,28 @@ EntityCollectionReducerRegistry.ctorParameters = () => [
     { type: EntityCollectionReducerFactory },
     { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_COLLECTION_META_REDUCERS,] }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @protected
+     */
+    EntityCollectionReducerRegistry.prototype.entityCollectionReducers;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionReducerRegistry.prototype.entityCollectionMetaReducer;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCollectionReducerRegistry.prototype.entityCollectionReducerFactory;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-cache-reducer.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * Creates the EntityCacheReducer via its create() method
@@ -6448,7 +8409,7 @@ class EntityCacheReducerFactory {
         }
         return action.payload.error || collection === (/** @type {?} */ (newCollection))
             ? cache
-            : Object.assign({}, cache, { [entityName]: (/** @type {?} */ (newCollection)) });
+            : Object.assign(Object.assign({}, cache), { [entityName]: (/** @type {?} */ (newCollection)) });
     }
     /**
      * Ensure loading is false for every collection in entityNames
@@ -6472,7 +8433,7 @@ class EntityCacheReducerFactory {
                     entityCache = Object.assign({}, entityCache);
                     isMutated = true;
                 }
-                entityCache[entityName] = Object.assign({}, collection, { loading: false });
+                entityCache[entityName] = Object.assign(Object.assign({}, collection), { loading: false });
             }
         }));
         return entityCache;
@@ -6487,20 +8448,217 @@ EntityCacheReducerFactory.ctorParameters = () => [
     { type: EntityCollectionReducerRegistry },
     { type: Logger }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheReducerFactory.prototype.entityCollectionCreator;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheReducerFactory.prototype.entityCollectionReducerRegistry;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityCacheReducerFactory.prototype.logger;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-cache.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * @record
  */
+function EntityCache() { }
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/reducers/entity-change-tracker.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Methods for tracking, committing, and reverting/undoing unsaved entity changes.
+ * Used by EntityCollectionReducerMethods which should call tracker methods BEFORE modifying the collection.
+ * See EntityChangeTracker docs.
+ * @record
+ * @template T
+ */
+function EntityChangeTracker() { }
+if (false) {
+    /**
+     * Commit all changes as when the collection has been completely reloaded from the server.
+     * Harmless when there are no entity changes to commit.
+     * @param {?} collection The entity collection
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.commitAll = function (collection) { };
+    /**
+     * Commit changes for the given entities as when they have been refreshed from the server.
+     * Harmless when there are no entity changes to commit.
+     * @param {?} entityOrIdList The entities to clear tracking or their ids.
+     * @param {?} collection The entity collection
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.commitMany = function (entityOrIdList, collection) { };
+    /**
+     * Commit changes for the given entity as when it have been refreshed from the server.
+     * Harmless when no entity changes to commit.
+     * @param {?} entityOrId The entity to clear tracking or its id.
+     * @param {?} collection The entity collection
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.commitOne = function (entityOrId, collection) { };
+    /**
+     * Merge query results into the collection, adjusting the ChangeState per the mergeStrategy.
+     * @param {?} entities Entities returned from querying the server.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?} The merged EntityCollection.
+     */
+    EntityChangeTracker.prototype.mergeQueryResults = function (entities, collection, mergeStrategy) { };
+    /**
+     * Merge result of saving new entities into the collection, adjusting the ChangeState per the mergeStrategy.
+     * The default is MergeStrategy.OverwriteChanges.
+     * @param {?} entities Entities returned from saving new entities to the server.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?} The merged EntityCollection.
+     */
+    EntityChangeTracker.prototype.mergeSaveAdds = function (entities, collection, mergeStrategy) { };
+    /**
+     * Merge successful result of deleting entities on the server that have the given primary keys
+     * Clears the entity changeState for those keys unless the MergeStrategy is ignoreChanges.
+     * @param {?} keys
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?} The merged EntityCollection.
+     */
+    EntityChangeTracker.prototype.mergeSaveDeletes = function (keys, collection, mergeStrategy) { };
+    /**
+     * Merge result of saving upserted entities into the collection, adjusting the ChangeState per the mergeStrategy.
+     * The default is MergeStrategy.OverwriteChanges.
+     * @param {?} entities Entities returned from saving upsert entities to the server.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?} The merged EntityCollection.
+     */
+    EntityChangeTracker.prototype.mergeSaveUpserts = function (entities, collection, mergeStrategy) { };
+    /**
+     * Merge result of saving updated entities into the collection, adjusting the ChangeState per the mergeStrategy.
+     * The default is MergeStrategy.OverwriteChanges.
+     * @param {?} updates Entity response data returned from saving updated entities to the server.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @param {?=} skipUnchanged
+     * @return {?} The merged EntityCollection.
+     */
+    EntityChangeTracker.prototype.mergeSaveUpdates = function (updates, collection, mergeStrategy, skipUnchanged) { };
+    /**
+     * Track multiple entities before adding them to the collection.
+     * Does NOT add to the collection (the reducer's job).
+     * @param {?} entities The entities to add. They must all have their ids.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackAddMany = function (entities, collection, mergeStrategy) { };
+    /**
+     * Track an entity before adding it to the collection.
+     * Does NOT add to the collection (the reducer's job).
+     * @param {?} entity The entity to add. It must have an id.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackAddOne = function (entity, collection, mergeStrategy) { };
+    /**
+     * Track multiple entities before removing them with the intention of deleting them on the server.
+     * Does NOT remove from the collection (the reducer's job).
+     * @param {?} keys The primary keys of the entities to delete.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackDeleteMany = function (keys, collection, mergeStrategy) { };
+    /**
+     * Track an entity before it is removed with the intention of deleting it on the server.
+     * Does NOT remove from the collection (the reducer's job).
+     * @param {?} key The primary key of the entity to delete.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackDeleteOne = function (key, collection, mergeStrategy) { };
+    /**
+     * Track multiple entities before updating them in the collection.
+     * Does NOT update the collection (the reducer's job).
+     * @param {?} updates The entities to update.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackUpdateMany = function (updates, collection, mergeStrategy) { };
+    /**
+     * Track an entity before updating it in the collection.
+     * Does NOT update the collection (the reducer's job).
+     * @param {?} update The entity to update.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackUpdateOne = function (update, collection, mergeStrategy) { };
+    /**
+     * Track multiple entities before upserting (adding and updating) them to the collection.
+     * Does NOT update the collection (the reducer's job).
+     * @param {?} entities The entities to add or update. They must be complete entities with ids.
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackUpsertMany = function (entities, collection, mergeStrategy) { };
+    /**
+     * Track an entity before upsert (adding and updating) it to the collection.
+     * Does NOT update the collection (the reducer's job).
+     * @param {?} entity
+     * @param {?} collection The entity collection
+     * @param {?=} mergeStrategy
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.trackUpsertOne = function (entity, collection, mergeStrategy) { };
+    /**
+     * Revert the unsaved changes for all collection.
+     * Harmless when there are no entity changes to undo.
+     * @param {?} collection The entity collection
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.undoAll = function (collection) { };
+    /**
+     * Revert the unsaved changes for the given entities.
+     * Harmless when there are no entity changes to undo.
+     * @param {?} entityOrIdList The entities to revert or their ids.
+     * @param {?} collection The entity collection
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.undoMany = function (entityOrIdList, collection) { };
+    /**
+     * Revert the unsaved changes for the given entity.
+     * Harmless when there are no entity changes to undo.
+     * @param {?} entityOrId The entity to revert or its id.
+     * @param {?} collection The entity collection
+     * @return {?}
+     */
+    EntityChangeTracker.prototype.undoOne = function (entityOrId, collection) { };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * Generated from: modules/data/src/utils/default-logger.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 class DefaultLogger {
     /**
@@ -6540,7 +8698,8 @@ DefaultLogger.decorators = [
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/utils/default-pluralizer.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /** @type {?} */
 const uncountable = [
@@ -6608,7 +8767,7 @@ class DefaultPluralizer {
      * @return {?}
      */
     registerPluralNames(pluralNames) {
-        this.pluralNames = Object.assign({}, this.pluralNames, (pluralNames || {}));
+        this.pluralNames = Object.assign(Object.assign({}, this.pluralNames), (pluralNames || {}));
     }
 }
 DefaultPluralizer.decorators = [
@@ -6618,10 +8777,15 @@ DefaultPluralizer.decorators = [
 DefaultPluralizer.ctorParameters = () => [
     { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [PLURAL_NAMES_TOKEN,] }] }
 ];
+if (false) {
+    /** @type {?} */
+    DefaultPluralizer.prototype.pluralNames;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/utils/guid-fns.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /*
 Client-side id-generators
@@ -6721,8 +8885,25 @@ function guidComparer(l, r) {
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-data-without-effects.module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+/**
+ * @record
+ */
+function EntityDataModuleConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    EntityDataModuleConfig.prototype.entityMetadata;
+    /** @type {?|undefined} */
+    EntityDataModuleConfig.prototype.entityCacheMetaReducers;
+    /** @type {?|undefined} */
+    EntityDataModuleConfig.prototype.entityCollectionMetaReducers;
+    /** @type {?|undefined} */
+    EntityDataModuleConfig.prototype.initialEntityCacheState;
+    /** @type {?|undefined} */
+    EntityDataModuleConfig.prototype.pluralNames;
+}
 const ɵ0 = ENTITY_CACHE_NAME;
 /**
  * Module without effects or dataservices which means no HTTP calls
@@ -6841,10 +9022,43 @@ EntityDataModuleWithoutEffects.ctorParameters = () => [
     { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [INITIAL_ENTITY_CACHE_STATE,] }] },
     { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_CACHE_META_REDUCERS,] }] }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDataModuleWithoutEffects.prototype.entityCacheFeature;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDataModuleWithoutEffects.prototype.reducerManager;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDataModuleWithoutEffects.prototype.injector;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDataModuleWithoutEffects.prototype.entityCacheName;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDataModuleWithoutEffects.prototype.initialState;
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDataModuleWithoutEffects.prototype.metaReducers;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/entity-data.module.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
  * entity-data main module includes effects and HTTP data services
@@ -6944,25 +9158,35 @@ EntityDataModule.ctorParameters = () => [
     { type: EntityCacheEffects },
     { type: EntityEffects }
 ];
+if (false) {
+    /**
+     * @type {?}
+     * @private
+     */
+    EntityDataModule.prototype.effectSources;
+}
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/src/index.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/public_api.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated from: modules/data/index.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
 /**
  * Generated bundle index. Do not edit.
  */
 
-export { ENTITY_EFFECTS_SCHEDULER as ɵngrx_modules_data_data_a, EntityDataModule, EntityDataModuleWithoutEffects, EntityActionFactory, EntityActionGuard, ofEntityOp, ofEntityType, ChangeSetOperation, EntityCacheAction, ClearCollections, LoadCollections, MergeQuerySet, SetEntityCache, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, excludeEmptyChangeSetItems, ChangeSetItemFactory, changeSetItemFactory, makeErrorOp, makeSuccessOp, EntityOp, OP_SUCCESS, OP_ERROR, MergeStrategy, DataServiceError, DefaultDataServiceConfig, DefaultDataService, DefaultDataServiceFactory, EntityCacheDataService, EntityDataService, normalizeRoot, EntityHttpResourceUrls, HttpUrlGenerator, DefaultHttpUrlGenerator, PersistenceResultHandler, DefaultPersistenceResultHandler, EntityCacheDispatcher, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, PersistanceCanceled, EntityCacheEffects, persistOps, EntityEffects, EntityDefinitionService, createEntityDefinition, PropsFilterFnFactory, ENTITY_METADATA_TOKEN, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityServicesBase, EntityServicesElements, EntityServices, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_META_REDUCERS, ENTITY_COLLECTION_META_REDUCERS, INITIAL_ENTITY_CACHE_STATE, EntityCacheReducerFactory, EntityChangeTrackerBase, createEmptyEntityCollection, EntityCollectionCreator, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionReducerFactory, ChangeType, createEntityCacheSelector, ENTITY_CACHE_SELECTOR_TOKEN, entityCacheSelectorProvider, EntitySelectorsFactory, EntitySelectors$Factory, CorrelationIdGenerator, DefaultLogger, DefaultPluralizer, getUuid, getGuid, getGuidComb, guidComparer, Logger, PLURAL_NAMES_TOKEN, Pluralizer, defaultSelectId, flattenArgs, toUpdateFactory };
+export { ChangeSetItemFactory, ChangeSetOperation, ChangeType, ClearCollections, CorrelationIdGenerator, DataServiceError, DefaultDataService, DefaultDataServiceConfig, DefaultDataServiceFactory, DefaultHttpUrlGenerator, DefaultLogger, DefaultPersistenceResultHandler, DefaultPluralizer, ENTITY_CACHE_META_REDUCERS, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_SELECTOR_TOKEN, ENTITY_COLLECTION_META_REDUCERS, ENTITY_METADATA_TOKEN, EntityActionFactory, EntityActionGuard, EntityCacheAction, EntityCacheDataService, EntityCacheDispatcher, EntityCacheEffects, EntityCacheReducerFactory, EntityChangeTrackerBase, EntityCollectionCreator, EntityCollectionReducerFactory, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityDataModule, EntityDataModuleWithoutEffects, EntityDataService, EntityDefinitionService, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, EntityEffects, EntityHttpResourceUrls, EntityOp, EntitySelectors$Factory, EntitySelectorsFactory, EntityServices, EntityServicesBase, EntityServicesElements, HttpUrlGenerator, INITIAL_ENTITY_CACHE_STATE, LoadCollections, Logger, MergeQuerySet, MergeStrategy, OP_ERROR, OP_SUCCESS, PLURAL_NAMES_TOKEN, PersistanceCanceled, PersistenceResultHandler, Pluralizer, PropsFilterFnFactory, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, SetEntityCache, changeSetItemFactory, createEmptyEntityCollection, createEntityCacheSelector, createEntityDefinition, defaultSelectId, entityCacheSelectorProvider, excludeEmptyChangeSetItems, flattenArgs, getGuid, getGuidComb, getUuid, guidComparer, makeErrorOp, makeSuccessOp, normalizeRoot, ofEntityOp, ofEntityType, persistOps, toUpdateFactory, ENTITY_EFFECTS_SCHEDULER as ɵngrx_modules_data_data_a };
 //# sourceMappingURL=data.js.map

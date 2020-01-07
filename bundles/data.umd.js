@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.6.0+3.sha-fe6bfa7
+ * @license NgRx 8.6.0+4.sha-b146af5
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -7,7 +7,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('tslib'), require('@angular/core'), require('rxjs/operators'), require('@angular/common/http'), require('rxjs'), require('@ngrx/entity'), require('@ngrx/store'), require('@ngrx/effects')) :
     typeof define === 'function' && define.amd ? define('@ngrx/data', ['exports', 'tslib', '@angular/core', 'rxjs/operators', '@angular/common/http', 'rxjs', '@ngrx/entity', '@ngrx/store', '@ngrx/effects'], factory) :
     (global = global || self, factory((global.ngrx = global.ngrx || {}, global.ngrx.data = {}), global.tslib, global.ng.core, global.rxjs.operators, global.ng.common.http, global.rxjs, global.ngrx.entity, global.ngrx.store, global.ngrx.effects));
-}(this, function (exports, tslib_1, core, operators, http, rxjs, entity, store, effects) { 'use strict';
+}(this, (function (exports, tslib, core, operators, http, rxjs, entity, store, effects) { 'use strict';
 
     var EntityActionFactory = /** @class */ (function () {
         function EntityActionFactory() {
@@ -15,7 +15,7 @@
         // polymorphic create for the two signatures
         EntityActionFactory.prototype.create = function (nameOrPayload, entityOp, data, options) {
             var payload = typeof nameOrPayload === 'string'
-                ? tslib_1.__assign({}, (options || {}), { entityName: nameOrPayload, entityOp: entityOp,
+                ? tslib.__assign(tslib.__assign({}, (options || {})), { entityName: nameOrPayload, entityOp: entityOp,
                     data: data })
                 : nameOrPayload;
             return this.createCore(payload);
@@ -42,13 +42,13 @@
          * @param newProperties New EntityAction properties that replace the source action properties
          */
         EntityActionFactory.prototype.createFromAction = function (from, newProperties) {
-            return this.create(tslib_1.__assign({}, from.payload, newProperties));
+            return this.create(tslib.__assign(tslib.__assign({}, from.payload), newProperties));
         };
         EntityActionFactory.prototype.formatActionType = function (op, tag) {
             return "[" + tag + "] " + op;
             // return `${op} [${tag}]`.toUpperCase(); // example of an alternative
         };
-        EntityActionFactory = tslib_1.__decorate([
+        EntityActionFactory = tslib.__decorate([
             core.Injectable()
         ], EntityActionFactory);
         return EntityActionFactory;
@@ -215,8 +215,8 @@
             return [];
         }
         if (Array.isArray(args[0])) {
-            var _a = tslib_1.__read(args), head = _a[0], tail = _a.slice(1);
-            args = tslib_1.__spread(head, tail);
+            var _a = tslib.__read(args), head_1 = _a[0], tail_1 = _a.slice(1);
+            args = tslib.__spread(head_1, tail_1);
         }
         return args;
     }
@@ -338,7 +338,7 @@
     function excludeEmptyChangeSetItems(changeSet) {
         changeSet = changeSet && changeSet.changes ? changeSet : { changes: [] };
         var changes = changeSet.changes.filter(function (c) { return c != null && c.entities && c.entities.length > 0; });
-        return tslib_1.__assign({}, changeSet, { changes: changes });
+        return tslib.__assign(tslib.__assign({}, changeSet), { changes: changes });
     }
 
     /** How to merge an entity, after query or save, when the corresponding entity in the collection has unsaved changes. */
@@ -445,7 +445,7 @@
             if (changeSet) {
                 changeSet.tag = changeSet.tag || options.tag;
             }
-            this.payload = tslib_1.__assign({ changeSet: changeSet, url: url }, options, { tag: changeSet.tag });
+            this.payload = tslib.__assign(tslib.__assign({ changeSet: changeSet, url: url }, options), { tag: changeSet.tag });
         }
         return SaveEntities;
     }());
@@ -478,7 +478,7 @@
             if (changeSet) {
                 changeSet.tag = changeSet.tag || options.tag;
             }
-            this.payload = tslib_1.__assign({ changeSet: changeSet, url: url }, options, { tag: changeSet.tag });
+            this.payload = tslib.__assign(tslib.__assign({ changeSet: changeSet, url: url }, options), { tag: changeSet.tag });
         }
         return SaveEntitiesSuccess;
     }());
@@ -697,11 +697,11 @@
          * Note: this method does not ensure that resource urls are well-formed.
          */
         DefaultHttpUrlGenerator.prototype.registerHttpResourceUrls = function (entityHttpResourceUrls) {
-            this.knownHttpResourceUrls = tslib_1.__assign({}, this.knownHttpResourceUrls, (entityHttpResourceUrls || {}));
+            this.knownHttpResourceUrls = tslib.__assign(tslib.__assign({}, this.knownHttpResourceUrls), (entityHttpResourceUrls || {}));
         };
-        DefaultHttpUrlGenerator = tslib_1.__decorate([
+        DefaultHttpUrlGenerator = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [Pluralizer])
+            tslib.__metadata("design:paramtypes", [Pluralizer])
         ], DefaultHttpUrlGenerator);
         return DefaultHttpUrlGenerator;
     }());
@@ -819,8 +819,8 @@
                     break;
                 }
                 default: {
-                    var error = new Error('Unimplemented HTTP method, ' + method);
-                    result$ = rxjs.throwError(error);
+                    var error_1 = new Error('Unimplemented HTTP method, ' + method);
+                    result$ = rxjs.throwError(error_1);
                 }
             }
             if (this.timeout) {
@@ -869,10 +869,10 @@
         DefaultDataServiceFactory.prototype.create = function (entityName) {
             return new DefaultDataService(entityName, this.http, this.httpUrlGenerator, this.config);
         };
-        DefaultDataServiceFactory = tslib_1.__decorate([
+        DefaultDataServiceFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(2, core.Optional()),
-            tslib_1.__metadata("design:paramtypes", [http.HttpClient,
+            tslib.__param(2, core.Optional()),
+            tslib.__metadata("design:paramtypes", [http.HttpClient,
                 HttpUrlGenerator,
                 DefaultDataServiceConfig])
         ], DefaultDataServiceFactory);
@@ -889,7 +889,7 @@
         var sortComparer = (metadata.sortComparer = metadata.sortComparer || false);
         var entityAdapter = entity.createEntityAdapter({ selectId: selectId, sortComparer: sortComparer });
         var entityDispatcherOptions = metadata.entityDispatcherOptions || {};
-        var initialState = entityAdapter.getInitialState(tslib_1.__assign({ entityName: entityName, filter: '', loaded: false, loading: false, changeState: {} }, (metadata.additionalCollectionState || {})));
+        var initialState = entityAdapter.getInitialState(tslib.__assign({ entityName: entityName, filter: '', loaded: false, loading: false, changeState: {} }, (metadata.additionalCollectionState || {})));
         var noChangeTracking = metadata.noChangeTracking === true; // false by default
         return {
             entityName: entityName,
@@ -962,7 +962,7 @@
             if (metadataMap === void 0) { metadataMap = {}; }
             // The entity type name should be the same as the map key
             Object.keys(metadataMap || {}).forEach(function (entityName) {
-                return _this.registerMetadata(tslib_1.__assign({ entityName: entityName }, metadataMap[entityName]));
+                return _this.registerMetadata(tslib.__assign({ entityName: entityName }, metadataMap[entityName]));
             });
         };
         /**
@@ -988,11 +988,11 @@
         EntityDefinitionService.prototype.registerDefinitions = function (definitions) {
             Object.assign(this.definitions, definitions);
         };
-        EntityDefinitionService = tslib_1.__decorate([
+        EntityDefinitionService = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(0, core.Optional()),
-            tslib_1.__param(0, core.Inject(ENTITY_METADATA_TOKEN)),
-            tslib_1.__metadata("design:paramtypes", [Array])
+            tslib.__param(0, core.Optional()),
+            tslib.__param(0, core.Inject(ENTITY_METADATA_TOKEN)),
+            tslib.__metadata("design:paramtypes", [Array])
         ], EntityDefinitionService);
         return EntityDefinitionService;
     }());
@@ -1069,13 +1069,13 @@
             changes = changes.map(function (item) {
                 if (item.op === updateOp && item.entities.length > 0) {
                     hasMutated = true;
-                    return tslib_1.__assign({}, item, { entities: item.entities.map(function (u) { return u.changes; }) });
+                    return tslib.__assign(tslib.__assign({}, item), { entities: item.entities.map(function (u) { return u.changes; }) });
                 }
                 else {
                     return item;
                 }
             });
-            return hasMutated ? tslib_1.__assign({}, changeSet, { changes: changes }) : changeSet;
+            return hasMutated ? tslib.__assign(tslib.__assign({}, changeSet), { changes: changes }) : changeSet;
         };
         /**
          * Convert the flattened T entities in update changes back to @ngrx Update<T> structures.
@@ -1097,7 +1097,7 @@
                     // These are entities, not Updates; convert back to Updates
                     hasMutated = true;
                     var selectId_1 = _this.getIdSelector(item.entityName);
-                    return tslib_1.__assign({}, item, { entities: item.entities.map(function (u) { return ({
+                    return tslib.__assign(tslib.__assign({}, item), { entities: item.entities.map(function (u) { return ({
                             id: selectId_1(u),
                             changes: u,
                         }); }) });
@@ -1106,7 +1106,7 @@
                     return item;
                 }
             });
-            return hasMutated ? tslib_1.__assign({}, changeSet, { changes: changes }) : changeSet;
+            return hasMutated ? tslib.__assign(tslib.__assign({}, changeSet), { changes: changes }) : changeSet;
         };
         /**
          * Get the id (primary key) selector function for an entity type
@@ -1121,10 +1121,10 @@
             }
             return idSelector;
         };
-        EntityCacheDataService = tslib_1.__decorate([
+        EntityCacheDataService = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(2, core.Optional()),
-            tslib_1.__metadata("design:paramtypes", [EntityDefinitionService,
+            tslib.__param(2, core.Optional()),
+            tslib.__metadata("design:paramtypes", [EntityDefinitionService,
                 http.HttpClient,
                 DefaultDataServiceConfig])
         ], EntityCacheDataService);
@@ -1182,11 +1182,11 @@
          *   });
          */
         EntityDataService.prototype.registerServices = function (services) {
-            this.services = tslib_1.__assign({}, this.services, services);
+            this.services = tslib.__assign(tslib.__assign({}, this.services), services);
         };
-        EntityDataService = tslib_1.__decorate([
+        EntityDataService = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [DefaultDataServiceFactory])
+            tslib.__metadata("design:paramtypes", [DefaultDataServiceFactory])
         ], EntityDataService);
         return EntityDataService;
     }());
@@ -1234,9 +1234,9 @@
                 return action;
             };
         };
-        DefaultPersistenceResultHandler = tslib_1.__decorate([
+        DefaultPersistenceResultHandler = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [Logger,
+            tslib.__metadata("design:paramtypes", [Logger,
                 EntityActionFactory])
         ], DefaultPersistenceResultHandler);
         return DefaultPersistenceResultHandler;
@@ -1263,7 +1263,7 @@
             this.seed += 1;
             return this.prefix + this.seed;
         };
-        CorrelationIdGenerator = tslib_1.__decorate([
+        CorrelationIdGenerator = tslib.__decorate([
             core.Injectable()
         ], CorrelationIdGenerator);
         return CorrelationIdGenerator;
@@ -1290,7 +1290,7 @@
             /** True if entities in a cache saveEntities request are saved optimistically; false if saved pessimistically. */
             this.optimisticSaveEntities = false;
         }
-        EntityDispatcherDefaultOptions = tslib_1.__decorate([
+        EntityDispatcherDefaultOptions = tslib.__decorate([
             core.Injectable()
         ], EntityDispatcherDefaultOptions);
         return EntityDispatcherDefaultOptions;
@@ -1422,7 +1422,7 @@
                 ? this.defaultDispatcherOptions.optimisticSaveEntities || false
                 : options.isOptimistic === true;
             var tag = options.tag || 'Save Entities';
-            options = tslib_1.__assign({}, options, { correlationId: correlationId, isOptimistic: isOptimistic, tag: tag });
+            options = tslib.__assign(tslib.__assign({}, options), { correlationId: correlationId, isOptimistic: isOptimistic, tag: tag });
             var action = new SaveEntities(changeSet, url, options);
             this.dispatch(action);
             return this.getSaveEntitiesResponseData$(options.correlationId).pipe(operators.shareReplay(1));
@@ -1451,10 +1451,10 @@
                         : rxjs.throwError(act.payload);
             }));
         };
-        EntityCacheDispatcher = tslib_1.__decorate([
+        EntityCacheDispatcher = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(2, core.Inject(store.ScannedActionsSubject)),
-            tslib_1.__metadata("design:paramtypes", [CorrelationIdGenerator,
+            tslib.__param(2, core.Inject(store.ScannedActionsSubject)),
+            tslib.__metadata("design:paramtypes", [CorrelationIdGenerator,
                 EntityDispatcherDefaultOptions,
                 rxjs.Observable,
                 store.Store])
@@ -1508,7 +1508,7 @@
          * @returns the EntityAction
          */
         EntityDispatcherBase.prototype.createEntityAction = function (entityOp, data, options) {
-            return this.entityActionFactory.create(tslib_1.__assign({ entityName: this.entityName, entityOp: entityOp,
+            return this.entityActionFactory.create(tslib.__assign({ entityName: this.entityName, entityOp: entityOp,
                 data: data }, options));
         };
         /**
@@ -1553,7 +1553,7 @@
             // Use the returned entity data's id to get the entity from the collection
             // as it might be different from the entity returned from the server.
             operators.withLatestFrom(this.entityCollection$), operators.map(function (_a) {
-                var _b = tslib_1.__read(_a, 2), e = _b[0], collection = _b[1];
+                var _b = tslib.__read(_a, 2), e = _b[0], collection = _b[1];
                 return collection.entities[_this.selectId(e)];
             }), operators.shareReplay(1));
         };
@@ -1595,7 +1595,7 @@
             // as they might be different from the entities returned from the server
             // because of unsaved changes (deletes or updates).
             operators.withLatestFrom(this.entityCollection$), operators.map(function (_a) {
-                var _b = tslib_1.__read(_a, 2), entities = _b[0], collection = _b[1];
+                var _b = tslib.__read(_a, 2), entities = _b[0], collection = _b[1];
                 return entities.reduce(function (acc, e) {
                     var entity = collection.entities[_this.selectId(e)];
                     if (entity) {
@@ -1621,7 +1621,7 @@
             // Use the returned entity data's id to get the entity from the collection
             // as it might be different from the entity returned from the server.
             operators.withLatestFrom(this.entityCollection$), operators.map(function (_a) {
-                var _b = tslib_1.__read(_a, 2), entity = _b[0], collection = _b[1];
+                var _b = tslib.__read(_a, 2), entity = _b[0], collection = _b[1];
                 return collection.entities[_this.selectId(entity)];
             }), operators.shareReplay(1));
         };
@@ -1643,7 +1643,7 @@
             // as they might be different from the entities returned from the server
             // because of unsaved changes (deletes or updates).
             operators.withLatestFrom(this.entityCollection$), operators.map(function (_a) {
-                var _b = tslib_1.__read(_a, 2), entities = _b[0], collection = _b[1];
+                var _b = tslib.__read(_a, 2), entities = _b[0], collection = _b[1];
                 return entities.reduce(function (acc, e) {
                     var entity = collection.entities[_this.selectId(e)];
                     if (entity) {
@@ -1690,7 +1690,7 @@
             // as might be different from the entity returned from the server
             // because the id changed or there are unsaved changes.
             operators.map(function (updateData) { return updateData.changes; }), operators.withLatestFrom(this.entityCollection$), operators.map(function (_a) {
-                var _b = tslib_1.__read(_a, 2), e = _b[0], collection = _b[1];
+                var _b = tslib.__read(_a, 2), e = _b[0], collection = _b[1];
                 return collection.entities[_this.selectId(e)];
             }), operators.shareReplay(1));
         };
@@ -1714,7 +1714,7 @@
             // Use the returned entity data's id to get the entity from the collection
             // as it might be different from the entity returned from the server.
             operators.withLatestFrom(this.entityCollection$), operators.map(function (_a) {
-                var _b = tslib_1.__read(_a, 2), e = _b[0], collection = _b[1];
+                var _b = tslib.__read(_a, 2), e = _b[0], collection = _b[1];
                 return collection.entities[_this.selectId(e)];
             }), operators.shareReplay(1));
         };
@@ -1870,7 +1870,7 @@
             var correlationId = options.correlationId == null
                 ? this.correlationIdGenerator.next()
                 : options.correlationId;
-            return tslib_1.__assign({}, options, { correlationId: correlationId });
+            return tslib.__assign(tslib.__assign({}, options), { correlationId: correlationId });
         };
         EntityDispatcherBase.prototype.setSaveEntityActionOptions = function (options, defaultOptimism) {
             options = options || {};
@@ -1880,7 +1880,7 @@
             var isOptimistic = options.isOptimistic == null
                 ? defaultOptimism || false
                 : options.isOptimistic === true;
-            return tslib_1.__assign({}, options, { correlationId: correlationId, isOptimistic: isOptimistic });
+            return tslib.__assign(tslib.__assign({}, options), { correlationId: correlationId, isOptimistic: isOptimistic });
         };
         return EntityDispatcherBase;
     }());
@@ -1935,17 +1935,17 @@
             if (selectId === void 0) { selectId = defaultSelectId; }
             if (defaultOptions === void 0) { defaultOptions = {}; }
             // merge w/ defaultOptions with injected defaults
-            var options = tslib_1.__assign({}, this.entityDispatcherDefaultOptions, defaultOptions);
+            var options = tslib.__assign(tslib.__assign({}, this.entityDispatcherDefaultOptions), defaultOptions);
             return new EntityDispatcherBase(entityName, this.entityActionFactory, this.store, selectId, options, this.reducedActions$, this.entityCacheSelector, this.correlationIdGenerator);
         };
         EntityDispatcherFactory.prototype.ngOnDestroy = function () {
             this.raSubscription.unsubscribe();
         };
-        EntityDispatcherFactory = tslib_1.__decorate([
+        EntityDispatcherFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(3, core.Inject(store.ScannedActionsSubject)),
-            tslib_1.__param(4, core.Inject(ENTITY_CACHE_SELECTOR_TOKEN)),
-            tslib_1.__metadata("design:paramtypes", [EntityActionFactory,
+            tslib.__param(3, core.Inject(store.ScannedActionsSubject)),
+            tslib.__param(4, core.Inject(ENTITY_CACHE_SELECTOR_TOKEN)),
+            tslib.__metadata("design:paramtypes", [EntityActionFactory,
                 store.Store,
                 EntityDispatcherDefaultOptions,
                 rxjs.Observable, Function, CorrelationIdGenerator])
@@ -2061,11 +2061,11 @@
                 }));
             };
         };
-        EntityCacheEffects = tslib_1.__decorate([
+        EntityCacheEffects = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(4, core.Optional()),
-            tslib_1.__param(4, core.Inject(ENTITY_EFFECTS_SCHEDULER)),
-            tslib_1.__metadata("design:paramtypes", [effects.Actions,
+            tslib.__param(4, core.Optional()),
+            tslib.__param(4, core.Inject(ENTITY_EFFECTS_SCHEDULER)),
+            tslib.__metadata("design:paramtypes", [effects.Actions,
                 EntityCacheDataService,
                 EntityActionFactory,
                 Logger, Object])
@@ -2168,7 +2168,7 @@
                         // and set the `changed` flag to `false`.
                         var hasData = updatedEntity && Object.keys(updatedEntity).length > 0;
                         var responseData = hasData
-                            ? { id: id_1, changes: tslib_1.__assign({}, changes_1, updatedEntity), changed: true }
+                            ? { id: id_1, changes: tslib.__assign(tslib.__assign({}, changes_1), updatedEntity), changed: true }
                             : { id: id_1, changes: changes_1, changed: false };
                         return responseData;
                     }));
@@ -2208,11 +2208,11 @@
             // as app likely assumes asynchronous response.
             return rxjs.of(successAction).pipe(operators.delay(this.responseDelay, this.scheduler || rxjs.asyncScheduler));
         };
-        EntityEffects = tslib_1.__decorate([
+        EntityEffects = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(4, core.Optional()),
-            tslib_1.__param(4, core.Inject(ENTITY_EFFECTS_SCHEDULER)),
-            tslib_1.__metadata("design:paramtypes", [effects.Actions,
+            tslib.__param(4, core.Optional()),
+            tslib.__param(4, core.Inject(ENTITY_EFFECTS_SCHEDULER)),
+            tslib.__metadata("design:paramtypes", [effects.Actions,
                 EntityDataService,
                 EntityActionFactory,
                 PersistenceResultHandler, Object])
@@ -2532,10 +2532,10 @@
             var initialState = def && def.initialState;
             return (initialState || createEmptyEntityCollection(entityName));
         };
-        EntityCollectionCreator = tslib_1.__decorate([
+        EntityCollectionCreator = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(0, core.Optional()),
-            tslib_1.__metadata("design:paramtypes", [EntityDefinitionService])
+            tslib.__param(0, core.Optional()),
+            tslib.__metadata("design:paramtypes", [EntityDefinitionService])
         ], EntityCollectionCreator);
         return EntityCollectionCreator;
     }());
@@ -2600,7 +2600,7 @@
             Object.keys(extra).forEach(function (k) {
                 extraSelectors['select' + k[0].toUpperCase() + k.slice(1)] = function (c) { return c[k]; };
             });
-            return tslib_1.__assign({ selectCount: selectCount,
+            return tslib.__assign({ selectCount: selectCount,
                 selectEntities: selectEntities,
                 selectEntityMap: selectEntityMap,
                 selectFilter: selectFilter,
@@ -2622,15 +2622,15 @@
             Object.keys(collectionSelectors).forEach(function (k) {
                 entitySelectors[k] = store.createSelector(selectCollection, collectionSelectors[k]);
             });
-            return tslib_1.__assign({ entityName: entityName,
+            return tslib.__assign({ entityName: entityName,
                 selectCollection: selectCollection, selectEntityCache: this.selectEntityCache }, entitySelectors);
         };
-        EntitySelectorsFactory = tslib_1.__decorate([
+        EntitySelectorsFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(0, core.Optional()),
-            tslib_1.__param(1, core.Optional()),
-            tslib_1.__param(1, core.Inject(ENTITY_CACHE_SELECTOR_TOKEN)),
-            tslib_1.__metadata("design:paramtypes", [EntityCollectionCreator, Function])
+            tslib.__param(0, core.Optional()),
+            tslib.__param(1, core.Optional()),
+            tslib.__param(1, core.Inject(ENTITY_CACHE_SELECTOR_TOKEN)),
+            tslib.__metadata("design:paramtypes", [EntityCollectionCreator, Function])
         ], EntitySelectorsFactory);
         return EntitySelectorsFactory;
     }());
@@ -2672,10 +2672,10 @@
             selectors$.errors$ = this.entityActionErrors$.pipe(ofEntityType(entityName));
             return selectors$;
         };
-        EntitySelectors$Factory = tslib_1.__decorate([
+        EntitySelectors$Factory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(2, core.Inject(ENTITY_CACHE_SELECTOR_TOKEN)),
-            tslib_1.__metadata("design:paramtypes", [store.Store,
+            tslib.__param(2, core.Inject(ENTITY_CACHE_SELECTOR_TOKEN)),
+            tslib.__metadata("design:paramtypes", [store.Store,
                 effects.Actions, Function])
         ], EntitySelectors$Factory);
         return EntitySelectors$Factory;
@@ -2706,9 +2706,9 @@
                 selectors$: selectors$,
             };
         };
-        EntityCollectionServiceElementsFactory = tslib_1.__decorate([
+        EntityCollectionServiceElementsFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [EntityDispatcherFactory,
+            tslib.__metadata("design:paramtypes", [EntityDispatcherFactory,
                 EntityDefinitionService,
                 EntitySelectorsFactory,
                 EntitySelectors$Factory])
@@ -2733,9 +2733,9 @@
         EntityCollectionServiceFactory.prototype.create = function (entityName) {
             return new EntityCollectionServiceBase(entityName, this.entityCollectionServiceElementsFactory);
         };
-        EntityCollectionServiceFactory = tslib_1.__decorate([
+        EntityCollectionServiceFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [EntityCollectionServiceElementsFactory])
+            tslib.__metadata("design:paramtypes", [EntityCollectionServiceElementsFactory])
         ], EntityCollectionServiceFactory);
         return EntityCollectionServiceFactory;
     }());
@@ -2760,9 +2760,9 @@
             this.entityCache$ = entitySelectors$Factory.entityCache$;
             this.reducedActions$ = entityDispatcherFactory.reducedActions$;
         }
-        EntityServicesElements = tslib_1.__decorate([
+        EntityServicesElements = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [EntityCollectionServiceFactory,
+            tslib.__metadata("design:paramtypes", [EntityCollectionServiceFactory,
                 EntityDispatcherFactory,
                 EntitySelectors$Factory,
                 store.Store])
@@ -2900,9 +2900,9 @@
                 });
             }
         };
-        EntityServicesBase = tslib_1.__decorate([
+        EntityServicesBase = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [EntityServicesElements])
+            tslib.__metadata("design:paramtypes", [EntityServicesElements])
         ], EntityServicesBase);
         return EntityServicesBase;
     }());
@@ -2955,7 +2955,7 @@
         EntityChangeTrackerBase.prototype.commitAll = function (collection) {
             return Object.keys(collection.changeState).length === 0
                 ? collection
-                : tslib_1.__assign({}, collection, { changeState: {} });
+                : tslib.__assign(tslib.__assign({}, collection), { changeState: {} });
         };
         /**
          * Commit changes for the given entities as when they have been refreshed from the server.
@@ -2975,14 +2975,14 @@
                     : entityOrId;
                 if (chgState[id]) {
                     if (!didMutate) {
-                        chgState = tslib_1.__assign({}, chgState);
+                        chgState = tslib.__assign({}, chgState);
                         didMutate = true;
                     }
                     delete chgState[id];
                 }
                 return chgState;
             }, collection.changeState);
-            return didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+            return didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
         };
         /**
          * Commit changes for the given entity as when it have been refreshed from the server.
@@ -3075,14 +3075,14 @@
                         var change = chgState[oldId];
                         if (change) {
                             if (!didMutate) {
-                                chgState = tslib_1.__assign({}, chgState);
+                                chgState = tslib.__assign({}, chgState);
                                 didMutate = true;
                             }
                             delete chgState[oldId];
                         }
                         return chgState;
                     }, collection.changeState);
-                    collection = didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+                    collection = didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
                     updates = filterChanged(updateResponseData);
                     return this.adapter.updateMany(updates, collection);
                 case exports.MergeStrategy.PreserveChanges: {
@@ -3093,7 +3093,7 @@
                         if (change) {
                             // Tracking a change so update original value but not the current value
                             if (!didMutate) {
-                                chgState = tslib_1.__assign({}, chgState);
+                                chgState = tslib.__assign({}, chgState);
                                 didMutate = true;
                             }
                             var newId = _this.selectId(update.changes);
@@ -3103,15 +3103,15 @@
                             if (newId !== oldId) {
                                 delete chgState[oldId];
                             }
-                            var newOrigValue = tslib_1.__assign({}, oldChangeState.originalValue, update.changes);
-                            chgState[newId] = tslib_1.__assign({}, oldChangeState, { originalValue: newOrigValue });
+                            var newOrigValue = tslib.__assign(tslib.__assign({}, oldChangeState.originalValue), update.changes);
+                            chgState[newId] = tslib.__assign(tslib.__assign({}, oldChangeState), { originalValue: newOrigValue });
                         }
                         else {
                             updateableEntities_1.push(update);
                         }
                         return chgState;
                     }, collection.changeState);
-                    collection = didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+                    collection = didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
                     updates = filterChanged(updateableEntities_1);
                     return this.adapter.updateMany(updates, collection);
                 }
@@ -3174,14 +3174,14 @@
                         var change = chgState[id];
                         if (change) {
                             if (!didMutate) {
-                                chgState = tslib_1.__assign({}, chgState);
+                                chgState = tslib.__assign({}, chgState);
                                 didMutate = true;
                             }
                             delete chgState[id];
                         }
                         return chgState;
                     }, collection.changeState);
-                    return didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+                    return didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
                 case exports.MergeStrategy.PreserveChanges: {
                     var upsertEntities_1 = [];
                     changeState = entities.reduce(function (chgState, entity) {
@@ -3189,7 +3189,7 @@
                         var change = chgState[id];
                         if (change) {
                             if (!didMutate) {
-                                chgState = tslib_1.__assign({}, chgState);
+                                chgState = tslib.__assign({}, chgState);
                                 didMutate = true;
                             }
                             change.originalValue = entity;
@@ -3200,7 +3200,7 @@
                         return chgState;
                     }, collection.changeState);
                     collection = this.adapter.upsertMany(upsertEntities_1, collection);
-                    return didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+                    return didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
                 }
             }
         };
@@ -3230,13 +3230,13 @@
                 if (!trackedChange) {
                     if (!didMutate) {
                         didMutate = true;
-                        chgState = tslib_1.__assign({}, chgState);
+                        chgState = tslib.__assign({}, chgState);
                     }
                     chgState[id] = { changeType: exports.ChangeType.Added };
                 }
                 return chgState;
             }, collection.changeState);
-            return didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+            return didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
         };
         /**
          * Track an entity before adding it to the collection.
@@ -3294,11 +3294,11 @@
                 function cloneChgStateOnce() {
                     if (!didMutate) {
                         didMutate = true;
-                        chgState = tslib_1.__assign({}, chgState);
+                        chgState = tslib.__assign({}, chgState);
                     }
                 }
             }, collection.changeState);
-            return didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+            return didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
         };
         /**
          * Track an entity before it is removed with the intention of deleting it on the server.
@@ -3341,14 +3341,14 @@
                     if (!trackedChange) {
                         if (!didMutate) {
                             didMutate = true;
-                            chgState = tslib_1.__assign({}, chgState);
+                            chgState = tslib.__assign({}, chgState);
                         }
                         chgState[id] = { changeType: exports.ChangeType.Updated, originalValue: originalValue };
                     }
                 }
                 return chgState;
             }, collection.changeState);
-            return didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+            return didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
         };
         /**
          * Track an entity before updating it in the collection.
@@ -3387,7 +3387,7 @@
                 if (!trackedChange) {
                     if (!didMutate) {
                         didMutate = true;
-                        chgState = tslib_1.__assign({}, chgState);
+                        chgState = tslib.__assign({}, chgState);
                     }
                     var originalValue = entityMap[id];
                     chgState[id] =
@@ -3397,7 +3397,7 @@
                 }
                 return chgState;
             }, collection.changeState);
-            return didMutate ? tslib_1.__assign({}, collection, { changeState: changeState }) : collection;
+            return didMutate ? tslib.__assign(tslib.__assign({}, collection), { changeState: changeState }) : collection;
         };
         /**
          * Track an entity before upsert (adding and updating) it to the collection.
@@ -3446,7 +3446,7 @@
             }), remove = _a.remove, upsert = _a.upsert;
             collection = this.adapter.removeMany(remove, collection);
             collection = this.adapter.upsertMany(upsert, collection);
-            return tslib_1.__assign({}, collection, { changeState: {} });
+            return tslib.__assign(tslib.__assign({}, collection), { changeState: {} });
         };
         /**
          * Revert the unsaved changes for the given entities.
@@ -3468,7 +3468,7 @@
                 var change = chgState[id];
                 if (change) {
                     if (!didMutate) {
-                        chgState = tslib_1.__assign({}, chgState);
+                        chgState = tslib.__assign({}, chgState);
                         didMutate = true;
                     }
                     delete chgState[id]; // clear tracking of this entity
@@ -3497,7 +3497,7 @@
             }), changeState = _a.changeState, remove = _a.remove, upsert = _a.upsert;
             collection = this.adapter.removeMany(remove, collection);
             collection = this.adapter.upsertMany(upsert, collection);
-            return didMutate ? collection : tslib_1.__assign({}, collection, { changeState: changeState });
+            return didMutate ? collection : tslib.__assign(tslib.__assign({}, collection), { changeState: changeState });
         };
         /**
          * Revert the unsaved changes for the given entity.
@@ -3621,7 +3621,7 @@
         EntityCollectionReducerMethods.prototype.queryAllSuccess = function (collection, action) {
             var data = this.extractData(action);
             var mergeStrategy = this.extractMergeStrategy(action);
-            return tslib_1.__assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy), { loaded: true, loading: false });
+            return tslib.__assign(tslib.__assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loaded: true, loading: false });
         };
         EntityCollectionReducerMethods.prototype.queryByKey = function (collection, action) {
             return this.setLoadingTrue(collection);
@@ -3651,7 +3651,7 @@
          */
         EntityCollectionReducerMethods.prototype.queryLoadSuccess = function (collection, action) {
             var data = this.extractData(action);
-            return tslib_1.__assign({}, this.adapter.addAll(data, collection), { loading: false, loaded: true, changeState: {} });
+            return tslib.__assign(tslib.__assign({}, this.adapter.addAll(data, collection)), { loading: false, loaded: true, changeState: {} });
         };
         EntityCollectionReducerMethods.prototype.queryMany = function (collection, action) {
             return this.setLoadingTrue(collection);
@@ -3662,7 +3662,7 @@
         EntityCollectionReducerMethods.prototype.queryManySuccess = function (collection, action) {
             var data = this.extractData(action);
             var mergeStrategy = this.extractMergeStrategy(action);
-            return tslib_1.__assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy), { loading: false });
+            return tslib.__assign(tslib.__assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loading: false });
         };
         // #endregion query operations
         // #region save operations
@@ -4130,7 +4130,7 @@
          */
         EntityCollectionReducerMethods.prototype.addAll = function (collection, action) {
             var entities = this.guard.mustBeEntities(action);
-            return tslib_1.__assign({}, this.adapter.addAll(entities, collection), { loading: false, loaded: true, changeState: {} });
+            return tslib.__assign(tslib.__assign({}, this.adapter.addAll(entities, collection)), { loading: false, loaded: true, changeState: {} });
         };
         EntityCollectionReducerMethods.prototype.addMany = function (collection, action) {
             var entities = this.guard.mustBeEntities(action);
@@ -4159,7 +4159,7 @@
             return this.adapter.removeOne(key, collection);
         };
         EntityCollectionReducerMethods.prototype.removeAll = function (collection, action) {
-            return tslib_1.__assign({}, this.adapter.removeAll(collection), { loaded: false, loading: false, changeState: {} });
+            return tslib.__assign(tslib.__assign({}, this.adapter.removeAll(collection)), { loaded: false, loading: false, changeState: {} });
         };
         EntityCollectionReducerMethods.prototype.updateMany = function (collection, action) {
             // payload must be an array of `Updates<T>`, not entities
@@ -4214,7 +4214,7 @@
             var changeState = this.extractData(action);
             return collection.changeState === changeState
                 ? collection
-                : tslib_1.__assign({}, collection, { changeState: changeState });
+                : tslib.__assign(tslib.__assign({}, collection), { changeState: changeState });
         };
         /**
          * Dangerous: Completely replace the collection.
@@ -4229,13 +4229,13 @@
             var filter = this.extractData(action);
             return collection.filter === filter
                 ? collection
-                : tslib_1.__assign({}, collection, { filter: filter });
+                : tslib.__assign(tslib.__assign({}, collection), { filter: filter });
         };
         EntityCollectionReducerMethods.prototype.setLoaded = function (collection, action) {
             var loaded = this.extractData(action) === true || false;
             return collection.loaded === loaded
                 ? collection
-                : tslib_1.__assign({}, collection, { loaded: loaded });
+                : tslib.__assign(tslib.__assign({}, collection), { loaded: loaded });
         };
         EntityCollectionReducerMethods.prototype.setLoading = function (collection, action) {
             return this.setLoadingFlag(collection, this.extractData(action));
@@ -4251,7 +4251,7 @@
             loading = loading === true ? true : false;
             return collection.loading === loading
                 ? collection
-                : tslib_1.__assign({}, collection, { loading: loading });
+                : tslib.__assign(tslib.__assign({}, collection), { loading: loading });
         };
         // #endregion Cache-only operations
         // #region helpers
@@ -4284,9 +4284,9 @@
             var methodsClass = new EntityCollectionReducerMethods(entityName, definition);
             return methodsClass.methods;
         };
-        EntityCollectionReducerMethodsFactory = tslib_1.__decorate([
+        EntityCollectionReducerMethodsFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [EntityDefinitionService])
+            tslib.__metadata("design:paramtypes", [EntityDefinitionService])
         ], EntityCollectionReducerMethodsFactory);
         return EntityCollectionReducerMethodsFactory;
     }());
@@ -4305,9 +4305,9 @@
                 return reducerMethod ? reducerMethod(collection, action) : collection;
             };
         };
-        EntityCollectionReducerFactory = tslib_1.__decorate([
+        EntityCollectionReducerFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [EntityCollectionReducerMethodsFactory])
+            tslib.__metadata("design:paramtypes", [EntityCollectionReducerMethodsFactory])
         ], EntityCollectionReducerFactory);
         return EntityCollectionReducerFactory;
     }());
@@ -4363,11 +4363,11 @@
             var keys = reducers ? Object.keys(reducers) : [];
             keys.forEach(function (key) { return _this.registerReducer(key, reducers[key]); });
         };
-        EntityCollectionReducerRegistry = tslib_1.__decorate([
+        EntityCollectionReducerRegistry = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(1, core.Optional()),
-            tslib_1.__param(1, core.Inject(ENTITY_COLLECTION_META_REDUCERS)),
-            tslib_1.__metadata("design:paramtypes", [EntityCollectionReducerFactory, Array])
+            tslib.__param(1, core.Optional()),
+            tslib.__param(1, core.Inject(ENTITY_COLLECTION_META_REDUCERS)),
+            tslib.__metadata("design:paramtypes", [EntityCollectionReducerFactory, Array])
         ], EntityCollectionReducerRegistry);
         return EntityCollectionReducerRegistry;
     }());
@@ -4618,7 +4618,7 @@
             }
             return action.payload.error || collection === newCollection
                 ? cache
-                : tslib_1.__assign({}, cache, (_a = {}, _a[entityName] = newCollection, _a));
+                : tslib.__assign(tslib.__assign({}, cache), (_a = {}, _a[entityName] = newCollection, _a));
         };
         /** Ensure loading is false for every collection in entityNames */
         EntityCacheReducerFactory.prototype.clearLoadingFlags = function (entityCache, entityNames) {
@@ -4627,17 +4627,17 @@
                 var collection = entityCache[entityName];
                 if (collection.loading) {
                     if (!isMutated) {
-                        entityCache = tslib_1.__assign({}, entityCache);
+                        entityCache = tslib.__assign({}, entityCache);
                         isMutated = true;
                     }
-                    entityCache[entityName] = tslib_1.__assign({}, collection, { loading: false });
+                    entityCache[entityName] = tslib.__assign(tslib.__assign({}, collection), { loading: false });
                 }
             });
             return entityCache;
         };
-        EntityCacheReducerFactory = tslib_1.__decorate([
+        EntityCacheReducerFactory = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__metadata("design:paramtypes", [EntityCollectionCreator,
+            tslib.__metadata("design:paramtypes", [EntityCollectionCreator,
                 EntityCollectionReducerRegistry,
                 Logger])
         ], EntityCacheReducerFactory);
@@ -4662,7 +4662,7 @@
                 extra ? console.warn(message, extra) : console.warn(message);
             }
         };
-        DefaultLogger = tslib_1.__decorate([
+        DefaultLogger = tslib.__decorate([
             core.Injectable()
         ], DefaultLogger);
         return DefaultLogger;
@@ -4723,13 +4723,13 @@
          * @param pluralNames {EntityPluralNames} plural names for entity types
          */
         DefaultPluralizer.prototype.registerPluralNames = function (pluralNames) {
-            this.pluralNames = tslib_1.__assign({}, this.pluralNames, (pluralNames || {}));
+            this.pluralNames = tslib.__assign(tslib.__assign({}, this.pluralNames), (pluralNames || {}));
         };
-        DefaultPluralizer = tslib_1.__decorate([
+        DefaultPluralizer = tslib.__decorate([
             core.Injectable(),
-            tslib_1.__param(0, core.Optional()),
-            tslib_1.__param(0, core.Inject(PLURAL_NAMES_TOKEN)),
-            tslib_1.__metadata("design:paramtypes", [Array])
+            tslib.__param(0, core.Optional()),
+            tslib.__param(0, core.Inject(PLURAL_NAMES_TOKEN)),
+            tslib.__metadata("design:paramtypes", [Array])
         ], DefaultPluralizer);
         return DefaultPluralizer;
     }());
@@ -4865,7 +4865,7 @@
             this.reducerManager.removeFeature(this.entityCacheFeature);
         };
         var EntityDataModuleWithoutEffects_1;
-        EntityDataModuleWithoutEffects = EntityDataModuleWithoutEffects_1 = tslib_1.__decorate([
+        EntityDataModuleWithoutEffects = EntityDataModuleWithoutEffects_1 = tslib.__decorate([
             core.NgModule({
                 imports: [
                     store.StoreModule,
@@ -4893,13 +4893,13 @@
                     { provide: Logger, useClass: DefaultLogger },
                 ],
             }),
-            tslib_1.__param(3, core.Optional()),
-            tslib_1.__param(3, core.Inject(ENTITY_CACHE_NAME_TOKEN)),
-            tslib_1.__param(4, core.Optional()),
-            tslib_1.__param(4, core.Inject(INITIAL_ENTITY_CACHE_STATE)),
-            tslib_1.__param(5, core.Optional()),
-            tslib_1.__param(5, core.Inject(ENTITY_CACHE_META_REDUCERS)),
-            tslib_1.__metadata("design:paramtypes", [store.ReducerManager,
+            tslib.__param(3, core.Optional()),
+            tslib.__param(3, core.Inject(ENTITY_CACHE_NAME_TOKEN)),
+            tslib.__param(4, core.Optional()),
+            tslib.__param(4, core.Inject(INITIAL_ENTITY_CACHE_STATE)),
+            tslib.__param(5, core.Optional()),
+            tslib.__param(5, core.Inject(ENTITY_CACHE_META_REDUCERS)),
+            tslib.__metadata("design:paramtypes", [store.ReducerManager,
                 EntityCacheReducerFactory,
                 core.Injector, String, Object, Array])
         ], EntityDataModuleWithoutEffects);
@@ -4968,7 +4968,7 @@
             this.effectSources.addEffects(effectSourceInstance);
         };
         var EntityDataModule_1;
-        EntityDataModule = EntityDataModule_1 = tslib_1.__decorate([
+        EntityDataModule = EntityDataModule_1 = tslib.__decorate([
             core.NgModule({
                 imports: [
                     EntityDataModuleWithoutEffects,
@@ -4988,7 +4988,7 @@
                     { provide: Pluralizer, useClass: DefaultPluralizer },
                 ],
             }),
-            tslib_1.__metadata("design:paramtypes", [effects.EffectSources,
+            tslib.__metadata("design:paramtypes", [effects.EffectSources,
                 EntityCacheEffects,
                 EntityEffects])
         ], EntityDataModule);
@@ -5007,92 +5007,92 @@
      * Generated bundle index. Do not edit.
      */
 
-    exports.ɵngrx_modules_data_data_a = ENTITY_EFFECTS_SCHEDULER;
-    exports.EntityDataModule = EntityDataModule;
-    exports.EntityDataModuleWithoutEffects = EntityDataModuleWithoutEffects;
+    exports.ChangeSetItemFactory = ChangeSetItemFactory;
+    exports.ClearCollections = ClearCollections;
+    exports.CorrelationIdGenerator = CorrelationIdGenerator;
+    exports.DataServiceError = DataServiceError;
+    exports.DefaultDataService = DefaultDataService;
+    exports.DefaultDataServiceConfig = DefaultDataServiceConfig;
+    exports.DefaultDataServiceFactory = DefaultDataServiceFactory;
+    exports.DefaultHttpUrlGenerator = DefaultHttpUrlGenerator;
+    exports.DefaultLogger = DefaultLogger;
+    exports.DefaultPersistenceResultHandler = DefaultPersistenceResultHandler;
+    exports.DefaultPluralizer = DefaultPluralizer;
+    exports.ENTITY_CACHE_META_REDUCERS = ENTITY_CACHE_META_REDUCERS;
+    exports.ENTITY_CACHE_NAME = ENTITY_CACHE_NAME;
+    exports.ENTITY_CACHE_NAME_TOKEN = ENTITY_CACHE_NAME_TOKEN;
+    exports.ENTITY_CACHE_SELECTOR_TOKEN = ENTITY_CACHE_SELECTOR_TOKEN;
+    exports.ENTITY_COLLECTION_META_REDUCERS = ENTITY_COLLECTION_META_REDUCERS;
+    exports.ENTITY_METADATA_TOKEN = ENTITY_METADATA_TOKEN;
     exports.EntityActionFactory = EntityActionFactory;
     exports.EntityActionGuard = EntityActionGuard;
-    exports.ofEntityOp = ofEntityOp;
-    exports.ofEntityType = ofEntityType;
-    exports.ClearCollections = ClearCollections;
+    exports.EntityCacheDataService = EntityCacheDataService;
+    exports.EntityCacheDispatcher = EntityCacheDispatcher;
+    exports.EntityCacheEffects = EntityCacheEffects;
+    exports.EntityCacheReducerFactory = EntityCacheReducerFactory;
+    exports.EntityChangeTrackerBase = EntityChangeTrackerBase;
+    exports.EntityCollectionCreator = EntityCollectionCreator;
+    exports.EntityCollectionReducerFactory = EntityCollectionReducerFactory;
+    exports.EntityCollectionReducerMethods = EntityCollectionReducerMethods;
+    exports.EntityCollectionReducerMethodsFactory = EntityCollectionReducerMethodsFactory;
+    exports.EntityCollectionReducerRegistry = EntityCollectionReducerRegistry;
+    exports.EntityCollectionServiceBase = EntityCollectionServiceBase;
+    exports.EntityCollectionServiceElementsFactory = EntityCollectionServiceElementsFactory;
+    exports.EntityCollectionServiceFactory = EntityCollectionServiceFactory;
+    exports.EntityDataModule = EntityDataModule;
+    exports.EntityDataModuleWithoutEffects = EntityDataModuleWithoutEffects;
+    exports.EntityDataService = EntityDataService;
+    exports.EntityDefinitionService = EntityDefinitionService;
+    exports.EntityDispatcherBase = EntityDispatcherBase;
+    exports.EntityDispatcherDefaultOptions = EntityDispatcherDefaultOptions;
+    exports.EntityDispatcherFactory = EntityDispatcherFactory;
+    exports.EntityEffects = EntityEffects;
+    exports.EntityHttpResourceUrls = EntityHttpResourceUrls;
+    exports.EntitySelectors$Factory = EntitySelectors$Factory;
+    exports.EntitySelectorsFactory = EntitySelectorsFactory;
+    exports.EntityServices = EntityServices;
+    exports.EntityServicesBase = EntityServicesBase;
+    exports.EntityServicesElements = EntityServicesElements;
+    exports.HttpUrlGenerator = HttpUrlGenerator;
+    exports.INITIAL_ENTITY_CACHE_STATE = INITIAL_ENTITY_CACHE_STATE;
     exports.LoadCollections = LoadCollections;
+    exports.Logger = Logger;
     exports.MergeQuerySet = MergeQuerySet;
-    exports.SetEntityCache = SetEntityCache;
+    exports.OP_ERROR = OP_ERROR;
+    exports.OP_SUCCESS = OP_SUCCESS;
+    exports.PLURAL_NAMES_TOKEN = PLURAL_NAMES_TOKEN;
+    exports.PersistanceCanceled = PersistanceCanceled;
+    exports.PersistenceResultHandler = PersistenceResultHandler;
+    exports.Pluralizer = Pluralizer;
+    exports.PropsFilterFnFactory = PropsFilterFnFactory;
     exports.SaveEntities = SaveEntities;
     exports.SaveEntitiesCancel = SaveEntitiesCancel;
     exports.SaveEntitiesCanceled = SaveEntitiesCanceled;
     exports.SaveEntitiesError = SaveEntitiesError;
     exports.SaveEntitiesSuccess = SaveEntitiesSuccess;
-    exports.ChangeSetItemFactory = ChangeSetItemFactory;
+    exports.SetEntityCache = SetEntityCache;
     exports.changeSetItemFactory = changeSetItemFactory;
-    exports.excludeEmptyChangeSetItems = excludeEmptyChangeSetItems;
-    exports.OP_SUCCESS = OP_SUCCESS;
-    exports.OP_ERROR = OP_ERROR;
-    exports.makeErrorOp = makeErrorOp;
-    exports.makeSuccessOp = makeSuccessOp;
-    exports.DataServiceError = DataServiceError;
-    exports.DefaultDataServiceConfig = DefaultDataServiceConfig;
-    exports.DefaultDataService = DefaultDataService;
-    exports.DefaultDataServiceFactory = DefaultDataServiceFactory;
-    exports.EntityCacheDataService = EntityCacheDataService;
-    exports.EntityDataService = EntityDataService;
-    exports.EntityHttpResourceUrls = EntityHttpResourceUrls;
-    exports.HttpUrlGenerator = HttpUrlGenerator;
-    exports.DefaultHttpUrlGenerator = DefaultHttpUrlGenerator;
-    exports.normalizeRoot = normalizeRoot;
-    exports.PersistenceResultHandler = PersistenceResultHandler;
-    exports.DefaultPersistenceResultHandler = DefaultPersistenceResultHandler;
-    exports.EntityCacheDispatcher = EntityCacheDispatcher;
-    exports.EntityDispatcherBase = EntityDispatcherBase;
-    exports.EntityDispatcherDefaultOptions = EntityDispatcherDefaultOptions;
-    exports.EntityDispatcherFactory = EntityDispatcherFactory;
-    exports.PersistanceCanceled = PersistanceCanceled;
-    exports.EntityCacheEffects = EntityCacheEffects;
-    exports.persistOps = persistOps;
-    exports.EntityEffects = EntityEffects;
-    exports.EntityDefinitionService = EntityDefinitionService;
-    exports.createEntityDefinition = createEntityDefinition;
-    exports.PropsFilterFnFactory = PropsFilterFnFactory;
-    exports.ENTITY_METADATA_TOKEN = ENTITY_METADATA_TOKEN;
-    exports.EntityCollectionServiceBase = EntityCollectionServiceBase;
-    exports.EntityCollectionServiceElementsFactory = EntityCollectionServiceElementsFactory;
-    exports.EntityCollectionServiceFactory = EntityCollectionServiceFactory;
-    exports.EntityServicesBase = EntityServicesBase;
-    exports.EntityServicesElements = EntityServicesElements;
-    exports.EntityServices = EntityServices;
-    exports.ENTITY_CACHE_NAME = ENTITY_CACHE_NAME;
-    exports.ENTITY_CACHE_NAME_TOKEN = ENTITY_CACHE_NAME_TOKEN;
-    exports.ENTITY_CACHE_META_REDUCERS = ENTITY_CACHE_META_REDUCERS;
-    exports.ENTITY_COLLECTION_META_REDUCERS = ENTITY_COLLECTION_META_REDUCERS;
-    exports.INITIAL_ENTITY_CACHE_STATE = INITIAL_ENTITY_CACHE_STATE;
-    exports.EntityCacheReducerFactory = EntityCacheReducerFactory;
-    exports.EntityChangeTrackerBase = EntityChangeTrackerBase;
-    exports.EntityCollectionCreator = EntityCollectionCreator;
     exports.createEmptyEntityCollection = createEmptyEntityCollection;
-    exports.EntityCollectionReducerMethods = EntityCollectionReducerMethods;
-    exports.EntityCollectionReducerMethodsFactory = EntityCollectionReducerMethodsFactory;
-    exports.EntityCollectionReducerRegistry = EntityCollectionReducerRegistry;
-    exports.EntityCollectionReducerFactory = EntityCollectionReducerFactory;
-    exports.ENTITY_CACHE_SELECTOR_TOKEN = ENTITY_CACHE_SELECTOR_TOKEN;
-    exports.entityCacheSelectorProvider = entityCacheSelectorProvider;
     exports.createEntityCacheSelector = createEntityCacheSelector;
-    exports.EntitySelectorsFactory = EntitySelectorsFactory;
-    exports.EntitySelectors$Factory = EntitySelectors$Factory;
-    exports.CorrelationIdGenerator = CorrelationIdGenerator;
-    exports.DefaultLogger = DefaultLogger;
-    exports.DefaultPluralizer = DefaultPluralizer;
-    exports.getUuid = getUuid;
+    exports.createEntityDefinition = createEntityDefinition;
+    exports.defaultSelectId = defaultSelectId;
+    exports.entityCacheSelectorProvider = entityCacheSelectorProvider;
+    exports.excludeEmptyChangeSetItems = excludeEmptyChangeSetItems;
+    exports.flattenArgs = flattenArgs;
     exports.getGuid = getGuid;
     exports.getGuidComb = getGuidComb;
+    exports.getUuid = getUuid;
     exports.guidComparer = guidComparer;
-    exports.Logger = Logger;
-    exports.PLURAL_NAMES_TOKEN = PLURAL_NAMES_TOKEN;
-    exports.Pluralizer = Pluralizer;
-    exports.defaultSelectId = defaultSelectId;
-    exports.flattenArgs = flattenArgs;
+    exports.makeErrorOp = makeErrorOp;
+    exports.makeSuccessOp = makeSuccessOp;
+    exports.normalizeRoot = normalizeRoot;
+    exports.ofEntityOp = ofEntityOp;
+    exports.ofEntityType = ofEntityType;
+    exports.persistOps = persistOps;
     exports.toUpdateFactory = toUpdateFactory;
+    exports.ɵngrx_modules_data_data_a = ENTITY_EFFECTS_SCHEDULER;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));
 //# sourceMappingURL=data.umd.js.map

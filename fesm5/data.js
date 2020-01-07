@@ -1,5 +1,5 @@
 /**
- * @license NgRx 8.6.0+3.sha-fe6bfa7
+ * @license NgRx 8.6.0+4.sha-b146af5
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -9,8 +9,8 @@ import { filter, map, delay, timeout, catchError, shareReplay, take, mergeMap, w
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { throwError, of, Observable, race, asyncScheduler, merge } from 'rxjs';
 import { createEntityAdapter } from '@ngrx/entity';
-import { ScannedActionsSubject, Store, createSelector, createFeatureSelector, compose, StoreModule, ReducerManager, combineReducers } from '@ngrx/store';
-import { Actions, createEffect, ofType, EffectsModule, EffectSources } from '@ngrx/effects';
+import { ScannedActionsSubject, Store, createSelector, createFeatureSelector, compose, combineReducers, StoreModule, ReducerManager } from '@ngrx/store';
+import { createEffect, ofType, Actions, EffectsModule, EffectSources } from '@ngrx/effects';
 
 var EntityActionFactory = /** @class */ (function () {
     function EntityActionFactory() {
@@ -18,7 +18,7 @@ var EntityActionFactory = /** @class */ (function () {
     // polymorphic create for the two signatures
     EntityActionFactory.prototype.create = function (nameOrPayload, entityOp, data, options) {
         var payload = typeof nameOrPayload === 'string'
-            ? __assign({}, (options || {}), { entityName: nameOrPayload, entityOp: entityOp,
+            ? __assign(__assign({}, (options || {})), { entityName: nameOrPayload, entityOp: entityOp,
                 data: data })
             : nameOrPayload;
         return this.createCore(payload);
@@ -45,7 +45,7 @@ var EntityActionFactory = /** @class */ (function () {
      * @param newProperties New EntityAction properties that replace the source action properties
      */
     EntityActionFactory.prototype.createFromAction = function (from, newProperties) {
-        return this.create(__assign({}, from.payload, newProperties));
+        return this.create(__assign(__assign({}, from.payload), newProperties));
     };
     EntityActionFactory.prototype.formatActionType = function (op, tag) {
         return "[" + tag + "] " + op;
@@ -218,8 +218,8 @@ function flattenArgs(args) {
         return [];
     }
     if (Array.isArray(args[0])) {
-        var _a = __read(args), head = _a[0], tail = _a.slice(1);
-        args = __spread(head, tail);
+        var _a = __read(args), head_1 = _a[0], tail_1 = _a.slice(1);
+        args = __spread(head_1, tail_1);
     }
     return args;
 }
@@ -342,7 +342,7 @@ var changeSetItemFactory = new ChangeSetItemFactory();
 function excludeEmptyChangeSetItems(changeSet) {
     changeSet = changeSet && changeSet.changes ? changeSet : { changes: [] };
     var changes = changeSet.changes.filter(function (c) { return c != null && c.entities && c.entities.length > 0; });
-    return __assign({}, changeSet, { changes: changes });
+    return __assign(__assign({}, changeSet), { changes: changes });
 }
 
 /** How to merge an entity, after query or save, when the corresponding entity in the collection has unsaved changes. */
@@ -451,7 +451,7 @@ var SaveEntities = /** @class */ (function () {
         if (changeSet) {
             changeSet.tag = changeSet.tag || options.tag;
         }
-        this.payload = __assign({ changeSet: changeSet, url: url }, options, { tag: changeSet.tag });
+        this.payload = __assign(__assign({ changeSet: changeSet, url: url }, options), { tag: changeSet.tag });
     }
     return SaveEntities;
 }());
@@ -484,7 +484,7 @@ var SaveEntitiesSuccess = /** @class */ (function () {
         if (changeSet) {
             changeSet.tag = changeSet.tag || options.tag;
         }
-        this.payload = __assign({ changeSet: changeSet, url: url }, options, { tag: changeSet.tag });
+        this.payload = __assign(__assign({ changeSet: changeSet, url: url }, options), { tag: changeSet.tag });
     }
     return SaveEntitiesSuccess;
 }());
@@ -706,7 +706,7 @@ var DefaultHttpUrlGenerator = /** @class */ (function () {
      * Note: this method does not ensure that resource urls are well-formed.
      */
     DefaultHttpUrlGenerator.prototype.registerHttpResourceUrls = function (entityHttpResourceUrls) {
-        this.knownHttpResourceUrls = __assign({}, this.knownHttpResourceUrls, (entityHttpResourceUrls || {}));
+        this.knownHttpResourceUrls = __assign(__assign({}, this.knownHttpResourceUrls), (entityHttpResourceUrls || {}));
     };
     DefaultHttpUrlGenerator = __decorate([
         Injectable(),
@@ -828,8 +828,8 @@ var DefaultDataService = /** @class */ (function () {
                 break;
             }
             default: {
-                var error = new Error('Unimplemented HTTP method, ' + method);
-                result$ = throwError(error);
+                var error_1 = new Error('Unimplemented HTTP method, ' + method);
+                result$ = throwError(error_1);
             }
         }
         if (this.timeout) {
@@ -1078,13 +1078,13 @@ var EntityCacheDataService = /** @class */ (function () {
         changes = changes.map(function (item) {
             if (item.op === updateOp && item.entities.length > 0) {
                 hasMutated = true;
-                return __assign({}, item, { entities: item.entities.map(function (u) { return u.changes; }) });
+                return __assign(__assign({}, item), { entities: item.entities.map(function (u) { return u.changes; }) });
             }
             else {
                 return item;
             }
         });
-        return hasMutated ? __assign({}, changeSet, { changes: changes }) : changeSet;
+        return hasMutated ? __assign(__assign({}, changeSet), { changes: changes }) : changeSet;
     };
     /**
      * Convert the flattened T entities in update changes back to @ngrx Update<T> structures.
@@ -1106,7 +1106,7 @@ var EntityCacheDataService = /** @class */ (function () {
                 // These are entities, not Updates; convert back to Updates
                 hasMutated = true;
                 var selectId_1 = _this.getIdSelector(item.entityName);
-                return __assign({}, item, { entities: item.entities.map(function (u) { return ({
+                return __assign(__assign({}, item), { entities: item.entities.map(function (u) { return ({
                         id: selectId_1(u),
                         changes: u,
                     }); }) });
@@ -1115,7 +1115,7 @@ var EntityCacheDataService = /** @class */ (function () {
                 return item;
             }
         });
-        return hasMutated ? __assign({}, changeSet, { changes: changes }) : changeSet;
+        return hasMutated ? __assign(__assign({}, changeSet), { changes: changes }) : changeSet;
     };
     /**
      * Get the id (primary key) selector function for an entity type
@@ -1191,7 +1191,7 @@ var EntityDataService = /** @class */ (function () {
      *   });
      */
     EntityDataService.prototype.registerServices = function (services) {
-        this.services = __assign({}, this.services, services);
+        this.services = __assign(__assign({}, this.services), services);
     };
     EntityDataService = __decorate([
         Injectable(),
@@ -1431,7 +1431,7 @@ var EntityCacheDispatcher = /** @class */ (function () {
             ? this.defaultDispatcherOptions.optimisticSaveEntities || false
             : options.isOptimistic === true;
         var tag = options.tag || 'Save Entities';
-        options = __assign({}, options, { correlationId: correlationId, isOptimistic: isOptimistic, tag: tag });
+        options = __assign(__assign({}, options), { correlationId: correlationId, isOptimistic: isOptimistic, tag: tag });
         var action = new SaveEntities(changeSet, url, options);
         this.dispatch(action);
         return this.getSaveEntitiesResponseData$(options.correlationId).pipe(shareReplay(1));
@@ -1879,7 +1879,7 @@ var EntityDispatcherBase = /** @class */ (function () {
         var correlationId = options.correlationId == null
             ? this.correlationIdGenerator.next()
             : options.correlationId;
-        return __assign({}, options, { correlationId: correlationId });
+        return __assign(__assign({}, options), { correlationId: correlationId });
     };
     EntityDispatcherBase.prototype.setSaveEntityActionOptions = function (options, defaultOptimism) {
         options = options || {};
@@ -1889,7 +1889,7 @@ var EntityDispatcherBase = /** @class */ (function () {
         var isOptimistic = options.isOptimistic == null
             ? defaultOptimism || false
             : options.isOptimistic === true;
-        return __assign({}, options, { correlationId: correlationId, isOptimistic: isOptimistic });
+        return __assign(__assign({}, options), { correlationId: correlationId, isOptimistic: isOptimistic });
     };
     return EntityDispatcherBase;
 }());
@@ -1944,7 +1944,7 @@ var EntityDispatcherFactory = /** @class */ (function () {
         if (selectId === void 0) { selectId = defaultSelectId; }
         if (defaultOptions === void 0) { defaultOptions = {}; }
         // merge w/ defaultOptions with injected defaults
-        var options = __assign({}, this.entityDispatcherDefaultOptions, defaultOptions);
+        var options = __assign(__assign({}, this.entityDispatcherDefaultOptions), defaultOptions);
         return new EntityDispatcherBase(entityName, this.entityActionFactory, this.store, selectId, options, this.reducedActions$, this.entityCacheSelector, this.correlationIdGenerator);
     };
     EntityDispatcherFactory.prototype.ngOnDestroy = function () {
@@ -2177,7 +2177,7 @@ var EntityEffects = /** @class */ (function () {
                     // and set the `changed` flag to `false`.
                     var hasData = updatedEntity && Object.keys(updatedEntity).length > 0;
                     var responseData = hasData
-                        ? { id: id_1, changes: __assign({}, changes_1, updatedEntity), changed: true }
+                        ? { id: id_1, changes: __assign(__assign({}, changes_1), updatedEntity), changed: true }
                         : { id: id_1, changes: changes_1, changed: false };
                     return responseData;
                 }));
@@ -2965,7 +2965,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
     EntityChangeTrackerBase.prototype.commitAll = function (collection) {
         return Object.keys(collection.changeState).length === 0
             ? collection
-            : __assign({}, collection, { changeState: {} });
+            : __assign(__assign({}, collection), { changeState: {} });
     };
     /**
      * Commit changes for the given entities as when they have been refreshed from the server.
@@ -2992,7 +2992,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
             }
             return chgState;
         }, collection.changeState);
-        return didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+        return didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
     };
     /**
      * Commit changes for the given entity as when it have been refreshed from the server.
@@ -3092,7 +3092,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
                     }
                     return chgState;
                 }, collection.changeState);
-                collection = didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+                collection = didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
                 updates = filterChanged(updateResponseData);
                 return this.adapter.updateMany(updates, collection);
             case MergeStrategy.PreserveChanges: {
@@ -3113,15 +3113,15 @@ var EntityChangeTrackerBase = /** @class */ (function () {
                         if (newId !== oldId) {
                             delete chgState[oldId];
                         }
-                        var newOrigValue = __assign({}, oldChangeState.originalValue, update.changes);
-                        chgState[newId] = __assign({}, oldChangeState, { originalValue: newOrigValue });
+                        var newOrigValue = __assign(__assign({}, oldChangeState.originalValue), update.changes);
+                        chgState[newId] = __assign(__assign({}, oldChangeState), { originalValue: newOrigValue });
                     }
                     else {
                         updateableEntities_1.push(update);
                     }
                     return chgState;
                 }, collection.changeState);
-                collection = didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+                collection = didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
                 updates = filterChanged(updateableEntities_1);
                 return this.adapter.updateMany(updates, collection);
             }
@@ -3191,7 +3191,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
                     }
                     return chgState;
                 }, collection.changeState);
-                return didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+                return didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
             case MergeStrategy.PreserveChanges: {
                 var upsertEntities_1 = [];
                 changeState = entities.reduce(function (chgState, entity) {
@@ -3210,7 +3210,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
                     return chgState;
                 }, collection.changeState);
                 collection = this.adapter.upsertMany(upsertEntities_1, collection);
-                return didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+                return didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
             }
         }
     };
@@ -3246,7 +3246,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
             }
             return chgState;
         }, collection.changeState);
-        return didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+        return didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
     };
     /**
      * Track an entity before adding it to the collection.
@@ -3308,7 +3308,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
                 }
             }
         }, collection.changeState);
-        return didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+        return didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
     };
     /**
      * Track an entity before it is removed with the intention of deleting it on the server.
@@ -3358,7 +3358,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
             }
             return chgState;
         }, collection.changeState);
-        return didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+        return didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
     };
     /**
      * Track an entity before updating it in the collection.
@@ -3407,7 +3407,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
             }
             return chgState;
         }, collection.changeState);
-        return didMutate ? __assign({}, collection, { changeState: changeState }) : collection;
+        return didMutate ? __assign(__assign({}, collection), { changeState: changeState }) : collection;
     };
     /**
      * Track an entity before upsert (adding and updating) it to the collection.
@@ -3456,7 +3456,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
         }), remove = _a.remove, upsert = _a.upsert;
         collection = this.adapter.removeMany(remove, collection);
         collection = this.adapter.upsertMany(upsert, collection);
-        return __assign({}, collection, { changeState: {} });
+        return __assign(__assign({}, collection), { changeState: {} });
     };
     /**
      * Revert the unsaved changes for the given entities.
@@ -3507,7 +3507,7 @@ var EntityChangeTrackerBase = /** @class */ (function () {
         }), changeState = _a.changeState, remove = _a.remove, upsert = _a.upsert;
         collection = this.adapter.removeMany(remove, collection);
         collection = this.adapter.upsertMany(upsert, collection);
-        return didMutate ? collection : __assign({}, collection, { changeState: changeState });
+        return didMutate ? collection : __assign(__assign({}, collection), { changeState: changeState });
     };
     /**
      * Revert the unsaved changes for the given entity.
@@ -3631,7 +3631,7 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
     EntityCollectionReducerMethods.prototype.queryAllSuccess = function (collection, action) {
         var data = this.extractData(action);
         var mergeStrategy = this.extractMergeStrategy(action);
-        return __assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy), { loaded: true, loading: false });
+        return __assign(__assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loaded: true, loading: false });
     };
     EntityCollectionReducerMethods.prototype.queryByKey = function (collection, action) {
         return this.setLoadingTrue(collection);
@@ -3661,7 +3661,7 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
      */
     EntityCollectionReducerMethods.prototype.queryLoadSuccess = function (collection, action) {
         var data = this.extractData(action);
-        return __assign({}, this.adapter.addAll(data, collection), { loading: false, loaded: true, changeState: {} });
+        return __assign(__assign({}, this.adapter.addAll(data, collection)), { loading: false, loaded: true, changeState: {} });
     };
     EntityCollectionReducerMethods.prototype.queryMany = function (collection, action) {
         return this.setLoadingTrue(collection);
@@ -3672,7 +3672,7 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
     EntityCollectionReducerMethods.prototype.queryManySuccess = function (collection, action) {
         var data = this.extractData(action);
         var mergeStrategy = this.extractMergeStrategy(action);
-        return __assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy), { loading: false });
+        return __assign(__assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loading: false });
     };
     // #endregion query operations
     // #region save operations
@@ -4140,7 +4140,7 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
      */
     EntityCollectionReducerMethods.prototype.addAll = function (collection, action) {
         var entities = this.guard.mustBeEntities(action);
-        return __assign({}, this.adapter.addAll(entities, collection), { loading: false, loaded: true, changeState: {} });
+        return __assign(__assign({}, this.adapter.addAll(entities, collection)), { loading: false, loaded: true, changeState: {} });
     };
     EntityCollectionReducerMethods.prototype.addMany = function (collection, action) {
         var entities = this.guard.mustBeEntities(action);
@@ -4169,7 +4169,7 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
         return this.adapter.removeOne(key, collection);
     };
     EntityCollectionReducerMethods.prototype.removeAll = function (collection, action) {
-        return __assign({}, this.adapter.removeAll(collection), { loaded: false, loading: false, changeState: {} });
+        return __assign(__assign({}, this.adapter.removeAll(collection)), { loaded: false, loading: false, changeState: {} });
     };
     EntityCollectionReducerMethods.prototype.updateMany = function (collection, action) {
         // payload must be an array of `Updates<T>`, not entities
@@ -4224,7 +4224,7 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
         var changeState = this.extractData(action);
         return collection.changeState === changeState
             ? collection
-            : __assign({}, collection, { changeState: changeState });
+            : __assign(__assign({}, collection), { changeState: changeState });
     };
     /**
      * Dangerous: Completely replace the collection.
@@ -4239,13 +4239,13 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
         var filter = this.extractData(action);
         return collection.filter === filter
             ? collection
-            : __assign({}, collection, { filter: filter });
+            : __assign(__assign({}, collection), { filter: filter });
     };
     EntityCollectionReducerMethods.prototype.setLoaded = function (collection, action) {
         var loaded = this.extractData(action) === true || false;
         return collection.loaded === loaded
             ? collection
-            : __assign({}, collection, { loaded: loaded });
+            : __assign(__assign({}, collection), { loaded: loaded });
     };
     EntityCollectionReducerMethods.prototype.setLoading = function (collection, action) {
         return this.setLoadingFlag(collection, this.extractData(action));
@@ -4261,7 +4261,7 @@ var EntityCollectionReducerMethods = /** @class */ (function () {
         loading = loading === true ? true : false;
         return collection.loading === loading
             ? collection
-            : __assign({}, collection, { loading: loading });
+            : __assign(__assign({}, collection), { loading: loading });
     };
     // #endregion Cache-only operations
     // #region helpers
@@ -4628,7 +4628,7 @@ var EntityCacheReducerFactory = /** @class */ (function () {
         }
         return action.payload.error || collection === newCollection
             ? cache
-            : __assign({}, cache, (_a = {}, _a[entityName] = newCollection, _a));
+            : __assign(__assign({}, cache), (_a = {}, _a[entityName] = newCollection, _a));
     };
     /** Ensure loading is false for every collection in entityNames */
     EntityCacheReducerFactory.prototype.clearLoadingFlags = function (entityCache, entityNames) {
@@ -4640,7 +4640,7 @@ var EntityCacheReducerFactory = /** @class */ (function () {
                     entityCache = __assign({}, entityCache);
                     isMutated = true;
                 }
-                entityCache[entityName] = __assign({}, collection, { loading: false });
+                entityCache[entityName] = __assign(__assign({}, collection), { loading: false });
             }
         });
         return entityCache;
@@ -4733,7 +4733,7 @@ var DefaultPluralizer = /** @class */ (function () {
      * @param pluralNames {EntityPluralNames} plural names for entity types
      */
     DefaultPluralizer.prototype.registerPluralNames = function (pluralNames) {
-        this.pluralNames = __assign({}, this.pluralNames, (pluralNames || {}));
+        this.pluralNames = __assign(__assign({}, this.pluralNames), (pluralNames || {}));
     };
     DefaultPluralizer = __decorate([
         Injectable(),
@@ -5017,5 +5017,5 @@ var EntityDataModule = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { ENTITY_EFFECTS_SCHEDULER as ɵngrx_modules_data_data_a, EntityDataModule, EntityDataModuleWithoutEffects, EntityActionFactory, EntityActionGuard, ofEntityOp, ofEntityType, EntityCacheAction, ClearCollections, LoadCollections, MergeQuerySet, SetEntityCache, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, ChangeSetOperation, ChangeSetItemFactory, changeSetItemFactory, excludeEmptyChangeSetItems, EntityOp, OP_SUCCESS, OP_ERROR, makeErrorOp, makeSuccessOp, MergeStrategy, DataServiceError, DefaultDataServiceConfig, DefaultDataService, DefaultDataServiceFactory, EntityCacheDataService, EntityDataService, EntityHttpResourceUrls, HttpUrlGenerator, DefaultHttpUrlGenerator, normalizeRoot, PersistenceResultHandler, DefaultPersistenceResultHandler, EntityCacheDispatcher, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, PersistanceCanceled, EntityCacheEffects, persistOps, EntityEffects, EntityDefinitionService, createEntityDefinition, PropsFilterFnFactory, ENTITY_METADATA_TOKEN, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityServicesBase, EntityServicesElements, EntityServices, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_META_REDUCERS, ENTITY_COLLECTION_META_REDUCERS, INITIAL_ENTITY_CACHE_STATE, EntityCacheReducerFactory, EntityChangeTrackerBase, EntityCollectionCreator, createEmptyEntityCollection, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionReducerFactory, ChangeType, ENTITY_CACHE_SELECTOR_TOKEN, entityCacheSelectorProvider, createEntityCacheSelector, EntitySelectorsFactory, EntitySelectors$Factory, CorrelationIdGenerator, DefaultLogger, DefaultPluralizer, getUuid, getGuid, getGuidComb, guidComparer, Logger, PLURAL_NAMES_TOKEN, Pluralizer, defaultSelectId, flattenArgs, toUpdateFactory };
+export { ChangeSetItemFactory, ChangeSetOperation, ChangeType, ClearCollections, CorrelationIdGenerator, DataServiceError, DefaultDataService, DefaultDataServiceConfig, DefaultDataServiceFactory, DefaultHttpUrlGenerator, DefaultLogger, DefaultPersistenceResultHandler, DefaultPluralizer, ENTITY_CACHE_META_REDUCERS, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_SELECTOR_TOKEN, ENTITY_COLLECTION_META_REDUCERS, ENTITY_METADATA_TOKEN, EntityActionFactory, EntityActionGuard, EntityCacheAction, EntityCacheDataService, EntityCacheDispatcher, EntityCacheEffects, EntityCacheReducerFactory, EntityChangeTrackerBase, EntityCollectionCreator, EntityCollectionReducerFactory, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityDataModule, EntityDataModuleWithoutEffects, EntityDataService, EntityDefinitionService, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, EntityEffects, EntityHttpResourceUrls, EntityOp, EntitySelectors$Factory, EntitySelectorsFactory, EntityServices, EntityServicesBase, EntityServicesElements, HttpUrlGenerator, INITIAL_ENTITY_CACHE_STATE, LoadCollections, Logger, MergeQuerySet, MergeStrategy, OP_ERROR, OP_SUCCESS, PLURAL_NAMES_TOKEN, PersistanceCanceled, PersistenceResultHandler, Pluralizer, PropsFilterFnFactory, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, SetEntityCache, changeSetItemFactory, createEmptyEntityCollection, createEntityCacheSelector, createEntityDefinition, defaultSelectId, entityCacheSelectorProvider, excludeEmptyChangeSetItems, flattenArgs, getGuid, getGuidComb, getUuid, guidComparer, makeErrorOp, makeSuccessOp, normalizeRoot, ofEntityOp, ofEntityType, persistOps, toUpdateFactory, ENTITY_EFFECTS_SCHEDULER as ɵngrx_modules_data_data_a };
 //# sourceMappingURL=data.js.map

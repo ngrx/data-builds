@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Injectable } from '@angular/core';
 var DefaultLogger = /** @class */ (function () {
     function DefaultLogger() {
@@ -18,7 +18,7 @@ var DefaultLogger = /** @class */ (function () {
             extra ? console.warn(message, extra) : console.warn(message);
         }
     };
-    DefaultLogger = tslib_1.__decorate([
+    DefaultLogger = __decorate([
         Injectable()
     ], DefaultLogger);
     return DefaultLogger;
