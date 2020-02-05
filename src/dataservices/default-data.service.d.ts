@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/dataservices/default-data.service" />
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Update } from '@ngrx/entity';
@@ -20,7 +21,7 @@ export declare class DefaultDataService<T> implements EntityCollectionDataServic
     protected getDelay: number;
     protected saveDelay: number;
     protected timeout: number;
-    readonly name: string;
+    get name(): string;
     constructor(entityName: string, http: HttpClient, httpUrlGenerator: HttpUrlGenerator, config?: DefaultDataServiceConfig);
     add(entity: T): Observable<T>;
     delete(key: number | string): Observable<number | string>;

@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/utils/utilities" />
 import { IdSelector, Update } from '@ngrx/entity';
 /**
  * Default function that returns the entity's primary key (pkey).

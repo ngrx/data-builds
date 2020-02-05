@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/entity-services/entity-collection-service-base" />
 import { Action, Store } from '@ngrx/store';
 import { Dictionary, IdSelector, Update } from '@ngrx/entity';
 import { Observable } from 'rxjs';
@@ -55,7 +56,7 @@ export declare class EntityCollectionServiceBase<T, S$ extends EntitySelectors$<
      */
     dispatch(action: Action): Action;
     /** The NgRx Store for the {EntityCache} */
-    readonly store: Store<import("@ngrx/data").EntityCache>;
+    get store(): Store<import("@ngrx/data").EntityCache>;
     /**
      * Utility class with methods to validate EntityAction payloads.
      */

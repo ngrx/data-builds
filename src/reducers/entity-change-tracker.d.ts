@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/reducers/entity-change-tracker" />
 import { Update } from '@ngrx/entity';
 import { EntityCollection } from './entity-collection';
 import { MergeStrategy } from '../actions/merge-strategy';

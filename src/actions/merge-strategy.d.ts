@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/actions/merge-strategy" />
 /** How to merge an entity, after query or save, when the corresponding entity in the collection has unsaved changes. */
 export declare enum MergeStrategy {
     /**

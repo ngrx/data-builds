@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/entity-data.module" />
 import { ModuleWithProviders } from '@angular/core';
 import { EffectSources } from '@ngrx/effects';
 import { EntityCacheEffects } from './effects/entity-cache-effects';

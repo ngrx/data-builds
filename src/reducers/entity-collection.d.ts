@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/reducers/entity-collection" />
 import { EntityState, Dictionary } from '@ngrx/entity';
 /** Types of change in a ChangeState instance */
 export declare enum ChangeType {

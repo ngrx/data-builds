@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/dispatchers/entity-commands" />
 import { Observable } from 'rxjs';
 import { EntityActionOptions } from '../actions/entity-action';
 import { QueryParams } from '../dataservices/interfaces';

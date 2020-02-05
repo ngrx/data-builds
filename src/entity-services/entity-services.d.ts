@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/entity-services/entity-services" />
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { EntityAction } from '../actions/entity-action';

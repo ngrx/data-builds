@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/selectors/entity-cache-selector" />
 import { InjectionToken, FactoryProvider } from '@angular/core';
 import { MemoizedSelector } from '@ngrx/store';
 import { EntityCache } from '../reducers/entity-cache';

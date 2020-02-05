@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/effects/entity-effects" />
 import { Action } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
 import { Observable, SchedulerLike } from 'rxjs';

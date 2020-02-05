@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/reducers/entity-change-tracker-base" />
 import { EntityAdapter, IdSelector, Update } from '@ngrx/entity';
 import { EntityCollection } from './entity-collection';
 import { EntityChangeTracker } from './entity-change-tracker';

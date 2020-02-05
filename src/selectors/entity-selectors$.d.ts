@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/selectors/entity-selectors$" />
 import { Store } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
 import { Dictionary } from '@ngrx/entity';

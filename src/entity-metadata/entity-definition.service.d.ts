@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/entity-metadata/entity-definition.service" />
 import { EntityDefinition } from './entity-definition';
 import { EntityMetadata, EntityMetadataMap } from './entity-metadata';
 export interface EntityDefinitions {

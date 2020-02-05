@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/entity-metadata/entity-definition" />
 import { EntityAdapter } from '@ngrx/entity';
 import { Comparer, IdSelector } from '@ngrx/entity';
 import { EntityDispatcherDefaultOptions } from '../dispatchers/entity-dispatcher-default-options';

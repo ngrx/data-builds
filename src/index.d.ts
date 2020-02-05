@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/index" />
 export * from './actions/entity-action-factory';
 export * from './actions/entity-action-guard';
 export * from './actions/entity-action-operators';

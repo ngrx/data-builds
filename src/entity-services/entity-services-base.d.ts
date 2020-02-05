@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/entity-services/entity-services-base" />
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { EntityAction } from '../actions/entity-action';
@@ -31,18 +32,18 @@ export declare class EntityServicesBase implements EntityServices {
     private entityServicesElements;
     constructor(entityServicesElements: EntityServicesElements);
     /** Observable of error EntityActions (e.g. QUERY_ALL_ERROR) for all entity types */
-    readonly entityActionErrors$: Observable<EntityAction>;
+    get entityActionErrors$(): Observable<EntityAction>;
     /** Observable of the entire entity cache */
-    readonly entityCache$: Observable<EntityCache> | Store<EntityCache>;
+    get entityCache$(): Observable<EntityCache> | Store<EntityCache>;
     /** Factory to create a default instance of an EntityCollectionService */
-    readonly entityCollectionServiceFactory: EntityCollectionServiceFactory;
+    get entityCollectionServiceFactory(): EntityCollectionServiceFactory;
     /**
      * Actions scanned by the store after it processed them with reducers.
      * A replay observable of the most recent action reduced by the store.
      */
-    readonly reducedActions$: Observable<Action>;
+    get reducedActions$(): Observable<Action>;
     /** The ngrx store, scoped to the EntityCache */
-    protected readonly store: Store<EntityCache>;
+    protected get store(): Store<EntityCache>;
     /** Dispatch any action to the store */
     dispatch(action: Action): void;
     /** Registry of EntityCollectionService instances */

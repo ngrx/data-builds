@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/actions/entity-op" />
 /** General purpose entity action operations, good for any entity type */
 export declare enum EntityOp {
     CANCEL_PERSIST = "@ngrx/data/cancel-persist",

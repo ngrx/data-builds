@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/effects/entity-cache-effects" />
 import { Action } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
 import { Observable, SchedulerLike } from 'rxjs';

@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/reducers/entity-collection-creator" />
 import { EntityCollection } from './entity-collection';
 import { EntityDefinitionService } from '../entity-metadata/entity-definition.service';
 export declare class EntityCollectionCreator {

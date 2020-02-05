@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/utils/interfaces" />
 import { InjectionToken } from '@angular/core';
 export declare abstract class Logger {
     abstract error(message?: any, ...optionalParams: any[]): void;

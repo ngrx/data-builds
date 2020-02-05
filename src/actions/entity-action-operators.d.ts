@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/actions/entity-action-operators" />
 import { OperatorFunction } from 'rxjs';
 import { EntityAction } from './entity-action';
 import { EntityOp } from './entity-op';

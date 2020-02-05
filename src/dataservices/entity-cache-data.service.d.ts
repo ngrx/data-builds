@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/dataservices/entity-cache-data.service" />
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IdSelector } from '@ngrx/entity';

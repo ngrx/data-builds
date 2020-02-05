@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/dataservices/interfaces" />
 import { Observable } from 'rxjs';
 import { Update } from '@ngrx/entity';
 /** A service that performs REST-like HTTP data operations for an entity collection */

@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/entity-data-without-effects.module" />
 import { ModuleWithProviders, Injector, InjectionToken, OnDestroy } from '@angular/core';
 import { Action, MetaReducer, ReducerManager } from '@ngrx/store';
 import { EntityAction } from './actions/entity-action';

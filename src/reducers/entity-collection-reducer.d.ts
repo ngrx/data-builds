@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/reducers/entity-collection-reducer" />
 import { EntityAction } from '../actions/entity-action';
 import { EntityCollection } from './entity-collection';
 import { EntityCollectionReducerMethodsFactory } from './entity-collection-reducer-methods';

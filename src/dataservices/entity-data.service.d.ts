@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/dataservices/entity-data.service" />
 import { EntityCollectionDataService } from './interfaces';
 import { DefaultDataServiceFactory } from './default-data.service';
 /**

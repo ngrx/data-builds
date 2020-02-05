@@ -1,3 +1,4 @@
+/// <amd-module name="@ngrx/data/src/dataservices/default-data-service-config" />
 import { EntityHttpResourceUrls } from './http-url-generator';
 /**
  * Optional configuration settings for an entity collection data service
