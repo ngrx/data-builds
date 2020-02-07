@@ -11,7 +11,7 @@ import { EntityDataModuleConfig } from './entity-data-without-effects.module';
  */
 export declare class EntityDataModule {
     private effectSources;
-    static forRoot(config: EntityDataModuleConfig): ModuleWithProviders;
+    static forRoot(config: EntityDataModuleConfig): ModuleWithProviders<EntityDataModule>;
     constructor(effectSources: EffectSources, entityCacheEffects: EntityCacheEffects, entityEffects: EntityEffects);
     /**
      * Add another class instance that contains effects.
