@@ -28,7 +28,7 @@ export declare class EntityDataModuleWithoutEffects implements OnDestroy {
     private initialState;
     private metaReducers;
     private entityCacheFeature;
-    static forRoot(config: EntityDataModuleConfig): ModuleWithProviders;
+    static forRoot(config: EntityDataModuleConfig): ModuleWithProviders<EntityDataModuleWithoutEffects>;
     constructor(reducerManager: ReducerManager, entityCacheReducerFactory: EntityCacheReducerFactory, injector: Injector, entityCacheName: string, initialState: any, metaReducers: (MetaReducer<EntityCache, Action> | InjectionToken<MetaReducer<EntityCache, Action>>)[]);
     ngOnDestroy(): void;
 }
