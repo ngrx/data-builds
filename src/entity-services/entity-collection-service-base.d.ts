@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/entity-services/entity-collection-service-base" />
 import { Action, Store } from '@ngrx/store';
 import { Dictionary, IdSelector, Update } from '@ngrx/entity';
 import { Observable } from 'rxjs';

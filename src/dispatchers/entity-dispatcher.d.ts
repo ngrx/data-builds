@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/dispatchers/entity-dispatcher" />
 import { Action, Store } from '@ngrx/store';
 import { IdSelector, Update } from '@ngrx/entity';
 import { EntityAction, EntityActionOptions } from '../actions/entity-action';

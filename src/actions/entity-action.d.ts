@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/actions/entity-action" />
 import { Action } from '@ngrx/store';
 import { EntityOp } from './entity-op';
 import { MergeStrategy } from './merge-strategy';

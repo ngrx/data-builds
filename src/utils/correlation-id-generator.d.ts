@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/utils/correlation-id-generator" />
 /**
  * Generates a string id beginning 'CRID',
  * followed by a monotonically increasing integer for use as a correlation id.

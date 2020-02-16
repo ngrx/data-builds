@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/entity-services/entity-collection-service" />
 import { EntityAction, EntityActionOptions } from '../actions/entity-action';
 import { EntityCommands } from '../dispatchers/entity-commands';
 import { EntityDispatcher } from '../dispatchers/entity-dispatcher';

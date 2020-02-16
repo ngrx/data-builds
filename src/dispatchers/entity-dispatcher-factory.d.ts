@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/dispatchers/entity-dispatcher-factory" />
 import { OnDestroy } from '@angular/core';
 import { Action, Store } from '@ngrx/store';
 import { IdSelector } from '@ngrx/entity';

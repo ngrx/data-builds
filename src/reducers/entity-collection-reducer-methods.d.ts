@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/reducers/entity-collection-reducer-methods" />
 import { EntityAdapter, IdSelector, Update } from '@ngrx/entity';
 import { ChangeStateMap, EntityCollection } from './entity-collection';
 import { EntityAction } from '../actions/entity-action';

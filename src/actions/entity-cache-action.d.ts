@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/actions/entity-cache-action" />
 import { Action } from '@ngrx/store';
 import { ChangeSet } from './entity-cache-change-set';
 export { ChangeSet, ChangeSetOperation } from './entity-cache-change-set';

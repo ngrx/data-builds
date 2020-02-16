@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/actions/entity-action-guard" />
 import { IdSelector, Update } from '@ngrx/entity';
 import { EntityAction } from './entity-action';
 import { UpdateResponseData } from '../actions/update-response-data';

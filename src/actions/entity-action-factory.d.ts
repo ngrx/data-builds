@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/actions/entity-action-factory" />
 import { EntityOp } from './entity-op';
 import { EntityAction, EntityActionOptions, EntityActionPayload } from './entity-action';
 export declare class EntityActionFactory {

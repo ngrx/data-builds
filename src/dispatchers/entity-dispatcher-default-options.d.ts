@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/dispatchers/entity-dispatcher-default-options" />
 /**
  * Default options for EntityDispatcher behavior
  * such as whether `add()` is optimistic or pessimistic by default.

@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/actions/entity-cache-change-set" />
 import { Update } from '@ngrx/entity';
 export declare enum ChangeSetOperation {
     Add = "Add",

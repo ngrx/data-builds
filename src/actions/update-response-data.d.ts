@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/actions/update-response-data" />
 /**
  * Data returned in an EntityAction from the EntityEffects for SAVE_UPDATE_ONE_SUCCESS.
  * Effectively extends Update<T> with a 'changed' flag.

@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/dataservices/default-data.service" />
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Update } from '@ngrx/entity';

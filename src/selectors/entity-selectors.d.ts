@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/selectors/entity-selectors" />
 import { MemoizedSelector } from '@ngrx/store';
 import { Selector } from '@ngrx/store';
 import { Dictionary } from '@ngrx/entity';

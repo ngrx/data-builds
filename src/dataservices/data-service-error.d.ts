@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/dataservices/data-service-error" />
 import { EntityAction } from '../actions/entity-action';
 import { RequestData } from './interfaces';
 /**

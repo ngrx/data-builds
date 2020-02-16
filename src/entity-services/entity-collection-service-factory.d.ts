@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/entity-services/entity-collection-service-factory" />
 import { EntityCollectionService } from './entity-collection-service';
 import { EntityCollectionServiceElementsFactory } from './entity-collection-service-elements-factory';
 import { EntitySelectors$ } from '../selectors/entity-selectors$';

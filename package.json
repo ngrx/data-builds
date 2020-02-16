@@ -1,6 +1,6 @@
 {
   "name": "@ngrx/data",
-  "version": "9.0.0-beta.0+13.sha-943a2bb",
+  "version": "9.0.0-beta.0+15.sha-1c7872c",
   "description": "API management for NgRx",
   "repository": {
     "type": "git",
@@ -22,9 +22,9 @@
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",
-    "@ngrx/store": "9.0.0-beta.0+13.sha-943a2bb",
-    "@ngrx/effects": "9.0.0-beta.0+13.sha-943a2bb",
-    "@ngrx/entity": "9.0.0-beta.0+13.sha-943a2bb",
+    "@ngrx/store": "9.0.0-beta.0+15.sha-1c7872c",
+    "@ngrx/effects": "9.0.0-beta.0+15.sha-1c7872c",
+    "@ngrx/entity": "9.0.0-beta.0+15.sha-1c7872c",
     "rxjs": "^6.5.3"
   },
   "schematics": "./schematics/collection.json",
@@ -41,5 +41,13 @@
     ],
     "migrations": "./migrations/migration.json"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "main": "./bundles/data.umd.js",
+  "fesm5": "./fesm5/data.js",
+  "fesm2015": "./fesm2015/data.js",
+  "esm5": "./esm5/data.js",
+  "esm2015": "./esm2015/data.js",
+  "typings": "./data.d.ts",
+  "module": "./fesm5/data.js",
+  "es2015": "./fesm2015/data.js"
 }

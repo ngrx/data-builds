@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/utils/guid-fns" />
 /**
  * Creates a Universally Unique Identifier (AKA GUID)
  */

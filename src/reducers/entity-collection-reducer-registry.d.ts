@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/reducers/entity-collection-reducer-registry" />
 import { MetaReducer } from '@ngrx/store';
 import { EntityAction } from '../actions/entity-action';
 import { EntityCollection } from './entity-collection';

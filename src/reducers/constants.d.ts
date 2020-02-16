@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/reducers/constants" />
 import { InjectionToken } from '@angular/core';
 import { MetaReducer } from '@ngrx/store';
 import { EntityCache } from './entity-cache';

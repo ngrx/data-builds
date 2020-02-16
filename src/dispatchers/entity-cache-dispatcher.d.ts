@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/dispatchers/entity-cache-dispatcher" />
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CorrelationIdGenerator } from '../utils/correlation-id-generator';

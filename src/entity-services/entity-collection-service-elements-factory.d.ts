@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/entity-services/entity-collection-service-elements-factory" />
 import { EntityDispatcher } from '../dispatchers/entity-dispatcher';
 import { EntityDispatcherFactory } from '../dispatchers/entity-dispatcher-factory';
 import { EntityDefinitionService } from '../entity-metadata/entity-definition.service';

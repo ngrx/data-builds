@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/utils/default-pluralizer" />
 import { EntityPluralNames } from './interfaces';
 export declare class DefaultPluralizer {
     pluralNames: EntityPluralNames;

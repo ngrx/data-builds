@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/dataservices/http-url-generator" />
 import { Pluralizer } from '../utils/interfaces';
 /**
  * Known resource URLS for specific entity types.

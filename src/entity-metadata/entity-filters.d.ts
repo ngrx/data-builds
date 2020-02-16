@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/entity-metadata/entity-filters" />
 /**
  * Filters the `entities` array argument and returns the original `entities`,
  * or a new filtered array of entities.

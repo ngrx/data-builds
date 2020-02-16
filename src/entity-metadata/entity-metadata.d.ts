@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/entity-metadata/entity-metadata" />
 import { InjectionToken } from '@angular/core';
 import { IdSelector, Comparer } from '@ngrx/entity';
 import { EntityDispatcherDefaultOptions } from '../dispatchers/entity-dispatcher-default-options';

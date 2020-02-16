@@ -1,4 +1,3 @@
-/// <amd-module name="@ngrx/data/src/reducers/entity-cache-reducer" />
 import { Action, ActionReducer } from '@ngrx/store';
 import { EntityCache } from './entity-cache';
 import { ClearCollections, LoadCollections, MergeQuerySet, SaveEntities, SaveEntitiesCancel, SaveEntitiesError, SaveEntitiesSuccess } from '../actions/entity-cache-action';
