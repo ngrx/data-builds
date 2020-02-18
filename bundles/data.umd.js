@@ -1,5 +1,5 @@
 /**
- * @license NgRx 9.0.0-beta.0+20.sha-daf1e64
+ * @license NgRx 9.0.0-beta.0+21.sha-b3a49c1
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -3185,14 +3185,14 @@
                 case exports.MergeStrategy.PreserveChanges: {
                     var upsertEntities_1 = [];
                     changeState = entities.reduce(function (chgState, entity) {
+                        var _a;
                         var id = _this.selectId(entity);
                         var change = chgState[id];
                         if (change) {
                             if (!didMutate) {
-                                chgState = tslib.__assign({}, chgState);
+                                chgState = tslib.__assign(tslib.__assign({}, chgState), (_a = {}, _a[id] = tslib.__assign(tslib.__assign({}, chgState[id]), { originalValue: entity }), _a));
                                 didMutate = true;
                             }
-                            change.originalValue = entity;
                         }
                         else {
                             upsertEntities_1.push(entity);

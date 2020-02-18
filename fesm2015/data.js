@@ -1,5 +1,5 @@
 /**
- * @license NgRx 9.0.0-beta.0+20.sha-daf1e64
+ * @license NgRx 9.0.0-beta.0+21.sha-b3a49c1
  * (c) 2015-2018 Brandon Roberts, Mike Ryan, Rob Wormald, Victor Savkin
  * License: MIT
  */
@@ -5791,10 +5791,9 @@ class EntityChangeTrackerBase {
                     const change = chgState[id];
                     if (change) {
                         if (!didMutate) {
-                            chgState = Object.assign({}, chgState);
+                            chgState = Object.assign(Object.assign({}, chgState), { [id]: Object.assign(Object.assign({}, (/** @type {?} */ (chgState[id]))), { originalValue: entity }) });
                             didMutate = true;
                         }
-                        change.originalValue = entity;
                     }
                     else {
                         upsertEntities.push(entity);
