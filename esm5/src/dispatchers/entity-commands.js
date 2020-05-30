@@ -1,1 +1,247 @@
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW50aXR5LWNvbW1hbmRzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vbW9kdWxlcy9kYXRhL3NyYy9kaXNwYXRjaGVycy9lbnRpdHktY29tbWFuZHMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE9ic2VydmFibGUgfSBmcm9tICdyeGpzJztcbmltcG9ydCB7IEVudGl0eUFjdGlvbk9wdGlvbnMgfSBmcm9tICcuLi9hY3Rpb25zL2VudGl0eS1hY3Rpb24nO1xuaW1wb3J0IHsgUXVlcnlQYXJhbXMgfSBmcm9tICcuLi9kYXRhc2VydmljZXMvaW50ZXJmYWNlcyc7XG5cbi8qKiBDb21tYW5kcyB0aGF0IHVwZGF0ZSB0aGUgcmVtb3RlIHNlcnZlci4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRW50aXR5U2VydmVyQ29tbWFuZHM8VD4ge1xuICAvKipcbiAgICogRGlzcGF0Y2ggYWN0aW9uIHRvIHNhdmUgYSBuZXcgZW50aXR5IHRvIHJlbW90ZSBzdG9yYWdlLlxuICAgKiBAcGFyYW0gZW50aXR5IGVudGl0eSB0byBhZGQsIHdoaWNoIG1heSBvbWl0IGl0cyBrZXkgaWYgcGVzc2ltaXN0aWMgYW5kIHRoZSBzZXJ2ZXIgY3JlYXRlcyB0aGUga2V5O1xuICAgKiBtdXN0IGhhdmUgYSBrZXkgaWYgb3B0aW1pc3RpYyBzYXZlLlxuICAgKiBAcmV0dXJucyBBIHRlcm1pbmF0aW5nIE9ic2VydmFibGUgb2YgdGhlIGVudGl0eVxuICAgKiBhZnRlciBzZXJ2ZXIgcmVwb3J0cyBzdWNjZXNzZnVsIHNhdmUgb3IgdGhlIHNhdmUgZXJyb3IuXG4gICAqL1xuICBhZGQoZW50aXR5OiBULCBvcHRpb25zPzogRW50aXR5QWN0aW9uT3B0aW9ucyk6IE9ic2VydmFibGU8VD47XG5cbiAgLyoqXG4gICAqIERpc3BhdGNoIGFjdGlvbiB0byBjYW5jZWwgdGhlIHBlcnNpc3RlbmNlIG9wZXJhdGlvbiAocXVlcnkgb3Igc2F2ZSkgd2l0aCB0aGUgZ2l2ZW4gY29ycmVsYXRpb25JZC5cbiAgICogQHBhcmFtIGNvcnJlbGF0aW9uSWQgVGhlIGNvcnJlbGF0aW9uIGlkIGZvciB0aGUgY29ycmVzcG9uZGluZyBFbnRpdHlBY3Rpb25cbiAgICogQHBhcmFtIFtyZWFzb25dIGV4cGxhaW5zIHdoeSBjYW5jZWxlZCBhbmQgYnkgd2hvbS5cbiAgICogQHBhcmFtIFtvcHRpb25zXSBvcHRpb25zIHN1Y2ggYXMgdGhlIHRhZ1xuICAgKi9cbiAgY2FuY2VsKFxuICAgIGNvcnJlbGF0aW9uSWQ6IGFueSxcbiAgICByZWFzb24/OiBzdHJpbmcsXG4gICAgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnNcbiAgKTogdm9pZDtcblxuICAvKipcbiAgICogRGlzcGF0Y2ggYWN0aW9uIHRvIGRlbGV0ZSBlbnRpdHkgZnJvbSByZW1vdGUgc3RvcmFnZSBieSBrZXkuXG4gICAqIEBwYXJhbSBrZXkgVGhlIGVudGl0eSB0byBkZWxldGVcbiAgICogQHBhcmFtIFtvcHRpb25zXSBvcHRpb25zIHRoYXQgaW5mbHVlbmNlIHNhdmUgYW5kIG1lcmdlIGJlaGF2aW9yXG4gICAqIEByZXR1cm5zIEEgdGVybWluYXRpbmcgT2JzZXJ2YWJsZSBvZiB0aGUgZGVsZXRlZCBrZXlcbiAgICogYWZ0ZXIgc2VydmVyIHJlcG9ydHMgc3VjY2Vzc2Z1bCBzYXZlIG9yIHRoZSBzYXZlIGVycm9yLlxuICAgKi9cbiAgZGVsZXRlKGVudGl0eTogVCwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiBPYnNlcnZhYmxlPG51bWJlciB8IHN0cmluZz47XG5cbiAgLyoqXG4gICAqIERpc3BhdGNoIGFjdGlvbiB0byBkZWxldGUgZW50aXR5IGZyb20gcmVtb3RlIHN0b3JhZ2UgYnkga2V5LlxuICAgKiBAcGFyYW0ga2V5IFRoZSBwcmltYXJ5IGtleSBvZiB0aGUgZW50aXR5IHRvIHJlbW92ZVxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgdGhhdCBpbmZsdWVuY2Ugc2F2ZSBhbmQgbWVyZ2UgYmVoYXZpb3JcbiAgICogQHJldHVybnMgT2JzZXJ2YWJsZSBvZiB0aGUgZGVsZXRlZCBrZXlcbiAgICogYWZ0ZXIgc2VydmVyIHJlcG9ydHMgc3VjY2Vzc2Z1bCBzYXZlIG9yIHRoZSBzYXZlIGVycm9yLlxuICAgKi9cbiAgZGVsZXRlKFxuICAgIGtleTogbnVtYmVyIHwgc3RyaW5nLFxuICAgIG9wdGlvbnM/OiBFbnRpdHlBY3Rpb25PcHRpb25zXG4gICk6IE9ic2VydmFibGU8bnVtYmVyIHwgc3RyaW5nPjtcblxuICAvKipcbiAgICogRGlzcGF0Y2ggYWN0aW9uIHRvIHF1ZXJ5IHJlbW90ZSBzdG9yYWdlIGZvciBhbGwgZW50aXRpZXMgYW5kXG4gICAqIG1lcmdlIHRoZSBxdWVyaWVkIGVudGl0aWVzIGludG8gdGhlIGNhY2hlZCBjb2xsZWN0aW9uLlxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgdGhhdCBpbmZsdWVuY2UgbWVyZ2UgYmVoYXZpb3JcbiAgICogQHJldHVybnMgQSB0ZXJtaW5hdGluZyBPYnNlcnZhYmxlIG9mIHRoZSBjb2xsZWN0aW9uXG4gICAqIGFmdGVyIHNlcnZlciByZXBvcnRzIHN1Y2Nlc3NmdWwgcXVlcnkgb3IgdGhlIHF1ZXJ5IGVycm9yLlxuICAgKiBAc2VlIGxvYWQoKVxuICAgKi9cbiAgZ2V0QWxsKG9wdGlvbnM/OiBFbnRpdHlBY3Rpb25PcHRpb25zKTogT2JzZXJ2YWJsZTxUW10+O1xuXG4gIC8qKlxuICAgKiBEaXNwYXRjaCBhY3Rpb24gdG8gcXVlcnkgcmVtb3RlIHN0b3JhZ2UgZm9yIHRoZSBlbnRpdHkgd2l0aCB0aGlzIHByaW1hcnkga2V5LlxuICAgKiBJZiB0aGUgc2VydmVyIHJldHVybnMgYW4gZW50aXR5LFxuICAgKiBtZXJnZSBpdCBpbnRvIHRoZSBjYWNoZWQgY29sbGVjdGlvbi5cbiAgICogQHBhcmFtIGtleSBUaGUgcHJpbWFyeSBrZXkgb2YgdGhlIGVudGl0eSB0byBnZXQuXG4gICAqIEBwYXJhbSBbb3B0aW9uc10gb3B0aW9ucyB0aGF0IGluZmx1ZW5jZSBtZXJnZSBiZWhhdmlvclxuICAgKiBAcmV0dXJucyBBIHRlcm1pbmF0aW5nIE9ic2VydmFibGUgb2YgdGhlIHF1ZXJpZWQgZW50aXRpZXMgdGhhdCBhcmUgaW4gdGhlIGNvbGxlY3Rpb25cbiAgICogYWZ0ZXIgc2VydmVyIHJlcG9ydHMgc3VjY2VzcyBvciB0aGUgcXVlcnkgZXJyb3IuXG4gICAqL1xuICBnZXRCeUtleShrZXk6IGFueSwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiBPYnNlcnZhYmxlPFQ+O1xuXG4gIC8qKlxuICAgKiBEaXNwYXRjaCBhY3Rpb24gdG8gcXVlcnkgcmVtb3RlIHN0b3JhZ2UgZm9yIHRoZSBlbnRpdGllcyB0aGF0IHNhdGlzZnkgYSBxdWVyeSBleHByZXNzZWRcbiAgICogd2l0aCBlaXRoZXIgYSBxdWVyeSBwYXJhbWV0ZXIgbWFwIG9yIGFuIEhUVFAgVVJMIHF1ZXJ5IHN0cmluZyxcbiAgICogYW5kIG1lcmdlIHRoZSByZXN1bHRzIGludG8gdGhlIGNhY2hlZCBjb2xsZWN0aW9uLlxuICAgKiBAcGFyYW0gcXVlcnlQYXJhbXMgdGhlIHF1ZXJ5IGluIGEgZm9ybSB1bmRlcnN0b29kIGJ5IHRoZSBzZXJ2ZXJcbiAgICogQHBhcmFtIFtvcHRpb25zXSBvcHRpb25zIHRoYXQgaW5mbHVlbmNlIG1lcmdlIGJlaGF2aW9yXG4gICAqIEByZXR1cm5zIEEgdGVybWluYXRpbmcgT2JzZXJ2YWJsZSBvZiB0aGUgcXVlcmllZCBlbnRpdGllc1xuICAgKiBhZnRlciBzZXJ2ZXIgcmVwb3J0cyBzdWNjZXNzZnVsIHF1ZXJ5IG9yIHRoZSBxdWVyeSBlcnJvci5cbiAgICovXG4gIGdldFdpdGhRdWVyeShcbiAgICBxdWVyeVBhcmFtczogUXVlcnlQYXJhbXMgfCBzdHJpbmcsXG4gICAgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnNcbiAgKTogT2JzZXJ2YWJsZTxUW10+O1xuXG4gIC8qKlxuICAgKiBEaXNwYXRjaCBhY3Rpb24gdG8gcXVlcnkgcmVtb3RlIHN0b3JhZ2UgZm9yIGFsbCBlbnRpdGllcyBhbmRcbiAgICogY29tcGxldGVseSByZXBsYWNlIHRoZSBjYWNoZWQgY29sbGVjdGlvbiB3aXRoIHRoZSBxdWVyaWVkIGVudGl0aWVzLlxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgdGhhdCBpbmZsdWVuY2UgbG9hZCBiZWhhdmlvclxuICAgKiBAcmV0dXJucyBBIHRlcm1pbmF0aW5nIE9ic2VydmFibGUgb2YgdGhlIGVudGl0aWVzIGluIHRoZSBjb2xsZWN0aW9uXG4gICAqIGFmdGVyIHNlcnZlciByZXBvcnRzIHN1Y2Nlc3NmdWwgcXVlcnkgb3IgdGhlIHF1ZXJ5IGVycm9yLlxuICAgKiBAc2VlIGdldEFsbFxuICAgKi9cbiAgbG9hZChvcHRpb25zPzogRW50aXR5QWN0aW9uT3B0aW9ucyk6IE9ic2VydmFibGU8VFtdPjtcblxuICAvKipcbiAgICogRGlzcGF0Y2ggYWN0aW9uIHRvIHNhdmUgdGhlIHVwZGF0ZWQgZW50aXR5IChvciBwYXJ0aWFsIGVudGl0eSkgaW4gcmVtb3RlIHN0b3JhZ2UuXG4gICAqIFRoZSB1cGRhdGUgZW50aXR5IG1heSBiZSBwYXJ0aWFsIChidXQgbXVzdCBoYXZlIGl0cyBrZXkpXG4gICAqIGluIHdoaWNoIGNhc2UgaXQgcGF0Y2hlcyB0aGUgZXhpc3RpbmcgZW50aXR5LlxuICAgKiBAcGFyYW0gZW50aXR5IHVwZGF0ZSBlbnRpdHksIHdoaWNoIG1pZ2h0IGJlIGEgcGFydGlhbCBvZiBUIGJ1dCBtdXN0IGF0IGxlYXN0IGhhdmUgaXRzIGtleS5cbiAgICogQHBhcmFtIFtvcHRpb25zXSBvcHRpb25zIHRoYXQgaW5mbHVlbmNlIHNhdmUgYW5kIG1lcmdlIGJlaGF2aW9yXG4gICAqIEByZXR1cm5zIEEgdGVybWluYXRpbmcgT2JzZXJ2YWJsZSBvZiB0aGUgdXBkYXRlZCBlbnRpdHlcbiAgICogYWZ0ZXIgc2VydmVyIHJlcG9ydHMgc3VjY2Vzc2Z1bCBzYXZlIG9yIHRoZSBzYXZlIGVycm9yLlxuICAgKi9cbiAgdXBkYXRlKGVudGl0eTogUGFydGlhbDxUPiwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiBPYnNlcnZhYmxlPFQ+O1xuXG4gIC8qKlxuICAgKiBEaXNwYXRjaCBhY3Rpb24gdG8gc2F2ZSBhIG5ldyBvciB1cGRhdGUgYW4gZXhpc3RpbmcgZW50aXR5IHRvIHJlbW90ZSBzdG9yYWdlLlxuICAgKiBPbmx5IGRpc3BhdGNoIHRoaXMgYWN0aW9uIGlmIHlvdXIgc2VydmVyIHN1cHBvcnRzIHVwc2VydC5cbiAgICogQHBhcmFtIGVudGl0eSBlbnRpdHkgdG8gdXBzZXJ0LCB3aGljaCBtYXkgb21pdCBpdHMga2V5IGlmIHBlc3NpbWlzdGljIGFuZCB0aGUgc2VydmVyIGNyZWF0ZXMgdGhlIGtleTtcbiAgICogbXVzdCBoYXZlIGEga2V5IGlmIG9wdGltaXN0aWMgc2F2ZS5cbiAgICogQHJldHVybnMgQSB0ZXJtaW5hdGluZyBPYnNlcnZhYmxlIG9mIHRoZSBlbnRpdHlcbiAgICogYWZ0ZXIgc2VydmVyIHJlcG9ydHMgc3VjY2Vzc2Z1bCBzYXZlIG9yIHRoZSBzYXZlIGVycm9yLlxuICAgKi9cbiAgdXBzZXJ0KGVudGl0eTogVCwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiBPYnNlcnZhYmxlPFQ+O1xufVxuXG4vKioqIEEgY29sbGVjdGlvbidzIGNhY2hlLW9ubHkgY29tbWFuZHMsIHdoaWNoIGRvIG5vdCB1cGRhdGUgcmVtb3RlIHN0b3JhZ2UgKioqL1xuXG5leHBvcnQgaW50ZXJmYWNlIEVudGl0eUNhY2hlQ29tbWFuZHM8VD4ge1xuICAvKipcbiAgICogUmVwbGFjZSBhbGwgZW50aXRpZXMgaW4gdGhlIGNhY2hlZCBjb2xsZWN0aW9uLlxuICAgKiBEb2VzIG5vdCBzYXZlIHRvIHJlbW90ZSBzdG9yYWdlLlxuICAgKiBAcGFyYW0gZW50aXRpZXMgdG8gYWRkIGRpcmVjdGx5IHRvIGNhY2hlLlxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgc3VjaCBhcyBtZXJnZVN0cmF0ZWd5XG4gICAqL1xuICBhZGRBbGxUb0NhY2hlKGVudGl0aWVzOiBUW10sIG9wdGlvbnM/OiBFbnRpdHlBY3Rpb25PcHRpb25zKTogdm9pZDtcblxuICAvKipcbiAgICogQWRkIGEgbmV3IGVudGl0eSBkaXJlY3RseSB0byB0aGUgY2FjaGUuXG4gICAqIERvZXMgbm90IHNhdmUgdG8gcmVtb3RlIHN0b3JhZ2UuXG4gICAqIElnbm9yZWQgaWYgYW4gZW50aXR5IHdpdGggdGhlIHNhbWUgcHJpbWFyeSBrZXkgaXMgYWxyZWFkeSBpbiBjYWNoZS5cbiAgICogQHBhcmFtIGVudGl0eSB0byBhZGQgZGlyZWN0bHkgdG8gY2FjaGUuXG4gICAqIEBwYXJhbSBbb3B0aW9uc10gb3B0aW9ucyBzdWNoIGFzIG1lcmdlU3RyYXRlZ3lcbiAgICovXG4gIGFkZE9uZVRvQ2FjaGUoZW50aXR5OiBULCBvcHRpb25zPzogRW50aXR5QWN0aW9uT3B0aW9ucyk6IHZvaWQ7XG5cbiAgLyoqXG4gICAqIEFkZCBtdWx0aXBsZSBuZXcgZW50aXRpZXMgZGlyZWN0bHkgdG8gdGhlIGNhY2hlLlxuICAgKiBEb2VzIG5vdCBzYXZlIHRvIHJlbW90ZSBzdG9yYWdlLlxuICAgKiBFbnRpdGllcyB3aXRoIHByaW1hcnkga2V5cyBhbHJlYWR5IGluIGNhY2hlIGFyZSBpZ25vcmVkLlxuICAgKiBAcGFyYW0gZW50aXRpZXMgdG8gYWRkIGRpcmVjdGx5IHRvIGNhY2hlLlxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgc3VjaCBhcyBtZXJnZVN0cmF0ZWd5XG4gICAqL1xuICBhZGRNYW55VG9DYWNoZShlbnRpdGllczogVFtdLCBvcHRpb25zPzogRW50aXR5QWN0aW9uT3B0aW9ucyk6IHZvaWQ7XG5cbiAgLyoqIENsZWFyIHRoZSBjYWNoZWQgZW50aXR5IGNvbGxlY3Rpb24gKi9cbiAgY2xlYXJDYWNoZShvcHRpb25zPzogRW50aXR5QWN0aW9uT3B0aW9ucyk6IHZvaWQ7XG5cbiAgLyoqXG4gICAqIFJlbW92ZSBhbiBlbnRpdHkgZGlyZWN0bHkgZnJvbSB0aGUgY2FjaGUuXG4gICAqIERvZXMgbm90IGRlbGV0ZSB0aGF0IGVudGl0eSBmcm9tIHJlbW90ZSBzdG9yYWdlLlxuICAgKiBAcGFyYW0gZW50aXR5IFRoZSBlbnRpdHkgdG8gcmVtb3ZlXG4gICAqIEBwYXJhbSBbb3B0aW9uc10gb3B0aW9ucyBzdWNoIGFzIG1lcmdlU3RyYXRlZ3lcbiAgICovXG4gIHJlbW92ZU9uZUZyb21DYWNoZShlbnRpdHk6IFQsIG9wdGlvbnM/OiBFbnRpdHlBY3Rpb25PcHRpb25zKTogdm9pZDtcblxuICAvKipcbiAgICogUmVtb3ZlIGFuIGVudGl0eSBkaXJlY3RseSBmcm9tIHRoZSBjYWNoZS5cbiAgICogRG9lcyBub3QgZGVsZXRlIHRoYXQgZW50aXR5IGZyb20gcmVtb3RlIHN0b3JhZ2UuXG4gICAqIEBwYXJhbSBrZXkgVGhlIHByaW1hcnkga2V5IG9mIHRoZSBlbnRpdHkgdG8gcmVtb3ZlXG4gICAqIEBwYXJhbSBbb3B0aW9uc10gb3B0aW9ucyBzdWNoIGFzIG1lcmdlU3RyYXRlZ3lcbiAgICovXG4gIHJlbW92ZU9uZUZyb21DYWNoZShrZXk6IG51bWJlciB8IHN0cmluZywgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiB2b2lkO1xuXG4gIC8qKlxuICAgKiBSZW1vdmUgbXVsdGlwbGUgZW50aXRpZXMgZGlyZWN0bHkgZnJvbSB0aGUgY2FjaGUuXG4gICAqIERvZXMgbm90IGRlbGV0ZSB0aGVzZSBlbnRpdGllcyBmcm9tIHJlbW90ZSBzdG9yYWdlLlxuICAgKiBAcGFyYW0gZW50aXR5IFRoZSBlbnRpdGllcyB0byByZW1vdmVcbiAgICogQHBhcmFtIFtvcHRpb25zXSBvcHRpb25zIHN1Y2ggYXMgbWVyZ2VTdHJhdGVneVxuICAgKi9cbiAgcmVtb3ZlTWFueUZyb21DYWNoZShlbnRpdGllczogVFtdLCBvcHRpb25zPzogRW50aXR5QWN0aW9uT3B0aW9ucyk6IHZvaWQ7XG5cbiAgLyoqXG4gICAqIFJlbW92ZSBtdWx0aXBsZSBlbnRpdGllcyBkaXJlY3RseSBmcm9tIHRoZSBjYWNoZS5cbiAgICogRG9lcyBub3QgZGVsZXRlIHRoZXNlIGVudGl0aWVzIGZyb20gcmVtb3RlIHN0b3JhZ2UuXG4gICAqIEBwYXJhbSBrZXlzIFRoZSBwcmltYXJ5IGtleXMgb2YgdGhlIGVudGl0aWVzIHRvIHJlbW92ZVxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgc3VjaCBhcyBtZXJnZVN0cmF0ZWd5XG4gICAqL1xuICByZW1vdmVNYW55RnJvbUNhY2hlKFxuICAgIGtleXM6IChudW1iZXIgfCBzdHJpbmcpW10sXG4gICAgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnNcbiAgKTogdm9pZDtcblxuICAvKipcbiAgICogVXBkYXRlIGEgY2FjaGVkIGVudGl0eSBkaXJlY3RseS5cbiAgICogRG9lcyBub3QgdXBkYXRlIHRoYXQgZW50aXR5IGluIHJlbW90ZSBzdG9yYWdlLlxuICAgKiBJZ25vcmVkIGlmIGFuIGVudGl0eSB3aXRoIG1hdGNoaW5nIHByaW1hcnkga2V5IGlzIG5vdCBpbiBjYWNoZS5cbiAgICogVGhlIHVwZGF0ZSBlbnRpdHkgbWF5IGJlIHBhcnRpYWwgKGJ1dCBtdXN0IGhhdmUgaXRzIGtleSlcbiAgICogaW4gd2hpY2ggY2FzZSBpdCBwYXRjaGVzIHRoZSBleGlzdGluZyBlbnRpdHkuXG4gICAqIEBwYXJhbSBlbnRpdHkgdG8gdXBkYXRlIGRpcmVjdGx5IGluIGNhY2hlLlxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgc3VjaCBhcyBtZXJnZVN0cmF0ZWd5XG4gICAqL1xuICB1cGRhdGVPbmVJbkNhY2hlKGVudGl0eTogUGFydGlhbDxUPiwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiB2b2lkO1xuXG4gIC8qKlxuICAgKiBVcGRhdGUgbXVsdGlwbGUgY2FjaGVkIGVudGl0aWVzIGRpcmVjdGx5LlxuICAgKiBEb2VzIG5vdCB1cGRhdGUgdGhlc2UgZW50aXRpZXMgaW4gcmVtb3RlIHN0b3JhZ2UuXG4gICAqIEVudGl0aWVzIHdob3NlIHByaW1hcnkga2V5cyBhcmUgbm90IGluIGNhY2hlIGFyZSBpZ25vcmVkLlxuICAgKiBVcGRhdGUgZW50aXRpZXMgbWF5IGJlIHBhcnRpYWwgYnV0IG11c3QgYXQgbGVhc3QgaGF2ZSB0aGVpciBrZXlzLlxuICAgKiBzdWNoIHBhcnRpYWwgZW50aXRpZXMgcGF0Y2ggdGhlaXIgY2FjaGVkIGNvdW50ZXJwYXJ0cy5cbiAgICogQHBhcmFtIGVudGl0aWVzIHRvIHVwZGF0ZSBkaXJlY3RseSBpbiBjYWNoZS5cbiAgICogQHBhcmFtIFtvcHRpb25zXSBvcHRpb25zIHN1Y2ggYXMgbWVyZ2VTdHJhdGVneVxuICAgKi9cbiAgdXBkYXRlTWFueUluQ2FjaGUoXG4gICAgZW50aXRpZXM6IFBhcnRpYWw8VD5bXSxcbiAgICBvcHRpb25zPzogRW50aXR5QWN0aW9uT3B0aW9uc1xuICApOiB2b2lkO1xuXG4gIC8qKlxuICAgKiBJbnNlcnQgb3IgdXBkYXRlIGEgY2FjaGVkIGVudGl0eSBkaXJlY3RseS5cbiAgICogRG9lcyBub3Qgc2F2ZSB0byByZW1vdGUgc3RvcmFnZS5cbiAgICogVXBzZXJ0IGVudGl0eSBtaWdodCBiZSBhIHBhcnRpYWwgb2YgVCBidXQgbXVzdCBhdCBsZWFzdCBoYXZlIGl0cyBrZXkuXG4gICAqIFBhc3MgdGhlIFVwZGF0ZTxUPiBzdHJ1Y3R1cmUgYXMgdGhlIHBheWxvYWQuXG4gICAqIEBwYXJhbSBlbnRpdHkgdG8gdXBzZXJ0IGRpcmVjdGx5IGluIGNhY2hlLlxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgc3VjaCBhcyBtZXJnZVN0cmF0ZWd5XG4gICAqL1xuICB1cHNlcnRPbmVJbkNhY2hlKGVudGl0eTogUGFydGlhbDxUPiwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiB2b2lkO1xuXG4gIC8qKlxuICAgKiBJbnNlcnQgb3IgdXBkYXRlIG11bHRpcGxlIGNhY2hlZCBlbnRpdGllcyBkaXJlY3RseS5cbiAgICogRG9lcyBub3Qgc2F2ZSB0byByZW1vdGUgc3RvcmFnZS5cbiAgICogVXBzZXJ0IGVudGl0aWVzIG1pZ2h0IGJlIHBhcnRpYWwgYnV0IG11c3QgYXQgbGVhc3QgaGF2ZSB0aGVpciBrZXlzLlxuICAgKiBQYXNzIGFuIGFycmF5IG9mIHRoZSBVcGRhdGU8VD4gc3RydWN0dXJlIGFzIHRoZSBwYXlsb2FkLlxuICAgKiBAcGFyYW0gZW50aXRpZXMgdG8gdXBzZXJ0IGRpcmVjdGx5IGluIGNhY2hlLlxuICAgKiBAcGFyYW0gW29wdGlvbnNdIG9wdGlvbnMgc3VjaCBhcyBtZXJnZVN0cmF0ZWd5XG4gICAqL1xuICB1cHNlcnRNYW55SW5DYWNoZShcbiAgICBlbnRpdGllczogUGFydGlhbDxUPltdLFxuICAgIG9wdGlvbnM/OiBFbnRpdHlBY3Rpb25PcHRpb25zXG4gICk6IHZvaWQ7XG5cbiAgLyoqXG4gICAqIFNldCB0aGUgcGF0dGVybiB0aGF0IHRoZSBjb2xsZWN0aW9uJ3MgZmlsdGVyIGFwcGxpZXNcbiAgICogd2hlbiB1c2luZyB0aGUgYGZpbHRlcmVkRW50aXRpZXNgIHNlbGVjdG9yLlxuICAgKi9cbiAgc2V0RmlsdGVyKHBhdHRlcm46IGFueSwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiB2b2lkO1xuXG4gIC8qKiBTZXQgdGhlIGxvYWRlZCBmbGFnICovXG4gIHNldExvYWRlZChpc0xvYWRlZDogYm9vbGVhbiwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiB2b2lkO1xuXG4gIC8qKiBTZXQgdGhlIGxvYWRpbmcgZmxhZyAqL1xuICBzZXRMb2FkaW5nKGlzTG9hZGluZzogYm9vbGVhbiwgb3B0aW9ucz86IEVudGl0eUFjdGlvbk9wdGlvbnMpOiB2b2lkO1xufVxuXG4vKiogQ29tbWFuZHMgdGhhdCBkaXNwYXRjaCBlbnRpdHkgYWN0aW9ucyBmb3IgYSBjb2xsZWN0aW9uICovXG5leHBvcnQgaW50ZXJmYWNlIEVudGl0eUNvbW1hbmRzPFQ+XG4gIGV4dGVuZHMgRW50aXR5U2VydmVyQ29tbWFuZHM8VD4sXG4gICAgRW50aXR5Q2FjaGVDb21tYW5kczxUPiB7fVxuIl19
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/dispatchers/entity-commands.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Commands that update the remote server.
+ * @record
+ * @template T
+ */
+export function EntityServerCommands() { }
+if (false) {
+    /**
+     * Dispatch action to save a new entity to remote storage.
+     * @param {?} entity entity to add, which may omit its key if pessimistic and the server creates the key;
+     * must have a key if optimistic save.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the entity
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.add = function (entity, options) { };
+    /**
+     * Dispatch action to cancel the persistence operation (query or save) with the given correlationId.
+     * @param {?} correlationId The correlation id for the corresponding EntityAction
+     * @param {?=} reason
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityServerCommands.prototype.cancel = function (correlationId, reason, options) { };
+    /**
+     * Dispatch action to delete entity from remote storage by key.
+     * @param {?} entity
+     * @param {?=} options
+     * @return {?} A terminating Observable of the deleted key
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.delete = function (entity, options) { };
+    /**
+     * Dispatch action to delete entity from remote storage by key.
+     * @param {?} key The primary key of the entity to remove
+     * @param {?=} options
+     * @return {?} Observable of the deleted key
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.delete = function (key, options) { };
+    /**
+     * Dispatch action to query remote storage for all entities and
+     * merge the queried entities into the cached collection.
+     * @see load()
+     * @param {?=} options
+     * @return {?} A terminating Observable of the collection
+     * after server reports successful query or the query error.
+     */
+    EntityServerCommands.prototype.getAll = function (options) { };
+    /**
+     * Dispatch action to query remote storage for the entity with this primary key.
+     * If the server returns an entity,
+     * merge it into the cached collection.
+     * @param {?} key The primary key of the entity to get.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the queried entities that are in the collection
+     * after server reports success or the query error.
+     */
+    EntityServerCommands.prototype.getByKey = function (key, options) { };
+    /**
+     * Dispatch action to query remote storage for the entities that satisfy a query expressed
+     * with either a query parameter map or an HTTP URL query string,
+     * and merge the results into the cached collection.
+     * @param {?} queryParams the query in a form understood by the server
+     * @param {?=} options
+     * @return {?} A terminating Observable of the queried entities
+     * after server reports successful query or the query error.
+     */
+    EntityServerCommands.prototype.getWithQuery = function (queryParams, options) { };
+    /**
+     * Dispatch action to query remote storage for all entities and
+     * completely replace the cached collection with the queried entities.
+     * @see getAll
+     * @param {?=} options
+     * @return {?} A terminating Observable of the entities in the collection
+     * after server reports successful query or the query error.
+     */
+    EntityServerCommands.prototype.load = function (options) { };
+    /**
+     * Dispatch action to save the updated entity (or partial entity) in remote storage.
+     * The update entity may be partial (but must have its key)
+     * in which case it patches the existing entity.
+     * @param {?} entity update entity, which might be a partial of T but must at least have its key.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the updated entity
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.update = function (entity, options) { };
+    /**
+     * Dispatch action to save a new or update an existing entity to remote storage.
+     * Only dispatch this action if your server supports upsert.
+     * @param {?} entity entity to upsert, which may omit its key if pessimistic and the server creates the key;
+     * must have a key if optimistic save.
+     * @param {?=} options
+     * @return {?} A terminating Observable of the entity
+     * after server reports successful save or the save error.
+     */
+    EntityServerCommands.prototype.upsert = function (entity, options) { };
+}
+/**
+ * A collection's cache-only commands, which do not update remote storage **
+ * @record
+ * @template T
+ */
+export function EntityCacheCommands() { }
+if (false) {
+    /**
+     * Replace all entities in the cached collection.
+     * Does not save to remote storage.
+     * @param {?} entities to add directly to cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.addAllToCache = function (entities, options) { };
+    /**
+     * Add a new entity directly to the cache.
+     * Does not save to remote storage.
+     * Ignored if an entity with the same primary key is already in cache.
+     * @param {?} entity to add directly to cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.addOneToCache = function (entity, options) { };
+    /**
+     * Add multiple new entities directly to the cache.
+     * Does not save to remote storage.
+     * Entities with primary keys already in cache are ignored.
+     * @param {?} entities to add directly to cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.addManyToCache = function (entities, options) { };
+    /**
+     * Clear the cached entity collection
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.clearCache = function (options) { };
+    /**
+     * Remove an entity directly from the cache.
+     * Does not delete that entity from remote storage.
+     * @param {?} entity The entity to remove
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeOneFromCache = function (entity, options) { };
+    /**
+     * Remove an entity directly from the cache.
+     * Does not delete that entity from remote storage.
+     * @param {?} key The primary key of the entity to remove
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeOneFromCache = function (key, options) { };
+    /**
+     * Remove multiple entities directly from the cache.
+     * Does not delete these entities from remote storage.
+     * @param {?} entities
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeManyFromCache = function (entities, options) { };
+    /**
+     * Remove multiple entities directly from the cache.
+     * Does not delete these entities from remote storage.
+     * @param {?} keys The primary keys of the entities to remove
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.removeManyFromCache = function (keys, options) { };
+    /**
+     * Update a cached entity directly.
+     * Does not update that entity in remote storage.
+     * Ignored if an entity with matching primary key is not in cache.
+     * The update entity may be partial (but must have its key)
+     * in which case it patches the existing entity.
+     * @param {?} entity to update directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.updateOneInCache = function (entity, options) { };
+    /**
+     * Update multiple cached entities directly.
+     * Does not update these entities in remote storage.
+     * Entities whose primary keys are not in cache are ignored.
+     * Update entities may be partial but must at least have their keys.
+     * such partial entities patch their cached counterparts.
+     * @param {?} entities to update directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.updateManyInCache = function (entities, options) { };
+    /**
+     * Insert or update a cached entity directly.
+     * Does not save to remote storage.
+     * Upsert entity might be a partial of T but must at least have its key.
+     * Pass the Update<T> structure as the payload.
+     * @param {?} entity to upsert directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.upsertOneInCache = function (entity, options) { };
+    /**
+     * Insert or update multiple cached entities directly.
+     * Does not save to remote storage.
+     * Upsert entities might be partial but must at least have their keys.
+     * Pass an array of the Update<T> structure as the payload.
+     * @param {?} entities to upsert directly in cache.
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.upsertManyInCache = function (entities, options) { };
+    /**
+     * Set the pattern that the collection's filter applies
+     * when using the `filteredEntities` selector.
+     * @param {?} pattern
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.setFilter = function (pattern, options) { };
+    /**
+     * Set the loaded flag
+     * @param {?} isLoaded
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.setLoaded = function (isLoaded, options) { };
+    /**
+     * Set the loading flag
+     * @param {?} isLoading
+     * @param {?=} options
+     * @return {?}
+     */
+    EntityCacheCommands.prototype.setLoading = function (isLoading, options) { };
+}
+/**
+ * Commands that dispatch entity actions for a collection
+ * @record
+ * @template T
+ */
+export function EntityCommands() { }
+//# sourceMappingURL=entity-commands.js.map

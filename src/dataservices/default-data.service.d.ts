@@ -42,8 +42,8 @@ export declare class DefaultDataService<T> implements EntityCollectionDataServic
 export declare class DefaultDataServiceFactory {
     protected http: HttpClient;
     protected httpUrlGenerator: HttpUrlGenerator;
-    protected config?: DefaultDataServiceConfig | undefined;
-    constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator, config?: DefaultDataServiceConfig | undefined);
+    protected config?: DefaultDataServiceConfig;
+    constructor(http: HttpClient, httpUrlGenerator: HttpUrlGenerator, config?: DefaultDataServiceConfig);
     /**
      * Create a default {EntityCollectionDataService} for the given entity type
      * @param entityName {string} Name of the entity type for this data service

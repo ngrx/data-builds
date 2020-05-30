@@ -1,0 +1,1 @@
+{"version":3,"file":"entity-services-base.ngfactory.js","sourceRoot":"ng://@ngrx/data/","sources":["src/entity-services/entity-services-base.ngfactory.ts"],"names":[],"mappings":"","sourcesContent":["import * as i0 from '@angular/core';\ni0.ComponentFactory;\n"]}

@@ -2,7 +2,7 @@ import { EntityCollection } from './entity-collection';
 import { EntityDefinitionService } from '../entity-metadata/entity-definition.service';
 export declare class EntityCollectionCreator {
     private entityDefinitionService?;
-    constructor(entityDefinitionService?: EntityDefinitionService | undefined);
+    constructor(entityDefinitionService?: EntityDefinitionService);
     /**
      * Create the default collection for an entity type.
      * @param entityName {string} entity type name

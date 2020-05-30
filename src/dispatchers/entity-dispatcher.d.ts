@@ -53,6 +53,6 @@ export interface EntityDispatcher<T> extends EntityCommands<T> {
  * Persistence operation canceled
  */
 export declare class PersistanceCanceled {
-    readonly message?: string | undefined;
-    constructor(message?: string | undefined);
+    readonly message?: string;
+    constructor(message?: string);
 }

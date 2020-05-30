@@ -1,15 +1,75 @@
+/**
+ * @fileoverview added by tsickle
+ * Generated from: src/utils/interfaces.ts
+ * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
 import { InjectionToken } from '@angular/core';
-var Logger = /** @class */ (function () {
+/**
+ * @abstract
+ */
+var /**
+ * @abstract
+ */
+Logger = /** @class */ (function () {
     function Logger() {
     }
     return Logger;
 }());
+/**
+ * @abstract
+ */
 export { Logger };
+if (false) {
+    /**
+     * @abstract
+     * @param {?=} message
+     * @param {...?} optionalParams
+     * @return {?}
+     */
+    Logger.prototype.error = function (message, optionalParams) { };
+    /**
+     * @abstract
+     * @param {?=} message
+     * @param {...?} optionalParams
+     * @return {?}
+     */
+    Logger.prototype.log = function (message, optionalParams) { };
+    /**
+     * @abstract
+     * @param {?=} message
+     * @param {...?} optionalParams
+     * @return {?}
+     */
+    Logger.prototype.warn = function (message, optionalParams) { };
+}
+/**
+ * Mapping of entity type name to its plural
+ * @record
+ */
+export function EntityPluralNames() { }
+/** @type {?} */
 export var PLURAL_NAMES_TOKEN = new InjectionToken('@ngrx/data/plural-names');
-var Pluralizer = /** @class */ (function () {
+/**
+ * @abstract
+ */
+var /**
+ * @abstract
+ */
+Pluralizer = /** @class */ (function () {
     function Pluralizer() {
     }
     return Pluralizer;
 }());
+/**
+ * @abstract
+ */
 export { Pluralizer };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW50ZXJmYWNlcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL21vZHVsZXMvZGF0YS9zcmMvdXRpbHMvaW50ZXJmYWNlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsY0FBYyxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBRS9DO0lBQUE7SUFJQSxDQUFDO0lBQUQsYUFBQztBQUFELENBQUMsQUFKRCxJQUlDOztBQVNELE1BQU0sQ0FBQyxJQUFNLGtCQUFrQixHQUFHLElBQUksY0FBYyxDQUNsRCx5QkFBeUIsQ0FDMUIsQ0FBQztBQUVGO0lBQUE7SUFFQSxDQUFDO0lBQUQsaUJBQUM7QUFBRCxDQUFDLEFBRkQsSUFFQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdGlvblRva2VuIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5cbmV4cG9ydCBhYnN0cmFjdCBjbGFzcyBMb2dnZXIge1xuICBhYnN0cmFjdCBlcnJvcihtZXNzYWdlPzogYW55LCAuLi5vcHRpb25hbFBhcmFtczogYW55W10pOiB2b2lkO1xuICBhYnN0cmFjdCBsb2cobWVzc2FnZT86IGFueSwgLi4ub3B0aW9uYWxQYXJhbXM6IGFueVtdKTogdm9pZDtcbiAgYWJzdHJhY3Qgd2FybihtZXNzYWdlPzogYW55LCAuLi5vcHRpb25hbFBhcmFtczogYW55W10pOiB2b2lkO1xufVxuXG4vKipcbiAqIE1hcHBpbmcgb2YgZW50aXR5IHR5cGUgbmFtZSB0byBpdHMgcGx1cmFsXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgRW50aXR5UGx1cmFsTmFtZXMge1xuICBbZW50aXR5TmFtZTogc3RyaW5nXTogc3RyaW5nO1xufVxuXG5leHBvcnQgY29uc3QgUExVUkFMX05BTUVTX1RPS0VOID0gbmV3IEluamVjdGlvblRva2VuPEVudGl0eVBsdXJhbE5hbWVzPihcbiAgJ0BuZ3J4L2RhdGEvcGx1cmFsLW5hbWVzJ1xuKTtcblxuZXhwb3J0IGFic3RyYWN0IGNsYXNzIFBsdXJhbGl6ZXIge1xuICBhYnN0cmFjdCBwbHVyYWxpemUobmFtZTogc3RyaW5nKTogc3RyaW5nO1xufVxuIl19
+if (false) {
+    /**
+     * @abstract
+     * @param {?} name
+     * @return {?}
+     */
+    Pluralizer.prototype.pluralize = function (name) { };
+}
+//# sourceMappingURL=interfaces.js.map
