@@ -1,1 +1,0 @@
-{"version":3,"file":"entity-collection-reducer-methods.ngfactory.js","sourceRoot":"ng://@ngrx/data/","sources":["src/reducers/entity-collection-reducer-methods.ngfactory.ts"],"names":[],"mappings":"","sourcesContent":["import * as i0 from '@angular/core';\ni0.ComponentFactory;\n"]}

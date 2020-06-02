@@ -70,7 +70,7 @@ class EntityActionFactory {
     }
 }
 EntityActionFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 
 /**
@@ -1287,7 +1287,7 @@ class DefaultHttpUrlGenerator {
     }
 }
 DefaultHttpUrlGenerator.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 DefaultHttpUrlGenerator.ctorParameters = () => [
@@ -1614,7 +1614,7 @@ class DefaultDataServiceFactory {
     }
 }
 DefaultDataServiceFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 DefaultDataServiceFactory.ctorParameters = () => [
@@ -1848,7 +1848,7 @@ class EntityDefinitionService {
     }
 }
 EntityDefinitionService.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityDefinitionService.ctorParameters = () => [
@@ -2046,7 +2046,7 @@ class EntityCacheDataService {
     }
 }
 EntityCacheDataService.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCacheDataService.ctorParameters = () => [
@@ -2151,7 +2151,7 @@ class EntityDataService {
     }
 }
 EntityDataService.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityDataService.ctorParameters = () => [
@@ -2255,7 +2255,7 @@ class DefaultPersistenceResultHandler {
     }
 }
 DefaultPersistenceResultHandler.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 DefaultPersistenceResultHandler.ctorParameters = () => [
@@ -2310,7 +2310,7 @@ class CorrelationIdGenerator {
     }
 }
 CorrelationIdGenerator.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 if (false) {
     /**
@@ -2365,7 +2365,7 @@ class EntityDispatcherDefaultOptions {
     }
 }
 EntityDispatcherDefaultOptions.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 if (false) {
     /**
@@ -2647,7 +2647,7 @@ class EntityCacheDispatcher {
     }
 }
 EntityCacheDispatcher.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCacheDispatcher.ctorParameters = () => [
@@ -3406,7 +3406,7 @@ class EntityDispatcherFactory {
     }
 }
 EntityDispatcherFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityDispatcherFactory.ctorParameters = () => [
@@ -3630,7 +3630,7 @@ class EntityCacheEffects {
     }
 }
 EntityCacheEffects.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCacheEffects.ctorParameters = () => [
@@ -3877,7 +3877,7 @@ class EntityEffects {
     }
 }
 EntityEffects.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityEffects.ctorParameters = () => [
@@ -4426,7 +4426,7 @@ class EntityCollectionCreator {
     }
 }
 EntityCollectionCreator.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCollectionCreator.ctorParameters = () => [
@@ -4753,7 +4753,7 @@ class EntitySelectorsFactory {
     }
 }
 EntitySelectorsFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntitySelectorsFactory.ctorParameters = () => [
@@ -4908,7 +4908,7 @@ class EntitySelectors$Factory {
     }
 }
 EntitySelectors$Factory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntitySelectors$Factory.ctorParameters = () => [
@@ -5006,7 +5006,7 @@ class EntityCollectionServiceElementsFactory {
     }
 }
 EntityCollectionServiceElementsFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCollectionServiceElementsFactory.ctorParameters = () => [
@@ -5065,7 +5065,7 @@ class EntityCollectionServiceFactory {
     }
 }
 EntityCollectionServiceFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCollectionServiceFactory.ctorParameters = () => [
@@ -5107,7 +5107,7 @@ class EntityServicesElements {
     }
 }
 EntityServicesElements.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityServicesElements.ctorParameters = () => [
@@ -5302,7 +5302,7 @@ class EntityServicesBase {
     }
 }
 EntityServicesBase.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityServicesBase.ctorParameters = () => [
@@ -7411,7 +7411,7 @@ class EntityCollectionReducerMethodsFactory {
     }
 }
 EntityCollectionReducerMethodsFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCollectionReducerMethodsFactory.ctorParameters = () => [
@@ -7463,7 +7463,7 @@ class EntityCollectionReducerFactory {
     }
 }
 EntityCollectionReducerFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCollectionReducerFactory.ctorParameters = () => [
@@ -7554,7 +7554,7 @@ class EntityCollectionReducerRegistry {
     }
 }
 EntityCollectionReducerRegistry.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCollectionReducerRegistry.ctorParameters = () => [
@@ -7961,7 +7961,7 @@ class EntityCacheReducerFactory {
     }
 }
 EntityCacheReducerFactory.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 EntityCacheReducerFactory.ctorParameters = () => [
@@ -8025,7 +8025,7 @@ class DefaultLogger {
     }
 }
 DefaultLogger.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 
 /**
@@ -8103,7 +8103,7 @@ class DefaultPluralizer {
     }
 }
 DefaultPluralizer.decorators = [
-    { type: Injectable },
+    { type: Injectable }
 ];
 /** @nocollapse */
 DefaultPluralizer.ctorParameters = () => [
@@ -8343,7 +8343,7 @@ EntityDataModuleWithoutEffects.decorators = [
                     { provide: EntityServices, useClass: EntityServicesBase },
                     { provide: Logger, useClass: DefaultLogger },
                 ],
-            },] },
+            },] }
 ];
 /** @nocollapse */
 EntityDataModuleWithoutEffects.ctorParameters = () => [
@@ -8482,7 +8482,7 @@ EntityDataModule.decorators = [
                     },
                     { provide: Pluralizer, useClass: DefaultPluralizer },
                 ],
-            },] },
+            },] }
 ];
 /** @nocollapse */
 EntityDataModule.ctorParameters = () => [

@@ -1,1 +1,0 @@
-{"version":3,"file":"entity-cache-effects.ngfactory.js","sourceRoot":"ng://@ngrx/data/","sources":["src/effects/entity-cache-effects.ngfactory.ts"],"names":[],"mappings":"","sourcesContent":["import * as i0 from '@angular/core';\ni0.ComponentFactory;\n"]}

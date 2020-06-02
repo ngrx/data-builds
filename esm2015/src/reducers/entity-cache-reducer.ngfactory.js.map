@@ -1,1 +1,0 @@
-{"version":3,"file":"entity-cache-reducer.ngfactory.js","sourceRoot":"ng://@ngrx/data/","sources":["src/reducers/entity-cache-reducer.ngfactory.ts"],"names":[],"mappings":"","sourcesContent":["import * as i0 from '@angular/core';\ni0.ComponentFactory;\n"]}

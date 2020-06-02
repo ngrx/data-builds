@@ -1,1 +1,0 @@
-{"version":3,"file":"http-url-generator.ngfactory.js","sourceRoot":"ng://@ngrx/data/","sources":["src/dataservices/http-url-generator.ngfactory.ts"],"names":[],"mappings":"","sourcesContent":["import * as i0 from '@angular/core';\ni0.ComponentFactory;\n"]}

@@ -1,1 +1,0 @@
-{"version":3,"file":"persistence-result-handler.service.ngfactory.js","sourceRoot":"ng://@ngrx/data/","sources":["src/dataservices/persistence-result-handler.service.ngfactory.ts"],"names":[],"mappings":"","sourcesContent":["import * as i0 from '@angular/core';\ni0.ComponentFactory;\n"]}

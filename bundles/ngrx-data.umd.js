@@ -116,7 +116,7 @@
           // return `${op} [${tag}]`.toUpperCase(); // example of an alternative
       };
       EntityActionFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       return EntityActionFactory;
   }());
@@ -1594,7 +1594,7 @@
           this.knownHttpResourceUrls = __assign$3(__assign$3({}, this.knownHttpResourceUrls), (entityHttpResourceUrls || {}));
       };
       DefaultHttpUrlGenerator.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       DefaultHttpUrlGenerator.ctorParameters = function () { return [
@@ -1982,7 +1982,7 @@
           return new DefaultDataService(entityName, this.http, this.httpUrlGenerator, this.config);
       };
       DefaultDataServiceFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       DefaultDataServiceFactory.ctorParameters = function () { return [
@@ -2325,7 +2325,7 @@
           Object.assign(this.definitions, definitions);
       };
       EntityDefinitionService.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityDefinitionService.ctorParameters = function () { return [
@@ -2602,7 +2602,7 @@
           return idSelector;
       };
       EntityCacheDataService.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCacheDataService.ctorParameters = function () { return [
@@ -2770,7 +2770,7 @@
           this.services = __assign$7(__assign$7({}, this.services), services);
       };
       EntityDataService.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityDataService.ctorParameters = function () { return [
@@ -2894,7 +2894,7 @@
           });
       };
       DefaultPersistenceResultHandler.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       DefaultPersistenceResultHandler.ctorParameters = function () { return [
@@ -2955,7 +2955,7 @@
           return this.prefix + this.seed;
       };
       CorrelationIdGenerator.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       return CorrelationIdGenerator;
   }());
@@ -3011,7 +3011,7 @@
           this.optimisticSaveEntities = false;
       }
       EntityDispatcherDefaultOptions.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       return EntityDispatcherDefaultOptions;
   }());
@@ -3426,7 +3426,7 @@
           })));
       };
       EntityCacheDispatcher.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCacheDispatcher.ctorParameters = function () { return [
@@ -4612,7 +4612,7 @@
           this.raSubscription.unsubscribe();
       };
       EntityDispatcherFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityDispatcherFactory.ctorParameters = function () { return [
@@ -4871,7 +4871,7 @@
           });
       };
       EntityCacheEffects.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCacheEffects.ctorParameters = function () { return [
@@ -5167,7 +5167,7 @@
           return rxjs.of(successAction).pipe(operators.delay(this.responseDelay, this.scheduler || rxjs.asyncScheduler));
       };
       EntityEffects.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityEffects.ctorParameters = function () { return [
@@ -6075,7 +6075,7 @@
           return (/** @type {?} */ ((initialState || createEmptyEntityCollection(entityName))));
       };
       EntityCollectionCreator.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCollectionCreator.ctorParameters = function () { return [
@@ -6439,7 +6439,7 @@
               selectCollection: selectCollection, selectEntityCache: this.selectEntityCache }, entitySelectors)));
       };
       EntitySelectorsFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntitySelectorsFactory.ctorParameters = function () { return [
@@ -6608,7 +6608,7 @@
           return (/** @type {?} */ (selectors$));
       };
       EntitySelectors$Factory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntitySelectors$Factory.ctorParameters = function () { return [
@@ -6711,7 +6711,7 @@
           };
       };
       EntityCollectionServiceElementsFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCollectionServiceElementsFactory.ctorParameters = function () { return [
@@ -6778,7 +6778,7 @@
           return new EntityCollectionServiceBase(entityName, this.entityCollectionServiceElementsFactory);
       };
       EntityCollectionServiceFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCollectionServiceFactory.ctorParameters = function () { return [
@@ -6815,7 +6815,7 @@
           this.reducedActions$ = entityDispatcherFactory.reducedActions$;
       }
       EntityServicesElements.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityServicesElements.ctorParameters = function () { return [
@@ -7100,7 +7100,7 @@
           }
       };
       EntityServicesBase.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityServicesBase.ctorParameters = function () { return [
@@ -10430,7 +10430,7 @@
           return methodsClass.methods;
       };
       EntityCollectionReducerMethodsFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCollectionReducerMethodsFactory.ctorParameters = function () { return [
@@ -10487,7 +10487,7 @@
           });
       };
       EntityCollectionReducerFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCollectionReducerFactory.ctorParameters = function () { return [
@@ -10627,7 +10627,7 @@
           function (key) { return _this.registerReducer(key, reducers[key]); }));
       };
       EntityCollectionReducerRegistry.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCollectionReducerRegistry.ctorParameters = function () { return [
@@ -11139,7 +11139,7 @@
           return entityCache;
       };
       EntityCacheReducerFactory.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       EntityCacheReducerFactory.ctorParameters = function () { return [
@@ -11221,7 +11221,7 @@
           }
       };
       DefaultLogger.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       return DefaultLogger;
   }());
@@ -11323,7 +11323,7 @@
           this.pluralNames = __assign$g(__assign$g({}, this.pluralNames), (pluralNames || {}));
       };
       DefaultPluralizer.decorators = [
-          { type: core.Injectable },
+          { type: core.Injectable }
       ];
       /** @nocollapse */
       DefaultPluralizer.ctorParameters = function () { return [
@@ -11563,7 +11563,7 @@
                           { provide: EntityServices, useClass: EntityServicesBase },
                           { provide: Logger, useClass: DefaultLogger },
                       ],
-                  },] },
+                  },] }
       ];
       /** @nocollapse */
       EntityDataModuleWithoutEffects.ctorParameters = function () { return [
@@ -11713,7 +11713,7 @@
                           },
                           { provide: Pluralizer, useClass: DefaultPluralizer },
                       ],
-                  },] },
+                  },] }
       ];
       /** @nocollapse */
       EntityDataModule.ctorParameters = function () { return [
