@@ -10861,7 +10861,7 @@
           mergeStrategy =
               mergeStrategy === null ? MergeStrategy.PreserveChanges : mergeStrategy;
           /** @type {?} */
-          var entityOp = EntityOp.UPSERT_MANY;
+          var entityOp = EntityOp.QUERY_MANY_SUCCESS;
           /** @type {?} */
           var entityNames = Object.keys(querySet);
           entityCache = entityNames.reduce((/**
