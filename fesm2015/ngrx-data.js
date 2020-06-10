@@ -173,8 +173,7 @@ class EntityActionGuard {
         (id, i) => {
             if (this.isNotKeyType(id)) {
                 /** @type {?} */
-                const msg = `${this.entityName} ', item ${i +
-                    1}, is not a valid entity key (id)`;
+                const msg = `${this.entityName} ', item ${i + 1}, is not a valid entity key (id)`;
                 this.throwError(action, msg);
             }
         }));
@@ -422,7 +421,7 @@ function ofEntityOp(...allowedEntityOps) {
                  * @param {?} o
                  * @return {?}
                  */
-                o => o === entityOp));
+                (o) => o === entityOp));
             }));
     }
 }
@@ -461,7 +460,7 @@ function ofEntityType(...allowedEntityNames) {
                  * @param {?} n
                  * @return {?}
                  */
-                n => n === entityName));
+                (n) => n === entityName));
             }));
     }
 }
@@ -622,7 +621,7 @@ function excludeEmptyChangeSetItems(changeSet) {
      * @param {?} c
      * @return {?}
      */
-    c => c != null && c.entities && c.entities.length > 0));
+    (c) => c != null && c.entities && c.entities.length > 0));
     return Object.assign(Object.assign({}, changeSet), { changes });
 }
 
@@ -1383,7 +1382,7 @@ class DefaultDataService {
          * @param {?} result
          * @return {?}
          */
-        result => (/** @type {?} */ (key)))));
+        (result) => (/** @type {?} */ (key)))));
     }
     /**
      * @return {?}
@@ -1765,7 +1764,7 @@ class EntityDefinitionService {
              * @param {?} map
              * @return {?}
              */
-            map => this.registerMetadataMap(map)));
+            (map) => this.registerMetadataMap(map)));
         }
     }
     /**
@@ -1818,7 +1817,7 @@ class EntityDefinitionService {
          * @param {?} entityName
          * @return {?}
          */
-        entityName => this.registerMetadata(Object.assign({ entityName }, metadataMap[entityName]))));
+        (entityName) => this.registerMetadata(Object.assign({ entityName }, metadataMap[entityName]))));
     }
     /**
      * Register an {EntityDefinition} for an entity type
@@ -1914,7 +1913,7 @@ class EntityCacheDataService {
          * @param {?} result
          * @return {?}
          */
-        result => this.restoreUpdates(result))), catchError(this.handleError({ method: 'POST', url, data: changeSet })));
+        (result) => this.restoreUpdates(result))), catchError(this.handleError({ method: 'POST', url, data: changeSet })));
         if (this.timeout) {
             result$ = result$.pipe(timeout(this.timeout));
         }
@@ -1969,14 +1968,14 @@ class EntityCacheDataService {
          * @param {?} item
          * @return {?}
          */
-        item => {
+        (item) => {
             if (item.op === updateOp && item.entities.length > 0) {
                 hasMutated = true;
                 return Object.assign(Object.assign({}, item), { entities: ((/** @type {?} */ (item))).entities.map((/**
                      * @param {?} u
                      * @return {?}
                      */
-                    u => u.changes)) });
+                    (u) => u.changes)) });
             }
             else {
                 return item;
@@ -2007,7 +2006,7 @@ class EntityCacheDataService {
          * @param {?} item
          * @return {?}
          */
-        item => {
+        (item) => {
             if (item.op === updateOp) {
                 // These are entities, not Updates; convert back to Updates
                 hasMutated = true;
@@ -2637,7 +2636,7 @@ class EntityCacheDispatcher {
          * @param {?} act
          * @return {?}
          */
-        act => {
+        (act) => {
             return act.type === EntityCacheAction.SAVE_ENTITIES_CANCEL
                 ? throwError(new PersistanceCanceled(((/** @type {?} */ (act))).payload.reason))
                 : act.type === EntityCacheAction.SAVE_ENTITIES_SUCCESS
@@ -2727,7 +2726,7 @@ class EntityDispatcherBase {
          * @param {?} cache
          * @return {?}
          */
-        cache => (/** @type {?} */ (cache[entityName]))));
+        (cache) => (/** @type {?} */ (cache[entityName]))));
         this.entityCollection$ = store.select(collectionSelector);
     }
     /**
@@ -2963,7 +2962,7 @@ class EntityDispatcherBase {
          * @param {?} updateData
          * @return {?}
          */
-        updateData => updateData.changes)), withLatestFrom(this.entityCollection$), map((/**
+        (updateData) => updateData.changes)), withLatestFrom(this.entityCollection$), map((/**
          * @param {?} __0
          * @return {?}
          */
@@ -3066,7 +3065,7 @@ class EntityDispatcherBase {
                  * @param {?} arg
                  * @return {?}
                  */
-                arg => this.getKey(arg)))
+                (arg) => this.getKey(arg)))
             : args;
         this.createAndDispatch(EntityOp.REMOVE_MANY, keys, options);
     }
@@ -3106,7 +3105,7 @@ class EntityDispatcherBase {
          * @param {?} entity
          * @return {?}
          */
-        entity => this.toUpdate(entity)));
+        (entity) => this.toUpdate(entity)));
         this.createAndDispatch(EntityOp.UPDATE_MANY, updates, options);
     }
     /**
@@ -3206,7 +3205,7 @@ class EntityDispatcherBase {
          * @param {?} act
          * @return {?}
          */
-        act => {
+        (act) => {
             const { entityOp } = act.payload;
             return entityOp === EntityOp.CANCEL_PERSIST
                 ? throwError(new PersistanceCanceled(act.payload.data))
@@ -3543,18 +3542,18 @@ class EntityCacheEffects {
              * @param {?} a
              * @return {?}
              */
-            a => correlationId === a.payload.correlationId)), map((/**
+            (a) => correlationId === a.payload.correlationId)), map((/**
              * @param {?} a
              * @return {?}
              */
-            a => new SaveEntitiesCanceled(correlationId, a.payload.reason, a.payload.tag))));
+            (a) => new SaveEntitiesCanceled(correlationId, a.payload.reason, a.payload.tag))));
             // Data: SaveEntities result as a SaveEntitiesSuccess action
             /** @type {?} */
             const d = this.dataService.saveEntities(changeSet, url).pipe(concatMap((/**
              * @param {?} result
              * @return {?}
              */
-            result => this.handleSaveEntitiesSuccess$(action, this.entityActionFactory)(result))), catchError(this.handleSaveEntitiesError$(action)));
+            (result) => this.handleSaveEntitiesSuccess$(action, this.entityActionFactory)(result))), catchError(this.handleSaveEntitiesError$(action)));
             // Emit which ever gets there first; the other observable is terminated.
             return race(c, d);
         }
@@ -3597,7 +3596,7 @@ class EntityCacheEffects {
          * @param {?} changeSet
          * @return {?}
          */
-        changeSet => {
+        (changeSet) => {
             // DataService returned a ChangeSet with possible updates to the saved entities
             if (changeSet) {
                 return of(new SaveEntitiesSuccess(changeSet, url, options));
@@ -3625,7 +3624,7 @@ class EntityCacheEffects {
              * @param {?} name
              * @return {?}
              */
-            name => entityActionFactory.create(name, EntityOp.SET_LOADING, false))));
+            (name) => entityActionFactory.create(name, EntityOp.SET_LOADING, false))));
         });
     }
 }
@@ -3733,7 +3732,7 @@ class EntityEffects {
          * @param {?} id
          * @return {?}
          */
-        id => id != null)))), { dispatch: false });
+        (id) => id != null)))), { dispatch: false });
         // `mergeMap` allows for concurrent requests which may return in any order
         this.persist$ = createEffect((/**
          * @return {?}
@@ -3742,7 +3741,7 @@ class EntityEffects {
          * @param {?} action
          * @return {?}
          */
-        action => this.persist(action))))));
+        (action) => this.persist(action))))));
     }
     /**
      * Perform the requested persistence operation and return a scalar Observable<Action>
@@ -3766,11 +3765,11 @@ class EntityEffects {
              * @param {?} id
              * @return {?}
              */
-            id => action.payload.correlationId === id)), map((/**
+            (id) => action.payload.correlationId === id)), map((/**
              * @param {?} id
              * @return {?}
              */
-            id => this.entityActionFactory.createFromAction(action, {
+            (id) => this.entityActionFactory.createFromAction(action, {
                 entityOp: EntityOp.CANCELED_PERSIST,
             }))));
             // Data: entity collection DataService result as a successful persistence EntityAction
@@ -3975,7 +3974,7 @@ function PropsFilterFnFactory(props = []) {
              * @param {?} prop
              * @return {?}
              */
-            prop => regExp.test(e[prop]))));
+            (prop) => regExp.test(e[prop]))));
             return entities.filter(predicate);
         }
         return entities;
@@ -4652,13 +4651,13 @@ class EntitySelectorsFactory {
          * @param {?} key
          * @return {?}
          */
-        key => (/** @type {?} */ (entities[key]))))));
+        (key) => (/** @type {?} */ (entities[key]))))));
         /** @type {?} */
         const selectCount = createSelector(selectKeys, (/**
          * @param {?} keys
          * @return {?}
          */
-        keys => keys.length));
+        (keys) => keys.length));
         // EntityCollection selectors that go beyond the ngrx/entity/EntityState selectors
         /** @type {?} */
         const selectFilter = (/**
@@ -4705,7 +4704,7 @@ class EntitySelectorsFactory {
          * @param {?} k
          * @return {?}
          */
-        k => {
+        (k) => {
             extraSelectors['select' + k[0].toUpperCase() + k.slice(1)] = (/**
              * @param {?} c
              * @return {?}
@@ -4745,7 +4744,7 @@ class EntitySelectorsFactory {
          * @param {?} k
          * @return {?}
          */
-        k => {
+        (k) => {
             entitySelectors[k] = createSelector(selectCollection, collectionSelectors[k]);
         }));
         return (/** @type {?} */ (Object.assign({ entityName,
@@ -4893,7 +4892,7 @@ class EntitySelectors$Factory {
          * @param {?} name
          * @return {?}
          */
-        name => {
+        (name) => {
             if (name.startsWith('select')) {
                 // strip 'select' prefix from the selector fn name and append `$`
                 // Ex: 'selectEntities' => 'entities$'
@@ -5288,14 +5287,14 @@ class EntityServicesBase {
              * @param {?} service
              * @return {?}
              */
-            service => this.registerEntityCollectionService(service)));
+            (service) => this.registerEntityCollectionService(service)));
         }
         else {
             Object.keys(entityCollectionServices || {}).forEach((/**
              * @param {?} serviceName
              * @return {?}
              */
-            serviceName => {
+            (serviceName) => {
                 this.registerEntityCollectionService(entityCollectionServices[serviceName], serviceName);
             }));
         }
@@ -5703,7 +5702,7 @@ class EntityChangeTrackerBase {
                  * @param {?} r
                  * @return {?}
                  */
-                r => r.changed === true));
+                (r) => r.changed === true));
             }
             // Strip unchanged property from responseData, leaving just the pure Update<T>
             // TODO: Remove? probably not necessary as the Update isn't stored and adapter will ignore `changed`.
@@ -5711,7 +5710,7 @@ class EntityChangeTrackerBase {
              * @param {?} r
              * @return {?}
              */
-            r => ({ id: (/** @type {?} */ (r.id)), changes: r.changes })));
+            (r) => ({ id: (/** @type {?} */ (r.id)), changes: r.changes })));
         }
     }
     /**
@@ -6691,12 +6690,12 @@ class EntityCollectionReducerMethods {
          * @param {?} d
          * @return {?}
          */
-        d => (typeof d === 'object' ? this.selectId(d) : ((/** @type {?} */ (d))))));
+        (d) => typeof d === 'object' ? this.selectId(d) : ((/** @type {?} */ (d)))));
         deleteIds.forEach((/**
          * @param {?} deleteId
          * @return {?}
          */
-        deleteId => {
+        (deleteId) => {
             /** @type {?} */
             const change = collection.changeState[deleteId];
             // If entity is already tracked ...
@@ -7550,7 +7549,7 @@ class EntityCollectionReducerRegistry {
          * @param {?} key
          * @return {?}
          */
-        key => this.registerReducer(key, reducers[key])));
+        (key) => this.registerReducer(key, reducers[key])));
     }
 }
 EntityCollectionReducerRegistry.decorators = [
@@ -7774,7 +7773,7 @@ class EntityCacheReducerFactory {
              * @param {?} item
              * @return {?}
              */
-            item => {
+            (item) => {
                 /** @type {?} */
                 const entityName = item.entityName;
                 /** @type {?} */
@@ -7848,7 +7847,7 @@ class EntityCacheReducerFactory {
          * @param {?} item
          * @return {?}
          */
-        item => item.entityName));
+        (item) => item.entityName));
         return this.clearLoadingFlags(entityCache, entityNames);
     }
     /**
@@ -7863,7 +7862,7 @@ class EntityCacheReducerFactory {
          * @param {?} item
          * @return {?}
          */
-        item => {
+        (item) => {
             /** @type {?} */
             const entityName = item.entityName;
             /** @type {?} */
@@ -7946,7 +7945,7 @@ class EntityCacheReducerFactory {
          * @param {?} entityName
          * @return {?}
          */
-        entityName => {
+        (entityName) => {
             /** @type {?} */
             const collection = entityCache[entityName];
             if (collection.loading) {
@@ -8058,7 +8057,7 @@ class DefaultPluralizer {
              * @param {?} pn
              * @return {?}
              */
-            pn => this.registerPluralNames(pn)));
+            (pn) => this.registerPluralNames(pn)));
         }
     }
     /**
@@ -8269,7 +8268,7 @@ class EntityDataModuleWithoutEffects {
          * @param {?} mr
          * @return {?}
          */
-        mr => {
+        (mr) => {
             return mr instanceof InjectionToken ? injector.get(mr) : mr;
         }));
         this.entityCacheFeature = {

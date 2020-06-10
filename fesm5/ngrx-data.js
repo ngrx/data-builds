@@ -251,8 +251,7 @@ EntityActionGuard = /** @class */ (function () {
         function (id, i) {
             if (_this.isNotKeyType(id)) {
                 /** @type {?} */
-                var msg = _this.entityName + " ', item " + (i +
-                    1) + ", is not a valid entity key (id)";
+                var msg = _this.entityName + " ', item " + (i + 1) + ", is not a valid entity key (id)";
                 _this.throwError(action, msg);
             }
         }));
@@ -4213,7 +4212,9 @@ EntityDispatcherBase = /** @class */ (function () {
          * @param {?} entity
          * @return {?}
          */
-        function (entity) { return _this.toUpdate(entity); }));
+        function (entity) {
+            return _this.toUpdate(entity);
+        }));
         this.createAndDispatch(EntityOp.UPDATE_MANY, updates, options);
     };
     /**
@@ -9202,7 +9203,9 @@ EntityCollectionReducerMethods = /** @class */ (function () {
          * @param {?} d
          * @return {?}
          */
-        function (d) { return (typeof d === 'object' ? _this.selectId(d) : ((/** @type {?} */ (d)))); }));
+        function (d) {
+            return typeof d === 'object' ? _this.selectId(d) : ((/** @type {?} */ (d)));
+        }));
         deleteIds.forEach((/**
          * @param {?} deleteId
          * @return {?}
