@@ -1454,7 +1454,7 @@
      */
     function EntityPluralNames() { }
     /** @type {?} */
-    var PLURAL_NAMES_TOKEN = new core.InjectionToken('@ngrx/data/plural-names');
+    var PLURAL_NAMES_TOKEN = new core.InjectionToken('@ngrx/data Plural Names');
     /**
      * @abstract
      */
@@ -2045,7 +2045,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var ENTITY_METADATA_TOKEN = new core.InjectionToken('@ngrx/data/entity-metadata');
+    var ENTITY_METADATA_TOKEN = new core.InjectionToken('@ngrx/data Entity Metadata');
     /**
      * Metadata that describe an entity type and its collection to \@ngrx/data
      * @record
@@ -3662,13 +3662,13 @@
     /** @type {?} */
     var ENTITY_CACHE_NAME = 'entityCache';
     /** @type {?} */
-    var ENTITY_CACHE_NAME_TOKEN = new core.InjectionToken('@ngrx/data/entity-cache-name');
+    var ENTITY_CACHE_NAME_TOKEN = new core.InjectionToken('@ngrx/data Entity Cache Name');
     /** @type {?} */
-    var ENTITY_CACHE_META_REDUCERS = new core.InjectionToken('@ngrx/data/entity-cache-meta-reducers');
+    var ENTITY_CACHE_META_REDUCERS = new core.InjectionToken('@ngrx/data Entity Cache Meta Reducers');
     /** @type {?} */
-    var ENTITY_COLLECTION_META_REDUCERS = new core.InjectionToken('@ngrx/data/entity-collection-meta-reducers');
+    var ENTITY_COLLECTION_META_REDUCERS = new core.InjectionToken('@ngrx/data Entity Collection Meta Reducers');
     /** @type {?} */
-    var INITIAL_ENTITY_CACHE_STATE = new core.InjectionToken('@ngrx/data/initial-entity-cache-state');
+    var INITIAL_ENTITY_CACHE_STATE = new core.InjectionToken('@ngrx/data Initial Entity Cache State');
 
     /**
      * @fileoverview added by tsickle
@@ -3676,7 +3676,7 @@
      * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
      */
     /** @type {?} */
-    var ENTITY_CACHE_SELECTOR_TOKEN = new core.InjectionToken('@ngrx/data/entity-cache-selector');
+    var ENTITY_CACHE_SELECTOR_TOKEN = new core.InjectionToken('@ngrx/data Entity Cache Selector');
     /** @type {?} */
     var entityCacheSelectorProvider = {
         provide: ENTITY_CACHE_SELECTOR_TOKEN,
@@ -3818,7 +3818,7 @@
      * Token to inject a special RxJS Scheduler during marble tests.
      * @type {?}
      */
-    var ENTITY_EFFECTS_SCHEDULER = new core.InjectionToken('EntityEffects Scheduler');
+    var ENTITY_EFFECTS_SCHEDULER = new core.InjectionToken('@ngrx/data Entity Effects Scheduler');
 
     /**
      * @fileoverview added by tsickle
