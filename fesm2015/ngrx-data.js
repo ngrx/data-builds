@@ -6401,7 +6401,7 @@ class EntityCollectionReducerMethods {
     queryLoadSuccess(collection, action) {
         /** @type {?} */
         const data = this.extractData(action);
-        return Object.assign(Object.assign({}, this.adapter.addAll(data, collection)), { loading: false, loaded: true, changeState: {} });
+        return Object.assign(Object.assign({}, this.adapter.setAll(data, collection)), { loading: false, loaded: true, changeState: {} });
     }
     /**
      * @protected
@@ -7030,7 +7030,7 @@ class EntityCollectionReducerMethods {
     addAll(collection, action) {
         /** @type {?} */
         const entities = this.guard.mustBeEntities(action);
-        return Object.assign(Object.assign({}, this.adapter.addAll(entities, collection)), { loading: false, loaded: true, changeState: {} });
+        return Object.assign(Object.assign({}, this.adapter.setAll(entities, collection)), { loading: false, loaded: true, changeState: {} });
     }
     /**
      * @protected
