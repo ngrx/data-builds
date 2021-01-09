@@ -11,8 +11,7 @@ import { EntityServicesElements } from './entity-services-elements';
  * Base/default class of a central registry of EntityCollectionServices for all entity types.
  * Create your own subclass to add app-specific members for an improved developer experience.
  *
- * @usageNotes
- * ```ts
+ * @example
  * export class EntityServices extends EntityServicesBase {
  *   constructor(entityServicesElements: EntityServicesElements) {
  *     super(entityServicesElements);
@@ -27,7 +26,6 @@ import { EntityServicesElements } from './entity-services-elements';
  *     this.dispatch(new ClearCompanyAction(companyId));
  *   }
  * }
- * ```
  */
 export declare class EntityServicesBase implements EntityServices {
     private entityServicesElements;

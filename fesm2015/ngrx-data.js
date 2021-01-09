@@ -5155,8 +5155,7 @@ if (false) {
  * Base/default class of a central registry of EntityCollectionServices for all entity types.
  * Create your own subclass to add app-specific members for an improved developer experience.
  *
- * \@usageNotes
- * ```ts
+ * \@example
  * export class EntityServices extends EntityServicesBase {
  *   constructor(entityServicesElements: EntityServicesElements) {
  *     super(entityServicesElements);
@@ -5171,7 +5170,6 @@ if (false) {
  *     this.dispatch(new ClearCompanyAction(companyId));
  *   }
  * }
- * ```
  */
 class EntityServicesBase {
     // Dear @ngrx/data developer: think hard before changing the constructor.
