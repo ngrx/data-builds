@@ -4063,14 +4063,10 @@ class EntityCollectionServiceBase {
     get store() {
         return this.dispatcher.store;
     }
-    // region Dispatch commands
     /**
-     * Dispatch action to save a new entity to remote storage.
-     * @param {?} entity entity to add, which may omit its key if pessimistic and the server creates the key;
-     * must have a key if optimistic save.
+     * @param {?} entity
      * @param {?=} options
-     * @return {?} Observable of the entity
-     * after server reports successful save or the save error.
+     * @return {?}
      */
     add(entity, options) {
         return this.dispatcher.add(entity, options);
