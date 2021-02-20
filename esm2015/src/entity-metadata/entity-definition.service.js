@@ -1,49 +1,25 @@
-/**
- * @fileoverview added by tsickle
- * Generated from: src/entity-metadata/entity-definition.service.ts
- * @suppress {checkTypes,constantProperty,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 import { Inject, Injectable, Optional } from '@angular/core';
 import { createEntityDefinition } from './entity-definition';
 import { ENTITY_METADATA_TOKEN, } from './entity-metadata';
-/**
- * @record
- */
-export function EntityDefinitions() { }
-/**
- * Registry of EntityDefinitions for all cached entity types
- */
+/** Registry of EntityDefinitions for all cached entity types */
 export class EntityDefinitionService {
-    /**
-     * @param {?} entityMetadataMaps
-     */
     constructor(entityMetadataMaps) {
-        /**
-         * {EntityDefinition} for all cached entity types
-         */
+        /** {EntityDefinition} for all cached entity types */
         this.definitions = {};
         if (entityMetadataMaps) {
-            entityMetadataMaps.forEach((/**
-             * @param {?} map
-             * @return {?}
-             */
-            (map) => this.registerMetadataMap(map)));
+            entityMetadataMaps.forEach((map) => this.registerMetadataMap(map));
         }
     }
     /**
      * Get (or create) a data service for entity type
-     * @template T
-     * @param {?} entityName - the name of the type
+     * @param entityName - the name of the type
      *
      * Examples:
      *   getDefinition('Hero'); // definition for Heroes, untyped
      *   getDefinition<Hero>(`Hero`); // definition for Heroes, typed with Hero interface
-     * @param {?=} shouldThrow
-     * @return {?}
      */
     getDefinition(entityName, shouldThrow = true) {
         entityName = entityName.trim();
-        /** @type {?} */
         const definition = this.definitions[entityName];
         if (!definition && shouldThrow) {
             throw new Error(`No EntityDefinition for entity type "${entityName}".`);
@@ -53,57 +29,51 @@ export class EntityDefinitionService {
     //////// Registration methods //////////
     /**
      * Create and register the {EntityDefinition} for the {EntityMetadata} of an entity type
-     * @param {?} metadata
-     * @return {?}
+     * @param name - the name of the entity type
+     * @param definition - {EntityMetadata} for a collection for that entity type
+     *
+     * Examples:
+     *   registerMetadata(myHeroEntityDefinition);
      */
     registerMetadata(metadata) {
         if (metadata) {
-            /** @type {?} */
             const definition = createEntityDefinition(metadata);
             this.registerDefinition(definition);
         }
     }
     /**
      * Register an EntityMetadataMap.
-     * @param {?=} metadataMap - a map of entityType names to entity metadata
+     * @param metadataMap - a map of entityType names to entity metadata
      *
      * Examples:
      *   registerMetadataMap({
      *     'Hero': myHeroMetadata,
      *     Villain: myVillainMetadata
      *   });
-     * @return {?}
      */
     registerMetadataMap(metadataMap = {}) {
         // The entity type name should be the same as the map key
-        Object.keys(metadataMap || {}).forEach((/**
-         * @param {?} entityName
-         * @return {?}
-         */
-        (entityName) => this.registerMetadata(Object.assign({ entityName }, metadataMap[entityName]))));
+        Object.keys(metadataMap || {}).forEach((entityName) => this.registerMetadata(Object.assign({ entityName }, metadataMap[entityName])));
     }
     /**
      * Register an {EntityDefinition} for an entity type
-     * @template T
-     * @param {?} definition - EntityDefinition of a collection for that entity type
+     * @param definition - EntityDefinition of a collection for that entity type
      *
      * Examples:
      *   registerDefinition('Hero', myHeroEntityDefinition);
-     * @return {?}
      */
     registerDefinition(definition) {
         this.definitions[definition.entityName] = definition;
     }
     /**
      * Register a batch of EntityDefinitions.
-     * @param {?} definitions - map of entityType name and associated EntityDefinitions to merge.
+     * @param definitions - map of entityType name and associated EntityDefinitions to merge.
      *
      * Examples:
      *   registerDefinitions({
      *     'Hero': myHeroEntityDefinition,
      *     Villain: myVillainEntityDefinition
      *   });
-     * @return {?}
      */
     registerDefinitions(definitions) {
         Object.assign(this.definitions, definitions);
@@ -116,12 +86,4 @@ EntityDefinitionService.decorators = [
 EntityDefinitionService.ctorParameters = () => [
     { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_METADATA_TOKEN,] }] }
 ];
-if (false) {
-    /**
-     * {EntityDefinition} for all cached entity types
-     * @type {?}
-     * @private
-     */
-    EntityDefinitionService.prototype.definitions;
-}
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW50aXR5LWRlZmluaXRpb24uc2VydmljZS5qcyIsInNvdXJjZVJvb3QiOiIuLi8uLi8uLi8uLi9tb2R1bGVzL2RhdGEvIiwic291cmNlcyI6WyJzcmMvZW50aXR5LW1ldGFkYXRhL2VudGl0eS1kZWZpbml0aW9uLnNlcnZpY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxPQUFPLEVBQUUsTUFBTSxFQUFFLFVBQVUsRUFBRSxRQUFRLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFFN0QsT0FBTyxFQUFFLHNCQUFzQixFQUFvQixNQUFNLHFCQUFxQixDQUFDO0FBQy9FLE9BQU8sRUFHTCxxQkFBcUIsR0FDdEIsTUFBTSxtQkFBbUIsQ0FBQzs7OztBQUUzQix1Q0FFQzs7OztBQUlELE1BQU0sT0FBTyx1QkFBdUI7Ozs7SUFJbEMsWUFHRSxrQkFBdUM7Ozs7UUFMeEIsZ0JBQVcsR0FBc0IsRUFBRSxDQUFDO1FBT25ELElBQUksa0JBQWtCLEVBQUU7WUFDdEIsa0JBQWtCLENBQUMsT0FBTzs7OztZQUFDLENBQUMsR0FBRyxFQUFFLEVBQUUsQ0FBQyxJQUFJLENBQUMsbUJBQW1CLENBQUMsR0FBRyxDQUFDLEVBQUMsQ0FBQztTQUNwRTtJQUNILENBQUM7Ozs7Ozs7Ozs7OztJQVVELGFBQWEsQ0FDWCxVQUFrQixFQUNsQixXQUFXLEdBQUcsSUFBSTtRQUVsQixVQUFVLEdBQUcsVUFBVSxDQUFDLElBQUksRUFBRSxDQUFDOztjQUN6QixVQUFVLEdBQUcsSUFBSSxDQUFDLFdBQVcsQ0FBQyxVQUFVLENBQUM7UUFDL0MsSUFBSSxDQUFDLFVBQVUsSUFBSSxXQUFXLEVBQUU7WUFDOUIsTUFBTSxJQUFJLEtBQUssQ0FBQyx3Q0FBd0MsVUFBVSxJQUFJLENBQUMsQ0FBQztTQUN6RTtRQUNELE9BQU8sVUFBVSxDQUFDO0lBQ3BCLENBQUM7Ozs7Ozs7SUFZRCxnQkFBZ0IsQ0FBQyxRQUF3QjtRQUN2QyxJQUFJLFFBQVEsRUFBRTs7a0JBQ04sVUFBVSxHQUFHLHNCQUFzQixDQUFDLFFBQVEsQ0FBQztZQUNuRCxJQUFJLENBQUMsa0JBQWtCLENBQUMsVUFBVSxDQUFDLENBQUM7U0FDckM7SUFDSCxDQUFDOzs7Ozs7Ozs7Ozs7SUFZRCxtQkFBbUIsQ0FBQyxjQUFpQyxFQUFFO1FBQ3JELHlEQUF5RDtRQUN6RCxNQUFNLENBQUMsSUFBSSxDQUFDLFdBQVcsSUFBSSxFQUFFLENBQUMsQ0FBQyxPQUFPOzs7O1FBQUMsQ0FBQyxVQUFVLEVBQUUsRUFBRSxDQUNwRCxJQUFJLENBQUMsZ0JBQWdCLGlCQUFHLFVBQVUsSUFBSyxXQUFXLENBQUMsVUFBVSxDQUFDLEVBQUcsRUFDbEUsQ0FBQztJQUNKLENBQUM7Ozs7Ozs7Ozs7SUFTRCxrQkFBa0IsQ0FBSSxVQUErQjtRQUNuRCxJQUFJLENBQUMsV0FBVyxDQUFDLFVBQVUsQ0FBQyxVQUFVLENBQUMsR0FBRyxVQUFVLENBQUM7SUFDdkQsQ0FBQzs7Ozs7Ozs7Ozs7O0lBWUQsbUJBQW1CLENBQUMsV0FBOEI7UUFDaEQsTUFBTSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUFFLFdBQVcsQ0FBQyxDQUFDO0lBQy9DLENBQUM7OztZQTVGRixVQUFVOzs7O3dDQU1OLFFBQVEsWUFDUixNQUFNLFNBQUMscUJBQXFCOzs7Ozs7OztJQUovQiw4Q0FBcUQiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3QsIEluamVjdGFibGUsIE9wdGlvbmFsIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5cbmltcG9ydCB7IGNyZWF0ZUVudGl0eURlZmluaXRpb24sIEVudGl0eURlZmluaXRpb24gfSBmcm9tICcuL2VudGl0eS1kZWZpbml0aW9uJztcbmltcG9ydCB7XG4gIEVudGl0eU1ldGFkYXRhLFxuICBFbnRpdHlNZXRhZGF0YU1hcCxcbiAgRU5USVRZX01FVEFEQVRBX1RPS0VOLFxufSBmcm9tICcuL2VudGl0eS1tZXRhZGF0YSc7XG5cbmV4cG9ydCBpbnRlcmZhY2UgRW50aXR5RGVmaW5pdGlvbnMge1xuICBbZW50aXR5TmFtZTogc3RyaW5nXTogRW50aXR5RGVmaW5pdGlvbjxhbnk+O1xufVxuXG4vKiogUmVnaXN0cnkgb2YgRW50aXR5RGVmaW5pdGlvbnMgZm9yIGFsbCBjYWNoZWQgZW50aXR5IHR5cGVzICovXG5ASW5qZWN0YWJsZSgpXG5leHBvcnQgY2xhc3MgRW50aXR5RGVmaW5pdGlvblNlcnZpY2Uge1xuICAvKioge0VudGl0eURlZmluaXRpb259IGZvciBhbGwgY2FjaGVkIGVudGl0eSB0eXBlcyAqL1xuICBwcml2YXRlIHJlYWRvbmx5IGRlZmluaXRpb25zOiBFbnRpdHlEZWZpbml0aW9ucyA9IHt9O1xuXG4gIGNvbnN0cnVjdG9yKFxuICAgIEBPcHRpb25hbCgpXG4gICAgQEluamVjdChFTlRJVFlfTUVUQURBVEFfVE9LRU4pXG4gICAgZW50aXR5TWV0YWRhdGFNYXBzOiBFbnRpdHlNZXRhZGF0YU1hcFtdXG4gICkge1xuICAgIGlmIChlbnRpdHlNZXRhZGF0YU1hcHMpIHtcbiAgICAgIGVudGl0eU1ldGFkYXRhTWFwcy5mb3JFYWNoKChtYXApID0+IHRoaXMucmVnaXN0ZXJNZXRhZGF0YU1hcChtYXApKTtcbiAgICB9XG4gIH1cblxuICAvKipcbiAgICogR2V0IChvciBjcmVhdGUpIGEgZGF0YSBzZXJ2aWNlIGZvciBlbnRpdHkgdHlwZVxuICAgKiBAcGFyYW0gZW50aXR5TmFtZSAtIHRoZSBuYW1lIG9mIHRoZSB0eXBlXG4gICAqXG4gICAqIEV4YW1wbGVzOlxuICAgKiAgIGdldERlZmluaXRpb24oJ0hlcm8nKTsgLy8gZGVmaW5pdGlvbiBmb3IgSGVyb2VzLCB1bnR5cGVkXG4gICAqICAgZ2V0RGVmaW5pdGlvbjxIZXJvPihgSGVyb2ApOyAvLyBkZWZpbml0aW9uIGZvciBIZXJvZXMsIHR5cGVkIHdpdGggSGVybyBpbnRlcmZhY2VcbiAgICovXG4gIGdldERlZmluaXRpb248VD4oXG4gICAgZW50aXR5TmFtZTogc3RyaW5nLFxuICAgIHNob3VsZFRocm93ID0gdHJ1ZVxuICApOiBFbnRpdHlEZWZpbml0aW9uPFQ+IHtcbiAgICBlbnRpdHlOYW1lID0gZW50aXR5TmFtZS50cmltKCk7XG4gICAgY29uc3QgZGVmaW5pdGlvbiA9IHRoaXMuZGVmaW5pdGlvbnNbZW50aXR5TmFtZV07XG4gICAgaWYgKCFkZWZpbml0aW9uICYmIHNob3VsZFRocm93KSB7XG4gICAgICB0aHJvdyBuZXcgRXJyb3IoYE5vIEVudGl0eURlZmluaXRpb24gZm9yIGVudGl0eSB0eXBlIFwiJHtlbnRpdHlOYW1lfVwiLmApO1xuICAgIH1cbiAgICByZXR1cm4gZGVmaW5pdGlvbjtcbiAgfVxuXG4gIC8vLy8vLy8vIFJlZ2lzdHJhdGlvbiBtZXRob2RzIC8vLy8vLy8vLy9cblxuICAvKipcbiAgICogQ3JlYXRlIGFuZCByZWdpc3RlciB0aGUge0VudGl0eURlZmluaXRpb259IGZvciB0aGUge0VudGl0eU1ldGFkYXRhfSBvZiBhbiBlbnRpdHkgdHlwZVxuICAgKiBAcGFyYW0gbmFtZSAtIHRoZSBuYW1lIG9mIHRoZSBlbnRpdHkgdHlwZVxuICAgKiBAcGFyYW0gZGVmaW5pdGlvbiAtIHtFbnRpdHlNZXRhZGF0YX0gZm9yIGEgY29sbGVjdGlvbiBmb3IgdGhhdCBlbnRpdHkgdHlwZVxuICAgKlxuICAgKiBFeGFtcGxlczpcbiAgICogICByZWdpc3Rlck1ldGFkYXRhKG15SGVyb0VudGl0eURlZmluaXRpb24pO1xuICAgKi9cbiAgcmVnaXN0ZXJNZXRhZGF0YShtZXRhZGF0YTogRW50aXR5TWV0YWRhdGEpIHtcbiAgICBpZiAobWV0YWRhdGEpIHtcbiAgICAgIGNvbnN0IGRlZmluaXRpb24gPSBjcmVhdGVFbnRpdHlEZWZpbml0aW9uKG1ldGFkYXRhKTtcbiAgICAgIHRoaXMucmVnaXN0ZXJEZWZpbml0aW9uKGRlZmluaXRpb24pO1xuICAgIH1cbiAgfVxuXG4gIC8qKlxuICAgKiBSZWdpc3RlciBhbiBFbnRpdHlNZXRhZGF0YU1hcC5cbiAgICogQHBhcmFtIG1ldGFkYXRhTWFwIC0gYSBtYXAgb2YgZW50aXR5VHlwZSBuYW1lcyB0byBlbnRpdHkgbWV0YWRhdGFcbiAgICpcbiAgICogRXhhbXBsZXM6XG4gICAqICAgcmVnaXN0ZXJNZXRhZGF0YU1hcCh7XG4gICAqICAgICAnSGVybyc6IG15SGVyb01ldGFkYXRhLFxuICAgKiAgICAgVmlsbGFpbjogbXlWaWxsYWluTWV0YWRhdGFcbiAgICogICB9KTtcbiAgICovXG4gIHJlZ2lzdGVyTWV0YWRhdGFNYXAobWV0YWRhdGFNYXA6IEVudGl0eU1ldGFkYXRhTWFwID0ge30pIHtcbiAgICAvLyBUaGUgZW50aXR5IHR5cGUgbmFtZSBzaG91bGQgYmUgdGhlIHNhbWUgYXMgdGhlIG1hcCBrZXlcbiAgICBPYmplY3Qua2V5cyhtZXRhZGF0YU1hcCB8fCB7fSkuZm9yRWFjaCgoZW50aXR5TmFtZSkgPT5cbiAgICAgIHRoaXMucmVnaXN0ZXJNZXRhZGF0YSh7IGVudGl0eU5hbWUsIC4uLm1ldGFkYXRhTWFwW2VudGl0eU5hbWVdIH0pXG4gICAgKTtcbiAgfVxuXG4gIC8qKlxuICAgKiBSZWdpc3RlciBhbiB7RW50aXR5RGVmaW5pdGlvbn0gZm9yIGFuIGVudGl0eSB0eXBlXG4gICAqIEBwYXJhbSBkZWZpbml0aW9uIC0gRW50aXR5RGVmaW5pdGlvbiBvZiBhIGNvbGxlY3Rpb24gZm9yIHRoYXQgZW50aXR5IHR5cGVcbiAgICpcbiAgICogRXhhbXBsZXM6XG4gICAqICAgcmVnaXN0ZXJEZWZpbml0aW9uKCdIZXJvJywgbXlIZXJvRW50aXR5RGVmaW5pdGlvbik7XG4gICAqL1xuICByZWdpc3RlckRlZmluaXRpb248VD4oZGVmaW5pdGlvbjogRW50aXR5RGVmaW5pdGlvbjxUPikge1xuICAgIHRoaXMuZGVmaW5pdGlvbnNbZGVmaW5pdGlvbi5lbnRpdHlOYW1lXSA9IGRlZmluaXRpb247XG4gIH1cblxuICAvKipcbiAgICogUmVnaXN0ZXIgYSBiYXRjaCBvZiBFbnRpdHlEZWZpbml0aW9ucy5cbiAgICogQHBhcmFtIGRlZmluaXRpb25zIC0gbWFwIG9mIGVudGl0eVR5cGUgbmFtZSBhbmQgYXNzb2NpYXRlZCBFbnRpdHlEZWZpbml0aW9ucyB0byBtZXJnZS5cbiAgICpcbiAgICogRXhhbXBsZXM6XG4gICAqICAgcmVnaXN0ZXJEZWZpbml0aW9ucyh7XG4gICAqICAgICAnSGVybyc6IG15SGVyb0VudGl0eURlZmluaXRpb24sXG4gICAqICAgICBWaWxsYWluOiBteVZpbGxhaW5FbnRpdHlEZWZpbml0aW9uXG4gICAqICAgfSk7XG4gICAqL1xuICByZWdpc3RlckRlZmluaXRpb25zKGRlZmluaXRpb25zOiBFbnRpdHlEZWZpbml0aW9ucykge1xuICAgIE9iamVjdC5hc3NpZ24odGhpcy5kZWZpbml0aW9ucywgZGVmaW5pdGlvbnMpO1xuICB9XG59XG4iXX0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW50aXR5LWRlZmluaXRpb24uc2VydmljZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uL21vZHVsZXMvZGF0YS9zcmMvZW50aXR5LW1ldGFkYXRhL2VudGl0eS1kZWZpbml0aW9uLnNlcnZpY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLE1BQU0sRUFBRSxVQUFVLEVBQUUsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBRTdELE9BQU8sRUFBRSxzQkFBc0IsRUFBb0IsTUFBTSxxQkFBcUIsQ0FBQztBQUMvRSxPQUFPLEVBR0wscUJBQXFCLEdBQ3RCLE1BQU0sbUJBQW1CLENBQUM7QUFNM0IsZ0VBQWdFO0FBRWhFLE1BQU0sT0FBTyx1QkFBdUI7SUFJbEMsWUFHRSxrQkFBdUM7UUFOekMscURBQXFEO1FBQ3BDLGdCQUFXLEdBQXNCLEVBQUUsQ0FBQztRQU9uRCxJQUFJLGtCQUFrQixFQUFFO1lBQ3RCLGtCQUFrQixDQUFDLE9BQU8sQ0FBQyxDQUFDLEdBQUcsRUFBRSxFQUFFLENBQUMsSUFBSSxDQUFDLG1CQUFtQixDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUM7U0FDcEU7SUFDSCxDQUFDO0lBRUQ7Ozs7Ozs7T0FPRztJQUNILGFBQWEsQ0FDWCxVQUFrQixFQUNsQixXQUFXLEdBQUcsSUFBSTtRQUVsQixVQUFVLEdBQUcsVUFBVSxDQUFDLElBQUksRUFBRSxDQUFDO1FBQy9CLE1BQU0sVUFBVSxHQUFHLElBQUksQ0FBQyxXQUFXLENBQUMsVUFBVSxDQUFDLENBQUM7UUFDaEQsSUFBSSxDQUFDLFVBQVUsSUFBSSxXQUFXLEVBQUU7WUFDOUIsTUFBTSxJQUFJLEtBQUssQ0FBQyx3Q0FBd0MsVUFBVSxJQUFJLENBQUMsQ0FBQztTQUN6RTtRQUNELE9BQU8sVUFBVSxDQUFDO0lBQ3BCLENBQUM7SUFFRCx3Q0FBd0M7SUFFeEM7Ozs7Ozs7T0FPRztJQUNILGdCQUFnQixDQUFDLFFBQXdCO1FBQ3ZDLElBQUksUUFBUSxFQUFFO1lBQ1osTUFBTSxVQUFVLEdBQUcsc0JBQXNCLENBQUMsUUFBUSxDQUFDLENBQUM7WUFDcEQsSUFBSSxDQUFDLGtCQUFrQixDQUFDLFVBQVUsQ0FBQyxDQUFDO1NBQ3JDO0lBQ0gsQ0FBQztJQUVEOzs7Ozs7Ozs7T0FTRztJQUNILG1CQUFtQixDQUFDLGNBQWlDLEVBQUU7UUFDckQseURBQXlEO1FBQ3pELE1BQU0sQ0FBQyxJQUFJLENBQUMsV0FBVyxJQUFJLEVBQUUsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxDQUFDLFVBQVUsRUFBRSxFQUFFLENBQ3BELElBQUksQ0FBQyxnQkFBZ0IsaUJBQUcsVUFBVSxJQUFLLFdBQVcsQ0FBQyxVQUFVLENBQUMsRUFBRyxDQUNsRSxDQUFDO0lBQ0osQ0FBQztJQUVEOzs7Ozs7T0FNRztJQUNILGtCQUFrQixDQUFJLFVBQStCO1FBQ25ELElBQUksQ0FBQyxXQUFXLENBQUMsVUFBVSxDQUFDLFVBQVUsQ0FBQyxHQUFHLFVBQVUsQ0FBQztJQUN2RCxDQUFDO0lBRUQ7Ozs7Ozs7OztPQVNHO0lBQ0gsbUJBQW1CLENBQUMsV0FBOEI7UUFDaEQsTUFBTSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUFFLFdBQVcsQ0FBQyxDQUFDO0lBQy9DLENBQUM7OztZQTVGRixVQUFVOzs7O3dDQU1OLFFBQVEsWUFDUixNQUFNLFNBQUMscUJBQXFCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5qZWN0LCBJbmplY3RhYmxlLCBPcHRpb25hbCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuXG5pbXBvcnQgeyBjcmVhdGVFbnRpdHlEZWZpbml0aW9uLCBFbnRpdHlEZWZpbml0aW9uIH0gZnJvbSAnLi9lbnRpdHktZGVmaW5pdGlvbic7XG5pbXBvcnQge1xuICBFbnRpdHlNZXRhZGF0YSxcbiAgRW50aXR5TWV0YWRhdGFNYXAsXG4gIEVOVElUWV9NRVRBREFUQV9UT0tFTixcbn0gZnJvbSAnLi9lbnRpdHktbWV0YWRhdGEnO1xuXG5leHBvcnQgaW50ZXJmYWNlIEVudGl0eURlZmluaXRpb25zIHtcbiAgW2VudGl0eU5hbWU6IHN0cmluZ106IEVudGl0eURlZmluaXRpb248YW55Pjtcbn1cblxuLyoqIFJlZ2lzdHJ5IG9mIEVudGl0eURlZmluaXRpb25zIGZvciBhbGwgY2FjaGVkIGVudGl0eSB0eXBlcyAqL1xuQEluamVjdGFibGUoKVxuZXhwb3J0IGNsYXNzIEVudGl0eURlZmluaXRpb25TZXJ2aWNlIHtcbiAgLyoqIHtFbnRpdHlEZWZpbml0aW9ufSBmb3IgYWxsIGNhY2hlZCBlbnRpdHkgdHlwZXMgKi9cbiAgcHJpdmF0ZSByZWFkb25seSBkZWZpbml0aW9uczogRW50aXR5RGVmaW5pdGlvbnMgPSB7fTtcblxuICBjb25zdHJ1Y3RvcihcbiAgICBAT3B0aW9uYWwoKVxuICAgIEBJbmplY3QoRU5USVRZX01FVEFEQVRBX1RPS0VOKVxuICAgIGVudGl0eU1ldGFkYXRhTWFwczogRW50aXR5TWV0YWRhdGFNYXBbXVxuICApIHtcbiAgICBpZiAoZW50aXR5TWV0YWRhdGFNYXBzKSB7XG4gICAgICBlbnRpdHlNZXRhZGF0YU1hcHMuZm9yRWFjaCgobWFwKSA9PiB0aGlzLnJlZ2lzdGVyTWV0YWRhdGFNYXAobWFwKSk7XG4gICAgfVxuICB9XG5cbiAgLyoqXG4gICAqIEdldCAob3IgY3JlYXRlKSBhIGRhdGEgc2VydmljZSBmb3IgZW50aXR5IHR5cGVcbiAgICogQHBhcmFtIGVudGl0eU5hbWUgLSB0aGUgbmFtZSBvZiB0aGUgdHlwZVxuICAgKlxuICAgKiBFeGFtcGxlczpcbiAgICogICBnZXREZWZpbml0aW9uKCdIZXJvJyk7IC8vIGRlZmluaXRpb24gZm9yIEhlcm9lcywgdW50eXBlZFxuICAgKiAgIGdldERlZmluaXRpb248SGVybz4oYEhlcm9gKTsgLy8gZGVmaW5pdGlvbiBmb3IgSGVyb2VzLCB0eXBlZCB3aXRoIEhlcm8gaW50ZXJmYWNlXG4gICAqL1xuICBnZXREZWZpbml0aW9uPFQ+KFxuICAgIGVudGl0eU5hbWU6IHN0cmluZyxcbiAgICBzaG91bGRUaHJvdyA9IHRydWVcbiAgKTogRW50aXR5RGVmaW5pdGlvbjxUPiB7XG4gICAgZW50aXR5TmFtZSA9IGVudGl0eU5hbWUudHJpbSgpO1xuICAgIGNvbnN0IGRlZmluaXRpb24gPSB0aGlzLmRlZmluaXRpb25zW2VudGl0eU5hbWVdO1xuICAgIGlmICghZGVmaW5pdGlvbiAmJiBzaG91bGRUaHJvdykge1xuICAgICAgdGhyb3cgbmV3IEVycm9yKGBObyBFbnRpdHlEZWZpbml0aW9uIGZvciBlbnRpdHkgdHlwZSBcIiR7ZW50aXR5TmFtZX1cIi5gKTtcbiAgICB9XG4gICAgcmV0dXJuIGRlZmluaXRpb247XG4gIH1cblxuICAvLy8vLy8vLyBSZWdpc3RyYXRpb24gbWV0aG9kcyAvLy8vLy8vLy8vXG5cbiAgLyoqXG4gICAqIENyZWF0ZSBhbmQgcmVnaXN0ZXIgdGhlIHtFbnRpdHlEZWZpbml0aW9ufSBmb3IgdGhlIHtFbnRpdHlNZXRhZGF0YX0gb2YgYW4gZW50aXR5IHR5cGVcbiAgICogQHBhcmFtIG5hbWUgLSB0aGUgbmFtZSBvZiB0aGUgZW50aXR5IHR5cGVcbiAgICogQHBhcmFtIGRlZmluaXRpb24gLSB7RW50aXR5TWV0YWRhdGF9IGZvciBhIGNvbGxlY3Rpb24gZm9yIHRoYXQgZW50aXR5IHR5cGVcbiAgICpcbiAgICogRXhhbXBsZXM6XG4gICAqICAgcmVnaXN0ZXJNZXRhZGF0YShteUhlcm9FbnRpdHlEZWZpbml0aW9uKTtcbiAgICovXG4gIHJlZ2lzdGVyTWV0YWRhdGEobWV0YWRhdGE6IEVudGl0eU1ldGFkYXRhKSB7XG4gICAgaWYgKG1ldGFkYXRhKSB7XG4gICAgICBjb25zdCBkZWZpbml0aW9uID0gY3JlYXRlRW50aXR5RGVmaW5pdGlvbihtZXRhZGF0YSk7XG4gICAgICB0aGlzLnJlZ2lzdGVyRGVmaW5pdGlvbihkZWZpbml0aW9uKTtcbiAgICB9XG4gIH1cblxuICAvKipcbiAgICogUmVnaXN0ZXIgYW4gRW50aXR5TWV0YWRhdGFNYXAuXG4gICAqIEBwYXJhbSBtZXRhZGF0YU1hcCAtIGEgbWFwIG9mIGVudGl0eVR5cGUgbmFtZXMgdG8gZW50aXR5IG1ldGFkYXRhXG4gICAqXG4gICAqIEV4YW1wbGVzOlxuICAgKiAgIHJlZ2lzdGVyTWV0YWRhdGFNYXAoe1xuICAgKiAgICAgJ0hlcm8nOiBteUhlcm9NZXRhZGF0YSxcbiAgICogICAgIFZpbGxhaW46IG15VmlsbGFpbk1ldGFkYXRhXG4gICAqICAgfSk7XG4gICAqL1xuICByZWdpc3Rlck1ldGFkYXRhTWFwKG1ldGFkYXRhTWFwOiBFbnRpdHlNZXRhZGF0YU1hcCA9IHt9KSB7XG4gICAgLy8gVGhlIGVudGl0eSB0eXBlIG5hbWUgc2hvdWxkIGJlIHRoZSBzYW1lIGFzIHRoZSBtYXAga2V5XG4gICAgT2JqZWN0LmtleXMobWV0YWRhdGFNYXAgfHwge30pLmZvckVhY2goKGVudGl0eU5hbWUpID0+XG4gICAgICB0aGlzLnJlZ2lzdGVyTWV0YWRhdGEoeyBlbnRpdHlOYW1lLCAuLi5tZXRhZGF0YU1hcFtlbnRpdHlOYW1lXSB9KVxuICAgICk7XG4gIH1cblxuICAvKipcbiAgICogUmVnaXN0ZXIgYW4ge0VudGl0eURlZmluaXRpb259IGZvciBhbiBlbnRpdHkgdHlwZVxuICAgKiBAcGFyYW0gZGVmaW5pdGlvbiAtIEVudGl0eURlZmluaXRpb24gb2YgYSBjb2xsZWN0aW9uIGZvciB0aGF0IGVudGl0eSB0eXBlXG4gICAqXG4gICAqIEV4YW1wbGVzOlxuICAgKiAgIHJlZ2lzdGVyRGVmaW5pdGlvbignSGVybycsIG15SGVyb0VudGl0eURlZmluaXRpb24pO1xuICAgKi9cbiAgcmVnaXN0ZXJEZWZpbml0aW9uPFQ+KGRlZmluaXRpb246IEVudGl0eURlZmluaXRpb248VD4pIHtcbiAgICB0aGlzLmRlZmluaXRpb25zW2RlZmluaXRpb24uZW50aXR5TmFtZV0gPSBkZWZpbml0aW9uO1xuICB9XG5cbiAgLyoqXG4gICAqIFJlZ2lzdGVyIGEgYmF0Y2ggb2YgRW50aXR5RGVmaW5pdGlvbnMuXG4gICAqIEBwYXJhbSBkZWZpbml0aW9ucyAtIG1hcCBvZiBlbnRpdHlUeXBlIG5hbWUgYW5kIGFzc29jaWF0ZWQgRW50aXR5RGVmaW5pdGlvbnMgdG8gbWVyZ2UuXG4gICAqXG4gICAqIEV4YW1wbGVzOlxuICAgKiAgIHJlZ2lzdGVyRGVmaW5pdGlvbnMoe1xuICAgKiAgICAgJ0hlcm8nOiBteUhlcm9FbnRpdHlEZWZpbml0aW9uLFxuICAgKiAgICAgVmlsbGFpbjogbXlWaWxsYWluRW50aXR5RGVmaW5pdGlvblxuICAgKiAgIH0pO1xuICAgKi9cbiAgcmVnaXN0ZXJEZWZpbml0aW9ucyhkZWZpbml0aW9uczogRW50aXR5RGVmaW5pdGlvbnMpIHtcbiAgICBPYmplY3QuYXNzaWduKHRoaXMuZGVmaW5pdGlvbnMsIGRlZmluaXRpb25zKTtcbiAgfVxufVxuIl19
