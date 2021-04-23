@@ -4693,7 +4693,7 @@ class EntityDataModuleWithoutEffects {
 EntityDataModuleWithoutEffects.decorators = [
     { type: NgModule, args: [{
                 imports: [
-                    StoreModule,
+                    StoreModule, // rely on Store feature providers rather than Store.forFeature()
                 ],
                 providers: [
                     CorrelationIdGenerator,
@@ -4794,7 +4794,7 @@ EntityDataModule.decorators = [
     { type: NgModule, args: [{
                 imports: [
                     EntityDataModuleWithoutEffects,
-                    EffectsModule,
+                    EffectsModule, // do not supply effects because can't replace later
                 ],
                 providers: [
                     DefaultDataServiceFactory,

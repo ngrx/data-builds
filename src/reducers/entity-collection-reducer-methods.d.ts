@@ -348,7 +348,7 @@ export declare class EntityCollectionReducerMethods<T> {
     /** Safely extract data from the EntityAction payload */
     protected extractData<D = any>(action: EntityAction<D>): D;
     /** Safely extract MergeStrategy from EntityAction. Set to IgnoreChanges if collection itself is not tracked. */
-    protected extractMergeStrategy(action: EntityAction): MergeStrategy.IgnoreChanges | MergeStrategy;
+    protected extractMergeStrategy(action: EntityAction): MergeStrategy;
     protected isOptimistic(action: EntityAction): boolean;
 }
 /**
