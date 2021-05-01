@@ -1014,7 +1014,7 @@
     ]; };
     /** Remove leading & trailing spaces or slashes */
     function normalizeRoot(root) {
-        return root.replace(/^[\/\s]+|[\/\s]+$/g, '');
+        return root.replace(/^[/\s]+|[/\s]+$/g, '');
     }
 
     /**
@@ -2545,7 +2545,7 @@
         };
     }
 
-    // tslint:disable:member-ordering
+    /* eslint-disable @typescript-eslint/member-ordering */
     /**
      * Base class for a concrete EntityCollectionService<T>.
      * Can be instantiated. Cannot be injected. Use EntityCollectionServiceFactory to create.
@@ -3073,7 +3073,7 @@
         { type: store.Store }
     ]; };
 
-    // tslint:disable:member-ordering
+    /* eslint-disable @typescript-eslint/member-ordering */
     /**
      * Base/default class of a central registry of EntityCollectionServices for all entity types.
      * Create your own subclass to add app-specific members for an improved developer experience.
@@ -3213,7 +3213,7 @@
         { type: EntityServicesElements }
     ]; };
 
-    // tslint:disable:member-ordering
+    /* eslint-disable @typescript-eslint/member-ordering */
     /**
      * Class-Interface for EntityCache and EntityCollection services.
      * Serves as an Angular provider token for this service class.
@@ -4634,6 +4634,7 @@
         function EntityCollectionReducerRegistry(entityCollectionReducerFactory, entityCollectionMetaReducers) {
             this.entityCollectionReducerFactory = entityCollectionReducerFactory;
             this.entityCollectionReducers = {};
+            // eslint-disable-next-line prefer-spread
             this.entityCollectionMetaReducer = store.compose.apply(null, entityCollectionMetaReducers || []);
         }
         /**
@@ -4751,7 +4752,7 @@
          */
         EntityCacheReducerFactory.prototype.clearCollectionsReducer = function (entityCache, action) {
             var _this = this;
-            // tslint:disable-next-line:prefer-const
+            // eslint-disable-next-line prefer-const
             var _a = action.payload, collections = _a.collections, tag = _a.tag;
             var entityOp = exports.EntityOp.REMOVE_ALL;
             if (!collections) {
@@ -4801,7 +4802,7 @@
          */
         EntityCacheReducerFactory.prototype.mergeQuerySetReducer = function (entityCache, action) {
             var _this = this;
-            // tslint:disable-next-line:prefer-const
+            // eslint-disable-next-line prefer-const
             var _a = action.payload, mergeStrategy = _a.mergeStrategy, querySet = _a.querySet, tag = _a.tag;
             mergeStrategy =
                 mergeStrategy === null ? exports.MergeStrategy.PreserveChanges : mergeStrategy;
@@ -5073,9 +5074,9 @@
         // The original implementation is based on this SO answer:
         // http://stackoverflow.com/a/2117523/200253
         return 'xxxxxxxxxx4xxyxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-            // tslint:disable-next-line:no-bitwise
+            // eslint-disable-next-line no-bitwise
             var r = (Math.random() * 16) | 0, 
-            // tslint:disable-next-line:no-bitwise
+            // eslint-disable-next-line no-bitwise
             v = c === 'x' ? r : (r & 0x3) | 0x8;
             return v.toString(16);
         });
@@ -5105,19 +5106,19 @@
         // Play with this in jsFiddle: http://jsfiddle.net/wardbell/qS8aN/
         var timePart = ('00' + (seed || new Date().getTime()).toString(16)).slice(-12);
         return ('xxxxxxxxxx4xxyxxx'.replace(/[xy]/g, function (c) {
-            // tslint:disable:no-bitwise
+            /* eslint-disable no-bitwise */
             var r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 0x3) | 0x8;
             return v.toString(16);
         }) + timePart);
     }
     // Sort comparison value that's good enough
     function guidComparer(l, r) {
-        var l_low = l.slice(-12);
-        var r_low = r.slice(-12);
-        return l_low !== r_low
-            ? l_low < r_low
+        var lLow = l.slice(-12);
+        var rLow = r.slice(-12);
+        return lLow !== rLow
+            ? lLow < rLow
                 ? -1
-                : +(l_low !== r_low)
+                : +(lLow !== rLow)
             : l < r
                 ? -1
                 : +(l !== r);
@@ -5180,6 +5181,7 @@
                 ],
             };
         };
+        // eslint-disable-next-line @angular-eslint/contextual-lifecycle
         EntityDataModuleWithoutEffects.prototype.ngOnDestroy = function () {
             this.reducerManager.removeFeature(this.entityCacheFeature);
         };

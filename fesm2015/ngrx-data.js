@@ -658,7 +658,7 @@ DefaultHttpUrlGenerator.ctorParameters = () => [
 ];
 /** Remove leading & trailing spaces or slashes */
 function normalizeRoot(root) {
-    return root.replace(/^[\/\s]+|[\/\s]+$/g, '');
+    return root.replace(/^[/\s]+|[/\s]+$/g, '');
 }
 
 /**
@@ -2122,7 +2122,7 @@ function PropsFilterFnFactory(props = []) {
     };
 }
 
-// tslint:disable:member-ordering
+/* eslint-disable @typescript-eslint/member-ordering */
 /**
  * Base class for a concrete EntityCollectionService<T>.
  * Can be instantiated. Cannot be injected. Use EntityCollectionServiceFactory to create.
@@ -2634,7 +2634,7 @@ EntityServicesElements.ctorParameters = () => [
     { type: Store }
 ];
 
-// tslint:disable:member-ordering
+/* eslint-disable @typescript-eslint/member-ordering */
 /**
  * Base/default class of a central registry of EntityCollectionServices for all entity types.
  * Create your own subclass to add app-specific members for an improved developer experience.
@@ -2752,7 +2752,7 @@ EntityServicesBase.ctorParameters = () => [
     { type: EntityServicesElements }
 ];
 
-// tslint:disable:member-ordering
+/* eslint-disable @typescript-eslint/member-ordering */
 /**
  * Class-Interface for EntityCache and EntityCollection services.
  * Serves as an Angular provider token for this service class.
@@ -4156,6 +4156,7 @@ class EntityCollectionReducerRegistry {
     constructor(entityCollectionReducerFactory, entityCollectionMetaReducers) {
         this.entityCollectionReducerFactory = entityCollectionReducerFactory;
         this.entityCollectionReducers = {};
+        // eslint-disable-next-line prefer-spread
         this.entityCollectionMetaReducer = compose.apply(null, entityCollectionMetaReducers || []);
     }
     /**
@@ -4269,7 +4270,7 @@ class EntityCacheReducerFactory {
      * If empty array, does nothing. If no array, clears all the collections.
      */
     clearCollectionsReducer(entityCache, action) {
-        // tslint:disable-next-line:prefer-const
+        // eslint-disable-next-line prefer-const
         let { collections, tag } = action.payload;
         const entityOp = EntityOp.REMOVE_ALL;
         if (!collections) {
@@ -4317,7 +4318,7 @@ class EntityCacheReducerFactory {
      * @param action a MergeQuerySet action with the query set and a MergeStrategy
      */
     mergeQuerySetReducer(entityCache, action) {
-        // tslint:disable-next-line:prefer-const
+        // eslint-disable-next-line prefer-const
         let { mergeStrategy, querySet, tag } = action.payload;
         mergeStrategy =
             mergeStrategy === null ? MergeStrategy.PreserveChanges : mergeStrategy;
@@ -4579,9 +4580,9 @@ function getUuid() {
     // The original implementation is based on this SO answer:
     // http://stackoverflow.com/a/2117523/200253
     return 'xxxxxxxxxx4xxyxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        // tslint:disable-next-line:no-bitwise
+        // eslint-disable-next-line no-bitwise
         const r = (Math.random() * 16) | 0, 
-        // tslint:disable-next-line:no-bitwise
+        // eslint-disable-next-line no-bitwise
         v = c === 'x' ? r : (r & 0x3) | 0x8;
         return v.toString(16);
     });
@@ -4611,19 +4612,19 @@ function getGuidComb(seed) {
     // Play with this in jsFiddle: http://jsfiddle.net/wardbell/qS8aN/
     const timePart = ('00' + (seed || new Date().getTime()).toString(16)).slice(-12);
     return ('xxxxxxxxxx4xxyxxx'.replace(/[xy]/g, function (c) {
-        // tslint:disable:no-bitwise
+        /* eslint-disable no-bitwise */
         const r = (Math.random() * 16) | 0, v = c === 'x' ? r : (r & 0x3) | 0x8;
         return v.toString(16);
     }) + timePart);
 }
 // Sort comparison value that's good enough
 function guidComparer(l, r) {
-    const l_low = l.slice(-12);
-    const r_low = r.slice(-12);
-    return l_low !== r_low
-        ? l_low < r_low
+    const lLow = l.slice(-12);
+    const rLow = r.slice(-12);
+    return lLow !== rLow
+        ? lLow < rLow
             ? -1
-            : +(l_low !== r_low)
+            : +(lLow !== rLow)
         : l < r
             ? -1
             : +(l !== r);
@@ -4686,6 +4687,7 @@ class EntityDataModuleWithoutEffects {
             ],
         };
     }
+    // eslint-disable-next-line @angular-eslint/contextual-lifecycle
     ngOnDestroy() {
         this.reducerManager.removeFeature(this.entityCacheFeature);
     }
