@@ -78,9 +78,6 @@ export declare class EntityCollectionServiceBase<T, S$ extends EntitySelectors$<
     add(entity: Partial<T>, options: EntityActionOptions & {
         isOptimistic: false;
     }): Observable<T>;
-    add(entity: T, options?: EntityActionOptions & {
-        isOptimistic?: true;
-    }): Observable<T>;
     /**
      * Dispatch action to cancel the persistence operation (query or save) with the given correlationId.
      * @param correlationId The correlation id for the corresponding EntityAction
