@@ -3588,7 +3588,7 @@
                         else if (trackedChange.changeType === exports.ChangeType.Updated) {
                             // Special case: switch change type from Updated to Deleted.
                             cloneChgStateOnce();
-                            trackedChange.changeType = exports.ChangeType.Deleted;
+                            chgState[id] = Object.assign(Object.assign({}, chgState[id]), { changeType: exports.ChangeType.Deleted });
                         }
                     }
                     else {
