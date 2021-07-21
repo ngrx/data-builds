@@ -759,7 +759,7 @@
     }());
     var SaveEntitiesCanceled = /** @class */ (function () {
         function SaveEntitiesCanceled(correlationId, reason, tag) {
-            this.type = exports.EntityCacheAction.SAVE_ENTITIES_CANCEL;
+            this.type = exports.EntityCacheAction.SAVE_ENTITIES_CANCELED;
             this.payload = { correlationId: correlationId, reason: reason, tag: tag };
         }
         return SaveEntitiesCanceled;

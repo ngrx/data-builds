@@ -119,7 +119,7 @@ export declare class SaveEntitiesCanceled implements Action {
         readonly reason?: string;
         readonly tag?: string;
     };
-    readonly type = EntityCacheAction.SAVE_ENTITIES_CANCEL;
+    readonly type = EntityCacheAction.SAVE_ENTITIES_CANCELED;
     constructor(correlationId: any, reason?: string, tag?: string);
 }
 export declare class SaveEntitiesError {

@@ -424,7 +424,7 @@ class SaveEntitiesCancel {
 }
 class SaveEntitiesCanceled {
     constructor(correlationId, reason, tag) {
-        this.type = EntityCacheAction.SAVE_ENTITIES_CANCEL;
+        this.type = EntityCacheAction.SAVE_ENTITIES_CANCELED;
         this.payload = { correlationId, reason, tag };
     }
 }
