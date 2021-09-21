@@ -10,8 +10,7 @@
         // polymorphic create for the two signatures
         EntityActionFactory.prototype.create = function (nameOrPayload, entityOp, data, options) {
             var payload = typeof nameOrPayload === 'string'
-                ? Object.assign(Object.assign({}, (options || {})), { entityName: nameOrPayload, entityOp: entityOp,
-                    data: data })
+                ? Object.assign(Object.assign({}, (options || {})), { entityName: nameOrPayload, entityOp: entityOp, data: data })
                 : nameOrPayload;
             return this.createCore(payload);
         };
@@ -45,6 +44,7 @@
         };
         return EntityActionFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityActionFactory.decorators = [
         { type: core.Injectable }
     ];
@@ -1005,10 +1005,17 @@
         };
         return DefaultHttpUrlGenerator;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     DefaultHttpUrlGenerator.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     DefaultHttpUrlGenerator.ctorParameters = function () { return [
         { type: Pluralizer }
     ]; };
@@ -1178,10 +1185,17 @@
         };
         return DefaultDataServiceFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     DefaultDataServiceFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     DefaultDataServiceFactory.ctorParameters = function () { return [
         { type: http.HttpClient },
         { type: HttpUrlGenerator },
@@ -1297,10 +1311,17 @@
         };
         return EntityDefinitionService;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityDefinitionService.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityDefinitionService.ctorParameters = function () { return [
         { type: Array, decorators: [{ type: core.Optional }, { type: core.Inject, args: [ENTITY_METADATA_TOKEN,] }] }
     ]; };
@@ -1431,10 +1452,17 @@
         };
         return EntityCacheDataService;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCacheDataService.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCacheDataService.ctorParameters = function () { return [
         { type: EntityDefinitionService },
         { type: http.HttpClient },
@@ -1496,10 +1524,17 @@
         };
         return EntityDataService;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityDataService.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityDataService.ctorParameters = function () { return [
         { type: DefaultDataServiceFactory }
     ]; };
@@ -1547,10 +1582,17 @@
         };
         return DefaultPersistenceResultHandler;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     DefaultPersistenceResultHandler.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     DefaultPersistenceResultHandler.ctorParameters = function () { return [
         { type: Logger },
         { type: EntityActionFactory }
@@ -1579,6 +1621,7 @@
         };
         return CorrelationIdGenerator;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     CorrelationIdGenerator.decorators = [
         { type: core.Injectable }
     ];
@@ -1606,6 +1649,7 @@
         }
         return EntityDispatcherDefaultOptions;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityDispatcherDefaultOptions.decorators = [
         { type: core.Injectable }
     ];
@@ -1765,10 +1809,17 @@
         };
         return EntityCacheDispatcher;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCacheDispatcher.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCacheDispatcher.ctorParameters = function () { return [
         { type: CorrelationIdGenerator },
         { type: EntityDispatcherDefaultOptions },
@@ -1822,8 +1873,7 @@
          * @returns the EntityAction
          */
         EntityDispatcherBase.prototype.createEntityAction = function (entityOp, data, options) {
-            return this.entityActionFactory.create(Object.assign({ entityName: this.entityName, entityOp: entityOp,
-                data: data }, options));
+            return this.entityActionFactory.create(Object.assign({ entityName: this.entityName, entityOp: entityOp, data: data }, options));
         };
         /**
          * Create an {EntityAction} for this entity type and
@@ -2257,10 +2307,17 @@
         };
         return EntityDispatcherFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityDispatcherFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityDispatcherFactory.ctorParameters = function () { return [
         { type: EntityActionFactory },
         { type: store.Store },
@@ -2368,10 +2425,17 @@
         };
         return EntityCacheEffects;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCacheEffects.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCacheEffects.ctorParameters = function () { return [
         { type: effects.Actions },
         { type: EntityCacheDataService },
@@ -2509,10 +2573,17 @@
         };
         return EntityEffects;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityEffects.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityEffects.ctorParameters = function () { return [
         { type: effects.Actions },
         { type: EntityDataService },
@@ -2826,10 +2897,17 @@
         };
         return EntityCollectionCreator;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCollectionCreator.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCollectionCreator.ctorParameters = function () { return [
         { type: EntityDefinitionService, decorators: [{ type: core.Optional }] }
     ]; };
@@ -2892,15 +2970,7 @@
             Object.keys(extra).forEach(function (k) {
                 extraSelectors['select' + k[0].toUpperCase() + k.slice(1)] = function (c) { return c[k]; };
             });
-            return Object.assign({ selectCount: selectCount,
-                selectEntities: selectEntities,
-                selectEntityMap: selectEntityMap,
-                selectFilter: selectFilter,
-                selectFilteredEntities: selectFilteredEntities,
-                selectKeys: selectKeys,
-                selectLoaded: selectLoaded,
-                selectLoading: selectLoading,
-                selectChangeState: selectChangeState }, extraSelectors);
+            return Object.assign({ selectCount: selectCount, selectEntities: selectEntities, selectEntityMap: selectEntityMap, selectFilter: selectFilter, selectFilteredEntities: selectFilteredEntities, selectKeys: selectKeys, selectLoaded: selectLoaded, selectLoading: selectLoading, selectChangeState: selectChangeState }, extraSelectors);
         };
         // createCollectionSelectors implementation
         EntitySelectorsFactory.prototype.create = function (metadataOrName) {
@@ -2914,15 +2984,21 @@
             Object.keys(collectionSelectors).forEach(function (k) {
                 entitySelectors[k] = store.createSelector(selectCollection, collectionSelectors[k]);
             });
-            return Object.assign({ entityName: entityName,
-                selectCollection: selectCollection, selectEntityCache: this.selectEntityCache }, entitySelectors);
+            return Object.assign({ entityName: entityName, selectCollection: selectCollection, selectEntityCache: this.selectEntityCache }, entitySelectors);
         };
         return EntitySelectorsFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntitySelectorsFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntitySelectorsFactory.ctorParameters = function () { return [
         { type: EntityCollectionCreator, decorators: [{ type: core.Optional }] },
         { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [ENTITY_CACHE_SELECTOR_TOKEN,] }] }
@@ -2965,10 +3041,17 @@
         };
         return EntitySelectors$Factory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntitySelectors$Factory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntitySelectors$Factory.ctorParameters = function () { return [
         { type: store.Store },
         { type: effects.Actions },
@@ -3002,10 +3085,17 @@
         };
         return EntityCollectionServiceElementsFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCollectionServiceElementsFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCollectionServiceElementsFactory.ctorParameters = function () { return [
         { type: EntityDispatcherFactory },
         { type: EntityDefinitionService },
@@ -3032,10 +3122,17 @@
         };
         return EntityCollectionServiceFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCollectionServiceFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCollectionServiceFactory.ctorParameters = function () { return [
         { type: EntityCollectionServiceElementsFactory }
     ]; };
@@ -3062,10 +3159,17 @@
         }
         return EntityServicesElements;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityServicesElements.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityServicesElements.ctorParameters = function () { return [
         { type: EntityCollectionServiceFactory },
         { type: EntityDispatcherFactory },
@@ -3205,10 +3309,17 @@
         };
         return EntityServicesBase;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityServicesBase.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityServicesBase.ctorParameters = function () { return [
         { type: EntityServicesElements }
     ]; };
@@ -4594,10 +4705,17 @@
         };
         return EntityCollectionReducerMethodsFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCollectionReducerMethodsFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCollectionReducerMethodsFactory.ctorParameters = function () { return [
         { type: EntityDefinitionService }
     ]; };
@@ -4618,10 +4736,17 @@
         };
         return EntityCollectionReducerFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCollectionReducerFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCollectionReducerFactory.ctorParameters = function () { return [
         { type: EntityCollectionReducerMethodsFactory }
     ]; };
@@ -4680,10 +4805,17 @@
         };
         return EntityCollectionReducerRegistry;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCollectionReducerRegistry.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCollectionReducerRegistry.ctorParameters = function () { return [
         { type: EntityCollectionReducerFactory },
         { type: Array, decorators: [{ type: core.Optional }, { type: core.Inject, args: [ENTITY_COLLECTION_META_REDUCERS,] }] }
@@ -4954,10 +5086,17 @@
         };
         return EntityCacheReducerFactory;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityCacheReducerFactory.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityCacheReducerFactory.ctorParameters = function () { return [
         { type: EntityCollectionCreator },
         { type: EntityCollectionReducerRegistry },
@@ -4984,6 +5123,7 @@
         };
         return DefaultLogger;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     DefaultLogger.decorators = [
         { type: core.Injectable }
     ];
@@ -5047,10 +5187,17 @@
         };
         return DefaultPluralizer;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     DefaultPluralizer.decorators = [
         { type: core.Injectable }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     DefaultPluralizer.ctorParameters = function () { return [
         { type: Array, decorators: [{ type: core.Optional }, { type: core.Inject, args: [PLURAL_NAMES_TOKEN,] }] }
     ]; };
@@ -5187,6 +5334,7 @@
         };
         return EntityDataModuleWithoutEffects;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityDataModuleWithoutEffects.decorators = [
         { type: core.NgModule, args: [{
                     imports: [
@@ -5216,7 +5364,13 @@
                     ],
                 },] }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityDataModuleWithoutEffects.ctorParameters = function () { return [
         { type: store.ReducerManager },
         { type: EntityCacheReducerFactory },
@@ -5288,6 +5442,7 @@
         };
         return EntityDataModule;
     }());
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     EntityDataModule.decorators = [
         { type: core.NgModule, args: [{
                     imports: [
@@ -5309,7 +5464,13 @@
                     ],
                 },] }
     ];
-    /** @nocollapse */
+    /**
+     * @type {function(): !Array<(null|{
+     *   type: ?,
+     *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
+     * })>}
+     * @nocollapse
+     */
     EntityDataModule.ctorParameters = function () { return [
         { type: effects.EffectSources },
         { type: EntityCacheEffects },
