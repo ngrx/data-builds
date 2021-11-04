@@ -7,6 +7,7 @@ import { EntityDispatcherDefaultOptions } from './entity-dispatcher-default-opti
 import { MergeStrategy } from '../actions/merge-strategy';
 import { ChangeSet, ChangeSetItem } from '../actions/entity-cache-change-set';
 import { EntityCacheQuerySet } from '../actions/entity-cache-action';
+import * as i0 from "@angular/core";
 /**
  * Dispatches Entity Cache actions to the EntityCache reducer
  */
@@ -108,4 +109,6 @@ export declare class EntityCacheDispatcher {
      * @param crid The correlationId for both the save and response actions.
      */
     private getSaveEntitiesResponseData$;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityCacheDispatcher, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityCacheDispatcher>;
 }

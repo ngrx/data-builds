@@ -4,6 +4,7 @@ import { ClearCollections, LoadCollections, MergeQuerySet, SaveEntities, SaveEnt
 import { EntityCollectionCreator } from './entity-collection-creator';
 import { EntityCollectionReducerRegistry } from './entity-collection-reducer-registry';
 import { Logger } from '../utils/interfaces';
+import * as i0 from "@angular/core";
 /**
  * Creates the EntityCacheReducer via its create() method
  */
@@ -44,4 +45,6 @@ export declare class EntityCacheReducerFactory {
     private applyCollectionReducer;
     /** Ensure loading is false for every collection in entityNames */
     private clearLoadingFlags;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityCacheReducerFactory, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityCacheReducerFactory>;
 }

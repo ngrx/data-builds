@@ -3,6 +3,7 @@ import { DataServiceError, EntityActionDataServiceError } from './data-service-e
 import { EntityAction } from '../actions/entity-action';
 import { EntityActionFactory } from '../actions/entity-action-factory';
 import { Logger } from '../utils/interfaces';
+import * as i0 from "@angular/core";
 /**
  * Handling of responses from persistence operation
  */
@@ -24,4 +25,6 @@ export declare class DefaultPersistenceResultHandler implements PersistenceResul
     handleSuccess(originalAction: EntityAction): (data: any) => Action;
     /** Handle error result of persistence operation on an EntityAction */
     handleError(originalAction: EntityAction): (error: DataServiceError | Error) => EntityAction<EntityActionDataServiceError>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DefaultPersistenceResultHandler, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DefaultPersistenceResultHandler>;
 }

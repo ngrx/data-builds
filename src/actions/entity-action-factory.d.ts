@@ -1,5 +1,6 @@
 import { EntityOp } from './entity-op';
 import { EntityAction, EntityActionOptions, EntityActionPayload } from './entity-action';
+import * as i0 from "@angular/core";
 export declare class EntityActionFactory {
     /**
      * Create an EntityAction to perform an operation (op) for a particular entity type
@@ -32,4 +33,6 @@ export declare class EntityActionFactory {
      */
     createFromAction<P = any>(from: EntityAction, newProperties: Partial<EntityActionPayload<P>>): EntityAction<P>;
     formatActionType(op: string, tag: string): string;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityActionFactory, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityActionFactory>;
 }

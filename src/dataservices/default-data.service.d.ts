@@ -4,6 +4,7 @@ import { Update } from '@ngrx/entity';
 import { DefaultDataServiceConfig } from './default-data-service-config';
 import { EntityCollectionDataService, HttpMethods, QueryParams } from './interfaces';
 import { HttpUrlGenerator } from './http-url-generator';
+import * as i0 from "@angular/core";
 /**
  * A basic, generic entity data service
  * suitable for persistence of most entities.
@@ -49,4 +50,6 @@ export declare class DefaultDataServiceFactory {
      * @param entityName {string} Name of the entity type for this data service
      */
     create<T>(entityName: string): EntityCollectionDataService<T>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DefaultDataServiceFactory, [null, null, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DefaultDataServiceFactory>;
 }

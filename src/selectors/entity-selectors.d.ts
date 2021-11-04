@@ -6,6 +6,7 @@ import { EntityCacheSelector } from './entity-cache-selector';
 import { EntityCollection, ChangeStateMap } from '../reducers/entity-collection';
 import { EntityCollectionCreator } from '../reducers/entity-collection-creator';
 import { EntityMetadata } from '../entity-metadata/entity-metadata';
+import * as i0 from "@angular/core";
 /**
  * The selector functions for entity collection members,
  * Selects from the entity collection to the collection member
@@ -111,4 +112,6 @@ export declare class EntitySelectorsFactory {
      * through the collection, to the collection members.
      */
     create<T, S extends EntitySelectors<T> = EntitySelectors<T>>(entityName: string): S;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntitySelectorsFactory, [{ optional: true; }, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntitySelectorsFactory>;
 }

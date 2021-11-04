@@ -1,3 +1,4 @@
+import * as i0 from "@angular/core";
 /**
  * Default options for EntityDispatcher behavior
  * such as whether `add()` is optimistic or pessimistic by default.
@@ -17,4 +18,6 @@ export declare class EntityDispatcherDefaultOptions {
     optimisticUpsert: boolean;
     /** True if entities in a cache saveEntities request are saved optimistically; false if saved pessimistically. */
     optimisticSaveEntities: boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityDispatcherDefaultOptions, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityDispatcherDefaultOptions>;
 }

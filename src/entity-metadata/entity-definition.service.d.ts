@@ -1,5 +1,6 @@
 import { EntityDefinition } from './entity-definition';
 import { EntityMetadata, EntityMetadataMap } from './entity-metadata';
+import * as i0 from "@angular/core";
 export interface EntityDefinitions {
     [entityName: string]: EntityDefinition<any>;
 }
@@ -56,4 +57,6 @@ export declare class EntityDefinitionService {
      *   });
      */
     registerDefinitions(definitions: EntityDefinitions): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityDefinitionService, [{ optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityDefinitionService>;
 }

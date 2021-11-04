@@ -1,5 +1,6 @@
 import { EntityCollectionDataService } from './interfaces';
 import { DefaultDataServiceFactory } from './default-data.service';
+import * as i0 from "@angular/core";
 /**
  * Registry of EntityCollection data services that make REST-like CRUD calls
  * to entity collection endpoints.
@@ -42,4 +43,6 @@ export declare class EntityDataService {
     registerServices(services: {
         [name: string]: EntityCollectionDataService<any>;
     }): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityDataService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityDataService>;
 }

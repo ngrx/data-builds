@@ -8,6 +8,7 @@ import { EntityDefinition } from '../entity-metadata/entity-definition';
 import { EntityDefinitionService } from '../entity-metadata/entity-definition.service';
 import { MergeStrategy } from '../actions/merge-strategy';
 import { UpdateResponseData } from '../actions/update-response-data';
+import * as i0 from "@angular/core";
 /**
  * Map of {EntityOp} to reducer method for the operation.
  * If an operation is missing, caller should return the collection for that reducer.
@@ -359,4 +360,6 @@ export declare class EntityCollectionReducerMethodsFactory {
     constructor(entityDefinitionService: EntityDefinitionService);
     /** Create the  {EntityCollectionReducerMethods} for the named entity type */
     create<T>(entityName: string): EntityCollectionReducerMethodMap<T>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityCollectionReducerMethodsFactory, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityCollectionReducerMethodsFactory>;
 }

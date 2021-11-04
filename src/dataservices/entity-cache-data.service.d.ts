@@ -5,6 +5,7 @@ import { ChangeSet } from '../actions/entity-cache-change-set';
 import { DefaultDataServiceConfig } from './default-data-service-config';
 import { EntityDefinitionService } from '../entity-metadata/entity-definition.service';
 import { RequestData } from './interfaces';
+import * as i0 from "@angular/core";
 /**
  * Default data service for making remote service calls targeting the entire EntityCache.
  * See EntityDataService for services that target a single EntityCollection
@@ -52,4 +53,6 @@ export declare class EntityCacheDataService {
      * @param entityName name of the entity type
      */
     protected getIdSelector(entityName: string): IdSelector<any>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityCacheDataService, [null, null, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityCacheDataService>;
 }

@@ -1,3 +1,4 @@
+import * as i0 from "@angular/core";
 /**
  * Generates a string id beginning 'CRID',
  * followed by a monotonically increasing integer for use as a correlation id.
@@ -14,4 +15,6 @@ export declare class CorrelationIdGenerator {
     protected prefix: string;
     /** Return the next correlation id */
     next(): string;
+    static ɵfac: i0.ɵɵFactoryDeclaration<CorrelationIdGenerator, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<CorrelationIdGenerator>;
 }

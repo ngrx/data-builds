@@ -2,6 +2,7 @@ import { MetaReducer } from '@ngrx/store';
 import { EntityAction } from '../actions/entity-action';
 import { EntityCollection } from './entity-collection';
 import { EntityCollectionReducer, EntityCollectionReducerFactory } from './entity-collection-reducer';
+import * as i0 from "@angular/core";
 /** A hash of EntityCollectionReducers */
 export interface EntityCollectionReducers {
     [entity: string]: EntityCollectionReducer<any>;
@@ -41,4 +42,6 @@ export declare class EntityCollectionReducerRegistry {
      *   });
      */
     registerReducers(reducers: EntityCollectionReducers): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityCollectionReducerRegistry, [null, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityCollectionReducerRegistry>;
 }

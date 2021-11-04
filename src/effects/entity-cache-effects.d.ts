@@ -5,6 +5,7 @@ import { EntityActionFactory } from '../actions/entity-action-factory';
 import { SaveEntities, SaveEntitiesCancel } from '../actions/entity-cache-action';
 import { EntityCacheDataService } from '../dataservices/entity-cache-data.service';
 import { Logger } from '../utils/interfaces';
+import * as i0 from "@angular/core";
 export declare class EntityCacheEffects {
     private actions;
     private dataService;
@@ -40,4 +41,6 @@ export declare class EntityCacheEffects {
     private handleSaveEntitiesError$;
     /** return handler of the ChangeSet result of successful saveEntities() */
     private handleSaveEntitiesSuccess$;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityCacheEffects, [null, null, null, null, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityCacheEffects>;
 }

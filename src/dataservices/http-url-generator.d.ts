@@ -1,4 +1,5 @@
 import { Pluralizer } from '../utils/interfaces';
+import * as i0 from "@angular/core";
 /**
  * Known resource URLS for specific entity types.
  * Each entity's resource URLS are endpoints that
@@ -86,6 +87,8 @@ export declare class DefaultHttpUrlGenerator implements HttpUrlGenerator {
      * Note: this method does not ensure that resource urls are well-formed.
      */
     registerHttpResourceUrls(entityHttpResourceUrls: EntityHttpResourceUrls): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DefaultHttpUrlGenerator, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DefaultHttpUrlGenerator>;
 }
 /** Remove leading & trailing spaces or slashes */
 export declare function normalizeRoot(root: string): string;

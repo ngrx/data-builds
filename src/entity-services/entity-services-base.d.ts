@@ -7,6 +7,7 @@ import { EntityCollectionServiceFactory } from './entity-collection-service-fact
 import { EntityCollectionServiceMap, EntityServices } from './entity-services';
 import { EntitySelectors$ } from '../selectors/entity-selectors$';
 import { EntityServicesElements } from './entity-services-elements';
+import * as i0 from "@angular/core";
 /**
  * Base/default class of a central registry of EntityCollectionServices for all entity types.
  * Create your own subclass to add app-specific members for an improved developer experience.
@@ -73,4 +74,6 @@ export declare class EntityServicesBase implements EntityServices {
      * EntityCollectionServices to register, either as a map or an array
      */
     registerEntityCollectionServices(entityCollectionServices: EntityCollectionServiceMap | EntityCollectionService<any>[]): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityServicesBase, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityServicesBase>;
 }

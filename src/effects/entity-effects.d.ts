@@ -6,6 +6,7 @@ import { EntityActionFactory } from '../actions/entity-action-factory';
 import { EntityOp } from '../actions/entity-op';
 import { EntityDataService } from '../dataservices/entity-data.service';
 import { PersistenceResultHandler } from '../dataservices/persistence-result-handler.service';
+import * as i0 from "@angular/core";
 export declare const persistOps: EntityOp[];
 export declare class EntityEffects {
     private actions;
@@ -49,4 +50,6 @@ export declare class EntityEffects {
      * return a scalar success action that looks like the operation succeeded.
      */
     private handleSkipSuccess$;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityEffects, [null, null, null, null, { optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityEffects>;
 }

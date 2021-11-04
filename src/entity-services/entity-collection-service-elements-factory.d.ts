@@ -3,6 +3,7 @@ import { EntityDispatcherFactory } from '../dispatchers/entity-dispatcher-factor
 import { EntityDefinitionService } from '../entity-metadata/entity-definition.service';
 import { EntitySelectors, EntitySelectorsFactory } from '../selectors/entity-selectors';
 import { EntitySelectors$, EntitySelectors$Factory } from '../selectors/entity-selectors$';
+import * as i0 from "@angular/core";
 /** Core ingredients of an EntityCollectionService */
 export interface EntityCollectionServiceElements<T, S$ extends EntitySelectors$<T> = EntitySelectors$<T>> {
     readonly dispatcher: EntityDispatcher<T>;
@@ -22,4 +23,6 @@ export declare class EntityCollectionServiceElementsFactory {
      * @param entityName - name of the entity type
      */
     create<T, S$ extends EntitySelectors$<T> = EntitySelectors$<T>>(entityName: string): EntityCollectionServiceElements<T, S$>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityCollectionServiceElementsFactory, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityCollectionServiceElementsFactory>;
 }

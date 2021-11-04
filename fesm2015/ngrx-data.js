@@ -1,10 +1,15 @@
-import { Injectable, InjectionToken, Optional, Inject, NgModule, Injector } from '@angular/core';
+import * as i0 from '@angular/core';
+import { Injectable, InjectionToken, Optional, Inject, NgModule } from '@angular/core';
 import { filter, map, delay, timeout, catchError, shareReplay, take, mergeMap, withLatestFrom, concatMap } from 'rxjs/operators';
-import { HttpParams, HttpClient } from '@angular/common/http';
-import { throwError, of, Observable, race, asyncScheduler, merge } from 'rxjs';
+import * as i1 from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
+import * as i4 from 'rxjs';
+import { throwError, of, race, asyncScheduler, merge } from 'rxjs';
 import { createEntityAdapter } from '@ngrx/entity';
-import { ScannedActionsSubject, Store, createSelector, createFeatureSelector, compose, combineReducers, StoreModule, ReducerManager } from '@ngrx/store';
-import { createEffect, ofType, Actions, EffectsModule, EffectSources } from '@ngrx/effects';
+import * as i1$1 from '@ngrx/store';
+import { ScannedActionsSubject, createSelector, createFeatureSelector, compose, combineReducers, StoreModule } from '@ngrx/store';
+import * as i1$2 from '@ngrx/effects';
+import { createEffect, ofType, EffectsModule } from '@ngrx/effects';
 
 class EntityActionFactory {
     // polymorphic create for the two signatures
@@ -44,10 +49,11 @@ class EntityActionFactory {
         // return `${op} [${tag}]`.toUpperCase(); // example of an alternative
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityActionFactory.decorators = [
-    { type: Injectable }
-];
+/** @nocollapse */ EntityActionFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityActionFactory, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityActionFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityActionFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityActionFactory, decorators: [{
+            type: Injectable
+        }] });
 
 /**
  * Guard methods that ensure EntityAction payload is as expected.
@@ -650,20 +656,11 @@ class DefaultHttpUrlGenerator {
         this.knownHttpResourceUrls = Object.assign(Object.assign({}, this.knownHttpResourceUrls), (entityHttpResourceUrls || {}));
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-DefaultHttpUrlGenerator.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-DefaultHttpUrlGenerator.ctorParameters = () => [
-    { type: Pluralizer }
-];
+/** @nocollapse */ DefaultHttpUrlGenerator.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultHttpUrlGenerator, deps: [{ token: Pluralizer }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ DefaultHttpUrlGenerator.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultHttpUrlGenerator });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultHttpUrlGenerator, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: Pluralizer }]; } });
 /** Remove leading & trailing spaces or slashes */
 function normalizeRoot(root) {
     return root.replace(/^[/\s]+|[/\s]+$/g, '');
@@ -823,22 +820,13 @@ class DefaultDataServiceFactory {
         return new DefaultDataService(entityName, this.http, this.httpUrlGenerator, this.config);
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-DefaultDataServiceFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-DefaultDataServiceFactory.ctorParameters = () => [
-    { type: HttpClient },
-    { type: HttpUrlGenerator },
-    { type: DefaultDataServiceConfig, decorators: [{ type: Optional }] }
-];
+/** @nocollapse */ DefaultDataServiceFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultDataServiceFactory, deps: [{ token: i1.HttpClient }, { token: HttpUrlGenerator }, { token: DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ DefaultDataServiceFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultDataServiceFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultDataServiceFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: i1.HttpClient }, { type: HttpUrlGenerator }, { type: DefaultDataServiceConfig, decorators: [{
+                    type: Optional
+                }] }]; } });
 
 function createEntityDefinition(metadata) {
     let entityName = metadata.entityName;
@@ -944,20 +932,16 @@ class EntityDefinitionService {
         Object.assign(this.definitions, definitions);
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityDefinitionService.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityDefinitionService.ctorParameters = () => [
-    { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_METADATA_TOKEN,] }] }
-];
+/** @nocollapse */ EntityDefinitionService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDefinitionService, deps: [{ token: ENTITY_METADATA_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityDefinitionService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDefinitionService });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDefinitionService, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [ENTITY_METADATA_TOKEN]
+                }] }]; } });
 
 const updateOp = ChangeSetOperation.Update;
 /**
@@ -1082,22 +1066,13 @@ class EntityCacheDataService {
         return idSelector;
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCacheDataService.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCacheDataService.ctorParameters = () => [
-    { type: EntityDefinitionService },
-    { type: HttpClient },
-    { type: DefaultDataServiceConfig, decorators: [{ type: Optional }] }
-];
+/** @nocollapse */ EntityCacheDataService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheDataService, deps: [{ token: EntityDefinitionService }, { token: i1.HttpClient }, { token: DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCacheDataService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheDataService });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheDataService, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityDefinitionService }, { type: i1.HttpClient }, { type: DefaultDataServiceConfig, decorators: [{
+                    type: Optional
+                }] }]; } });
 
 /**
  * Registry of EntityCollection data services that make REST-like CRUD calls
@@ -1153,20 +1128,11 @@ class EntityDataService {
         this.services = Object.assign(Object.assign({}, this.services), services);
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityDataService.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityDataService.ctorParameters = () => [
-    { type: DefaultDataServiceFactory }
-];
+/** @nocollapse */ EntityDataService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataService, deps: [{ token: DefaultDataServiceFactory }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityDataService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataService });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataService, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: DefaultDataServiceFactory }]; } });
 
 /**
  * Handling of responses from persistence operation
@@ -1205,21 +1171,21 @@ class DefaultPersistenceResultHandler {
         };
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-DefaultPersistenceResultHandler.decorators = [
-    { type: Injectable }
-];
+/** @nocollapse */ DefaultPersistenceResultHandler.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultPersistenceResultHandler, deps: [{ token: Logger }, { token: EntityActionFactory }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ DefaultPersistenceResultHandler.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultPersistenceResultHandler });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultPersistenceResultHandler, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: Logger }, { type: EntityActionFactory }]; } });
+
 /**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
+ * Persistence operation canceled
  */
-DefaultPersistenceResultHandler.ctorParameters = () => [
-    { type: Logger },
-    { type: EntityActionFactory }
-];
+class PersistanceCanceled {
+    constructor(message) {
+        this.message = message;
+        this.message = message || 'Canceled by user';
+    }
+}
 
 /**
  * Generates a string id beginning 'CRID',
@@ -1243,10 +1209,11 @@ class CorrelationIdGenerator {
         return this.prefix + this.seed;
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-CorrelationIdGenerator.decorators = [
-    { type: Injectable }
-];
+/** @nocollapse */ CorrelationIdGenerator.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: CorrelationIdGenerator, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ CorrelationIdGenerator.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: CorrelationIdGenerator });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: CorrelationIdGenerator, decorators: [{
+            type: Injectable
+        }] });
 
 /**
  * Default options for EntityDispatcher behavior
@@ -1270,20 +1237,11 @@ class EntityDispatcherDefaultOptions {
         this.optimisticSaveEntities = false;
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityDispatcherDefaultOptions.decorators = [
-    { type: Injectable }
-];
-
-/**
- * Persistence operation canceled
- */
-class PersistanceCanceled {
-    constructor(message) {
-        this.message = message;
-        this.message = message || 'Canceled by user';
-    }
-}
+/** @nocollapse */ EntityDispatcherDefaultOptions.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDispatcherDefaultOptions, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityDispatcherDefaultOptions.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDispatcherDefaultOptions });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDispatcherDefaultOptions, decorators: [{
+            type: Injectable
+        }] });
 
 /**
  * Dispatches Entity Cache actions to the EntityCache reducer
@@ -1428,23 +1386,14 @@ class EntityCacheDispatcher {
         }));
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCacheDispatcher.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCacheDispatcher.ctorParameters = () => [
-    { type: CorrelationIdGenerator },
-    { type: EntityDispatcherDefaultOptions },
-    { type: Observable, decorators: [{ type: Inject, args: [ScannedActionsSubject,] }] },
-    { type: Store }
-];
+/** @nocollapse */ EntityCacheDispatcher.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheDispatcher, deps: [{ token: CorrelationIdGenerator }, { token: EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: i1$1.Store }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCacheDispatcher.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheDispatcher });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheDispatcher, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: CorrelationIdGenerator }, { type: EntityDispatcherDefaultOptions }, { type: i4.Observable, decorators: [{
+                    type: Inject,
+                    args: [ScannedActionsSubject]
+                }] }, { type: i1$1.Store }]; } });
 
 /**
  * Dispatches EntityCollection actions to their reducers and effects (default implementation).
@@ -1895,25 +1844,17 @@ class EntityDispatcherFactory {
         this.raSubscription.unsubscribe();
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityDispatcherFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityDispatcherFactory.ctorParameters = () => [
-    { type: EntityActionFactory },
-    { type: Store },
-    { type: EntityDispatcherDefaultOptions },
-    { type: Observable, decorators: [{ type: Inject, args: [ScannedActionsSubject,] }] },
-    { type: undefined, decorators: [{ type: Inject, args: [ENTITY_CACHE_SELECTOR_TOKEN,] }] },
-    { type: CorrelationIdGenerator }
-];
+/** @nocollapse */ EntityDispatcherFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDispatcherFactory, deps: [{ token: EntityActionFactory }, { token: i1$1.Store }, { token: EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: ENTITY_CACHE_SELECTOR_TOKEN }, { token: CorrelationIdGenerator }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityDispatcherFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDispatcherFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDispatcherFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityActionFactory }, { type: i1$1.Store }, { type: EntityDispatcherDefaultOptions }, { type: i4.Observable, decorators: [{
+                    type: Inject,
+                    args: [ScannedActionsSubject]
+                }] }, { type: undefined, decorators: [{
+                    type: Inject,
+                    args: [ENTITY_CACHE_SELECTOR_TOKEN]
+                }] }, { type: CorrelationIdGenerator }]; } });
 
 // See https://github.com/ReactiveX/rxjs/blob/master/doc/marble-testing.md
 /** Token to inject a special RxJS Scheduler during marble tests. */
@@ -2009,24 +1950,16 @@ class EntityCacheEffects {
         };
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCacheEffects.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCacheEffects.ctorParameters = () => [
-    { type: Actions },
-    { type: EntityCacheDataService },
-    { type: EntityActionFactory },
-    { type: Logger },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_EFFECTS_SCHEDULER,] }] }
-];
+/** @nocollapse */ EntityCacheEffects.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheEffects, deps: [{ token: i1$2.Actions }, { token: EntityCacheDataService }, { token: EntityActionFactory }, { token: Logger }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCacheEffects.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheEffects });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheEffects, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: i1$2.Actions }, { type: EntityCacheDataService }, { type: EntityActionFactory }, { type: Logger }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [ENTITY_EFFECTS_SCHEDULER]
+                }] }]; } });
 
 const persistOps = [
     EntityOp.QUERY_ALL,
@@ -2153,24 +2086,16 @@ class EntityEffects {
         return of(successAction).pipe(delay(this.responseDelay, this.scheduler || asyncScheduler));
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityEffects.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityEffects.ctorParameters = () => [
-    { type: Actions },
-    { type: EntityDataService },
-    { type: EntityActionFactory },
-    { type: PersistenceResultHandler },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_EFFECTS_SCHEDULER,] }] }
-];
+/** @nocollapse */ EntityEffects.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityEffects, deps: [{ token: i1$2.Actions }, { token: EntityDataService }, { token: EntityActionFactory }, { token: PersistenceResultHandler }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityEffects.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityEffects });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityEffects, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: i1$2.Actions }, { type: EntityDataService }, { type: EntityActionFactory }, { type: PersistenceResultHandler }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [ENTITY_EFFECTS_SCHEDULER]
+                }] }]; } });
 
 /**
  * Creates an {EntityFilterFn} that matches RegExp or RegExp string pattern
@@ -2470,20 +2395,13 @@ class EntityCollectionCreator {
         return (initialState || createEmptyEntityCollection(entityName));
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCollectionCreator.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCollectionCreator.ctorParameters = () => [
-    { type: EntityDefinitionService, decorators: [{ type: Optional }] }
-];
+/** @nocollapse */ EntityCollectionCreator.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionCreator, deps: [{ token: EntityDefinitionService, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCollectionCreator.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionCreator });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionCreator, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityDefinitionService, decorators: [{
+                    type: Optional
+                }] }]; } });
 function createEmptyEntityCollection(entityName) {
     return {
         entityName,
@@ -2565,21 +2483,18 @@ class EntitySelectorsFactory {
             selectCollection, selectEntityCache: this.selectEntityCache }, entitySelectors);
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntitySelectorsFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntitySelectorsFactory.ctorParameters = () => [
-    { type: EntityCollectionCreator, decorators: [{ type: Optional }] },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_CACHE_SELECTOR_TOKEN,] }] }
-];
+/** @nocollapse */ EntitySelectorsFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntitySelectorsFactory, deps: [{ token: EntityCollectionCreator, optional: true }, { token: ENTITY_CACHE_SELECTOR_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntitySelectorsFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntitySelectorsFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntitySelectorsFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityCollectionCreator, decorators: [{
+                    type: Optional
+                }] }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [ENTITY_CACHE_SELECTOR_TOKEN]
+                }] }]; } });
 
 /** Creates observable EntitySelectors$ for entity collections. */
 class EntitySelectors$Factory {
@@ -2616,22 +2531,14 @@ class EntitySelectors$Factory {
         return selectors$;
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntitySelectors$Factory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntitySelectors$Factory.ctorParameters = () => [
-    { type: Store },
-    { type: Actions },
-    { type: undefined, decorators: [{ type: Inject, args: [ENTITY_CACHE_SELECTOR_TOKEN,] }] }
-];
+/** @nocollapse */ EntitySelectors$Factory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntitySelectors$Factory, deps: [{ token: i1$1.Store }, { token: i1$2.Actions }, { token: ENTITY_CACHE_SELECTOR_TOKEN }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntitySelectors$Factory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntitySelectors$Factory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntitySelectors$Factory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: i1$1.Store }, { type: i1$2.Actions }, { type: undefined, decorators: [{
+                    type: Inject,
+                    args: [ENTITY_CACHE_SELECTOR_TOKEN]
+                }] }]; } });
 
 /** Creates the core elements of the EntityCollectionService for an entity type. */
 class EntityCollectionServiceElementsFactory {
@@ -2659,23 +2566,11 @@ class EntityCollectionServiceElementsFactory {
         };
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCollectionServiceElementsFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCollectionServiceElementsFactory.ctorParameters = () => [
-    { type: EntityDispatcherFactory },
-    { type: EntityDefinitionService },
-    { type: EntitySelectorsFactory },
-    { type: EntitySelectors$Factory }
-];
+/** @nocollapse */ EntityCollectionServiceElementsFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionServiceElementsFactory, deps: [{ token: EntityDispatcherFactory }, { token: EntityDefinitionService }, { token: EntitySelectorsFactory }, { token: EntitySelectors$Factory }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCollectionServiceElementsFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionServiceElementsFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionServiceElementsFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityDispatcherFactory }, { type: EntityDefinitionService }, { type: EntitySelectorsFactory }, { type: EntitySelectors$Factory }]; } });
 
 /**
  * Creates EntityCollectionService instances for
@@ -2695,20 +2590,11 @@ class EntityCollectionServiceFactory {
         return new EntityCollectionServiceBase(entityName, this.entityCollectionServiceElementsFactory);
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCollectionServiceFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCollectionServiceFactory.ctorParameters = () => [
-    { type: EntityCollectionServiceElementsFactory }
-];
+/** @nocollapse */ EntityCollectionServiceFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionServiceFactory, deps: [{ token: EntityCollectionServiceElementsFactory }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCollectionServiceFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionServiceFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionServiceFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityCollectionServiceElementsFactory }]; } });
 
 /** Core ingredients of an EntityServices class */
 class EntityServicesElements {
@@ -2731,23 +2617,11 @@ class EntityServicesElements {
         this.reducedActions$ = entityDispatcherFactory.reducedActions$;
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityServicesElements.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityServicesElements.ctorParameters = () => [
-    { type: EntityCollectionServiceFactory },
-    { type: EntityDispatcherFactory },
-    { type: EntitySelectors$Factory },
-    { type: Store }
-];
+/** @nocollapse */ EntityServicesElements.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityServicesElements, deps: [{ token: EntityCollectionServiceFactory }, { token: EntityDispatcherFactory }, { token: EntitySelectors$Factory }, { token: i1$1.Store }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityServicesElements.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityServicesElements });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityServicesElements, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityCollectionServiceFactory }, { type: EntityDispatcherFactory }, { type: EntitySelectors$Factory }, { type: i1$1.Store }]; } });
 
 /* eslint-disable @typescript-eslint/member-ordering */
 /**
@@ -2859,20 +2733,11 @@ class EntityServicesBase {
         }
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityServicesBase.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityServicesBase.ctorParameters = () => [
-    { type: EntityServicesElements }
-];
+/** @nocollapse */ EntityServicesBase.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityServicesBase, deps: [{ token: EntityServicesElements }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityServicesBase.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityServicesBase });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityServicesBase, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityServicesElements }]; } });
 
 /* eslint-disable @typescript-eslint/member-ordering */
 /**
@@ -4239,20 +4104,11 @@ class EntityCollectionReducerMethodsFactory {
         return methodsClass.methods;
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCollectionReducerMethodsFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCollectionReducerMethodsFactory.ctorParameters = () => [
-    { type: EntityDefinitionService }
-];
+/** @nocollapse */ EntityCollectionReducerMethodsFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerMethodsFactory, deps: [{ token: EntityDefinitionService }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCollectionReducerMethodsFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerMethodsFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerMethodsFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityDefinitionService }]; } });
 
 /** Create a default reducer for a specific entity collection */
 class EntityCollectionReducerFactory {
@@ -4269,20 +4125,11 @@ class EntityCollectionReducerFactory {
         };
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCollectionReducerFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCollectionReducerFactory.ctorParameters = () => [
-    { type: EntityCollectionReducerMethodsFactory }
-];
+/** @nocollapse */ EntityCollectionReducerFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerFactory, deps: [{ token: EntityCollectionReducerMethodsFactory }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCollectionReducerFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityCollectionReducerMethodsFactory }]; } });
 
 /**
  * Registry of entity types and their previously-constructed reducers.
@@ -4336,21 +4183,16 @@ class EntityCollectionReducerRegistry {
         keys.forEach((key) => this.registerReducer(key, reducers[key]));
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCollectionReducerRegistry.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCollectionReducerRegistry.ctorParameters = () => [
-    { type: EntityCollectionReducerFactory },
-    { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_COLLECTION_META_REDUCERS,] }] }
-];
+/** @nocollapse */ EntityCollectionReducerRegistry.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerRegistry, deps: [{ token: EntityCollectionReducerFactory }, { token: ENTITY_COLLECTION_META_REDUCERS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCollectionReducerRegistry.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerRegistry });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCollectionReducerRegistry, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityCollectionReducerFactory }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [ENTITY_COLLECTION_META_REDUCERS]
+                }] }]; } });
 
 /**
  * Creates the EntityCacheReducer via its create() method
@@ -4608,22 +4450,11 @@ class EntityCacheReducerFactory {
         return entityCache;
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityCacheReducerFactory.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityCacheReducerFactory.ctorParameters = () => [
-    { type: EntityCollectionCreator },
-    { type: EntityCollectionReducerRegistry },
-    { type: Logger }
-];
+/** @nocollapse */ EntityCacheReducerFactory.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheReducerFactory, deps: [{ token: EntityCollectionCreator }, { token: EntityCollectionReducerRegistry }, { token: Logger }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ EntityCacheReducerFactory.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheReducerFactory });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityCacheReducerFactory, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: EntityCollectionCreator }, { type: EntityCollectionReducerRegistry }, { type: Logger }]; } });
 
 class DefaultLogger {
     error(message, extra) {
@@ -4642,10 +4473,11 @@ class DefaultLogger {
         }
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-DefaultLogger.decorators = [
-    { type: Injectable }
-];
+/** @nocollapse */ DefaultLogger.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultLogger, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ DefaultLogger.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultLogger });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultLogger, decorators: [{
+            type: Injectable
+        }] });
 
 const uncountable = [
     // 'sheep',
@@ -4704,20 +4536,16 @@ class DefaultPluralizer {
         this.pluralNames = Object.assign(Object.assign({}, this.pluralNames), (pluralNames || {}));
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-DefaultPluralizer.decorators = [
-    { type: Injectable }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-DefaultPluralizer.ctorParameters = () => [
-    { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [PLURAL_NAMES_TOKEN,] }] }
-];
+/** @nocollapse */ DefaultPluralizer.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultPluralizer, deps: [{ token: PLURAL_NAMES_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable });
+/** @nocollapse */ DefaultPluralizer.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultPluralizer });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: DefaultPluralizer, decorators: [{
+            type: Injectable
+        }], ctorParameters: function () { return [{ type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [PLURAL_NAMES_TOKEN]
+                }] }]; } });
 
 /**
   Client-side id-generators
@@ -4788,7 +4616,6 @@ function guidComparer(l, r) {
             : +(l !== r);
 }
 
-const ɵ0 = ENTITY_CACHE_NAME;
 /**
  * Module without effects or dataservices which means no HTTP calls
  * This module helpful for internal testing.
@@ -4850,51 +4677,77 @@ class EntityDataModuleWithoutEffects {
         this.reducerManager.removeFeature(this.entityCacheFeature);
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityDataModuleWithoutEffects.decorators = [
-    { type: NgModule, args: [{
-                imports: [
-                    StoreModule, // rely on Store feature providers rather than Store.forFeature()
-                ],
-                providers: [
-                    CorrelationIdGenerator,
-                    EntityDispatcherDefaultOptions,
-                    EntityActionFactory,
-                    EntityCacheDispatcher,
-                    EntityCacheReducerFactory,
-                    entityCacheSelectorProvider,
-                    EntityCollectionCreator,
-                    EntityCollectionReducerFactory,
-                    EntityCollectionReducerMethodsFactory,
-                    EntityCollectionReducerRegistry,
-                    EntityCollectionServiceElementsFactory,
-                    EntityCollectionServiceFactory,
-                    EntityDefinitionService,
-                    EntityDispatcherFactory,
-                    EntitySelectorsFactory,
-                    EntitySelectors$Factory,
-                    EntityServicesElements,
-                    { provide: ENTITY_CACHE_NAME_TOKEN, useValue: ɵ0 },
-                    { provide: EntityServices, useClass: EntityServicesBase },
-                    { provide: Logger, useClass: DefaultLogger },
-                ],
-            },] }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityDataModuleWithoutEffects.ctorParameters = () => [
-    { type: ReducerManager },
-    { type: EntityCacheReducerFactory },
-    { type: Injector },
-    { type: String, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_CACHE_NAME_TOKEN,] }] },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [INITIAL_ENTITY_CACHE_STATE,] }] },
-    { type: Array, decorators: [{ type: Optional }, { type: Inject, args: [ENTITY_CACHE_META_REDUCERS,] }] }
-];
+/** @nocollapse */ EntityDataModuleWithoutEffects.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModuleWithoutEffects, deps: [{ token: i1$1.ReducerManager }, { token: EntityCacheReducerFactory }, { token: i0.Injector }, { token: ENTITY_CACHE_NAME_TOKEN, optional: true }, { token: INITIAL_ENTITY_CACHE_STATE, optional: true }, { token: ENTITY_CACHE_META_REDUCERS, optional: true }], target: i0.ɵɵFactoryTarget.NgModule });
+/** @nocollapse */ EntityDataModuleWithoutEffects.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModuleWithoutEffects, imports: [StoreModule] });
+/** @nocollapse */ EntityDataModuleWithoutEffects.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModuleWithoutEffects, providers: [
+        CorrelationIdGenerator,
+        EntityDispatcherDefaultOptions,
+        EntityActionFactory,
+        EntityCacheDispatcher,
+        EntityCacheReducerFactory,
+        entityCacheSelectorProvider,
+        EntityCollectionCreator,
+        EntityCollectionReducerFactory,
+        EntityCollectionReducerMethodsFactory,
+        EntityCollectionReducerRegistry,
+        EntityCollectionServiceElementsFactory,
+        EntityCollectionServiceFactory,
+        EntityDefinitionService,
+        EntityDispatcherFactory,
+        EntitySelectorsFactory,
+        EntitySelectors$Factory,
+        EntityServicesElements,
+        { provide: ENTITY_CACHE_NAME_TOKEN, useValue: ENTITY_CACHE_NAME },
+        { provide: EntityServices, useClass: EntityServicesBase },
+        { provide: Logger, useClass: DefaultLogger },
+    ], imports: [[
+            StoreModule, // rely on Store feature providers rather than Store.forFeature()
+        ]] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModuleWithoutEffects, decorators: [{
+            type: NgModule,
+            args: [{
+                    imports: [
+                        StoreModule, // rely on Store feature providers rather than Store.forFeature()
+                    ],
+                    providers: [
+                        CorrelationIdGenerator,
+                        EntityDispatcherDefaultOptions,
+                        EntityActionFactory,
+                        EntityCacheDispatcher,
+                        EntityCacheReducerFactory,
+                        entityCacheSelectorProvider,
+                        EntityCollectionCreator,
+                        EntityCollectionReducerFactory,
+                        EntityCollectionReducerMethodsFactory,
+                        EntityCollectionReducerRegistry,
+                        EntityCollectionServiceElementsFactory,
+                        EntityCollectionServiceFactory,
+                        EntityDefinitionService,
+                        EntityDispatcherFactory,
+                        EntitySelectorsFactory,
+                        EntitySelectors$Factory,
+                        EntityServicesElements,
+                        { provide: ENTITY_CACHE_NAME_TOKEN, useValue: ENTITY_CACHE_NAME },
+                        { provide: EntityServices, useClass: EntityServicesBase },
+                        { provide: Logger, useClass: DefaultLogger },
+                    ],
+                }]
+        }], ctorParameters: function () { return [{ type: i1$1.ReducerManager }, { type: EntityCacheReducerFactory }, { type: i0.Injector }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [ENTITY_CACHE_NAME_TOKEN]
+                }] }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [INITIAL_ENTITY_CACHE_STATE]
+                }] }, { type: undefined, decorators: [{
+                    type: Optional
+                }, {
+                    type: Inject,
+                    args: [ENTITY_CACHE_META_REDUCERS]
+                }] }]; } });
 
 /**
  * entity-data main module includes effects and HTTP data services
@@ -4957,40 +4810,47 @@ class EntityDataModule {
         this.effectSources.addEffects(effectSourceInstance);
     }
 }
-/** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
-EntityDataModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [
-                    EntityDataModuleWithoutEffects,
-                    EffectsModule, // do not supply effects because can't replace later
-                ],
-                providers: [
-                    DefaultDataServiceFactory,
-                    EntityCacheDataService,
-                    EntityDataService,
-                    EntityCacheEffects,
-                    EntityEffects,
-                    { provide: HttpUrlGenerator, useClass: DefaultHttpUrlGenerator },
-                    {
-                        provide: PersistenceResultHandler,
-                        useClass: DefaultPersistenceResultHandler,
-                    },
-                    { provide: Pluralizer, useClass: DefaultPluralizer },
-                ],
-            },] }
-];
-/**
- * @type {function(): !Array<(null|{
- *   type: ?,
- *   decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>),
- * })>}
- * @nocollapse
- */
-EntityDataModule.ctorParameters = () => [
-    { type: EffectSources },
-    { type: EntityCacheEffects },
-    { type: EntityEffects }
-];
+/** @nocollapse */ EntityDataModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModule, deps: [{ token: i1$2.EffectSources }, { token: EntityCacheEffects }, { token: EntityEffects }], target: i0.ɵɵFactoryTarget.NgModule });
+/** @nocollapse */ EntityDataModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModule, imports: [EntityDataModuleWithoutEffects,
+        EffectsModule] });
+/** @nocollapse */ EntityDataModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModule, providers: [
+        DefaultDataServiceFactory,
+        EntityCacheDataService,
+        EntityDataService,
+        EntityCacheEffects,
+        EntityEffects,
+        { provide: HttpUrlGenerator, useClass: DefaultHttpUrlGenerator },
+        {
+            provide: PersistenceResultHandler,
+            useClass: DefaultPersistenceResultHandler,
+        },
+        { provide: Pluralizer, useClass: DefaultPluralizer },
+    ], imports: [[
+            EntityDataModuleWithoutEffects,
+            EffectsModule, // do not supply effects because can't replace later
+        ]] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.2.6", ngImport: i0, type: EntityDataModule, decorators: [{
+            type: NgModule,
+            args: [{
+                    imports: [
+                        EntityDataModuleWithoutEffects,
+                        EffectsModule, // do not supply effects because can't replace later
+                    ],
+                    providers: [
+                        DefaultDataServiceFactory,
+                        EntityCacheDataService,
+                        EntityDataService,
+                        EntityCacheEffects,
+                        EntityEffects,
+                        { provide: HttpUrlGenerator, useClass: DefaultHttpUrlGenerator },
+                        {
+                            provide: PersistenceResultHandler,
+                            useClass: DefaultPersistenceResultHandler,
+                        },
+                        { provide: Pluralizer, useClass: DefaultPluralizer },
+                    ],
+                }]
+        }], ctorParameters: function () { return [{ type: i1$2.EffectSources }, { type: EntityCacheEffects }, { type: EntityEffects }]; } });
 
 // actions
 
@@ -5004,5 +4864,5 @@ EntityDataModule.ctorParameters = () => [
  * Generated bundle index. Do not edit.
  */
 
-export { ChangeSetItemFactory, ChangeSetOperation, ChangeType, ClearCollections, CorrelationIdGenerator, DataServiceError, DefaultDataService, DefaultDataServiceConfig, DefaultDataServiceFactory, DefaultHttpUrlGenerator, DefaultLogger, DefaultPersistenceResultHandler, DefaultPluralizer, ENTITY_CACHE_META_REDUCERS, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_SELECTOR_TOKEN, ENTITY_COLLECTION_META_REDUCERS, ENTITY_METADATA_TOKEN, EntityActionFactory, EntityActionGuard, EntityCacheAction, EntityCacheDataService, EntityCacheDispatcher, EntityCacheEffects, EntityCacheReducerFactory, EntityChangeTrackerBase, EntityCollectionCreator, EntityCollectionReducerFactory, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityDataModule, EntityDataModuleWithoutEffects, EntityDataService, EntityDefinitionService, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, EntityEffects, EntityHttpResourceUrls, EntityOp, EntitySelectors$Factory, EntitySelectorsFactory, EntityServices, EntityServicesBase, EntityServicesElements, HttpUrlGenerator, INITIAL_ENTITY_CACHE_STATE, LoadCollections, Logger, MergeQuerySet, MergeStrategy, OP_ERROR, OP_SUCCESS, PLURAL_NAMES_TOKEN, PersistanceCanceled, PersistenceResultHandler, Pluralizer, PropsFilterFnFactory, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, SetEntityCache, changeSetItemFactory, createEmptyEntityCollection, createEntityCacheSelector, createEntityDefinition, defaultSelectId, entityCacheSelectorProvider, excludeEmptyChangeSetItems, flattenArgs, getGuid, getGuidComb, guidComparer, makeErrorOp, makeSuccessOp, normalizeRoot, ofEntityOp, ofEntityType, persistOps, toUpdateFactory, ENTITY_EFFECTS_SCHEDULER as ɵa };
+export { ChangeSetItemFactory, ChangeSetOperation, ChangeType, ClearCollections, CorrelationIdGenerator, DataServiceError, DefaultDataService, DefaultDataServiceConfig, DefaultDataServiceFactory, DefaultHttpUrlGenerator, DefaultLogger, DefaultPersistenceResultHandler, DefaultPluralizer, ENTITY_CACHE_META_REDUCERS, ENTITY_CACHE_NAME, ENTITY_CACHE_NAME_TOKEN, ENTITY_CACHE_SELECTOR_TOKEN, ENTITY_COLLECTION_META_REDUCERS, ENTITY_METADATA_TOKEN, EntityActionFactory, EntityActionGuard, EntityCacheAction, EntityCacheDataService, EntityCacheDispatcher, EntityCacheEffects, EntityCacheReducerFactory, EntityChangeTrackerBase, EntityCollectionCreator, EntityCollectionReducerFactory, EntityCollectionReducerMethods, EntityCollectionReducerMethodsFactory, EntityCollectionReducerRegistry, EntityCollectionServiceBase, EntityCollectionServiceElementsFactory, EntityCollectionServiceFactory, EntityDataModule, EntityDataModuleWithoutEffects, EntityDataService, EntityDefinitionService, EntityDispatcherBase, EntityDispatcherDefaultOptions, EntityDispatcherFactory, EntityEffects, EntityHttpResourceUrls, EntityOp, EntitySelectors$Factory, EntitySelectorsFactory, EntityServices, EntityServicesBase, EntityServicesElements, HttpUrlGenerator, INITIAL_ENTITY_CACHE_STATE, LoadCollections, Logger, MergeQuerySet, MergeStrategy, OP_ERROR, OP_SUCCESS, PLURAL_NAMES_TOKEN, PersistanceCanceled, PersistenceResultHandler, Pluralizer, PropsFilterFnFactory, SaveEntities, SaveEntitiesCancel, SaveEntitiesCanceled, SaveEntitiesError, SaveEntitiesSuccess, SetEntityCache, changeSetItemFactory, createEmptyEntityCollection, createEntityCacheSelector, createEntityDefinition, defaultSelectId, entityCacheSelectorProvider, excludeEmptyChangeSetItems, flattenArgs, getGuid, getGuidComb, guidComparer, makeErrorOp, makeSuccessOp, normalizeRoot, ofEntityOp, ofEntityType, persistOps, toUpdateFactory };
 //# sourceMappingURL=ngrx-data.js.map

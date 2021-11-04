@@ -5,6 +5,7 @@ import { EntityCache } from '../reducers/entity-cache';
 import { EntityDispatcherFactory } from '../dispatchers/entity-dispatcher-factory';
 import { EntitySelectors$Factory } from '../selectors/entity-selectors$';
 import { EntityCollectionServiceFactory } from './entity-collection-service-factory';
+import * as i0 from "@angular/core";
 /** Core ingredients of an EntityServices class */
 export declare class EntityServicesElements {
     /**
@@ -35,4 +36,6 @@ export declare class EntityServicesElements {
      * A replay observable of the most recent action reduced by the store.
      */
     readonly reducedActions$: Observable<Action>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityServicesElements, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityServicesElements>;
 }

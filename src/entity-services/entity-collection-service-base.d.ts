@@ -55,7 +55,7 @@ export declare class EntityCollectionServiceBase<T, S$ extends EntitySelectors$<
      */
     dispatch(action: Action): Action;
     /** The NgRx Store for the {EntityCache} */
-    get store(): Store<import("..").EntityCache>;
+    get store(): Store<import("@ngrx/data").EntityCache>;
     /**
      * Utility class with methods to validate EntityAction payloads.
      */

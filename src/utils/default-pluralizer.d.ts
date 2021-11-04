@@ -1,4 +1,5 @@
 import { EntityPluralNames } from './interfaces';
+import * as i0 from "@angular/core";
 export declare class DefaultPluralizer {
     pluralNames: EntityPluralNames;
     constructor(pluralNames: EntityPluralNames[]);
@@ -12,4 +13,6 @@ export declare class DefaultPluralizer {
      * @param pluralNames {EntityPluralNames} plural names for entity types
      */
     registerPluralNames(pluralNames: EntityPluralNames): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DefaultPluralizer, [{ optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DefaultPluralizer>;
 }

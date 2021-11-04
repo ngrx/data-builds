@@ -8,6 +8,7 @@ import { EntityActionFactory } from '../actions/entity-action-factory';
 import { EntityCache } from '../reducers/entity-cache';
 import { EntityCacheSelector } from '../selectors/entity-cache-selector';
 import { EntityDispatcher } from './entity-dispatcher';
+import * as i0 from "@angular/core";
 /** Creates EntityDispatchers for entity collections */
 export declare class EntityDispatcherFactory implements OnDestroy {
     private entityActionFactory;
@@ -38,4 +39,6 @@ export declare class EntityDispatcherFactory implements OnDestroy {
      */
     defaultOptions?: Partial<EntityDispatcherDefaultOptions>): EntityDispatcher<T>;
     ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<EntityDispatcherFactory, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<EntityDispatcherFactory>;
 }
