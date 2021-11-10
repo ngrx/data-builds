@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/ngrx/platform#readme",
   "peerDependencies": {
-    "@angular/common": "^13.0.0-rc.0",
-    "@angular/core": "^13.0.0-rc.0",
+    "@angular/common": "^13.0.0",
+    "@angular/core": "^13.0.0",
     "@ngrx/store": "13.0.0-beta.0",
     "@ngrx/effects": "13.0.0-beta.0",
     "@ngrx/entity": "13.0.0-beta.0",
@@ -46,10 +46,23 @@
   "dependencies": {
     "tslib": "^2.0.0"
   },
-  "main": "bundles/ngrx-data.umd.js",
-  "module": "fesm2015/ngrx-data.js",
-  "es2015": "fesm2015/ngrx-data.js",
-  "esm2015": "esm2015/ngrx-data.js",
-  "fesm2015": "fesm2015/ngrx-data.js",
-  "typings": "ngrx-data.d.ts"
+  "module": "fesm2015/ngrx-data.mjs",
+  "es2020": "fesm2020/ngrx-data.mjs",
+  "esm2020": "esm2020/ngrx-data.mjs",
+  "fesm2020": "fesm2020/ngrx-data.mjs",
+  "fesm2015": "fesm2015/ngrx-data.mjs",
+  "typings": "ngrx-data.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./ngrx-data.d.ts",
+      "esm2020": "./esm2020/ngrx-data.mjs",
+      "es2020": "./fesm2020/ngrx-data.mjs",
+      "es2015": "./fesm2015/ngrx-data.mjs",
+      "node": "./fesm2015/ngrx-data.mjs",
+      "default": "./fesm2020/ngrx-data.mjs"
+    }
+  }
 }

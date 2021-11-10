@@ -26,10 +26,14 @@ var __read = (this && this.__read) || function (o, n) {
     }
     return ar;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
 };
 exports.__esModule = true;
 var ts = require("typescript");
@@ -38,7 +42,7 @@ var tasks_1 = require("@angular-devkit/schematics/tasks");
 var schematics_core_1 = require("../../schematics-core");
 function addNgRxDataToPackageJson() {
     return function (host, context) {
-        schematics_core_1.addPackageToPackageJson(host, 'dependencies', '@ngrx/data', schematics_core_1.platformVersion);
+        (0, schematics_core_1.addPackageToPackageJson)(host, 'dependencies', '@ngrx/data', schematics_core_1.platformVersion);
         context.addTask(new tasks_1.NodePackageInstallTask());
         return host;
     };
@@ -52,16 +56,16 @@ function addEntityDataToNgModule(options) {
         var moduleToImport = options.effects
             ? 'EntityDataModule'
             : 'EntityDataModuleWithoutEffects';
-        var effectsModuleImport = schematics_core_1.insertImport(source, modulePath, moduleToImport, '@ngrx/data');
-        var _a = __read(schematics_core_1.addImportToModule(source, modulePath, options.entityConfig
+        var effectsModuleImport = (0, schematics_core_1.insertImport)(source, modulePath, moduleToImport, '@ngrx/data');
+        var _a = __read((0, schematics_core_1.addImportToModule)(source, modulePath, options.entityConfig
             ? [moduleToImport, 'forRoot(entityConfig)'].join('.')
             : moduleToImport, ''), 1), dateEntityNgModuleImport = _a[0];
         var changes = [effectsModuleImport, dateEntityNgModuleImport];
         if (options.entityConfig) {
-            var entityConfigImport = schematics_core_1.insertImport(source, modulePath, 'entityConfig', './entity-metadata');
+            var entityConfigImport = (0, schematics_core_1.insertImport)(source, modulePath, 'entityConfig', './entity-metadata');
             changes.push(entityConfigImport);
         }
-        schematics_core_1.commitChanges(host, source.fileName, changes);
+        (0, schematics_core_1.commitChanges)(host, source.fileName, changes);
         return host;
     };
 }
@@ -85,7 +89,7 @@ function removeAngularNgRxDataFromPackageJson() {
 }
 function renameNgrxDataModule() {
     return function (host) {
-        schematics_core_1.visitTSSourceFiles(host, function (sourceFile) {
+        (0, schematics_core_1.visitTSSourceFiles)(host, function (sourceFile) {
             var ngrxDataImports = sourceFile.statements
                 .filter(ts.isImportDeclaration)
                 .filter(function (_a) {
@@ -95,14 +99,14 @@ function renameNgrxDataModule() {
             if (ngrxDataImports.length === 0) {
                 return;
             }
-            var changes = __spreadArray(__spreadArray(__spreadArray([], __read(findNgrxDataImports(sourceFile, ngrxDataImports))), __read(findNgrxDataImportDeclarations(sourceFile, ngrxDataImports))), __read(findNgrxDataReplacements(sourceFile)));
-            schematics_core_1.commitChanges(host, sourceFile.fileName, changes);
+            var changes = __spreadArray(__spreadArray(__spreadArray([], __read(findNgrxDataImports(sourceFile, ngrxDataImports)), false), __read(findNgrxDataImportDeclarations(sourceFile, ngrxDataImports)), false), __read(findNgrxDataReplacements(sourceFile)), false);
+            (0, schematics_core_1.commitChanges)(host, sourceFile.fileName, changes);
         });
     };
 }
 function findNgrxDataImports(sourceFile, imports) {
     var changes = imports.map(function (specifier) {
-        return schematics_core_1.createReplaceChange(sourceFile, specifier.moduleSpecifier, "'ngrx-data'", "'@ngrx/data'");
+        return (0, schematics_core_1.createReplaceChange)(sourceFile, specifier.moduleSpecifier, "'ngrx-data'", "'@ngrx/data'");
     });
     return changes;
 }
@@ -131,7 +135,7 @@ function findNgrxDataImportDeclarations(sourceFile, imports) {
     })
         .map(function (_a) {
         var specifier = _a.specifier, text = _a.text;
-        return schematics_core_1.createReplaceChange(sourceFile, specifier, text, renames[text]);
+        return (0, schematics_core_1.createReplaceChange)(sourceFile, specifier, text, renames[text]);
     });
     return changes;
 }
@@ -165,7 +169,7 @@ function findNgrxDataReplacements(sourceFile) {
             };
         }
         if (change) {
-            changes.push(schematics_core_1.createReplaceChange(sourceFile, change.node, change.text, renames[change.text]));
+            changes.push((0, schematics_core_1.createReplaceChange)(sourceFile, change.node, change.text, renames[change.text]));
         }
         ts.forEachChild(node, function (childNode) { return find(childNode, changes); });
     }
@@ -183,32 +187,32 @@ function throwIfModuleNotSpecified(host, module) {
     }
 }
 function createEntityConfigFile(options, path) {
-    return schematics_1.mergeWith(schematics_1.apply(schematics_1.url('./files'), [
-        schematics_1.applyTemplates(__assign(__assign({}, schematics_core_1.stringUtils), options)),
-        schematics_1.move(path),
+    return (0, schematics_1.mergeWith)((0, schematics_1.apply)((0, schematics_1.url)('./files'), [
+        (0, schematics_1.applyTemplates)(__assign(__assign({}, schematics_core_1.stringUtils), options)),
+        (0, schematics_1.move)(path),
     ]));
 }
 function default_1(options) {
     return function (host, context) {
         options.name = '';
-        options.path = schematics_core_1.getProjectPath(host, options);
+        options.path = (0, schematics_core_1.getProjectPath)(host, options);
         options.effects = options.effects === undefined ? true : options.effects;
         options.module = options.module
-            ? schematics_core_1.findModuleFromOptions(host, options)
+            ? (0, schematics_core_1.findModuleFromOptions)(host, options)
             : options.module;
-        var parsedPath = schematics_core_1.parseName(options.path, '');
+        var parsedPath = (0, schematics_core_1.parseName)(options.path, '');
         options.path = parsedPath.path;
-        return schematics_1.chain([
-            options && options.skipPackageJson ? schematics_1.noop() : addNgRxDataToPackageJson(),
+        return (0, schematics_1.chain)([
+            options && options.skipPackageJson ? (0, schematics_1.noop)() : addNgRxDataToPackageJson(),
             options.migrateNgrxData
-                ? schematics_1.chain([
+                ? (0, schematics_1.chain)([
                     removeAngularNgRxDataFromPackageJson(),
                     renameNgrxDataModule(),
                 ])
                 : addEntityDataToNgModule(options),
             options.entityConfig
                 ? createEntityConfigFile(options, parsedPath.path)
-                : schematics_1.noop(),
+                : (0, schematics_1.noop)(),
         ])(host, context);
     };
 }
