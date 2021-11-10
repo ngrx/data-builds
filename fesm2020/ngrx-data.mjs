@@ -3540,6 +3540,7 @@ class EntityCollectionReducerMethods {
         const mergeStrategy = this.extractMergeStrategy(action);
         return {
             ...this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy),
+            loaded: true,
             loading: false,
         };
     }

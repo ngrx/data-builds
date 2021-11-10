@@ -3502,7 +3502,7 @@ class EntityCollectionReducerMethods {
     queryManySuccess(collection, action) {
         const data = this.extractData(action);
         const mergeStrategy = this.extractMergeStrategy(action);
-        return Object.assign(Object.assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loading: false });
+        return Object.assign(Object.assign({}, this.entityChangeTracker.mergeQueryResults(data, collection, mergeStrategy)), { loaded: true, loading: false });
     }
     // #endregion query operations
     // #region save operations
