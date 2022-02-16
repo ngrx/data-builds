@@ -771,7 +771,7 @@ class DefaultDataService {
             }
             default: {
                 const error = new Error('Unimplemented HTTP method, ' + method);
-                result$ = throwError(error);
+                result$ = throwError(() => error);
             }
         }
         if (this.timeout) {
@@ -786,7 +786,7 @@ class DefaultDataService {
                 return ok;
             }
             const error = new DataServiceError(err, reqData);
-            return throwError(error);
+            return throwError(() => error);
         };
     }
     handleDelete404(error, reqData) {
@@ -993,7 +993,7 @@ class EntityCacheDataService {
     handleError(reqData) {
         return (err) => {
             const error = new DataServiceError(err, reqData);
-            return throwError(error);
+            return throwError(() => error);
         };
     }
     /**
@@ -1062,8 +1062,8 @@ class EntityCacheDataService {
     getIdSelector(entityName) {
         let idSelector = this.idSelectors[entityName];
         if (!idSelector) {
-            idSelector = this.entityDefinitionService.getDefinition(entityName)
-                .selectId;
+            idSelector =
+                this.entityDefinitionService.getDefinition(entityName).selectId;
             this.idSelectors[entityName] = idSelector;
         }
         return idSelector;
@@ -1384,10 +1384,10 @@ class EntityCacheDispatcher {
             act.type === EntityCacheAction.SAVE_ENTITIES_ERROR ||
             act.type === EntityCacheAction.SAVE_ENTITIES_CANCEL), filter((act) => crid === act.payload.correlationId), take(1), mergeMap((act) => {
             return act.type === EntityCacheAction.SAVE_ENTITIES_CANCEL
-                ? throwError(new PersistanceCanceled(act.payload.reason))
+                ? throwError(() => new PersistanceCanceled(act.payload.reason))
                 : act.type === EntityCacheAction.SAVE_ENTITIES_SUCCESS
                     ? of(act.payload.changeSet)
-                    : throwError(act.payload);
+                    : throwError(() => act.payload);
         }));
     }
 }
@@ -1771,10 +1771,10 @@ class EntityDispatcherBase {
         }), take(1), mergeMap((act) => {
             const { entityOp } = act.payload;
             return entityOp === EntityOp.CANCEL_PERSIST
-                ? throwError(new PersistanceCanceled(act.payload.data))
+                ? throwError(() => new PersistanceCanceled(act.payload.data))
                 : entityOp.endsWith(OP_SUCCESS)
                     ? of(act.payload.data)
-                    : throwError(act.payload.data.error);
+                    : throwError(() => act.payload.data.error);
         }));
     }
     setQueryEntityActionOptions(options) {
