@@ -620,10 +620,10 @@ class DefaultHttpUrlGenerator {
      * @param entityName {string} Name of the entity type, e.g, 'Hero'
      * @param root {string} Root path to the resource, e.g., 'some-api`
      */
-    getResourceUrls(entityName, root) {
+    getResourceUrls(entityName, root, trailingSlashEndpoints = false) {
         let resourceUrls = this.knownHttpResourceUrls[entityName];
         if (!resourceUrls) {
-            const nRoot = normalizeRoot(root);
+            const nRoot = trailingSlashEndpoints ? root : normalizeRoot(root);
             resourceUrls = {
                 entityResourceUrl: `${nRoot}/${entityName}/`.toLowerCase(),
                 collectionResourceUrl: `${nRoot}/${this.pluralizer.pluralize(entityName)}/`.toLowerCase(),
@@ -638,8 +638,8 @@ class DefaultHttpUrlGenerator {
      * @param root {string} Root path to the resource, e.g., 'some-api`
      * @returns complete path to resource, e.g, 'some-api/hero'
      */
-    entityResource(entityName, root) {
-        return this.getResourceUrls(entityName, root).entityResourceUrl;
+    entityResource(entityName, root, trailingSlashEndpoints) {
+        return this.getResourceUrls(entityName, root, trailingSlashEndpoints).entityResourceUrl;
     }
     /**
      * Create the path to a multiple entity (collection) resource
@@ -685,11 +685,12 @@ class DefaultDataService {
         this.getDelay = 0;
         this.saveDelay = 0;
         this.timeout = 0;
+        this.trailingSlashEndpoints = false;
         this._name = `${entityName} DefaultDataService`;
         this.entityName = entityName;
-        const { root = 'api', delete404OK = true, getDelay = 0, saveDelay = 0, timeout: to = 0, } = config || {};
+        const { root = 'api', delete404OK = true, getDelay = 0, saveDelay = 0, timeout: to = 0, trailingSlashEndpoints = false, } = config || {};
         this.delete404OK = delete404OK;
-        this.entityUrl = httpUrlGenerator.entityResource(entityName, root);
+        this.entityUrl = httpUrlGenerator.entityResource(entityName, root, trailingSlashEndpoints);
         this.entitiesUrl = httpUrlGenerator.collectionResource(entityName, root);
         this.getDelay = getDelay;
         this.saveDelay = saveDelay;

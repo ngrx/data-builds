@@ -38,7 +38,7 @@ export declare abstract class HttpUrlGenerator {
      * Return the base URL for a single entity resource,
      * e.g., the base URL to get a single hero by its id
      */
-    abstract entityResource(entityName: string, root: string): string;
+    abstract entityResource(entityName: string, root: string, trailingSlashEndpoints: boolean): string;
     /**
      * Return the base URL for a collection resource,
      * e.g., the base URL to get all heroes
@@ -65,14 +65,14 @@ export declare class DefaultHttpUrlGenerator implements HttpUrlGenerator {
      * @param entityName {string} Name of the entity type, e.g, 'Hero'
      * @param root {string} Root path to the resource, e.g., 'some-api`
      */
-    protected getResourceUrls(entityName: string, root: string): HttpResourceUrls;
+    protected getResourceUrls(entityName: string, root: string, trailingSlashEndpoints?: boolean): HttpResourceUrls;
     /**
      * Create the path to a single entity resource
      * @param entityName {string} Name of the entity type, e.g, 'Hero'
      * @param root {string} Root path to the resource, e.g., 'some-api`
      * @returns complete path to resource, e.g, 'some-api/hero'
      */
-    entityResource(entityName: string, root: string): string;
+    entityResource(entityName: string, root: string, trailingSlashEndpoints: boolean): string;
     /**
      * Create the path to a multiple entity (collection) resource
      * @param entityName {string} Name of the entity type, e.g, 'Hero'

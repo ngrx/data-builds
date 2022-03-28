@@ -21,6 +21,7 @@ export declare class DefaultDataService<T> implements EntityCollectionDataServic
     protected getDelay: number;
     protected saveDelay: number;
     protected timeout: number;
+    protected trailingSlashEndpoints: boolean;
     get name(): string;
     constructor(entityName: string, http: HttpClient, httpUrlGenerator: HttpUrlGenerator, config?: DefaultDataServiceConfig);
     add(entity: T): Observable<T>;
