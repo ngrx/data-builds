@@ -2540,7 +2540,7 @@ class EntitySelectors$Factory {
             if (name.startsWith('select')) {
                 // strip 'select' prefix from the selector fn name and append `$`
                 // Ex: 'selectEntities' => 'entities$'
-                const name$ = name[6].toLowerCase() + name.substr(7) + '$';
+                const name$ = name[6].toLowerCase() + name.substring(7) + '$';
                 selectors$[name$] = this.store.select(selectors[name]);
             }
         });
@@ -4540,7 +4540,7 @@ class DefaultPluralizer {
             // consonant + y
         }
         else if (name.endsWith('y')) {
-            return name.substr(0, name.length - 1) + 'ies';
+            return name.substring(0, name.length - 1) + 'ies';
             // endings typically pluralized with 'es'
         }
         else if (/[s|ss|sh|ch|x|z]$/.test(name)) {
