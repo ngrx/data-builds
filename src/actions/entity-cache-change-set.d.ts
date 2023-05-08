@@ -28,7 +28,7 @@ export interface ChangeSetUpsert<T = any> {
 /**
  * A entities of a single entity type, which are changed in the same way by a ChangeSetOperation
  */
-export declare type ChangeSetItem = ChangeSetAdd | ChangeSetDelete | ChangeSetUpdate | ChangeSetUpsert;
+export type ChangeSetItem = ChangeSetAdd | ChangeSetDelete | ChangeSetUpdate | ChangeSetUpsert;
 export interface ChangeSet<T = any> {
     /** An array of ChangeSetItems to be processed in the array order */
     changes: ChangeSetItem[];

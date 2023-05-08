@@ -35,7 +35,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var ts = require("typescript");
 var schematics_1 = require("@angular-devkit/schematics");
 var tasks_1 = require("@angular-devkit/schematics/tasks");
@@ -72,7 +72,7 @@ function addEntityDataToNgModule(options) {
 var renames = {
     NgrxDataModule: 'EntityDataModule',
     NgrxDataModuleWithoutEffects: 'EntityDataModuleWithoutEffects',
-    NgrxDataModuleConfig: 'EntityDataModuleConfig'
+    NgrxDataModuleConfig: 'EntityDataModuleConfig',
 };
 function removeAngularNgRxDataFromPackageJson() {
     return function (host) {
@@ -150,14 +150,14 @@ function findNgrxDataReplacements(sourceFile) {
             renameKeys.includes(node.initializer.getText(sourceFile))) {
             change = {
                 node: node.initializer,
-                text: node.initializer.getText(sourceFile)
+                text: node.initializer.getText(sourceFile),
             };
         }
         if (ts.isPropertyAccessExpression(node) &&
             renameKeys.includes(node.expression.getText(sourceFile))) {
             change = {
                 node: node.expression,
-                text: node.expression.getText(sourceFile)
+                text: node.expression.getText(sourceFile),
             };
         }
         if (ts.isVariableDeclaration(node) &&
@@ -165,7 +165,7 @@ function findNgrxDataReplacements(sourceFile) {
             renameKeys.includes(node.type.getText(sourceFile))) {
             change = {
                 node: node.type,
-                text: node.type.getText(sourceFile)
+                text: node.type.getText(sourceFile),
             };
         }
         if (change) {
@@ -183,7 +183,7 @@ function throwIfModuleNotSpecified(host, module) {
     }
     var text = host.read(module);
     if (text === null) {
-        throw new schematics_1.SchematicsException("File " + module + " does not exist.");
+        throw new schematics_1.SchematicsException("File ".concat(module, " does not exist."));
     }
 }
 function createEntityConfigFile(options, path) {
@@ -216,5 +216,5 @@ function default_1(options) {
         ])(host, context);
     };
 }
-exports["default"] = default_1;
+exports.default = default_1;
 //# sourceMappingURL=index.js.map

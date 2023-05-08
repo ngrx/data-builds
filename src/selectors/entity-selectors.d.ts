@@ -75,7 +75,7 @@ export declare class EntitySelectorsFactory {
      * e.g. from Object to Heroes.
      * @param entityName the name of the collection
      */
-    createCollectionSelector<T = any, C extends EntityCollection<T> = EntityCollection<T>>(entityName: string): MemoizedSelector<Object, C, import("@ngrx/store").DefaultProjectorFn<C>>;
+    createCollectionSelector<T = any, C extends EntityCollection<T> = EntityCollection<T>>(entityName: string): MemoizedSelector<Object, C, (s1: EntityCache) => C>;
     /**
      * Creates entity collection selectors from metadata.
      * @param metadata - EntityMetadata for the collection.

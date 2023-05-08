@@ -22,7 +22,7 @@ export interface ChangeState<T> {
  * Map of entity primary keys to entity ChangeStates.
  * Each entry represents an entity with unsaved changes.
  */
-export declare type ChangeStateMap<T> = Dictionary<ChangeState<T>>;
+export type ChangeStateMap<T> = Dictionary<ChangeState<T>>;
 /**
  * Data and information about a collection of entities of a single type.
  * EntityCollections are maintained in the EntityCache within the ngrx store.

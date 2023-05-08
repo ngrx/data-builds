@@ -3,7 +3,7 @@
  * or a new filtered array of entities.
  * NEVER mutate the original `entities` array itself.
  **/
-export declare type EntityFilterFn<T> = (entities: T[], pattern?: any) => T[];
+export type EntityFilterFn<T> = (entities: T[], pattern?: any) => T[];
 /**
  * Creates an {EntityFilterFn} that matches RegExp or RegExp string pattern
  * anywhere in any of the given props of an entity.

@@ -59,5 +59,7 @@ export { DefaultPluralizer } from './utils/default-pluralizer';
 export { getGuid, getGuidComb, guidComparer } from './utils/guid-fns';
 export { Logger, EntityPluralNames, PLURAL_NAMES_TOKEN, Pluralizer, } from './utils/interfaces';
 export { defaultSelectId, flattenArgs, toUpdateFactory, } from './utils/utilities';
-export { EntityDataModuleConfig, EntityDataModuleWithoutEffects, } from './entity-data-without-effects.module';
+export { EntityDataModuleConfig } from './entity-data-config';
+export { EntityDataModuleWithoutEffects } from './entity-data-without-effects.module';
 export { EntityDataModule } from './entity-data.module';
+export { provideEntityData, withEffects } from './provide-entity-data';

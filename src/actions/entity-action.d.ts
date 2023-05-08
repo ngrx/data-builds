@@ -1,6 +1,7 @@
 import { Action } from '@ngrx/store';
 import { EntityOp } from './entity-op';
 import { MergeStrategy } from './merge-strategy';
+import { HttpOptions } from '../dataservices/interfaces';
 /** Action concerning an entity collection. */
 export interface EntityAction<P = any> extends Action {
     readonly type: string;
@@ -15,6 +16,8 @@ export interface EntityActionOptions {
     readonly mergeStrategy?: MergeStrategy;
     /** The tag to use in the action's type. The entityName if no tag specified. */
     readonly tag?: string;
+    /** Options that will be passed to the dataService http request. Allows setting of Query Parameters and Headers */
+    readonly httpOptions?: HttpOptions;
     /**
      * The action was determined (usually by a reducer) to be in error.
      * Downstream effects should not process but rather treat it as an error.
