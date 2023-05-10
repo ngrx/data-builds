@@ -2203,7 +2203,6 @@ function PropsFilterFnFactory(props = []) {
     };
 }
 
-/* eslint-disable @typescript-eslint/member-ordering */
 /**
  * Base class for a concrete EntityCollectionService<T>.
  * Can be instantiated. Cannot be injected. Use EntityCollectionServiceFactory to create.
@@ -2725,7 +2724,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0", ngImpor
             type: Injectable
         }], ctorParameters: function () { return [{ type: EntityCollectionServiceFactory }, { type: EntityDispatcherFactory }, { type: EntitySelectors$Factory }, { type: i3.Store }]; } });
 
-/* eslint-disable @typescript-eslint/member-ordering */
 /**
  * Base/default class of a central registry of EntityCollectionServices for all entity types.
  * Create your own subclass to add app-specific members for an improved developer experience.
@@ -2841,7 +2839,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.0.0", ngImpor
             type: Injectable
         }], ctorParameters: function () { return [{ type: EntityServicesElements }]; } });
 
-/* eslint-disable @typescript-eslint/member-ordering */
 /**
  * Class-Interface for EntityCache and EntityCollection services.
  * Serves as an Angular provider token for this service class.
