@@ -546,13 +546,12 @@ function makeSuccessOp(op) {
  * @param error the HttpErrorResponse or the error thrown by the service
  * @param requestData the HTTP request information such as the method and the url.
  */
-// If extend from Error, `dse instanceof DataServiceError` returns false
-// in some (all?) unit tests so don't bother trying.
-class DataServiceError {
+class DataServiceError extends Error {
     constructor(error, requestData) {
+        super(typeof error === 'string' ? error : extractMessage(error) ?? undefined);
         this.error = error;
         this.requestData = requestData;
-        this.message = typeof error === 'string' ? error : extractMessage(error);
+        this.name = this.constructor.name;
     }
 }
 // Many ways the error can be shaped. These are the ways we recognize.

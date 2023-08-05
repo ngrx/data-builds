@@ -6,10 +6,9 @@ import { RequestData } from './interfaces';
  * @param error the HttpErrorResponse or the error thrown by the service
  * @param requestData the HTTP request information such as the method and the url.
  */
-export declare class DataServiceError {
+export declare class DataServiceError extends Error {
     error: any;
     requestData: RequestData | null;
-    message: string | null;
     constructor(error: any, requestData: RequestData | null);
 }
 /** Payload for an EntityAction data service error such as QUERY_ALL_ERROR */
