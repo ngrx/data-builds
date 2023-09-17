@@ -40,6 +40,9 @@ var ts = require("typescript");
 var schematics_1 = require("@angular-devkit/schematics");
 var tasks_1 = require("@angular-devkit/schematics/tasks");
 var schematics_core_1 = require("../../schematics-core");
+var project_1 = require("../../schematics-core/utility/project");
+var standalone_1 = require("../../schematics-core/utility/standalone");
+var standalone_2 = require("@schematics/angular/private/standalone");
 function addNgRxDataToPackageJson() {
     return function (host, context) {
         (0, schematics_core_1.addPackageToPackageJson)(host, 'dependencies', '@ngrx/data', schematics_core_1.platformVersion);
@@ -67,6 +70,42 @@ function addEntityDataToNgModule(options) {
         }
         (0, schematics_core_1.commitChanges)(host, source.fileName, changes);
         return host;
+    };
+}
+function addStandaloneConfig(options) {
+    return function (host) {
+        var mainFile = (0, project_1.getProjectMainFile)(host, options);
+        if (host.exists(mainFile)) {
+            var providerFn = 'provideEntityData';
+            if ((0, standalone_2.callsProvidersFunction)(host, mainFile, providerFn)) {
+                // exit because the store config is already provided
+                return host;
+            }
+            var providerOptions = __spreadArray(__spreadArray([], __read((options.entityConfig
+                ? [ts.factory.createIdentifier("entityConfig")]
+                : [ts.factory.createIdentifier("{}")])), false), __read((options.effects
+                ? [ts.factory.createIdentifier("withEffects()")]
+                : [])), false);
+            var patchedConfigFile = (0, standalone_2.addFunctionalProvidersToStandaloneBootstrap)(host, mainFile, providerFn, '@ngrx/data', providerOptions);
+            var configFileContent = host.read(patchedConfigFile);
+            var source = ts.createSourceFile(patchedConfigFile, (configFileContent === null || configFileContent === void 0 ? void 0 : configFileContent.toString('utf-8')) || '', ts.ScriptTarget.Latest, true);
+            var recorder_1 = host.beginUpdate(patchedConfigFile);
+            var changes = [];
+            if (options.effects) {
+                var withEffectsImport = (0, schematics_core_1.insertImport)(source, patchedConfigFile, 'withEffects', '@ngrx/data');
+                changes.push(withEffectsImport);
+            }
+            if (options.entityConfig) {
+                var entityConfigImport = (0, schematics_core_1.insertImport)(source, patchedConfigFile, 'entityConfig', './entity-metadata');
+                changes.push(entityConfigImport);
+            }
+            changes.forEach(function (change) {
+                recorder_1.insertLeft(change.pos, change.toAdd);
+            });
+            host.commitUpdate(recorder_1);
+            return host;
+        }
+        throw new schematics_1.SchematicsException("Main file not found for a project ".concat(options.project));
     };
 }
 var renames = {
@@ -196,12 +235,18 @@ function default_1(options) {
     return function (host, context) {
         options.name = '';
         options.path = (0, schematics_core_1.getProjectPath)(host, options);
+        var mainFile = (0, project_1.getProjectMainFile)(host, options);
+        var isStandalone = (0, standalone_1.isStandaloneApp)(host, mainFile);
         options.effects = options.effects === undefined ? true : options.effects;
-        options.module = options.module
-            ? (0, schematics_core_1.findModuleFromOptions)(host, options)
-            : options.module;
+        options.module =
+            options.module && !isStandalone
+                ? (0, schematics_core_1.findModuleFromOptions)(host, options)
+                : options.module;
         var parsedPath = (0, schematics_core_1.parseName)(options.path, '');
         options.path = parsedPath.path;
+        var configOrModuleUpdate = isStandalone
+            ? addStandaloneConfig(options)
+            : addEntityDataToNgModule(options);
         return (0, schematics_1.chain)([
             options && options.skipPackageJson ? (0, schematics_1.noop)() : addNgRxDataToPackageJson(),
             options.migrateNgrxData
@@ -209,7 +254,7 @@ function default_1(options) {
                     removeAngularNgRxDataFromPackageJson(),
                     renameNgrxDataModule(),
                 ])
-                : addEntityDataToNgModule(options),
+                : (0, schematics_1.branchAndMerge)((0, schematics_1.chain)([configOrModuleUpdate])),
             options.entityConfig
                 ? createEntityConfigFile(options, parsedPath.path)
                 : (0, schematics_1.noop)(),
