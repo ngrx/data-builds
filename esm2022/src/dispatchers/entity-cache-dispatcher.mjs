@@ -151,10 +151,10 @@ export class EntityCacheDispatcher {
                     : throwError(act.payload);
         }));
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntityCacheDispatcher, deps: [{ token: i1.CorrelationIdGenerator }, { token: i2.EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: i3.Store }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntityCacheDispatcher }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDispatcher, deps: [{ token: i1.CorrelationIdGenerator }, { token: i2.EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: i3.Store }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDispatcher }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntityCacheDispatcher, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDispatcher, decorators: [{
             type: Injectable
         }], ctorParameters: function () { return [{ type: i1.CorrelationIdGenerator }, { type: i2.EntityDispatcherDefaultOptions }, { type: i4.Observable, decorators: [{
                     type: Inject,

@@ -80,10 +80,10 @@ export class EntitySelectorsFactory {
             ...entitySelectors,
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntitySelectorsFactory, deps: [{ token: i1.EntityCollectionCreator, optional: true }, { token: ENTITY_CACHE_SELECTOR_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntitySelectorsFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectorsFactory, deps: [{ token: i1.EntityCollectionCreator, optional: true }, { token: ENTITY_CACHE_SELECTOR_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectorsFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntitySelectorsFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectorsFactory, decorators: [{
             type: Injectable
         }], ctorParameters: function () { return [{ type: i1.EntityCollectionCreator, decorators: [{
                     type: Optional

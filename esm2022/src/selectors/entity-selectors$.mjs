@@ -40,10 +40,10 @@ export class EntitySelectors$Factory {
         selectors$['errors$'] = this.entityActionErrors$.pipe(ofEntityType(entityName));
         return selectors$;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntitySelectors$Factory, deps: [{ token: i1.Store }, { token: i2.Actions }, { token: ENTITY_CACHE_SELECTOR_TOKEN }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntitySelectors$Factory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectors$Factory, deps: [{ token: i1.Store }, { token: i2.Actions }, { token: ENTITY_CACHE_SELECTOR_TOKEN }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectors$Factory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntitySelectors$Factory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectors$Factory, decorators: [{
             type: Injectable
         }], ctorParameters: function () { return [{ type: i1.Store }, { type: i2.Actions }, { type: undefined, decorators: [{
                     type: Inject,

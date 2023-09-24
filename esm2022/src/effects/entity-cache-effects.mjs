@@ -101,10 +101,10 @@ export class EntityCacheEffects {
             return merge(entityNames.map((name) => entityActionFactory.create(name, EntityOp.SET_LOADING, false)));
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntityCacheEffects, deps: [{ token: i1.Actions }, { token: i2.EntityCacheDataService }, { token: i3.EntityActionFactory }, { token: i4.Logger }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntityCacheEffects }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheEffects, deps: [{ token: i1.Actions }, { token: i2.EntityCacheDataService }, { token: i3.EntityActionFactory }, { token: i4.Logger }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheEffects }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.6", ngImport: i0, type: EntityCacheEffects, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheEffects, decorators: [{
             type: Injectable
         }], ctorParameters: function () { return [{ type: i1.Actions }, { type: i2.EntityCacheDataService }, { type: i3.EntityActionFactory }, { type: i4.Logger }, { type: undefined, decorators: [{
                     type: Optional
