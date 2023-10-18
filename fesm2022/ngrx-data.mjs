@@ -52,10 +52,10 @@ class EntityActionFactory {
         return `[${tag}] ${op}`;
         // return `${op} [${tag}]`.toUpperCase(); // example of an alternative
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityActionFactory, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityActionFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityActionFactory, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityActionFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityActionFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityActionFactory, decorators: [{
             type: Injectable
         }] });
 
@@ -662,12 +662,12 @@ class DefaultHttpUrlGenerator {
             ...(entityHttpResourceUrls || {}),
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultHttpUrlGenerator, deps: [{ token: Pluralizer }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultHttpUrlGenerator }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultHttpUrlGenerator, deps: [{ token: Pluralizer }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultHttpUrlGenerator }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultHttpUrlGenerator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultHttpUrlGenerator, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: Pluralizer }]; } });
+        }], ctorParameters: () => [{ type: Pluralizer }] });
 /** Remove leading & trailing spaces or slashes */
 function normalizeRoot(root) {
     return root.replace(/^[/\s]+|[/\s]+$/g, '');
@@ -864,14 +864,14 @@ class DefaultDataServiceFactory {
     create(entityName) {
         return new DefaultDataService(entityName, this.http, this.httpUrlGenerator, this.config);
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultDataServiceFactory, deps: [{ token: i1.HttpClient }, { token: HttpUrlGenerator }, { token: DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultDataServiceFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultDataServiceFactory, deps: [{ token: i1.HttpClient }, { token: HttpUrlGenerator }, { token: DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultDataServiceFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultDataServiceFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultDataServiceFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: i1.HttpClient }, { type: HttpUrlGenerator }, { type: DefaultDataServiceConfig, decorators: [{
+        }], ctorParameters: () => [{ type: i1.HttpClient }, { type: HttpUrlGenerator }, { type: DefaultDataServiceConfig, decorators: [{
                     type: Optional
-                }] }]; } });
+                }] }] });
 
 function createEntityDefinition(metadata) {
     let entityName = metadata.entityName;
@@ -983,17 +983,17 @@ class EntityDefinitionService {
     registerDefinitions(definitions) {
         Object.assign(this.definitions, definitions);
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDefinitionService, deps: [{ token: ENTITY_METADATA_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDefinitionService }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDefinitionService, deps: [{ token: ENTITY_METADATA_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDefinitionService }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDefinitionService, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDefinitionService, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: undefined, decorators: [{
+        }], ctorParameters: () => [{ type: undefined, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
                     args: [ENTITY_METADATA_TOKEN]
-                }] }]; } });
+                }] }] });
 
 const updateOp = ChangeSetOperation.Update;
 /**
@@ -1123,14 +1123,14 @@ class EntityCacheDataService {
         }
         return idSelector;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDataService, deps: [{ token: EntityDefinitionService }, { token: i1.HttpClient }, { token: DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDataService }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheDataService, deps: [{ token: EntityDefinitionService }, { token: i1.HttpClient }, { token: DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheDataService }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDataService, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheDataService, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityDefinitionService }, { type: i1.HttpClient }, { type: DefaultDataServiceConfig, decorators: [{
+        }], ctorParameters: () => [{ type: EntityDefinitionService }, { type: i1.HttpClient }, { type: DefaultDataServiceConfig, decorators: [{
                     type: Optional
-                }] }]; } });
+                }] }] });
 
 /**
  * Registry of EntityCollection data services that make REST-like CRUD calls
@@ -1185,12 +1185,12 @@ class EntityDataService {
     registerServices(services) {
         this.services = { ...this.services, ...services };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataService, deps: [{ token: DefaultDataServiceFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataService }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataService, deps: [{ token: DefaultDataServiceFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataService }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataService, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataService, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: DefaultDataServiceFactory }]; } });
+        }], ctorParameters: () => [{ type: DefaultDataServiceFactory }] });
 
 /**
  * Handling of responses from persistence operation
@@ -1228,12 +1228,12 @@ class DefaultPersistenceResultHandler {
             return action;
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultPersistenceResultHandler, deps: [{ token: Logger }, { token: EntityActionFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultPersistenceResultHandler }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultPersistenceResultHandler, deps: [{ token: Logger }, { token: EntityActionFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultPersistenceResultHandler }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultPersistenceResultHandler, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultPersistenceResultHandler, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: Logger }, { type: EntityActionFactory }]; } });
+        }], ctorParameters: () => [{ type: Logger }, { type: EntityActionFactory }] });
 
 /**
  * Persistence operation canceled
@@ -1266,10 +1266,10 @@ class CorrelationIdGenerator {
         this.seed += 1;
         return this.prefix + this.seed;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: CorrelationIdGenerator, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: CorrelationIdGenerator }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: CorrelationIdGenerator, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: CorrelationIdGenerator }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: CorrelationIdGenerator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: CorrelationIdGenerator, decorators: [{
             type: Injectable
         }] });
 
@@ -1294,10 +1294,10 @@ class EntityDispatcherDefaultOptions {
         /** True if entities in a cache saveEntities request are saved optimistically; false if saved pessimistically. */
         this.optimisticSaveEntities = false;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDispatcherDefaultOptions, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDispatcherDefaultOptions }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDispatcherDefaultOptions, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDispatcherDefaultOptions }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDispatcherDefaultOptions, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDispatcherDefaultOptions, decorators: [{
             type: Injectable
         }] });
 
@@ -1443,15 +1443,15 @@ class EntityCacheDispatcher {
                     : throwError(act.payload);
         }));
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDispatcher, deps: [{ token: CorrelationIdGenerator }, { token: EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: i3.Store }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDispatcher }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheDispatcher, deps: [{ token: CorrelationIdGenerator }, { token: EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: i3.Store }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheDispatcher }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheDispatcher, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheDispatcher, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: CorrelationIdGenerator }, { type: EntityDispatcherDefaultOptions }, { type: i4.Observable, decorators: [{
+        }], ctorParameters: () => [{ type: CorrelationIdGenerator }, { type: EntityDispatcherDefaultOptions }, { type: i4.Observable, decorators: [{
                     type: Inject,
                     args: [ScannedActionsSubject]
-                }] }, { type: i3.Store }]; } });
+                }] }, { type: i3.Store }] });
 
 /**
  * Dispatches EntityCollection actions to their reducers and effects (default implementation).
@@ -1925,18 +1925,18 @@ class EntityDispatcherFactory {
     ngOnDestroy() {
         this.raSubscription.unsubscribe();
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDispatcherFactory, deps: [{ token: EntityActionFactory }, { token: i3.Store }, { token: EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: ENTITY_CACHE_SELECTOR_TOKEN }, { token: CorrelationIdGenerator }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDispatcherFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDispatcherFactory, deps: [{ token: EntityActionFactory }, { token: i3.Store }, { token: EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: ENTITY_CACHE_SELECTOR_TOKEN }, { token: CorrelationIdGenerator }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDispatcherFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDispatcherFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDispatcherFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityActionFactory }, { type: i3.Store }, { type: EntityDispatcherDefaultOptions }, { type: i4.Observable, decorators: [{
+        }], ctorParameters: () => [{ type: EntityActionFactory }, { type: i3.Store }, { type: EntityDispatcherDefaultOptions }, { type: i4.Observable, decorators: [{
                     type: Inject,
                     args: [ScannedActionsSubject]
                 }] }, { type: undefined, decorators: [{
                     type: Inject,
                     args: [ENTITY_CACHE_SELECTOR_TOKEN]
-                }] }, { type: CorrelationIdGenerator }]; } });
+                }] }, { type: CorrelationIdGenerator }] });
 
 // See https://github.com/ReactiveX/rxjs/blob/master/doc/marble-testing.md
 /** Token to inject a special RxJS Scheduler during marble tests. */
@@ -2031,17 +2031,17 @@ class EntityCacheEffects {
             return merge(entityNames.map((name) => entityActionFactory.create(name, EntityOp.SET_LOADING, false)));
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheEffects, deps: [{ token: i1$1.Actions }, { token: EntityCacheDataService }, { token: EntityActionFactory }, { token: Logger }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheEffects }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheEffects, deps: [{ token: i1$1.Actions }, { token: EntityCacheDataService }, { token: EntityActionFactory }, { token: Logger }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheEffects }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheEffects, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheEffects, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: i1$1.Actions }, { type: EntityCacheDataService }, { type: EntityActionFactory }, { type: Logger }, { type: undefined, decorators: [{
+        }], ctorParameters: () => [{ type: i1$1.Actions }, { type: EntityCacheDataService }, { type: EntityActionFactory }, { type: Logger }, { type: undefined, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
                     args: [ENTITY_EFFECTS_SCHEDULER]
-                }] }]; } });
+                }] }] });
 
 const persistOps = [
     EntityOp.QUERY_ALL,
@@ -2167,17 +2167,17 @@ class EntityEffects {
         // as app likely assumes asynchronous response.
         return of(successAction).pipe(delay(this.responseDelay, this.scheduler || asyncScheduler));
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityEffects, deps: [{ token: i1$1.Actions }, { token: EntityDataService }, { token: EntityActionFactory }, { token: PersistenceResultHandler }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityEffects }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityEffects, deps: [{ token: i1$1.Actions }, { token: EntityDataService }, { token: EntityActionFactory }, { token: PersistenceResultHandler }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityEffects }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityEffects, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityEffects, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: i1$1.Actions }, { type: EntityDataService }, { type: EntityActionFactory }, { type: PersistenceResultHandler }, { type: undefined, decorators: [{
+        }], ctorParameters: () => [{ type: i1$1.Actions }, { type: EntityDataService }, { type: EntityActionFactory }, { type: PersistenceResultHandler }, { type: undefined, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
                     args: [ENTITY_EFFECTS_SCHEDULER]
-                }] }]; } });
+                }] }] });
 
 /**
  * Creates an {EntityFilterFn} that matches RegExp or RegExp string pattern
@@ -2487,14 +2487,14 @@ class EntityCollectionCreator {
         const initialState = def && def.initialState;
         return (initialState || createEmptyEntityCollection(entityName));
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionCreator, deps: [{ token: EntityDefinitionService, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionCreator }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionCreator, deps: [{ token: EntityDefinitionService, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionCreator }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionCreator, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionCreator, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityDefinitionService, decorators: [{
+        }], ctorParameters: () => [{ type: EntityDefinitionService, decorators: [{
                     type: Optional
-                }] }]; } });
+                }] }] });
 function createEmptyEntityCollection(entityName) {
     return {
         entityName,
@@ -2582,19 +2582,19 @@ class EntitySelectorsFactory {
             ...entitySelectors,
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectorsFactory, deps: [{ token: EntityCollectionCreator, optional: true }, { token: ENTITY_CACHE_SELECTOR_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectorsFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntitySelectorsFactory, deps: [{ token: EntityCollectionCreator, optional: true }, { token: ENTITY_CACHE_SELECTOR_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntitySelectorsFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectorsFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntitySelectorsFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityCollectionCreator, decorators: [{
+        }], ctorParameters: () => [{ type: EntityCollectionCreator, decorators: [{
                     type: Optional
                 }] }, { type: undefined, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
                     args: [ENTITY_CACHE_SELECTOR_TOKEN]
-                }] }]; } });
+                }] }] });
 
 /** Creates observable EntitySelectors$ for entity collections. */
 class EntitySelectors$Factory {
@@ -2630,15 +2630,15 @@ class EntitySelectors$Factory {
         selectors$['errors$'] = this.entityActionErrors$.pipe(ofEntityType(entityName));
         return selectors$;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectors$Factory, deps: [{ token: i3.Store }, { token: i1$1.Actions }, { token: ENTITY_CACHE_SELECTOR_TOKEN }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectors$Factory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntitySelectors$Factory, deps: [{ token: i3.Store }, { token: i1$1.Actions }, { token: ENTITY_CACHE_SELECTOR_TOKEN }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntitySelectors$Factory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntitySelectors$Factory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntitySelectors$Factory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: i3.Store }, { type: i1$1.Actions }, { type: undefined, decorators: [{
+        }], ctorParameters: () => [{ type: i3.Store }, { type: i1$1.Actions }, { type: undefined, decorators: [{
                     type: Inject,
                     args: [ENTITY_CACHE_SELECTOR_TOKEN]
-                }] }]; } });
+                }] }] });
 
 /** Creates the core elements of the EntityCollectionService for an entity type. */
 class EntityCollectionServiceElementsFactory {
@@ -2665,12 +2665,12 @@ class EntityCollectionServiceElementsFactory {
             selectors$,
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionServiceElementsFactory, deps: [{ token: EntityDispatcherFactory }, { token: EntityDefinitionService }, { token: EntitySelectorsFactory }, { token: EntitySelectors$Factory }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionServiceElementsFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionServiceElementsFactory, deps: [{ token: EntityDispatcherFactory }, { token: EntityDefinitionService }, { token: EntitySelectorsFactory }, { token: EntitySelectors$Factory }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionServiceElementsFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionServiceElementsFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionServiceElementsFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityDispatcherFactory }, { type: EntityDefinitionService }, { type: EntitySelectorsFactory }, { type: EntitySelectors$Factory }]; } });
+        }], ctorParameters: () => [{ type: EntityDispatcherFactory }, { type: EntityDefinitionService }, { type: EntitySelectorsFactory }, { type: EntitySelectors$Factory }] });
 
 /**
  * Creates EntityCollectionService instances for
@@ -2689,12 +2689,12 @@ class EntityCollectionServiceFactory {
     create(entityName) {
         return new EntityCollectionServiceBase(entityName, this.entityCollectionServiceElementsFactory);
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionServiceFactory, deps: [{ token: EntityCollectionServiceElementsFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionServiceFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionServiceFactory, deps: [{ token: EntityCollectionServiceElementsFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionServiceFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionServiceFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionServiceFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityCollectionServiceElementsFactory }]; } });
+        }], ctorParameters: () => [{ type: EntityCollectionServiceElementsFactory }] });
 
 /** Core ingredients of an EntityServices class */
 class EntityServicesElements {
@@ -2716,12 +2716,12 @@ class EntityServicesElements {
         this.entityCache$ = entitySelectors$Factory.entityCache$;
         this.reducedActions$ = entityDispatcherFactory.reducedActions$;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityServicesElements, deps: [{ token: EntityCollectionServiceFactory }, { token: EntityDispatcherFactory }, { token: EntitySelectors$Factory }, { token: i3.Store }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityServicesElements }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityServicesElements, deps: [{ token: EntityCollectionServiceFactory }, { token: EntityDispatcherFactory }, { token: EntitySelectors$Factory }, { token: i3.Store }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityServicesElements }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityServicesElements, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityServicesElements, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityCollectionServiceFactory }, { type: EntityDispatcherFactory }, { type: EntitySelectors$Factory }, { type: i3.Store }]; } });
+        }], ctorParameters: () => [{ type: EntityCollectionServiceFactory }, { type: EntityDispatcherFactory }, { type: EntitySelectors$Factory }, { type: i3.Store }] });
 
 /**
  * Base/default class of a central registry of EntityCollectionServices for all entity types.
@@ -2831,12 +2831,12 @@ class EntityServicesBase {
             });
         }
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityServicesBase, deps: [{ token: EntityServicesElements }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityServicesBase }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityServicesBase, deps: [{ token: EntityServicesElements }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityServicesBase }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityServicesBase, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityServicesBase, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityServicesElements }]; } });
+        }], ctorParameters: () => [{ type: EntityServicesElements }] });
 
 /**
  * Class-Interface for EntityCache and EntityCollection services.
@@ -4236,12 +4236,12 @@ class EntityCollectionReducerMethodsFactory {
         const methodsClass = new EntityCollectionReducerMethods(entityName, definition);
         return methodsClass.methods;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerMethodsFactory, deps: [{ token: EntityDefinitionService }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerMethodsFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerMethodsFactory, deps: [{ token: EntityDefinitionService }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerMethodsFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerMethodsFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerMethodsFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityDefinitionService }]; } });
+        }], ctorParameters: () => [{ type: EntityDefinitionService }] });
 
 /** Create a default reducer for a specific entity collection */
 class EntityCollectionReducerFactory {
@@ -4257,12 +4257,12 @@ class EntityCollectionReducerFactory {
             return reducerMethod ? reducerMethod(collection, action) : collection;
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerFactory, deps: [{ token: EntityCollectionReducerMethodsFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerFactory, deps: [{ token: EntityCollectionReducerMethodsFactory }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityCollectionReducerMethodsFactory }]; } });
+        }], ctorParameters: () => [{ type: EntityCollectionReducerMethodsFactory }] });
 
 /**
  * Registry of entity types and their previously-constructed reducers.
@@ -4315,17 +4315,17 @@ class EntityCollectionReducerRegistry {
         const keys = reducers ? Object.keys(reducers) : [];
         keys.forEach((key) => this.registerReducer(key, reducers[key]));
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerRegistry, deps: [{ token: EntityCollectionReducerFactory }, { token: ENTITY_COLLECTION_META_REDUCERS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerRegistry }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerRegistry, deps: [{ token: EntityCollectionReducerFactory }, { token: ENTITY_COLLECTION_META_REDUCERS, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerRegistry }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCollectionReducerRegistry, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCollectionReducerRegistry, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityCollectionReducerFactory }, { type: undefined, decorators: [{
+        }], ctorParameters: () => [{ type: EntityCollectionReducerFactory }, { type: undefined, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
                     args: [ENTITY_COLLECTION_META_REDUCERS]
-                }] }]; } });
+                }] }] });
 
 /**
  * Creates the EntityCacheReducer via its create() method
@@ -4582,12 +4582,12 @@ class EntityCacheReducerFactory {
         });
         return entityCache;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheReducerFactory, deps: [{ token: EntityCollectionCreator }, { token: EntityCollectionReducerRegistry }, { token: Logger }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheReducerFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheReducerFactory, deps: [{ token: EntityCollectionCreator }, { token: EntityCollectionReducerRegistry }, { token: Logger }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheReducerFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityCacheReducerFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityCacheReducerFactory, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: EntityCollectionCreator }, { type: EntityCollectionReducerRegistry }, { type: Logger }]; } });
+        }], ctorParameters: () => [{ type: EntityCollectionCreator }, { type: EntityCollectionReducerRegistry }, { type: Logger }] });
 
 class DefaultLogger {
     error(message, extra) {
@@ -4605,10 +4605,10 @@ class DefaultLogger {
             extra ? console.warn(message, extra) : console.warn(message);
         }
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultLogger, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultLogger }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultLogger, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultLogger }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultLogger, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultLogger, decorators: [{
             type: Injectable
         }] });
 
@@ -4668,17 +4668,17 @@ class DefaultPluralizer {
     registerPluralNames(pluralNames) {
         this.pluralNames = { ...this.pluralNames, ...(pluralNames || {}) };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultPluralizer, deps: [{ token: PLURAL_NAMES_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultPluralizer }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultPluralizer, deps: [{ token: PLURAL_NAMES_TOKEN, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultPluralizer }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: DefaultPluralizer, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: DefaultPluralizer, decorators: [{
             type: Injectable
-        }], ctorParameters: function () { return [{ type: undefined, decorators: [{
+        }], ctorParameters: () => [{ type: undefined, decorators: [{
                     type: Optional
                 }, {
                     type: Inject,
                     args: [PLURAL_NAMES_TOKEN]
-                }] }]; } });
+                }] }] });
 
 /**
   Client-side id-generators
@@ -4950,11 +4950,11 @@ class EntityDataModuleWithoutEffects {
             providers: [provideEntityDataConfig(config)],
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModuleWithoutEffects, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    /** @nocollapse */ static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModuleWithoutEffects }); }
-    /** @nocollapse */ static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModuleWithoutEffects, providers: [BASE_ENTITY_DATA_PROVIDERS] }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModuleWithoutEffects, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
+    /** @nocollapse */ static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModuleWithoutEffects }); }
+    /** @nocollapse */ static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModuleWithoutEffects, providers: [BASE_ENTITY_DATA_PROVIDERS] }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModuleWithoutEffects, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModuleWithoutEffects, decorators: [{
             type: NgModule,
             args: [{
                     providers: [BASE_ENTITY_DATA_PROVIDERS],
@@ -4973,11 +4973,11 @@ class EntityDataModule {
             providers: [provideEntityDataConfig(config)],
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    /** @nocollapse */ static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModule, imports: [EntityDataModuleWithoutEffects] }); }
-    /** @nocollapse */ static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModule, providers: [ENTITY_DATA_EFFECTS_PROVIDERS], imports: [EntityDataModuleWithoutEffects] }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
+    /** @nocollapse */ static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModule, imports: [EntityDataModuleWithoutEffects] }); }
+    /** @nocollapse */ static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModule, providers: [ENTITY_DATA_EFFECTS_PROVIDERS], imports: [EntityDataModuleWithoutEffects] }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.2.3", ngImport: i0, type: EntityDataModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "17.0.0-next.8", ngImport: i0, type: EntityDataModule, decorators: [{
             type: NgModule,
             args: [{
                     imports: [EntityDataModuleWithoutEffects],
