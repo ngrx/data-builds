@@ -713,7 +713,7 @@ class DefaultDataService {
         map((result) => key));
     }
     getAll(options) {
-        return this.execute('GET', this.entitiesUrl, null, options);
+        return this.execute('GET', this.entitiesUrl, null, null, options);
     }
     getById(key, options) {
         let err;
