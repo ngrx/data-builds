@@ -42,7 +42,7 @@ var tasks_1 = require("@angular-devkit/schematics/tasks");
 var schematics_core_1 = require("../../schematics-core");
 var project_1 = require("../../schematics-core/utility/project");
 var standalone_1 = require("../../schematics-core/utility/standalone");
-var standalone_2 = require("@schematics/angular/private/standalone");
+var ng_ast_utils_1 = require("@schematics/angular/utility/ng-ast-utils");
 function addNgRxDataToPackageJson() {
     return function (host, context) {
         (0, schematics_core_1.addPackageToPackageJson)(host, 'dependencies', '@ngrx/data', schematics_core_1.platformVersion);
@@ -77,7 +77,7 @@ function addStandaloneConfig(options) {
         var mainFile = (0, project_1.getProjectMainFile)(host, options);
         if (host.exists(mainFile)) {
             var providerFn = 'provideEntityData';
-            if ((0, standalone_2.callsProvidersFunction)(host, mainFile, providerFn)) {
+            if ((0, standalone_1.callsProvidersFunction)(host, mainFile, providerFn)) {
                 // exit because the store config is already provided
                 return host;
             }
@@ -86,7 +86,7 @@ function addStandaloneConfig(options) {
                 : [ts.factory.createIdentifier("{}")])), false), __read((options.effects
                 ? [ts.factory.createIdentifier("withEffects()")]
                 : [])), false);
-            var patchedConfigFile = (0, standalone_2.addFunctionalProvidersToStandaloneBootstrap)(host, mainFile, providerFn, '@ngrx/data', providerOptions);
+            var patchedConfigFile = (0, standalone_1.addFunctionalProvidersToStandaloneBootstrap)(host, mainFile, providerFn, '@ngrx/data', providerOptions);
             var configFileContent = host.read(patchedConfigFile);
             var source = ts.createSourceFile(patchedConfigFile, (configFileContent === null || configFileContent === void 0 ? void 0 : configFileContent.toString('utf-8')) || '', ts.ScriptTarget.Latest, true);
             var recorder_1 = host.beginUpdate(patchedConfigFile);
@@ -236,7 +236,7 @@ function default_1(options) {
         options.name = '';
         options.path = (0, schematics_core_1.getProjectPath)(host, options);
         var mainFile = (0, project_1.getProjectMainFile)(host, options);
-        var isStandalone = (0, standalone_1.isStandaloneApp)(host, mainFile);
+        var isStandalone = (0, ng_ast_utils_1.isStandaloneApp)(host, mainFile);
         options.effects = options.effects === undefined ? true : options.effects;
         options.module =
             options.module && !isStandalone
