@@ -4592,17 +4592,32 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0", ngImpor
 class DefaultLogger {
     error(message, extra) {
         if (message) {
-            extra ? console.error(message, extra) : console.error(message);
+            if (extra) {
+                console.error(message, extra);
+            }
+            else {
+                console.error(message);
+            }
         }
     }
     log(message, extra) {
         if (message) {
-            extra ? console.log(message, extra) : console.log(message);
+            if (extra) {
+                console.log(message, extra);
+            }
+            else {
+                console.log(message);
+            }
         }
     }
     warn(message, extra) {
         if (message) {
-            extra ? console.warn(message, extra) : console.warn(message);
+            if (extra) {
+                console.warn(message, extra);
+            }
+            else {
+                console.warn(message);
+            }
         }
     }
     /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: DefaultLogger, deps: [], target: i0.ɵɵFactoryTarget.Injectable }); }
