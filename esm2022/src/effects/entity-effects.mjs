@@ -134,10 +134,10 @@ export class EntityEffects {
         // as app likely assumes asynchronous response.
         return of(successAction).pipe(delay(this.responseDelay, this.scheduler || asyncScheduler));
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityEffects, deps: [{ token: i1.Actions }, { token: i2.EntityDataService }, { token: i3.EntityActionFactory }, { token: i4.PersistenceResultHandler }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityEffects }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityEffects, deps: [{ token: i1.Actions }, { token: i2.EntityDataService }, { token: i3.EntityActionFactory }, { token: i4.PersistenceResultHandler }, { token: ENTITY_EFFECTS_SCHEDULER, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityEffects }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityEffects, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityEffects, decorators: [{
             type: Injectable
         }], ctorParameters: () => [{ type: i1.Actions }, { type: i2.EntityDataService }, { type: i3.EntityActionFactory }, { type: i4.PersistenceResultHandler }, { type: undefined, decorators: [{
                     type: Optional

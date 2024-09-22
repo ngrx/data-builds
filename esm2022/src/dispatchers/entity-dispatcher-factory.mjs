@@ -52,10 +52,10 @@ export class EntityDispatcherFactory {
     ngOnDestroy() {
         this.raSubscription.unsubscribe();
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityDispatcherFactory, deps: [{ token: i1.EntityActionFactory }, { token: i2.Store }, { token: i3.EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: ENTITY_CACHE_SELECTOR_TOKEN }, { token: i4.CorrelationIdGenerator }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityDispatcherFactory }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityDispatcherFactory, deps: [{ token: i1.EntityActionFactory }, { token: i2.Store }, { token: i3.EntityDispatcherDefaultOptions }, { token: ScannedActionsSubject }, { token: ENTITY_CACHE_SELECTOR_TOKEN }, { token: i4.CorrelationIdGenerator }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityDispatcherFactory }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityDispatcherFactory, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityDispatcherFactory, decorators: [{
             type: Injectable
         }], ctorParameters: () => [{ type: i1.EntityActionFactory }, { type: i2.Store }, { type: i3.EntityDispatcherDefaultOptions }, { type: i5.Observable, decorators: [{
                     type: Inject,

@@ -14,11 +14,11 @@ export class EntityDataModuleWithoutEffects {
             providers: [provideEntityDataConfig(config)],
         };
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityDataModuleWithoutEffects, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
-    /** @nocollapse */ static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "18.0.0", ngImport: i0, type: EntityDataModuleWithoutEffects }); }
-    /** @nocollapse */ static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityDataModuleWithoutEffects, providers: [BASE_ENTITY_DATA_PROVIDERS] }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityDataModuleWithoutEffects, deps: [], target: i0.ɵɵFactoryTarget.NgModule }); }
+    /** @nocollapse */ static { this.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "18.2.5", ngImport: i0, type: EntityDataModuleWithoutEffects }); }
+    /** @nocollapse */ static { this.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityDataModuleWithoutEffects, providers: [BASE_ENTITY_DATA_PROVIDERS] }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityDataModuleWithoutEffects, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityDataModuleWithoutEffects, decorators: [{
             type: NgModule,
             args: [{
                     providers: [BASE_ENTITY_DATA_PROVIDERS],

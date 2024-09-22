@@ -135,10 +135,10 @@ export class EntityCacheDataService {
         }
         return idSelector;
     }
-    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityCacheDataService, deps: [{ token: i1.EntityDefinitionService }, { token: i2.HttpClient }, { token: i3.DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
-    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityCacheDataService }); }
+    /** @nocollapse */ static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityCacheDataService, deps: [{ token: i1.EntityDefinitionService }, { token: i2.HttpClient }, { token: i3.DefaultDataServiceConfig, optional: true }], target: i0.ɵɵFactoryTarget.Injectable }); }
+    /** @nocollapse */ static { this.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityCacheDataService }); }
 }
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.0.0", ngImport: i0, type: EntityCacheDataService, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "18.2.5", ngImport: i0, type: EntityCacheDataService, decorators: [{
             type: Injectable
         }], ctorParameters: () => [{ type: i1.EntityDefinitionService }, { type: i2.HttpClient }, { type: i3.DefaultDataServiceConfig, decorators: [{
                     type: Optional
