@@ -19,7 +19,7 @@ export { HttpResourceUrls } from './dataservices/http-url-generator';
 export { HttpUrlGenerator } from './dataservices/http-url-generator';
 export { DefaultHttpUrlGenerator } from './dataservices/http-url-generator';
 export { normalizeRoot } from './dataservices/http-url-generator';
-export { EntityCollectionDataService, HttpMethods, RequestData, QueryParams, } from './dataservices/interfaces';
+export { EntityCollectionDataService, HttpMethods, HttpOptions, RequestData, QueryParams, } from './dataservices/interfaces';
 export { PersistenceResultHandler, DefaultPersistenceResultHandler, } from './dataservices/persistence-result-handler.service';
 export { EntityCacheDispatcher } from './dispatchers/entity-cache-dispatcher';
 export { EntityServerCommands, EntityCacheCommands, EntityCommands, } from './dispatchers/entity-commands';
