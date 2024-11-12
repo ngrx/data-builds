@@ -57,8 +57,6 @@
     },
     ".": {
       "types": "./index.d.ts",
-      "esm2022": "./esm2022/ngrx-data.mjs",
-      "esm": "./esm2022/ngrx-data.mjs",
       "default": "./fesm2022/ngrx-data.mjs"
     }
   }
